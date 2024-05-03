@@ -20,6 +20,7 @@
   },
   "devDependencies": {
     "@ant-design-vue/nuxt": "^1.4.1",
+    "@nuxtjs/color-mode": "^3.4.1",
     "sass": "^1.76.0"
   }
 }
