@@ -1,20 +1,17 @@
 <script setup lang="ts">
-import { type MenuProps } from "ant-design-vue";
-
 const route = useRoute();
-const current = ref<string[]>([route.path]);
-const items = ref<MenuProps["items"]>([
+const headerMenuItems = [
   {
     key: "/docs",
     label: "Docs",
-    title: "Docs",
+    selected: route.path === "/docs",
   },
   {
     key: "/components",
     label: "Components",
-    title: "Components",
+    selected: route.path === "/components",
   },
-]);
+];
 </script>
 
 <template>
@@ -24,7 +21,19 @@ const items = ref<MenuProps["items"]>([
     class="page-header"
   >
     <template #extra>
-      <a-menu v-model:selectedKeys="current" mode="horizontal" :items="items" />
+      <ul>
+        <li
+          v-for="menuItem of headerMenuItems"
+          :key="menuItem.key"
+          :class="{
+            selected: menuItem.selected,
+          }"
+        >
+          <a :href="menuItem.key">
+            {{ menuItem.label }}
+          </a>
+        </li>
+      </ul>
       <a-divider type="vertical"></a-divider>
       <a-switch></a-switch>
       <a-divider type="vertical"></a-divider>
@@ -37,9 +46,24 @@ const items = ref<MenuProps["items"]>([
 
 <style lang="scss">
 .page-header {
-  padding: 0 2rem;
-}
-.ant-space-horizontal {
-  height: 100%;
+  ul {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    gap: 2rem;
+    a {
+      color: black;
+      &:hover {
+        color: $primary4;
+      }
+    }
+    .selected {
+      font-weight: 600;
+      a {
+        color: $primary;
+      }
+    }
+  }
 }
 </style>
