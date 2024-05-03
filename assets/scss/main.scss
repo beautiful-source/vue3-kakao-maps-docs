@@ -5,3 +5,24 @@ body {
   padding: 0;
   margin: 0;
 }
+
+.dark-mode {
+  body {
+    background-color: $gray-11;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p,
+  span {
+    color: $gray-1;
+  }
+}
+
+* {
+  transition: all 0.2s;
+}
