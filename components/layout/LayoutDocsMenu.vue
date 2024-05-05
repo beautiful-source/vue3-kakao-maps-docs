@@ -82,9 +82,8 @@ watch(openKeys, (val) => {
 
 <template>
   <div class="docs-menu">
-    <a-auto-complete />
+    <a-input />
     <a-menu
-      id="dddddd"
       v-model:openKeys="openKeys"
       v-model:selectedKeys="selectedKeys"
       style="width: 256px"
