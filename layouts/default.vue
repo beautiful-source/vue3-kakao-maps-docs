@@ -45,13 +45,12 @@ const onClickThemeSwitch = () => {
           @click="onClickThemeSwitch"
         ></a-switch>
         <a-divider type="vertical"></a-divider>
-        <img src="/images/npmLogo.png" />
+        <img src="/public/images/npmLogo.png" />
       </template>
     </a-page-header>
     <div>
       <layout-docs-menu />
     </div>
-
     <slot />
   </div>
 </template>

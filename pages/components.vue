@@ -1,7 +1,3 @@
-<script setup lang="ts"></script>
-
 <template>
-  <div>Components</div>
+  <h1>docs</h1>
 </template>
-
-<style scoped lang="scss"></style>
