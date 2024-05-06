@@ -52,7 +52,9 @@ const changeTheme = () => {
     </a-page-header>
     <div class="main-contents">
       <layout-components-menu v-if="route.path.indexOf('components') > -1" />
-      <slot />
+      <div class="contents">
+        <slot />
+      </div>
     </div>
   </div>
 </template>
@@ -81,6 +83,10 @@ const changeTheme = () => {
 
 .main-contents {
   display: flex;
+}
+
+.contents {
+  padding: 0 3rem;
 }
 
 .dark-mode {
