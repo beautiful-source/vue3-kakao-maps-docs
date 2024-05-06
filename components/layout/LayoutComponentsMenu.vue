@@ -6,10 +6,12 @@ import {
   SettingOutlined,
 } from "@ant-design/icons-vue";
 import type { MenuProps, ItemType } from "ant-design-vue";
+import { useRouter } from "vue-router";
 
 const selectedKeys = ref<string[]>(["1"]);
-const openKeys = ref<string[]>(["sub1"]);
-
+const openKeys = ref<string[]>(["kakaoMap"]);
+const router = useRouter();
+const colorMode = useColorMode();
 function getItem(
   label: VueElement | string,
   key: string,
@@ -27,30 +29,14 @@ function getItem(
 }
 
 const items: ItemType[] = reactive([
-  getItem("Navigation One", "sub1", () => h(MailOutlined), [
-    getItem(
-      "Item 1",
-      "g1",
-      null,
-      [getItem("Option 1", "1"), getItem("Option 2", "2")],
-      "group"
-    ),
-    getItem(
-      "Item 2",
-      "g2",
-      null,
-      [getItem("Option 3", "3"), getItem("Option 4", "4")],
-      "group"
-    ),
+  getItem("KakaoMap", "kakaoMap", () => h(MailOutlined), [
+    getItem("지도 생성하기", "/basicMap"),
+    getItem("지도 이동시키기", "g2"),
   ]),
 
-  getItem("Navigation Two", "sub2", () => h(AppstoreOutlined), [
-    getItem("Option 5", "5"),
-    getItem("Option 6", "6"),
-    getItem("Submenu", "sub3", null, [
-      getItem("Option 7", "7"),
-      getItem("Option 8", "8"),
-    ]),
+  getItem("KakaoMapCustomOverlay", "sub2", () => h(AppstoreOutlined), [
+    getItem("커스텀 오버레이 생성하기", "5"),
+    getItem("커스텀 오버레이 생성하기2", "6"),
   ]),
 
   { type: "divider" },
@@ -72,25 +58,25 @@ const items: ItemType[] = reactive([
 ]);
 
 const handleClick: MenuProps["onClick"] = (e) => {
-  console.log("click", e);
+  router.push("/components" + e.key);
 };
 
 watch(openKeys, (val) => {
   console.log("openKeys", val);
 });
 </script>
-
 <template>
   <div class="docs-menu">
-    <a-input />
+    <a-input></a-input>
     <a-menu
       v-model:openKeys="openKeys"
       v-model:selectedKeys="selectedKeys"
-      style="width: 256px"
       mode="inline"
       :items="items"
       @click="handleClick"
-    ></a-menu>
+      :theme="colorMode.value"
+    >
+    </a-menu>
   </div>
 </template>
 
@@ -98,5 +84,6 @@ watch(openKeys, (val) => {
 .docs-menu {
   display: flex;
   flex-direction: column;
+  width: 15rem;
 }
 </style>

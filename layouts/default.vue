@@ -5,15 +5,15 @@ const headerMenuItems = [
   {
     key: "/docs",
     label: "Docs",
-    selected: route.path === "/docs",
+    selected: route.path.indexOf("docs") > -1,
   },
   {
     key: "/components",
     label: "Components",
-    selected: route.path === "/components",
+    selected: route.path.indexOf("components") > -1,
   },
 ];
-const onClickThemeSwitch = () => {
+const changeTheme = () => {
   colorMode.preference = colorMode.value === "light" ? "dark" : "light";
 };
 </script>
@@ -34,24 +34,26 @@ const onClickThemeSwitch = () => {
               selected: menuItem.selected,
             }"
           >
-            <a :href="menuItem.key">
+            <NuxtLink :to="menuItem.key">
               {{ menuItem.label }}
-            </a>
+            </NuxtLink>
           </li>
         </ul>
         <a-divider type="vertical"></a-divider>
         <a-switch
           :checked="colorMode.value === 'dark'"
-          @click="onClickThemeSwitch"
+          @click="changeTheme"
+          checked-children="dark"
+          un-checked-children="light"
         ></a-switch>
         <a-divider type="vertical"></a-divider>
         <img src="/public/images/npmLogo.png" />
       </template>
     </a-page-header>
-    <div>
-      <layout-docs-menu />
+    <div class="main-contents">
+      <layout-components-menu v-if="route.path.indexOf('components') > -1" />
+      <slot />
     </div>
-    <slot />
   </div>
 </template>
 
@@ -75,6 +77,10 @@ const onClickThemeSwitch = () => {
       }
     }
   }
+}
+
+.main-contents {
+  display: flex;
 }
 
 .dark-mode {
