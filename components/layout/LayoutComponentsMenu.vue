@@ -31,7 +31,7 @@ function getItem(
 const items: ItemType[] = reactive([
   getItem("KakaoMap", "kakaoMap", () => h(MailOutlined), [
     getItem("지도 생성하기", "/basicMap"),
-    getItem("지도 이동시키기", "g2"),
+    getItem("지도 이동시키기", "/moveMap"),
   ]),
 
   getItem("KakaoMapCustomOverlay", "sub2", () => h(AppstoreOutlined), [
