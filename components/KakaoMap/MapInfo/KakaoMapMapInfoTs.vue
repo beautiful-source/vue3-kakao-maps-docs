@@ -63,9 +63,3 @@ const getInfo = () => {
   <button @click="getInfo" class="demo-button">정보 얻기</button>
   <div v-html="message" />
 </template>
-
-<style lang="scss" scoped>
-.demo-button {
-  margin-top: 1rem;
-}
-</style>
