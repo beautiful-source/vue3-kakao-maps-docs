@@ -8,7 +8,7 @@ const headerMenuItems = [
     selected: route.path.indexOf("docs") > -1,
   },
   {
-    key: "/components/basicMap",
+    key: "/components/kakaoMap",
     label: "Components",
     selected: route.path.indexOf("components") > -1,
   },
@@ -88,7 +88,17 @@ const changeTheme = () => {
 }
 
 .contents {
-  padding: 0 3rem;
+  padding: 0 0 0 3rem;
+  width: 100vw;
+  flex-direction: row;
+  display: flex;
+}
+
+.anchor {
+  width: 180px;
+  position: fixed;
+  top: 100px;
+  left: 90vw;
 }
 
 .dark-mode {
