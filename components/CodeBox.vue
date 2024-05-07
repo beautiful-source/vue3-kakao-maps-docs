@@ -1,21 +1,22 @@
 <script setup lang="ts">
-import { computed, ref } from 'vue'
+import { VCodeBlock } from "@wdns/vue-code-block";
+import { computed, ref } from "vue";
 
 type CodeBoxPropsType = {
-  tsCode: string
-  jsCode: string
-}
+  tsCode: string;
+  jsCode: string;
+};
 
-const props = defineProps<CodeBoxPropsType>()
+const props = defineProps<CodeBoxPropsType>();
 
-const isTypeScript = ref<boolean>()
+const isTypeScript = ref<boolean>();
 const selectedCode = computed(() => {
-  return isTypeScript.value ? props.tsCode : props.jsCode
-})
+  return isTypeScript.value ? props.tsCode : props.jsCode;
+});
 
 const onClickChangeLanguage = () => {
-  isTypeScript.value = !isTypeScript.value
-}
+  isTypeScript.value = !isTypeScript.value;
+};
 </script>
 
 <template>
@@ -23,7 +24,7 @@ const onClickChangeLanguage = () => {
     <div class="demo-wrap"><slot name="demo"> </slot></div>
     <div>
       <a-button @click="onClickChangeLanguage" type="primary">{{
-        isTypeScript ? 'TS' : 'JS'
+        isTypeScript ? "TS" : "JS"
       }}</a-button>
       <VCodeBlock lang="html" highlightjs :code="selectedCode" />
     </div>

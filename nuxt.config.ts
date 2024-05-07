@@ -11,5 +11,5 @@ export default defineNuxtConfig({
       },
     },
   },
-  plugins: [{ src: "~/plugins/vue3-kakao-maps", ssr: false }],
+  plugins: [{ src: "~/plugins/vue3-kakao-maps", mode: "client" }],
 });
