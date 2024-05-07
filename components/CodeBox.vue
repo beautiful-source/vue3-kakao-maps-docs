@@ -99,7 +99,7 @@ const onClickCopyCode = async () => {
   </div>
 </template>
 
-<style scoped lang="scss">
+<style lang="scss" scoped>
 .code-box {
   display: flex;
   gap: 2rem;
