@@ -30,7 +30,7 @@ function getItem(
 
 const items: ItemType[] = reactive([
   getItem("KakaoMap", "/kakaoMap"),
-  getItem("KakaoMapMarker", "/kakaoMapMaker"),
+  getItem("KakaoMapMarker", "/kakaoMapMarker"),
   getItem("KakaoMapInfowindow", "/kakaoMapInfoWindow"),
   getItem("KakaoMapCustomOverlay", "/kakaoMapCustomOverlay"),
   getItem("KakaoMapCluster", "/kakaoMapMarkerCluster"),
