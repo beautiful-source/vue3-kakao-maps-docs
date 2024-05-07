@@ -68,15 +68,17 @@ watch(openKeys, (val) => {
 <template>
   <div class="docs-menu">
     <a-input></a-input>
-    <a-menu
-      v-model:openKeys="openKeys"
-      v-model:selectedKeys="selectedKeys"
-      mode="inline"
-      :items="items"
-      @click="handleClick"
-      :theme="colorMode.value"
-    >
-    </a-menu>
+    <ClientOnly>
+      <a-menu
+        v-model:openKeys="openKeys"
+        v-model:selectedKeys="selectedKeys"
+        mode="inline"
+        :items="items"
+        @click="handleClick"
+        :theme="colorMode.value"
+      >
+      </a-menu>
+    </ClientOnly>
   </div>
 </template>
 
