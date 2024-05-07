@@ -1,16 +1,17 @@
 <script setup lang="ts">
+import { KakaomapchangeLevelCodeTs } from "@/components/KakaoMap";
 import { KakaomapchangeLevelCodeJs } from "@/components/KakaoMap";
 
-const tsCode = KakaomapchangeLevelCodeJs as string;
+const tsCode = KakaomapchangeLevelCodeTs as string;
 const jsCode = KakaomapchangeLevelCodeJs as string;
 </script>
 
 <template>
-  <h1>KakaoMap</h1>
-  <p>카카오맵 지도 레벨 변경하기 컴포넌트입니다.</p>
+  <h1>지도 레벨 바꾸기</h1>
+  <p>지도 레벨을 지도 객체 메소드를 호출해서 변경합니다.</p>
   <CodeBox :tsCode="tsCode" :jsCode="jsCode">
     <template #demo>
-      <KakaoMapChangeLevelJs />
+      <KakaoMapChangeLevelTs />
     </template>
   </CodeBox>
 </template>
