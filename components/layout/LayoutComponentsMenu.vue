@@ -29,32 +29,11 @@ function getItem(
 }
 
 const items: ItemType[] = reactive([
-  getItem("KakaoMap", "kakaoMap", () => h(MailOutlined), [
-    getItem("지도 생성하기", "/basicMap"),
-    getItem("지도 이동시키기", "/moveMap"),
-  ]),
-
-  getItem("KakaoMapCustomOverlay", "sub2", () => h(AppstoreOutlined), [
-    getItem("커스텀 오버레이 생성하기", "5"),
-    getItem("커스텀 오버레이 생성하기2", "6"),
-  ]),
-
-  { type: "divider" },
-
-  getItem("Navigation Three", "sub4", () => h(SettingOutlined), [
-    getItem("Option 9", "9"),
-    getItem("Option 10", "10"),
-    getItem("Option 11", "11"),
-    getItem("Option 12", "12"),
-  ]),
-
-  getItem(
-    "Group",
-    "grp",
-    null,
-    [getItem("Option 13", "13"), getItem("Option 14", "14")],
-    "group"
-  ),
+  getItem("KakaoMap", "/kakaoMap"),
+  getItem("KakaoMapMarker", "/kakaoMapMaker"),
+  getItem("KakaoMapInfowindow", "/kakaoMapInfoWindow"),
+  getItem("KakaoMapCustomOverlay", "/kakaoMapCustomOverlay"),
+  getItem("KakaoMapCluster", "/kakaoMapMarkerCluster"),
 ]);
 
 const handleClick: MenuProps["onClick"] = (e) => {

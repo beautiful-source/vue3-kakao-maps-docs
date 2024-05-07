@@ -8,7 +8,7 @@ const headerMenuItems = [
     selected: route.path.indexOf("docs") > -1,
   },
   {
-    key: "/components/basicMap",
+    key: "/components/kakaoMap",
     label: "Components",
     selected: route.path.indexOf("components") > -1,
   },
