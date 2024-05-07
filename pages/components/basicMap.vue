@@ -1,11 +1,21 @@
 <script setup lang="ts">
-import { KakaoMap } from "vue3-kakao-maps";
+import {
+  KakaoMapBasicMapCodeTs,
+  KakaoMapBasicMapCodeJs,
+} from "@/components/KakaoMap";
+
+const tsCode = KakaoMapBasicMapCodeTs as string;
+const jsCode = KakaoMapBasicMapCodeJs as string;
 </script>
 
 <template>
   <h1>KakaoMap</h1>
   <p>카카오맵 컴포넌트입니다.</p>
-  <KakaoMap :lat="33.450701" :lng="126.570667"> </KakaoMap>
+  <CodeBox :tsCode="tsCode" :jsCode="jsCode">
+    <template #demo>
+      <KakaoMapBasicMapJs />
+    </template>
+  </CodeBox>
 </template>
 
 <style scoped lang="scss"></style>

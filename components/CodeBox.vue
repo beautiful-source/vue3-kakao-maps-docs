@@ -26,7 +26,9 @@ const onClickChangeLanguage = () => {
       <a-button @click="onClickChangeLanguage" type="primary">{{
         isTypeScript ? "TS" : "JS"
       }}</a-button>
-      <VCodeBlock lang="html" highlightjs :code="selectedCode" />
+      <ClientOnly>
+        <VCodeBlock lang="html" highlightjs :code="selectedCode" />
+      </ClientOnly>
     </div>
   </div>
 </template>
