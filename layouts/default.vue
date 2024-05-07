@@ -95,8 +95,10 @@ const changeTheme = () => {
 }
 
 .anchor {
-  width: 200px;
-  margin-left: auto;
+  width: 180px;
+  position: fixed;
+  top: 100px;
+  left: 90vw;
 }
 
 .dark-mode {
