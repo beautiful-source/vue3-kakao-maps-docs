@@ -68,15 +68,29 @@ watch(openKeys, (val) => {
 <template>
   <div class="docs-menu">
     <a-input></a-input>
-    <a-menu
-      v-model:openKeys="openKeys"
-      v-model:selectedKeys="selectedKeys"
-      mode="inline"
-      :items="items"
-      @click="handleClick"
-      :theme="colorMode.value"
-    >
-    </a-menu>
+    <ClientOnly fallbackTag="span">
+      <a-menu
+        v-model:openKeys="openKeys"
+        v-model:selectedKeys="selectedKeys"
+        mode="inline"
+        :items="items"
+        @click="handleClick"
+        :theme="colorMode.value"
+      >
+      </a-menu>
+      <template #fallback>
+        <ul>
+          <li v-for="item in items" :key="item.key">
+            {{ item.label }}
+            <ul v-if="item.children">
+              <li v-for="child in item.children" :key="child.key">
+                {{ child.label }}
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </template>
+    </ClientOnly>
   </div>
 </template>
 

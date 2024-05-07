@@ -40,12 +40,14 @@ const changeTheme = () => {
           </li>
         </ul>
         <a-divider type="vertical"></a-divider>
-        <a-switch
-          :checked="colorMode.value === 'dark'"
-          @click="changeTheme"
-          checked-children="dark"
-          un-checked-children="light"
-        ></a-switch>
+        <ClientOnly>
+          <a-switch
+            :checked="colorMode.value === 'dark'"
+            @click="changeTheme"
+            checked-children="dark"
+            un-checked-children="light"
+          ></a-switch>
+        </ClientOnly>
         <a-divider type="vertical"></a-divider>
         <img src="/public/images/npmLogo.png" />
       </template>
