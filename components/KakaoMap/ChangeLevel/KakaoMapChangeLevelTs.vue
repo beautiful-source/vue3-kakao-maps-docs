@@ -1,10 +1,10 @@
-<script setup>
+<script setup lang="ts">
 import { KakaoMap } from "vue3-kakao-maps";
 
-const map = ref();
-const mapInfo = ref("");
+const map = ref<kakao.maps.Map>();
+const mapInfo = ref<string>("");
 
-const onLoadKakaoMap = (mapRef) => {
+const onLoadKakaoMap = (mapRef: kakao.maps.Map) => {
   map.value = mapRef;
   displayLevel();
 };
