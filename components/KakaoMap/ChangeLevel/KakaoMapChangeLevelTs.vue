@@ -9,7 +9,7 @@ const onLoadKakaoMap = (mapRef: kakao.maps.Map) => {
   displayLevel();
 };
 
-function zoomIn() {
+const zoomIn = () => {
   // 현재 지도의 레벨을 얻어옵니다
   if (map.value) {
     const level = map.value.getLevel();
@@ -20,9 +20,9 @@ function zoomIn() {
 
   // 지도 레벨을 표시합니다
   displayLevel();
-}
+};
 
-function zoomOut() {
+const zoomOut = () => {
   // 현재 지도의 레벨을 얻어옵니다
   if (map.value) {
     const level = map.value.getLevel();
@@ -33,11 +33,11 @@ function zoomOut() {
 
   // 지도 레벨을 표시합니다
   displayLevel();
-}
+};
 
-function displayLevel() {
+const displayLevel = () => {
   mapInfo.value = `현재 지도 레벨은 ${map.value?.getLevel()} 레벨 입니다.`;
-}
+};
 </script>
 
 <template>
