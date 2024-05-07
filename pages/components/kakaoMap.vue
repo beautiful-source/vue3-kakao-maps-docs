@@ -2,6 +2,10 @@
 import {
   KakaoMapBasicMapCodeTs,
   KakaoMapBasicMapCodeJs,
+  KakaoMapMapInfoCodeJs,
+  KakaoMapMapInfoCodeTs,
+  KakaoMapMoveMapCodeJs,
+  KakaoMapMoveMapCodeTs,
 } from "@/components/KakaoMap";
 
 const anchorItems = [
@@ -43,7 +47,7 @@ const jsCode = KakaoMapBasicMapCodeJs as string;
       이동시킬 수 있습니다. 또, 지도가 표시되고 있는 영역크기를 벗어나지 않는
       거리라면 애니메이션 효과처럼 지도를 부드럽게 이동시킬 수도 있습니다.
     </p>
-    <CodeBox :tsCode="tsCode" :jsCode="jsCode">
+    <CodeBox :tsCode="KakaoMapMoveMapCodeTs" :jsCode="KakaoMapMoveMapCodeJs">
       <template #demo>
         <KakaoMapMoveMapTs />
       </template>
@@ -53,7 +57,7 @@ const jsCode = KakaoMapBasicMapCodeJs as string;
     <NuxtLink href="https://apis.map.kakao.com/web/documentation/#MapTypeId"
       >지도 타입을 보시려면 여기를 클릭하세요!</NuxtLink
     >
-    <CodeBox :tsCode="tsCode" :jsCode="jsCode">
+    <CodeBox :tsCode="KakaoMapMapInfoCodeTs" :jsCode="KakaoMapMapInfoCodeJs">
       <template #demo>
         <KakaoMapMapInfoTs />
       </template>

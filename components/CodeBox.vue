@@ -10,7 +10,7 @@ type CodeBoxPropsType = {
 const props = defineProps<CodeBoxPropsType>();
 const colorMode = useColorMode();
 
-const isTypeScript = ref<boolean>(false);
+const isTypeScript = ref<boolean>(true);
 const selectedCode = computed<string>(() =>
   isTypeScript.value ? props.tsCode : props.jsCode
 );
@@ -92,6 +92,7 @@ const onClickCopyCode = async () => {
             :code="selectedCode"
             :theme="colorMode.value === 'dark' ? 'github-dark' : 'github'"
             :height="214"
+            style="width: 340px; overflow: scroll; margin: 0 auto"
           />
         </ClientOnly>
       </div>
@@ -102,46 +103,52 @@ const onClickCopyCode = async () => {
 <style lang="scss" scoped>
 .code-box {
   display: flex;
-  gap: 2rem;
   width: 100%;
-  height: 20rem;
+  max-width: min-content;
+  height: 40vh;
   border: 1px solid $gray-5;
   border-radius: 10px;
   padding: 2rem;
   box-sizing: border-box;
-}
-.demo-wrap {
-  flex-grow: 2;
-  flex-basis: 2;
-  flex-shrink: 0;
-}
 
-.block {
-  flex-grow: 1;
-  flex-basis: 1;
-  display: flex;
-  flex-direction: column;
-  max-width: 50%;
-
-  .list-btn {
-    all: initial;
-    list-style: none;
+  .demo-wrap {
+    overflow: hidden;
+    flex: 0 0 40%;
     display: flex;
-    justify-content: center;
-    button {
+    flex-direction: column;
+    align-items: center;
+  }
+  .block {
+    flex: 0 0 40%;
+    display: flex;
+    max-width: 50%;
+    flex-direction: column;
+    align-items: center;
+
+    .list-btn {
       all: initial;
+      list-style: none;
       display: flex;
       justify-content: center;
-      align-items: center;
-      width: 48px;
-      height: 40px;
-    }
-    .btn-lang {
-      img {
-        width: 20px;
-        height: 20px;
-        vertical-align: text-top;
+      button {
+        all: initial;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 48px;
+        height: 40px;
       }
+      .btn-lang {
+        img {
+          width: 20px;
+          height: 20px;
+          vertical-align: text-top;
+        }
+      }
+    }
+    .code-wrap {
+      width: 100%;
+      overflow: scroll;
     }
   }
 }

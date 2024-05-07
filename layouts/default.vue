@@ -53,10 +53,13 @@ const changeTheme = () => {
       </template>
     </a-page-header>
     <div class="main-contents">
-      <layout-components-menu v-if="route.path.indexOf('components') > -1" />
-      <div class="contents">
+      <aside>
+        <layout-components-menu v-if="route.path.indexOf('components') > -1" />
+      </aside>
+
+      <main>
         <slot />
-      </div>
+      </main>
     </div>
   </div>
 </template>
@@ -85,13 +88,7 @@ const changeTheme = () => {
 
 .main-contents {
   display: flex;
-}
-
-.contents {
-  width: 100%;
-  padding: 0 0 0 3rem;
-  flex-direction: row;
-  display: flex;
+  gap: 3rem;
 }
 
 .anchor {
