@@ -86,6 +86,7 @@ const changeTheme = () => {
 }
 
 .contents {
+  width: 100%;
   padding: 0 3rem;
 }
 

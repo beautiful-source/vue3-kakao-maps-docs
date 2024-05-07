@@ -8,27 +8,93 @@ type CodeBoxPropsType = {
 };
 
 const props = defineProps<CodeBoxPropsType>();
+const colorMode = useColorMode();
 
-const isTypeScript = ref<boolean>();
-const selectedCode = computed(() => {
-  return isTypeScript.value ? props.tsCode : props.jsCode;
-});
+const isTypeScript = ref<boolean>(false);
+const selectedCode = computed<string>(() =>
+  isTypeScript.value ? props.tsCode : props.jsCode
+);
+const langImage = computed<{ src: string; alt: string }>(() =>
+  isTypeScript.value
+    ? { src: "/images/tsLogo.png", alt: "타입스크립트입니다." }
+    : { src: "/images/jsLogo.png", alt: "자바스크립트입니다." }
+);
+const showCode = ref<boolean>(true);
+const isCodeCopied = ref<boolean>(false);
 
-const onClickChangeLanguage = () => {
-  isTypeScript.value = !isTypeScript.value;
+const onClickCopyCode = async () => {
+  if (window) {
+    try {
+      await navigator.clipboard.writeText(selectedCode.value);
+      isCodeCopied.value = true;
+    } catch (e: unknown) {
+      console.error("unknown error: ", e);
+    }
+  } else {
+    console.error("window 객체 로드되지 않음");
+  }
 };
 </script>
 
 <template>
   <div class="code-box">
     <div class="demo-wrap"><slot name="demo"> </slot></div>
-    <div>
-      <a-button @click="onClickChangeLanguage" type="primary">{{
-        isTypeScript ? "TS" : "JS"
-      }}</a-button>
-      <ClientOnly>
-        <VCodeBlock lang="html" highlightjs :code="selectedCode" />
-      </ClientOnly>
+    <div class="block">
+      <ul class="list-btn">
+        <li>
+          <a-tooltip>
+            <template #title
+              >Switch to
+              {{ isTypeScript ? "JavaScript" : "TypeScript" }}</template
+            >
+            <button
+              @click="isTypeScript = !isTypeScript"
+              size="large"
+              class="btn-lang"
+            >
+              <NuxtImg v-bind="langImage" />
+            </button>
+          </a-tooltip>
+        </li>
+
+        <li>
+          <a-tooltip>
+            <template #title>{{
+              isCodeCopied ? "Copied!" : "Copy code"
+            }}</template>
+            <button
+              @click="onClickCopyCode"
+              @mouseout="isCodeCopied = false"
+              size="large"
+            >
+              <CheckOutlined v-if="isCodeCopied" />
+              <CopyOutlined v-else />
+            </button>
+          </a-tooltip>
+        </li>
+
+        <li>
+          <a-tooltip>
+            <template #title>{{ showCode ? "Hide" : "Show" }} code</template>
+            <button @click="showCode = !showCode" size="large">
+              <CaretUpOutlined v-if="showCode" />
+              <CaretDownOutlined v-else />
+            </button>
+          </a-tooltip>
+        </li>
+      </ul>
+
+      <div class="code-wrap">
+        <ClientOnly v-if="showCode">
+          <VCodeBlock
+            lang="html"
+            highlightjs
+            :code="selectedCode"
+            :theme="colorMode.value === 'dark' ? 'github-dark' : 'github'"
+            :height="214"
+          />
+        </ClientOnly>
+      </div>
     </div>
   </div>
 </template>
@@ -36,10 +102,47 @@ const onClickChangeLanguage = () => {
 <style scoped lang="scss">
 .code-box {
   display: flex;
-  flex-direction: column;
   gap: 2rem;
+  width: 100%;
+  height: 20rem;
+  border: 1px solid $gray-5;
+  border-radius: 10px;
+  padding: 2rem;
+  box-sizing: border-box;
 }
 .demo-wrap {
-  width: 100%;
+  flex-grow: 2;
+  flex-basis: 2;
+  flex-shrink: 0;
+}
+
+.block {
+  flex-grow: 1;
+  flex-basis: 1;
+  display: flex;
+  flex-direction: column;
+  max-width: 50%;
+
+  .list-btn {
+    all: initial;
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    button {
+      all: initial;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 48px;
+      height: 40px;
+    }
+    .btn-lang {
+      img {
+        width: 20px;
+        height: 20px;
+        vertical-align: text-top;
+      }
+    }
+  }
 }
 </style>

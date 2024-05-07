@@ -12,6 +12,7 @@
   "dependencies": {
     "@ant-design/icons-vue": "^7.0.1",
     "@nuxt/content": "^2.12.1",
+    "@nuxt/image": "^1.7.0",
     "@wdns/vue-code-block": "^2.3.2",
     "ant-design-vue": "^4.2.1",
     "dayjs": "^1.11.11",
