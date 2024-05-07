@@ -88,7 +88,15 @@ const changeTheme = () => {
 }
 
 .contents {
-  padding: 0 3rem;
+  padding: 0 0 0 3rem;
+  width: 100vw;
+  flex-direction: row;
+  display: flex;
+}
+
+.anchor {
+  width: 200px;
+  margin-left: auto;
 }
 
 .dark-mode {
