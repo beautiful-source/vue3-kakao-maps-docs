@@ -21,7 +21,9 @@ const onClickChangeLanguage = () => {
 
 <template>
   <div class="code-box">
-    <div class="demo-wrap"><slot name="demo"> </slot></div>
+    <div class="demo-wrap">
+      <ClientOnly> <slot name="demo"> </slot></ClientOnly>
+    </div>
     <div>
       <a-button @click="onClickChangeLanguage" type="primary">{{
         isTypeScript ? "TS" : "JS"
@@ -33,7 +35,7 @@ const onClickChangeLanguage = () => {
   </div>
 </template>
 
-<style scoped lang="scss">
+<style lang="scss" scoped>
 .code-box {
   display: flex;
   flex-direction: column;
