@@ -6,9 +6,9 @@ import {
 
 const anchorItems = [
   {
-    key: "kakao-map",
-    href: "#kakao-map",
-    title: "KakaoMap",
+    key: "basic-map",
+    href: "#basic-map",
+    title: "지도 생성하기",
   },
   {
     key: "move-map",
@@ -28,8 +28,9 @@ const jsCode = KakaoMapBasicMapCodeJs as string;
 
 <template>
   <div>
-    <h1 id="kakao-map">KakaoMap</h1>
-    <p>카카오맵 컴포넌트입니다.</p>
+    <h1>KakaoMap</h1>
+    <h2 id="basic-map">지도 생성하기</h2>
+    <p>기본적인 지도 생성입니다.</p>
     <CodeBox :tsCode="tsCode" :jsCode="jsCode">
       <template #demo>
         <KakaoMapBasicMapJs />
