@@ -43,5 +43,6 @@ const onClickChangeLanguage = () => {
 }
 .demo-wrap {
   width: 100%;
+  padding: 1rem 0;
 }
 </style>

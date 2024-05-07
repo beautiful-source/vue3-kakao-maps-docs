@@ -9,7 +9,7 @@ const jsCode = KakaoMapMoveMapCodeJs as string;
 </script>
 
 <template>
-  <h1>KakaoMap</h1>
+  <h2>지도 이동시키기</h2>
   <p>
     지도를 이동시킵니다. 지도 객체의 메소드를 통해 지도를 원하는 좌표로 이동시킬
     수 있습니다. 또, 지도가 표시되고 있는 영역크기를 벗어나지 않는 거리라면
