@@ -12,4 +12,14 @@ export default defineNuxtConfig({
     },
   },
   plugins: [{ src: "~/plugins/vue3-kakao-maps", mode: "client" }],
+  components: [
+    {
+      path: "~/components/common",
+      extensions: [".vue"],
+    },
+    {
+      path: "~/components",
+      extensions: [".vue"],
+    },
+  ],
 });

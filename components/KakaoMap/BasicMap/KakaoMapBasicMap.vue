@@ -1,0 +1,178 @@
+<script setup lang="ts">
+import { KakaoMap } from 'vue3-kakao-maps';
+import type { ControlDataSourceType } from '@/components/common/ControlBox.vue';
+
+const lat = ref<number>(37.566826);
+const lng = ref<number>(126.9786567);
+const width = ref<number | string>('40rem');
+const height = ref<number | string>('30rem');
+const level = ref<number>(3);
+const mapTypeId = ref<number>(1);
+const draggable = ref<boolean>(true);
+const scrollwheel = ref<boolean>(true);
+const projectionId = ref<string>('kakao.maps.ProjectionId.WCONG');
+const keyboardShortcuts = ref<boolean>();
+
+const dataSource: Ref<ControlDataSourceType[]> = ref([
+  {
+    name: 'width',
+    description: '지도의 가로 길이',
+    type: ['number', 'string'],
+    default: '40rem',
+    control: {
+      type: 'Input',
+      value: width,
+    },
+  },
+  {
+    name: 'height',
+    description: '지도의 세로 길이',
+    type: ['number', 'string'],
+    default: '30rem',
+    control: {
+      type: 'Input',
+      value: height,
+    },
+  },
+  {
+    name: 'markerList',
+    description: '지도에 표시할 marker 데이터의 리스트',
+    type: ['KakaoMapMarkerListItem[]'],
+  },
+  {
+    name: 'infoWindowList',
+    description: '지도에 표시할 인포윈도우 데이터의 리스트',
+    type: ['KakaoMapInfoWindowListItem[]'],
+  },
+  {
+    name: 'markerCluster',
+    description: '지도에 표시할 marker cluster의 속성 및 데이터 리스트',
+    type: ['MarkerClusterInfo'],
+  },
+  {
+    name: 'lat',
+    description: '지도의 위도 값',
+    type: ['number'],
+    control: {
+      type: 'Input',
+      value: lat,
+    },
+  },
+  {
+    name: 'lng',
+    description: '지도의 경도 값',
+    type: ['number'],
+    control: {
+      type: 'Input',
+      value: lng,
+    },
+  },
+  {
+    name: 'level',
+    description: '확대 수준',
+    type: ['number'],
+    default: 3,
+    control: {
+      type: 'Input',
+      value: level,
+    },
+  },
+  {
+    name: 'mapTypeId',
+    description:
+      '지도 종류를 설정합니다. 기본값은 일반 지도(1), (베이스) 일반 지도: 1, (베이스) 스카이뷰:2, (베이스) 하이브리드(스카이뷰 + 레이블): 3, (오버레이) 레이블: 4, (오버레이) 로드뷰: 5, (오버레이) 교통정보: 6, (오버레이) 지형도: 7, (오버레이) 자전거: 8, (오버레이) 스카이뷰를 위한 자전거 (어두운 지도에서 활용): 9, (오버레이) 지적편집도: 10',
+    type: ['kakao.maps.MapTypeId'],
+    default: 1,
+    control: {
+      type: 'Input',
+      value: mapTypeId,
+    },
+  },
+  {
+    name: 'draggable',
+    description:
+      '마우스 드래그, 휠, 모바일 터치를 이용한 시점 변경(이동, 확대, 축소) 가능 여부',
+    type: ['boolean'],
+    default: 'true',
+    control: {
+      type: 'Boolean',
+      value: draggable,
+    },
+  },
+  {
+    name: 'scrollwheel',
+    description: '마우스 휠, 모바일 터치를 이용한 확대 및 축소 가능 여부',
+    type: ['boolean'],
+    default: 'true',
+    control: {
+      type: 'Boolean',
+      value: scrollwheel,
+    },
+  },
+  {
+    name: 'disableDoubleClick',
+    description:
+      '더블클릭 이벤트 및 더블클릭 확대 가능 여부, 최초 생성시에만 적용됩니다.',
+    type: ['boolean'],
+    default: 'false',
+  },
+  {
+    name: 'disableDoubleClickZoom',
+    description: '더블클릭 확대 가능 여부, 최초 생성시에만 적용됩니다.',
+    type: ['boolean'],
+    default: 'false',
+  },
+  {
+    name: 'projectionId',
+    description: '투영법 지정',
+    type: ['string'],
+    default: 'kakao.maps.ProjectionId.WCONG',
+    control: {
+      type: 'Input',
+      value: projectionId,
+    },
+  },
+  {
+    name: 'tileAnimation',
+    description: '지도 타일 애니메이션 설정 여부 ',
+    type: ['boolean'],
+    default: 'true',
+  },
+  {
+    name: 'keyboardShortcuts',
+    description:
+      '키보드의 방향키와 +,-키로 지도 이동,확대,축소 가능여부를 설정한다. speed 속성은 지도의 이동속도이며, 처음 생성시에만 적용된다.',
+    type: ['boolean', '{ speed: number; }'],
+    default: 'true',
+    control: {
+      type: 'Boolean',
+      value: keyboardShortcuts,
+    },
+  },
+]);
+</script>
+
+<template>
+  <div>
+    <KakaoMap
+      :width="width"
+      :height="height"
+      :lat="lat"
+      :lng="lng"
+      :level="level"
+      :mapTypeId="mapTypeId"
+      :draggable="draggable"
+      :scrollwheel="scrollwheel"
+      :projectionId="projectionId"
+      :keyboardShortcuts="keyboardShortcuts"
+    />
+    <ControlBox v-model:dataSource="dataSource" />
+  </div>
+</template>
+
+<style scoped lang="scss">
+div {
+  display: flex;
+  align-items: center;
+}
+</style>
