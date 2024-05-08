@@ -139,8 +139,6 @@ const onClickCopyCode = async () => {
         align-items: center;
         width: 48px;
         height: 40px;
-      }
-      .btn-lang {
         img {
           width: 20px;
           height: 20px;
