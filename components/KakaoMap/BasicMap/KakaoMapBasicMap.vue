@@ -18,7 +18,7 @@ const dataSource: Ref<ControlDataSourceType[]> = ref([
     name: 'width',
     description: '지도의 가로 길이',
     type: ['number', 'string'],
-    default: '1rem',
+    default: '40rem',
     control: {
       type: 'Input',
       value: width,
@@ -28,7 +28,7 @@ const dataSource: Ref<ControlDataSourceType[]> = ref([
     name: 'height',
     description: '지도의 세로 길이',
     type: ['number', 'string'],
-    default: '1rem',
+    default: '30rem',
     control: {
       type: 'Input',
       value: height,
@@ -41,7 +41,7 @@ const dataSource: Ref<ControlDataSourceType[]> = ref([
   },
   {
     name: 'infoWindowList',
-    description: '지도에 표시할 marker 데이터의 리스트',
+    description: '지도에 표시할 인포윈도우 데이터의 리스트',
     type: ['KakaoMapInfoWindowListItem[]'],
   },
   {
