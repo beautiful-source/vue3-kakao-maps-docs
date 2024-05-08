@@ -8,28 +8,28 @@ import {
   KakaoMapMarkerInfoWindowMarker1CodeJs,
   KakaoMapMarkerInfoWindowMarker2CodeTs,
   KakaoMapMarkerInfoWindowMarker2CodeJs,
-} from "@/components/KakaoMapMarker";
+} from '@/components/KakaoMapMarker';
 
 const anchorItems = [
   {
-    key: "basic-marker",
-    href: "#basic-marker",
-    title: "마커 생성하기",
+    key: 'basic-marker',
+    href: '#basic-marker',
+    title: '마커 생성하기',
   },
   {
-    key: "image-marker",
-    href: "#image-marker",
-    title: "이미지 마커 생성하기",
+    key: 'image-marker',
+    href: '#image-marker',
+    title: '이미지 마커 생성하기',
   },
   {
-    key: "infowindow-marker-1",
-    href: "#infowindow-marker-1",
-    title: "인포윈도우가 있는 마커 생성하기1",
+    key: 'infowindow-marker-1',
+    href: '#infowindow-marker-1',
+    title: '인포윈도우가 있는 마커 생성하기1',
   },
   {
-    key: "infowindow-marker-2",
-    href: "#infowindow-marker-2",
-    title: "인포윈도우가 있는 마커 생성하기2",
+    key: 'infowindow-marker-2',
+    href: '#infowindow-marker-2',
+    title: '인포윈도우가 있는 마커 생성하기2',
   },
 ];
 </script>
@@ -37,6 +37,8 @@ const anchorItems = [
 <template>
   <div>
     <h1>KakaoMapMarker</h1>
+    <p>카카오 마커 컴포넌트입니다.</p>
+    <KakaoMapMarkerBasicMarker />
     <h2 id="basic-marker">마커 생성하기</h2>
     <p>기본적인 마커 생성입니다.</p>
     <CodeBox

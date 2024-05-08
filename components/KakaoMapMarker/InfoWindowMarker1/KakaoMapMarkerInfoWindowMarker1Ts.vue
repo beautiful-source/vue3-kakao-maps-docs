@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { KakaoMap, KakaoMapMarker } from "vue3-kakao-maps";
+import { KakaoMap, KakaoMapMarker } from 'vue3-kakao-maps';
 </script>
 
 <template>
@@ -7,7 +7,9 @@ import { KakaoMap, KakaoMapMarker } from "vue3-kakao-maps";
     <KakaoMapMarker
       :lat="33.450705"
       :lng="126.570667"
-      :infoWindow="'props로 추가'"
+      :infoWindow="{
+        content: 'props로 추가',
+      }"
     />
   </KakaoMap>
 </template>
