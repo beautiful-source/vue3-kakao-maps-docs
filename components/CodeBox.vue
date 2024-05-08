@@ -91,8 +91,6 @@ const onClickCopyCode = async () => {
             highlightjs
             :code="selectedCode"
             :theme="colorMode.value === 'dark' ? 'github-dark' : 'github'"
-            :height="214"
-            style="width: 340px; overflow: scroll; margin: 0 auto"
           />
         </ClientOnly>
       </div>
@@ -105,11 +103,13 @@ const onClickCopyCode = async () => {
   display: flex;
   width: 100%;
   max-width: min-content;
-  height: 40vh;
+  /* height: 40vh; // 들어오는 컴포넌트의 크기에 맞게하되 max height을 준다? */
   border: 1px solid $gray-5;
   border-radius: 10px;
   padding: 2rem;
   box-sizing: border-box;
+  max-height: 80vh;
+  gap: 2rem;
 
   .demo-wrap {
     overflow: hidden;
@@ -118,10 +118,20 @@ const onClickCopyCode = async () => {
     flex-direction: column;
     align-items: center;
   }
+  .demo-wrap::after {
+    content: "";
+    display: inline-block;
+    width: 10px;
+    height: 30px;
+    background-color: yellow;
+    position: absolute;
+    left: 0;
+    top: 0;
+  }
   .block {
-    flex: 0 0 40%;
+    flex: 0 0 60%;
     display: flex;
-    max-width: 50%;
+    /* max-width: 50%; */
     flex-direction: column;
     align-items: center;
 

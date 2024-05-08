@@ -88,7 +88,9 @@ const changeTheme = () => {
 
 .main-contents {
   display: flex;
-  gap: 3rem;
+  main {
+    padding: 0 3em;
+  }
 }
 
 .anchor {
