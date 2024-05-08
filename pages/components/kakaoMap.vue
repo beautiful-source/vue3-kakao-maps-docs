@@ -6,10 +6,10 @@ import {
   KakaoMapMoveMapCodeJs,
   KakaoMapMapInfoCodeJs,
   KakaoMapMapInfoCodeTs,
-  KakaoMapMarkerListCodeJs,
-  KakaoMapMarkerListCodeTs,
+  KakaoMapMultipleMarkerControlCodeJs,
+  KakaoMapMultipleMarkerControlCodeTs,
 } from "@/components/KakaoMap";
-import KakaoMapMarkerListTs from "~/components/KakaoMap/MarkerList/KakaoMapMarkerListTs.vue";
+import KakaoMapMarkerListTs from "~/components/KakaoMap/MultipleMarkerControl/KakaoMapMultipleMarkerControlTs.vue";
 
 const anchorItems = [
   {
@@ -71,8 +71,8 @@ const anchorItems = [
     <h2 id="multiple-marker-control">여러개의 마커 제어하기</h2>
     <p>버튼을 눌러 마커를 생성하고 삭제해보세요.</p>
     <CodeBox
-      :tsCode="KakaoMapMarkerListCodeTs"
-      :jsCode="KakaoMapMarkerListCodeJs"
+      :tsCode="KakaoMapMultipleMarkerControlCodeTs"
+      :jsCode="KakaoMapMultipleMarkerControlCodeJs"
     >
       <template #demo>
         <KakaoMapMarkerListTs />
