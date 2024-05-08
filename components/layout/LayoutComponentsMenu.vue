@@ -3,9 +3,11 @@ import { reactive, ref, watch, VueElement, h } from "vue";
 import type { MenuProps, ItemType } from "ant-design-vue";
 import { useRouter } from "vue-router";
 
-const selectedKeys = ref<string[]>(["1"]);
-const openKeys = ref<string[]>(["kakaoMap"]);
+const openKeys = ref<string[]>([]);
 const router = useRouter();
+const route = useRoute();
+const selectedKeys = ref<string[]>();
+
 const colorMode = useColorMode();
 function getItem(
   label: VueElement | string,
@@ -48,6 +50,30 @@ const items: ItemType[] = reactive([
 const handleClick: MenuProps["onClick"] = (e) => {
   router.push("/components" + e.keyPath?.join(""));
 };
+
+onMounted(() => {
+  openKeys.value = ["/" + route.path.split("/")[2]];
+  if (route.hash.length > 0) {
+    selectedKeys.value = [route.hash];
+    console.log(selectedKeys.value);
+  } else {
+    const currentMenu = items.find((item) => item?.key == openKeys.value[0]);
+    console.log(currentMenu);
+    if (
+      currentMenu &&
+      "children" in currentMenu &&
+      currentMenu.children &&
+      currentMenu.children.length > 0
+    ) {
+      const firstChild = currentMenu.children[0];
+      if (firstChild && firstChild.key) {
+        selectedKeys.value = ["" + firstChild.key];
+      }
+    }
+  }
+  console.log(openKeys.value);
+  console.log(selectedKeys.value);
+});
 </script>
 <template>
   <div class="docs-menu">
