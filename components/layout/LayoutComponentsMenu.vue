@@ -54,18 +54,20 @@ watch(openKeys, (val) => {
         mode="inline"
         :items="items"
         @click="handleClick"
-        :theme="colorMode.value"
+        :theme="colorMode.value === 'light' ? 'light' : 'dark'"
       >
       </a-menu>
       <template #fallback>
         <ul>
-          <li v-for="item in items" :key="item.key">
-            {{ item.label }}
-            <ul v-if="item.children">
-              <li v-for="child in item.children" :key="child.key">
-                {{ child.label }}
-              </li>
-            </ul>
+          <li v-for="item in items" :key="item?.key">
+            <template v-if="item != null">
+              {{ "label" in item ? item.label : "" }}
+              <ul v-if="'children' in item">
+                <li v-for="child in item?.children" :key="child?.key">
+                  {{ child !== null && "label" in child ? child.label : "" }}
+                </li>
+              </ul>
+            </template>
           </li>
         </ul>
       </template>
