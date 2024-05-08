@@ -98,13 +98,6 @@ const changeTheme = () => {
   }
 }
 
-.anchor {
-  width: 180px;
-  position: fixed;
-  top: 100px;
-  left: 90vw;
-}
-
 .dark-mode {
   .page-header {
     .ant-page-header-heading-title {

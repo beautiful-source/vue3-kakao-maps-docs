@@ -55,3 +55,26 @@ pre {
     "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji" !important;
   font-size: 0.9rem !important;
 }
+
+$anchor-width: 120px;
+$content-anchor-gap: 10px;
+
+.contents-wrap {
+  width: 100%;
+  display: flex;
+  gap: $content-anchor-gap;
+  overflow-y: hidden;
+  height: 100%;
+  .contents {
+    width: calc(100% - ($anchor-width + $content-anchor-gap));
+    height: 100%;
+    overflow-y: auto;
+  }
+
+  .anchor {
+    width: $anchor-width;
+    .ant-anchor-link-title {
+      font-size: 0.8em;
+    }
+  }
+}
