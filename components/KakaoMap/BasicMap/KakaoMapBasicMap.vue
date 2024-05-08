@@ -153,7 +153,7 @@ const dataSource: Ref<ControlDataSourceType[]> = ref([
 </script>
 
 <template>
-  <div class="div">
+  <div>
     <KakaoMap
       :width="width"
       :height="height"
@@ -170,8 +170,8 @@ const dataSource: Ref<ControlDataSourceType[]> = ref([
   </div>
 </template>
 
-<style scoped>
-.div {
+<style scoped lang="scss">
+div {
   display: flex;
   align-items: center;
 }
