@@ -1,3 +1,5 @@
-<template>
-  <h1>docs</h1>
-</template>
+<script setup lang="ts">
+definePageMeta({
+  middleware: "docs",
+});
+</script>
