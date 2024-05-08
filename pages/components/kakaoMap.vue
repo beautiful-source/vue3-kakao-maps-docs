@@ -8,8 +8,8 @@ import {
   KakaoMapDisableMapDragMoveCodeJs,
   KakaoMapEnableDisableZoomInOutCodeTs,
   KakaoMapEnableDisableZoomInOutCodeJs,
-  KakaoMapAddClickEventCodeJs,
-  KakaoMapAddClickEventCodeTs,
+  KakaoMapAddMapClickEventCodeJs,
+  KakaoMapAddMapClickEventCodeTs,
 } from "@/components/KakaoMap";
 
 const anchorItems = [
@@ -128,11 +128,11 @@ const jsCode = KakaoMapBasicMapCodeJs as string;
       클릭했을 때 지도 아래쪽에 해당 위치의 좌표를 뿌려주고 있습니다.
     </p>
     <CodeBox
-      :tsCode="KakaoMapAddClickEventCodeTs"
-      :jsCode="KakaoMapAddClickEventCodeJs"
+      :tsCode="KakaoMapAddMapClickEventCodeTs"
+      :jsCode="KakaoMapAddMapClickEventCodeJs"
     >
       <template #demo>
-        <KakaoMapAddClickEventTs />
+        <KakaoMapAddMapClickEventJs />
       </template>
     </CodeBox>
   </div>

@@ -1,4 +1,4 @@
-import KakaoMapAddClickEventCodeTs from "./KakaoMapAddClickEventTs.vue?raw";
-import KakaoMapAddClickEventCodeJs from "./KakaoMapAddClickEventJs.vue?raw";
+import KakaoMapAddMapClickEventCodeTs from "./KakaoMapAddMapClickEventTs.vue?raw";
+import KakaoMapAddMapClickEventCodeJs from "./KakaoMapAddMapClickEventJs.vue?raw";
 
-export { KakaoMapAddClickEventCodeTs, KakaoMapAddClickEventCodeJs };
+export { KakaoMapAddMapClickEventCodeTs, KakaoMapAddMapClickEventCodeJs };
