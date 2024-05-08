@@ -1,4 +1,4 @@
-import KakaoMapBasicMarkerCodeTs from "./KakaoMapBasicMarkerTs.vue?raw";
-import KakaoMapBasicMarkerCodeJs from "./KakaoMapBasicMarkerJs.vue?raw";
+import KakaoMapMarkerBasicMarkerCodeTs from "./KakaoMapMarkerBasicMarkerTs.vue?raw";
+import KakaoMapMarkerBasicMarkerCodeJs from "./KakaoMapMarkerBasicMarkerJs.vue?raw";
 
-export { KakaoMapBasicMarkerCodeTs, KakaoMapBasicMarkerCodeJs };
+export { KakaoMapMarkerBasicMarkerCodeTs, KakaoMapMarkerBasicMarkerCodeJs };

@@ -9,7 +9,6 @@ import {
   KakaoMapMarkerListCodeJs,
   KakaoMapMarkerListCodeTs,
 } from "@/components/KakaoMap";
-import KakaoMapMarkerListTs from "~/components/KakaoMap/MarkerList/KakaoMapMarkerListTs.vue";
 
 const anchorItems = [
   {
