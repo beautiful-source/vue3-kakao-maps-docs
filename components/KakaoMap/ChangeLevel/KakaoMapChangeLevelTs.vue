@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import { ref } from "vue";
-import { KakaoMap } from "vue3-kakao-maps";
+import { ref } from 'vue';
+import { KakaoMap } from 'vue3-kakao-maps';
 
 const map = ref<kakao.maps.Map>();
-const message = ref<string>("");
+const message = ref<string>('');
 
 const onLoadKakaoMap = (mapRef: kakao.maps.Map) => {
   map.value = mapRef;
@@ -42,11 +42,7 @@ const displayLevel = () => {
 </script>
 
 <template>
-  <KakaoMap
-    :lat="33.450701"
-    :lng="126.570667"
-    @onLoadKakaoMap="onLoadKakaoMap"
-  />
+  <KakaoMap :lat="33.450701" :lng="126.570667" @onLoadKakaoMap="onLoadKakaoMap" />
   <button class="demo-button" @click="zoomIn">지도레벨 - 1</button>
   <button class="demo-button" @click="zoomOut">지도레벨 + 1</button>
   <p>{{ message }}</p>

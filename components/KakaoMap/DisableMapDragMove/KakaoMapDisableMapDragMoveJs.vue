@@ -1,6 +1,6 @@
 <script setup>
-import { ref } from "vue";
-import { KakaoMap } from "vue3-kakao-maps";
+import { ref } from 'vue';
+import { KakaoMap } from 'vue3-kakao-maps';
 
 const map = ref();
 
@@ -16,17 +16,9 @@ const setDraggable = (draggable) => {
 </script>
 
 <template>
-  <KakaoMap
-    :lat="33.450701"
-    :lng="126.570667"
-    @onLoadKakaoMap="onLoadKakaoMap"
-  />
-  <button class="demo-button" @click="setDraggable(false)">
-    지도 드래그 이동 끄기
-  </button>
-  <button class="demo-button" @click="setDraggable(true)">
-    지도 드래그 이동 켜기
-  </button>
+  <KakaoMap :lat="33.450701" :lng="126.570667" @onLoadKakaoMap="onLoadKakaoMap" />
+  <button class="demo-button" @click="setDraggable(false)">지도 드래그 이동 끄기</button>
+  <button class="demo-button" @click="setDraggable(true)">지도 드래그 이동 켜기</button>
 </template>
 
 <style lang="scss" scoped></style>

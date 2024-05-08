@@ -3,30 +3,30 @@ const columns = [
   {
     title: 'Name',
     dataIndex: 'name',
-    key: 'name',
+    key: 'name'
   },
   {
     title: 'Description',
     dataIndex: 'description',
     key: 'description',
-    width: 400,
+    width: 400
   },
   {
     title: 'Type',
     dataIndex: 'type',
-    key: 'type',
+    key: 'type'
   },
   {
     title: 'Default',
     dataIndex: 'default',
-    key: 'default',
+    key: 'default'
   },
   {
     title: 'Control',
     dataIndex: 'control',
     key: 'control',
-    width: 400,
-  },
+    width: 400
+  }
 ];
 
 export type ControlDataSourceType = {
@@ -49,22 +49,14 @@ const props = defineProps<ControlBoxPropsType>();
 
 <template>
   <div>
-    <a-table
-      :columns="columns"
-      :data-source="props.dataSource"
-      :pagination="false"
-    >
+    <a-table :columns="columns" :data-source="props.dataSource" :pagination="false">
       <template #bodyCell="{ column, record }">
         <template v-if="column.key === 'name'">
           <b>{{ record.name }}</b>
         </template>
         <template v-else-if="column.key === 'type'">
           <span>
-            <a-tag
-              v-for="tag in record.type"
-              :key="tag"
-              :color="'geekblue'"
-            >
+            <a-tag v-for="tag in record.type" :key="tag" :color="'geekblue'">
               {{ tag }}
             </a-tag>
           </span>
@@ -77,10 +69,7 @@ const props = defineProps<ControlBoxPropsType>();
               un-checked-children="false"
               v-model:checked="record.control.value"
             />
-            <a-input
-              v-else-if="record?.control?.type === 'Input'"
-              v-model:value="record.control.value"
-            />
+            <a-input v-else-if="record?.control?.type === 'Input'" v-model:value="record.control.value" />
           </span>
         </template>
       </template>

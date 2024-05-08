@@ -8,7 +8,8 @@
     "generate": "nuxt generate",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "format": "prettier --write **/*.{ts,vue}"
   },
   "dependencies": {
     "@ant-design/icons-vue": "^7.0.1",
