@@ -30,6 +30,8 @@ const jsCode = KakaoMapBasicMapCodeJs as string;
 <template>
   <div>
     <h1>KakaoMap</h1>
+    <p>카카오 지도 컴포넌트입니다.</p>
+    <KakaoMapBasicMap />
     <h2 id="basic-map">지도 생성하기</h2>
     <p>기본적인 지도 생성입니다.</p>
     <CodeBox
@@ -37,7 +39,7 @@ const jsCode = KakaoMapBasicMapCodeJs as string;
       :jsCode="jsCode"
     >
       <template #demo>
-        <KakaoMapBasicMap />
+        <KakaoMapBasicMapTs />
       </template>
     </CodeBox>
 
