@@ -28,8 +28,8 @@ const anchorItems = [
     title: "지도 정보 얻어오기",
   },
   {
-    key: "marker-list",
-    href: "#marker-list",
+    key: "multiple-marker-control",
+    href: "#multiple-marker-control",
     title: "여러개의 마커 제어하기",
   },
 ];
@@ -68,11 +68,8 @@ const anchorItems = [
       </template>
     </CodeBox>
 
-    <h2 id="marker-list">여러개의 마커 제어하기</h2>
-    <p>지도 레벨, 중심좌표, 지도 타입, 지도 영역정보를 얻어와 표출합니다.</p>
-    <NuxtLink href="https://apis.map.kakao.com/web/documentation/#MapTypeId"
-      >지도 타입을 보시려면 여기를 클릭하세요!</NuxtLink
-    >
+    <h2 id="multiple-marker-control">여러개의 마커 제어하기</h2>
+    <p>버튼을 눌러 마커를 생성하고 삭제해보세요.</p>
     <CodeBox
       :tsCode="KakaoMapMarkerListCodeTs"
       :jsCode="KakaoMapMarkerListCodeJs"
