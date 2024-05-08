@@ -70,8 +70,8 @@ const onClickCopyCode = async () => {
               @mouseout="isCodeCopied = false"
               size="large"
             >
-              <CheckOutlined v-if="isCodeCopied" />
-              <CopyOutlined v-else />
+              <CheckOutlined v-show="isCodeCopied" />
+              <CopyOutlined v-show="!isCodeCopied" />
             </button>
           </a-tooltip>
         </li>
