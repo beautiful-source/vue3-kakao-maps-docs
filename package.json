@@ -7,20 +7,25 @@
     "dev": "nuxt dev",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
-    "postinstall": "nuxt prepare"
+    "postinstall": "nuxt prepare",
+    "prepare": "husky install"
   },
   "dependencies": {
     "@ant-design/icons-vue": "^7.0.1",
+    "@nuxt/content": "^2.12.1",
+    "@wdns/vue-code-block": "^2.3.2",
     "ant-design-vue": "^4.2.1",
     "dayjs": "^1.11.11",
     "nuxt": "^3.11.2",
     "unplugin-vue-components": "^0.27.0",
     "vue": "^3.4.21",
-    "vue-router": "^4.3.0"
+    "vue-router": "^4.3.0",
+    "vue3-kakao-maps": "^2.1.0"
   },
   "devDependencies": {
     "@ant-design-vue/nuxt": "^1.4.1",
     "@nuxtjs/color-mode": "^3.4.1",
-    "sass": "^1.76.0"
+    "sass": "^1.76.0",
+    "husky": "^8.0.3"
   }
 }
