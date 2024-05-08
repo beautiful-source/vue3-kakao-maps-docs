@@ -21,10 +21,12 @@ const changeTheme = () => {
 <template>
   <div>
     <a-page-header
-      title="vue3-kakao-maps"
       :avatar="{ src: '/images/logo.png', shape: 'square' }"
       class="page-header"
     >
+      <template #title>
+        <NuxtLink to="/">vue3-kakao-maps</NuxtLink>
+      </template>
       <template #extra>
         <ul>
           <li

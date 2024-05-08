@@ -68,10 +68,8 @@ onMounted(() => {
   openKeys.value = ["/" + route.path.split("/")[2]];
   if (route.hash.length > 0) {
     selectedKeys.value = [route.hash];
-    console.log(selectedKeys.value);
   } else {
     const currentMenu = items.find((item) => item?.key == openKeys.value[0]);
-    console.log(currentMenu);
     if (
       currentMenu &&
       "children" in currentMenu &&
@@ -84,8 +82,6 @@ onMounted(() => {
       }
     }
   }
-  console.log(openKeys.value);
-  console.log(selectedKeys.value);
 });
 </script>
 <template>
