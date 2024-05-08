@@ -55,6 +55,11 @@ const anchorItems = [
     title: "클릭 이벤트 등록하기",
   },
   {
+    key: "map-info",
+    href: "#map-info",
+    title: "지도 정보 얻어오기",
+  },
+  {
     key: "multiple-marker-control",
     href: "#multiple-marker-control",
     title: "여러개의 마커 제어하기",
@@ -65,11 +70,13 @@ const anchorItems = [
 <template>
   <div>
     <h1>KakaoMap</h1>
+    <p>카카오 지도 컴포넌트입니다.</p>
+    <KakaoMapBasicMap />
     <h2 id="basic-map">지도 생성하기</h2>
     <p>기본적인 지도 생성입니다.</p>
     <CodeBox :tsCode="KakaoMapBasicMapCodeTs" :jsCode="KakaoMapBasicMapCodeJs">
       <template #demo>
-        <KakaoMapBasicMapJs />
+        <KakaoMapBasicMapTs />
       </template>
     </CodeBox>
     <h2 id="move-map">지도 이동시키기</h2>
