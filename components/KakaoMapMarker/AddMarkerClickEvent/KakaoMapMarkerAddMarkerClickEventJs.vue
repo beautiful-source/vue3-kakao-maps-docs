@@ -2,7 +2,7 @@
 import { KakaoMap, KakaoMapMarker } from 'vue3-kakao-maps';
 const visibleRef = ref(true);
 
-const onClickKakaoMapMarker = (): void => {
+const onClickKakaoMapMarker = () => {
   visibleRef.value = !visibleRef.value;
 };
 </script>

@@ -8,8 +8,8 @@ import {
   KakaoMapMarkerInfoWindowMarker1CodeJs,
   KakaoMapMarkerInfoWindowMarker2CodeTs,
   KakaoMapMarkerInfoWindowMarker2CodeJs,
-  KakaoMapMarkerMarkerWithInfoWindowCodeJs,
-  KakaoMapMarkerMarkerWithInfoWindowCodeTs,
+  KakaoMapMarkerAddMarkerClickEventCodeTs,
+  KakaoMapMarkerAddMarkerClickEventCodeJs,
 } from '@/components/KakaoMapMarker';
 
 const anchorItems = [
@@ -92,11 +92,11 @@ const anchorItems = [
       클릭했을 때 마커 위의 인포윈도우를 안보이게 하고 있습니다.
     </p>
     <CodeBox
-      :tsCode="KakaoMapMarkerMarkerWithInfoWindowCodeTs"
-      :jsCode="KakaoMapMarkerMarkerWithInfoWindowCodeJs"
+      :tsCode="KakaoMapMarkerAddMarkerClickEventCodeTs"
+      :jsCode="KakaoMapMarkerAddMarkerClickEventCodeJs"
     >
       <template #demo>
-        <KakaoMapMarkerMarkerWithInfoWindowTs />
+        <KakaoMapMarkerAddMarkerClickEventTs />
       </template>
     </CodeBox>
   </div>
