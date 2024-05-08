@@ -39,6 +39,9 @@ const onClickCopyCode = async () => {
 <template>
   <div class="code-box">
     <div class="demo-wrap"><slot name="demo"> </slot></div>
+
+    <div class="separator"></div>
+
     <div class="block">
       <ul class="list-btn">
         <li>
@@ -101,35 +104,26 @@ const onClickCopyCode = async () => {
 <style lang="scss" scoped>
 .code-box {
   display: flex;
-  width: 100%;
-  max-width: min-content;
-  /* height: 40vh; // 들어오는 컴포넌트의 크기에 맞게하되 max height을 준다? */
+  max-height: 70vh;
   border: 1px solid $gray-5;
   border-radius: 10px;
   padding: 2rem;
   box-sizing: border-box;
-  max-height: 80vh;
   gap: 2rem;
 
   .demo-wrap {
     overflow: hidden;
-    flex: 0 0 40%;
+    flex: 0 0 50%;
     display: flex;
     flex-direction: column;
     align-items: center;
   }
-  .demo-wrap::after {
-    content: "";
-    display: inline-block;
-    width: 10px;
-    height: 30px;
-    background-color: yellow;
-    position: absolute;
-    left: 0;
-    top: 0;
+  .separator {
+    flex: 0 0 2px;
+    background-color: $gray-4;
   }
   .block {
-    flex: 0 0 60%;
+    flex: 0 0 50%;
     display: flex;
     /* max-width: 50%; */
     flex-direction: column;

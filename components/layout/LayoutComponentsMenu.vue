@@ -77,6 +77,6 @@ watch(openKeys, (val) => {
 .docs-menu {
   display: flex;
   flex-direction: column;
-  width: 15rem;
+  width: 240px;
 }
 </style>

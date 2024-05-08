@@ -88,8 +88,13 @@ const changeTheme = () => {
 
 .main-contents {
   display: flex;
+  aside {
+    width: 240px;
+  }
   main {
     padding: 0 3em;
+    box-sizing: border-box;
+    width: calc(100% - 240px);
   }
 }
 
