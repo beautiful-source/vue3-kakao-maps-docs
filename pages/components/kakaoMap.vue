@@ -8,6 +8,8 @@ import {
   KakaoMapDisableMapDragMoveCodeJs,
   KakaoMapEnableDisableZoomInOutCodeTs,
   KakaoMapEnableDisableZoomInOutCodeJs,
+  KakaoMapAddClickEventCodeJs,
+  KakaoMapAddClickEventCodeTs,
 } from "@/components/KakaoMap";
 
 const anchorItems = [
@@ -40,6 +42,11 @@ const anchorItems = [
     key: "enable-disable-zoom-in-out",
     href: "#enable-disable-zoom-in-out",
     title: "지도 확대 축소 막기",
+  },
+  {
+    key: "add-map-click-event",
+    href: "#add-map-click-event",
+    title: "클릭 이벤트 등록하기",
   },
 ];
 
@@ -113,6 +120,19 @@ const jsCode = KakaoMapBasicMapCodeJs as string;
     >
       <template #demo>
         <KakaoMapEnableDisableZoomInOutTs />
+      </template>
+    </CodeBox>
+    <h2 id="add-map-click-event">클릭 이벤트 등록하기</h2>
+    <p>
+      지도를 마우스로 클릭했을때 click 이벤트가 발생합니다. 이 예제에서는 지도를
+      클릭했을 때 지도 아래쪽에 해당 위치의 좌표를 뿌려주고 있습니다.
+    </p>
+    <CodeBox
+      :tsCode="KakaoMapAddClickEventCodeTs"
+      :jsCode="KakaoMapAddClickEventCodeJs"
+    >
+      <template #demo>
+        <KakaoMapAddClickEventTs />
       </template>
     </CodeBox>
   </div>
