@@ -8,6 +8,8 @@ import {
   KakaoMapMarkerInfoWindowMarker1CodeJs,
   KakaoMapMarkerInfoWindowMarker2CodeTs,
   KakaoMapMarkerInfoWindowMarker2CodeJs,
+  KakaoMapMarkerMarkerWithInfoWindowCodeJs,
+  KakaoMapMarkerMarkerWithInfoWindowCodeTs,
 } from '@/components/KakaoMapMarker';
 
 const anchorItems = [
@@ -30,6 +32,11 @@ const anchorItems = [
     key: 'infowindow-marker-2',
     href: '#infowindow-marker-2',
     title: '인포윈도우가 있는 마커 생성하기2',
+  },
+  {
+    key: 'add-marker-click-event',
+    href: '#add-marker-click-event',
+    title: '마커에 클릭 이벤트 등록하기',
   },
 ];
 </script>
@@ -77,6 +84,19 @@ const anchorItems = [
     >
       <template #demo>
         <KakaoMapMarkerInfoWindowMarker2Ts />
+      </template>
+    </CodeBox>
+    <h2 id="add-marker-click-event">마커에 클릭 이벤트 등록하기</h2>
+    <p>
+      마커를 마우스로 클릭했을때 click 이벤트가 발생합니다. 이 예제에서는 마커를
+      클릭했을 때 마커 위의 인포윈도우를 안보이게 하고 있습니다.
+    </p>
+    <CodeBox
+      :tsCode="KakaoMapMarkerMarkerWithInfoWindowCodeTs"
+      :jsCode="KakaoMapMarkerMarkerWithInfoWindowCodeJs"
+    >
+      <template #demo>
+        <KakaoMapMarkerMarkerWithInfoWindowTs />
       </template>
     </CodeBox>
   </div>
