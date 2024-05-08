@@ -39,10 +39,6 @@ const items: ItemType[] = reactive([
 const handleClick: MenuProps["onClick"] = (e) => {
   router.push("/components" + e.key);
 };
-
-watch(openKeys, (val) => {
-  console.log("openKeys", val);
-});
 </script>
 <template>
   <div class="docs-menu">
