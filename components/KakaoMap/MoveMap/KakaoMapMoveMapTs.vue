@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { KakaoMap } from "vue3-kakao-maps";
+import { ref } from "vue";
 
 const lat = ref<number>(33.450701);
 const lng = ref<number>(126.570667);
