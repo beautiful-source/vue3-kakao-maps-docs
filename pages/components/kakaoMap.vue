@@ -55,11 +55,6 @@ const anchorItems = [
     title: '클릭 이벤트 등록하기',
   },
   {
-    key: 'map-info',
-    href: '#map-info',
-    title: '지도 정보 얻어오기',
-  },
-  {
     key: 'multiple-marker-control',
     href: '#multiple-marker-control',
     title: '여러개의 마커 제어하기',
