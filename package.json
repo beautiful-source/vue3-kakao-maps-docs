@@ -4,15 +4,17 @@
   "type": "module",
   "scripts": {
     "build": "nuxt build",
-    "dev": "nuxt dev",
+    "dev": "nuxt dev --host",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "format": "prettier --write **/*.{ts,vue}"
   },
   "dependencies": {
     "@ant-design/icons-vue": "^7.0.1",
     "@nuxt/content": "^2.12.1",
+    "@nuxt/image": "^1.7.0",
     "@wdns/vue-code-block": "^2.3.2",
     "ant-design-vue": "^4.2.1",
     "dayjs": "^1.11.11",
@@ -20,7 +22,8 @@
     "unplugin-vue-components": "^0.27.0",
     "vue": "^3.4.21",
     "vue-router": "^4.3.0",
-    "vue3-kakao-maps": "^2.1.0"
+    "vue3-kakao-maps": "^2.1.0",
+    "prettier": "^3.2.5"
   },
   "devDependencies": {
     "@ant-design-vue/nuxt": "^1.4.1",

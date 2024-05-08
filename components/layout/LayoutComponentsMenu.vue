@@ -1,47 +1,37 @@
 <script lang="ts" setup>
-import { reactive, ref, watch, VueElement, h } from "vue";
-import {
-  MailOutlined,
-  AppstoreOutlined,
-  SettingOutlined,
-} from "@ant-design/icons-vue";
-import type { MenuProps, ItemType } from "ant-design-vue";
-import { useRouter } from "vue-router";
+import { reactive, ref, watch, VueElement, h } from 'vue';
+import { MailOutlined, AppstoreOutlined, SettingOutlined } from '@ant-design/icons-vue';
+import type { MenuProps, ItemType } from 'ant-design-vue';
+import { useRouter } from 'vue-router';
 
-const selectedKeys = ref<string[]>(["1"]);
-const openKeys = ref<string[]>(["kakaoMap"]);
+const selectedKeys = ref<string[]>(['1']);
+const openKeys = ref<string[]>(['kakaoMap']);
 const router = useRouter();
 const colorMode = useColorMode();
-function getItem(
-  label: VueElement | string,
-  key: string,
-  icon?: any,
-  children?: ItemType[],
-  type?: "group"
-): ItemType {
+function getItem(label: VueElement | string, key: string, icon?: any, children?: ItemType[], type?: 'group'): ItemType {
   return {
     key,
     icon,
     children,
     label,
-    type,
+    type
   } as ItemType;
 }
 
 const items: ItemType[] = reactive([
-  getItem("KakaoMap", "/kakaoMap"),
-  getItem("KakaoMapMarker", "/kakaoMapMarker"),
-  getItem("KakaoMapInfowindow", "/kakaoMapInfoWindow"),
-  getItem("KakaoMapCustomOverlay", "/kakaoMapCustomOverlay"),
-  getItem("KakaoMapCluster", "/kakaoMapMarkerCluster"),
+  getItem('KakaoMap', '/kakaoMap'),
+  getItem('KakaoMapMarker', '/kakaoMapMarker'),
+  getItem('KakaoMapInfowindow', '/kakaoMapInfoWindow'),
+  getItem('KakaoMapCustomOverlay', '/kakaoMapCustomOverlay'),
+  getItem('KakaoMapCluster', '/kakaoMapMarkerCluster')
 ]);
 
-const handleClick: MenuProps["onClick"] = (e) => {
-  router.push("/components" + e.key);
+const handleClick: MenuProps['onClick'] = (e) => {
+  router.push('/components' + e.key);
 };
 
 watch(openKeys, (val) => {
-  console.log("openKeys", val);
+  console.log('openKeys', val);
 });
 </script>
 <template>
@@ -77,6 +67,6 @@ watch(openKeys, (val) => {
 .docs-menu {
   display: flex;
   flex-direction: column;
-  width: 15rem;
+  width: 240px;
 }
 </style>

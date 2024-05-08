@@ -1,6 +1,6 @@
 <script setup>
-import { KakaoMap } from "vue3-kakao-maps";
-import { ref } from "vue";
+import { KakaoMap } from 'vue3-kakao-maps';
+import { ref } from 'vue';
 
 const lat = ref(33.450701);
 const lng = ref(126.570667);
@@ -14,7 +14,7 @@ const onLoadKakaoMap = (mapRef) => {
   map.value.addControl(mapTypeControl, kakao.maps.ControlPosition.TOPRIGHT);
 };
 
-const message = ref("");
+const message = ref('');
 
 const getInfo = () => {
   if (map.value) {
@@ -41,7 +41,7 @@ const getInfo = () => {
 
     message.value = `지도 중심좌표는 위도 ${center.getLat()} <br>`;
     message.value += `경도 ${center.getLng()} 이고 <br>`;
-    message.value += `지도 레벨은 ${level} 입니다 <br> <br>`;
+    message.value += `지도 레벨은 ${level} 입니다 <br>`;
     message.value += `지도 타입은 ${mapTypeId} 이고 <br> `;
     message.value += `지도의 남서쪽 좌표는 ${swLatLng.getLat()}, ${swLatLng.getLng()}이고 <br>`;
     message.value += `북동쪽 좌표는 ${neLatLng.getLat()}, ${neLatLng.getLng()}입니다`;
@@ -50,7 +50,9 @@ const getInfo = () => {
 </script>
 
 <template>
-  <KakaoMap :lat="lat" :lng="lng" @onLoadKakaoMap="onLoadKakaoMap" />
-  <button @click="getInfo" class="demo-button">정보 얻기</button>
-  <div v-html="message" />
+  <KakaoMap :lat="lat" :lng="lng" @onLoadKakaoMap="onLoadKakaoMap" width="100%" />
+  <div>
+    <button @click="getInfo" class="demo-button">정보 얻기</button>
+    <div v-html="message" />
+  </div>
 </template>
