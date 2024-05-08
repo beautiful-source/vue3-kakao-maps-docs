@@ -80,8 +80,8 @@ const onClickCopyCode = async () => {
           <a-tooltip>
             <template #title>{{ showCode ? "Hide" : "Show" }} code</template>
             <button @click="showCode = !showCode" size="large">
-              <CaretUpOutlined v-if="showCode" />
-              <CaretDownOutlined v-else />
+              <CaretUpOutlined v-show="showCode" />
+              <CaretDownOutlined v-show="!showCode" />
             </button>
           </a-tooltip>
         </li>
