@@ -1,11 +1,11 @@
-<script setup lang="ts">
+<script setup>
 import { KakaoMap, KakaoMapMarker } from 'vue3-kakao-maps';
-const visibleRef = ref<boolean>(true);
+const visibleRef = ref(false);
 
-const mouseOverKakaoMapMarker = (): void => {
+const mouseOverKakaoMapMarker = () => {
   visibleRef.value = true;
 };
-const mouseOutKakaoMapMarker = (): void => {
+const mouseOutKakaoMapMarker = () => {
   visibleRef.value = false;
 };
 </script>
@@ -16,12 +16,13 @@ const mouseOutKakaoMapMarker = (): void => {
       :lat="33.450705"
       :lng="126.570667"
       :clickable="true"
-      :infoWindow="{ content: 'Click Marker', visible: visibleRef }"
+      :infoWindow="{ content: 'Mouse Over event', visible: visibleRef }"
       ,
       @mouseOverKakaoMapMarker="mouseOverKakaoMapMarker"
       @mouseOutKakaoMapMarker="mouseOutKakaoMapMarker"
     />
   </KakaoMap>
+  <p>마커 위에 마우스를 올려보세요!</p>
 </template>
 
 <style scoped></style>
