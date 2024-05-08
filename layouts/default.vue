@@ -54,7 +54,11 @@ const changeTheme = () => {
     </a-page-header>
     <div class="main-contents">
       <aside>
-        <layout-components-menu v-if="route.path.indexOf('components') > -1" />
+        <a-affix :offset-top="10">
+          <layout-components-menu
+            v-if="route.path.indexOf('components') > -1"
+          />
+        </a-affix>
       </aside>
 
       <main>
