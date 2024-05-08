@@ -55,6 +55,7 @@ const changeTheme = () => {
     <div class="main-contents">
       <aside>
         <layout-components-menu v-if="route.path.indexOf('components') > -1" />
+        <layout-docs-menu v-if="route.path.indexOf('docs') > -1" />
       </aside>
 
       <main>
