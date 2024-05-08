@@ -10,6 +10,12 @@ import {
   KakaoMapEnableDisableZoomInOutCodeJs,
   KakaoMapAddMapClickEventCodeJs,
   KakaoMapAddMapClickEventCodeTs,
+  KakaoMapMoveMapCodeTs,
+  KakaoMapMoveMapCodeJs,
+  KakaoMapMapInfoCodeJs,
+  KakaoMapMapInfoCodeTs,
+  KakaoMapMultipleMarkerControlCodeJs,
+  KakaoMapMultipleMarkerControlCodeTs,
 } from "@/components/KakaoMap";
 
 const anchorItems = [
@@ -48,10 +54,12 @@ const anchorItems = [
     href: "#add-map-click-event",
     title: "클릭 이벤트 등록하기",
   },
+  {
+    key: "multiple-marker-control",
+    href: "#multiple-marker-control",
+    title: "여러개의 마커 제어하기",
+  },
 ];
-
-const tsCode = KakaoMapBasicMapCodeTs as string;
-const jsCode = KakaoMapBasicMapCodeJs as string;
 </script>
 
 <template>
@@ -59,7 +67,7 @@ const jsCode = KakaoMapBasicMapCodeJs as string;
     <h1>KakaoMap</h1>
     <h2 id="basic-map">지도 생성하기</h2>
     <p>기본적인 지도 생성입니다.</p>
-    <CodeBox :tsCode="tsCode" :jsCode="jsCode">
+    <CodeBox :tsCode="KakaoMapBasicMapCodeTs" :jsCode="KakaoMapBasicMapCodeJs">
       <template #demo>
         <KakaoMapBasicMapJs />
       </template>
@@ -70,7 +78,7 @@ const jsCode = KakaoMapBasicMapCodeJs as string;
       이동시킬 수 있습니다. 또, 지도가 표시되고 있는 영역크기를 벗어나지 않는
       거리라면 애니메이션 효과처럼 지도를 부드럽게 이동시킬 수도 있습니다.
     </p>
-    <CodeBox :tsCode="tsCode" :jsCode="jsCode">
+    <CodeBox :tsCode="KakaoMapMoveMapCodeTs" :jsCode="KakaoMapMoveMapCodeJs">
       <template #demo>
         <KakaoMapMoveMapTs />
       </template>
@@ -90,7 +98,7 @@ const jsCode = KakaoMapBasicMapCodeJs as string;
     <NuxtLink href="https://apis.map.kakao.com/web/documentation/#MapTypeId"
       >지도 타입을 보시려면 여기를 클릭하세요!</NuxtLink
     >
-    <CodeBox :tsCode="tsCode" :jsCode="jsCode">
+    <CodeBox :tsCode="KakaoMapMapInfoCodeTs" :jsCode="KakaoMapMapInfoCodeJs">
       <template #demo>
         <KakaoMapMapInfoTs />
       </template>
@@ -133,6 +141,16 @@ const jsCode = KakaoMapBasicMapCodeJs as string;
     >
       <template #demo>
         <KakaoMapAddMapClickEventTs />
+      </template>
+    </CodeBox>
+    <h2 id="multiple-marker-control">여러개의 마커 제어하기</h2>
+    <p>버튼을 눌러 마커를 생성하고 삭제해보세요.</p>
+    <CodeBox
+      :tsCode="KakaoMapMultipleMarkerControlCodeTs"
+      :jsCode="KakaoMapMultipleMarkerControlCodeJs"
+    >
+      <template #demo>
+        <KakaoMapMultipleMarkerControlTs />
       </template>
     </CodeBox>
   </div>
