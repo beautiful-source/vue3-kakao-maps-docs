@@ -27,4 +27,9 @@ export default defineNuxtConfig({
       extensions: [".vue"],
     },
   ],
+  content: {
+    highlight: {
+      theme: "github-light",
+    },
+  },
 });
