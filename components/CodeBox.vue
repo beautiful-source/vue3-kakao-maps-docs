@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { VCodeBlock } from "@wdns/vue-code-block";
-import { computed, ref } from "vue";
+import { VCodeBlock } from '@wdns/vue-code-block';
+import { computed, ref } from 'vue';
 
 type CodeBoxPropsType = {
   tsCode: string;
@@ -11,13 +11,11 @@ const props = defineProps<CodeBoxPropsType>();
 const colorMode = useColorMode();
 
 const isTypeScript = ref<boolean>(true);
-const selectedCode = computed<string>(() =>
-  isTypeScript.value ? props.tsCode : props.jsCode
-);
+const selectedCode = computed<string>(() => (isTypeScript.value ? props.tsCode : props.jsCode));
 const langImage = computed<{ src: string; alt: string }>(() =>
   isTypeScript.value
-    ? { src: "/images/tsLogo.png", alt: "타입스크립트입니다." }
-    : { src: "/images/jsLogo.png", alt: "자바스크립트입니다." }
+    ? { src: '/images/tsLogo.png', alt: '타입스크립트입니다.' }
+    : { src: '/images/jsLogo.png', alt: '자바스크립트입니다.' }
 );
 const showCode = ref<boolean>(true);
 const isCodeCopied = ref<boolean>(false);
@@ -28,10 +26,10 @@ const onClickCopyCode = async () => {
       await navigator.clipboard.writeText(selectedCode.value);
       isCodeCopied.value = true;
     } catch (e: unknown) {
-      console.error("unknown error: ", e);
+      console.error('unknown error: ', e);
     }
   } else {
-    console.error("window 객체 로드되지 않음");
+    console.error('window 객체 로드되지 않음');
   }
 };
 </script>
@@ -46,15 +44,8 @@ const onClickCopyCode = async () => {
       <ul class="list-btn">
         <li>
           <a-tooltip>
-            <template #title
-              >Switch to
-              {{ isTypeScript ? "JavaScript" : "TypeScript" }}</template
-            >
-            <button
-              @click="isTypeScript = !isTypeScript"
-              size="large"
-              class="btn-lang"
-            >
+            <template #title>Switch to {{ isTypeScript ? 'JavaScript' : 'TypeScript' }}</template>
+            <button @click="isTypeScript = !isTypeScript" size="large" class="btn-lang">
               <NuxtImg v-bind="langImage" />
             </button>
           </a-tooltip>
@@ -62,14 +53,8 @@ const onClickCopyCode = async () => {
 
         <li>
           <a-tooltip>
-            <template #title>{{
-              isCodeCopied ? "Copied!" : "Copy code"
-            }}</template>
-            <button
-              @click="onClickCopyCode"
-              @mouseout="isCodeCopied = false"
-              size="large"
-            >
+            <template #title>{{ isCodeCopied ? 'Copied!' : 'Copy code' }}</template>
+            <button @click="onClickCopyCode" @mouseout="isCodeCopied = false" size="large">
               <CheckOutlined v-show="isCodeCopied" />
               <CopyOutlined v-show="!isCodeCopied" />
             </button>
@@ -78,7 +63,7 @@ const onClickCopyCode = async () => {
 
         <li>
           <a-tooltip>
-            <template #title>{{ showCode ? "Hide" : "Show" }} code</template>
+            <template #title>{{ showCode ? 'Hide' : 'Show' }} code</template>
             <button @click="showCode = !showCode" size="large">
               <CaretUpOutlined v-show="showCode" />
               <CaretDownOutlined v-show="!showCode" />
