@@ -87,8 +87,8 @@ const onClickCopyCode = async () => {
         </li>
       </ul>
 
-      <div class="code-wrap">
-        <ClientOnly v-if="showCode">
+      <div class="code-wrap" v-show="showCode">
+        <ClientOnly>
           <VCodeBlock
             lang="html"
             highlightjs
