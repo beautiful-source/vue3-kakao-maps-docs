@@ -1,6 +1,11 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-  modules: ["@ant-design-vue/nuxt", "@nuxtjs/color-mode", "@nuxt/image"],
+  modules: [
+    "@ant-design-vue/nuxt",
+    "@nuxtjs/color-mode",
+    "@nuxt/image",
+    "@nuxt/content",
+  ],
   devtools: { enabled: true },
   vite: {
     css: {
