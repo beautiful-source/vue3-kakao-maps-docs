@@ -74,7 +74,7 @@ const anchorItems = [
       :jsCode="KakaoMapMultipleMarkerControlCodeJs"
     >
       <template #demo>
-        <KakaoMapMarkerListTs />
+        <KakaoMapMultipleMarkerControlTs />
       </template>
     </CodeBox>
   </div>
