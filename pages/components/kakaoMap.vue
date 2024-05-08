@@ -106,7 +106,7 @@ const jsCode = KakaoMapBasicMapCodeJs as string;
       :jsCode="KakaoMapDisableMapDragMoveCodeJs"
     >
       <template #demo>
-        <KakaoMapDisableMapDragMoveJs />
+        <KakaoMapDisableMapDragMoveTs />
       </template>
     </CodeBox>
     <h2 id="enable-disable-zoom-in-out">지도 확대 축소 막기</h2>
@@ -132,7 +132,7 @@ const jsCode = KakaoMapBasicMapCodeJs as string;
       :jsCode="KakaoMapAddMapClickEventCodeJs"
     >
       <template #demo>
-        <KakaoMapAddMapClickEventJs />
+        <KakaoMapAddMapClickEventTs />
       </template>
     </CodeBox>
   </div>

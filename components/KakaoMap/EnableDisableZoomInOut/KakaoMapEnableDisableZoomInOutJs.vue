@@ -1,4 +1,5 @@
 <script setup>
+import { ref } from "vue";
 import { KakaoMap } from "vue3-kakao-maps";
 
 const map = ref();
