@@ -104,31 +104,29 @@ const onClickCopyCode = async () => {
 <style lang="scss" scoped>
 .code-box {
   display: flex;
-  max-height: 70vh;
+  justify-content: space-around;
+  max-height: 75vh;
   border: 1px solid $gray-5;
   border-radius: 10px;
-  padding: 2rem;
+  padding: 1rem;
   box-sizing: border-box;
-  gap: 2rem;
-
   .demo-wrap {
     overflow: hidden;
-    flex: 0 0 50%;
+    flex: 0 0 55%;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
   }
   .separator {
-    flex: 0 0 2px;
+    flex: 0 0 1px;
     background-color: $gray-4;
   }
   .block {
-    flex: 0 0 50%;
+    flex: 0 0 40%;
     display: flex;
-    /* max-width: 50%; */
     flex-direction: column;
     align-items: center;
-
+    overflow: hidden;
     .list-btn {
       all: initial;
       list-style: none;
@@ -152,7 +150,21 @@ const onClickCopyCode = async () => {
     }
     .code-wrap {
       width: 100%;
-      overflow: scroll;
+      overflow-y: auto;
+    }
+  }
+
+  @media (max-width: 1080px) {
+    flex-direction: column;
+    max-height: 100%;
+    gap: 1rem;
+    .demo-wrap {
+      flex: 0 0 400px;
+      overflow: hidden;
+    }
+    .block {
+      flex: 0 0 100%;
+      max-height: 300px;
     }
   }
 }
