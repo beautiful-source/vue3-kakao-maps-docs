@@ -2,7 +2,7 @@
 import { KakaoMap } from "vue3-kakao-maps";
 
 const map = ref<kakao.maps.Map>();
-const mapInfo = ref<string>("");
+const message = ref<string>("");
 
 const onLoadKakaoMap = (mapRef: kakao.maps.Map) => {
   map.value = mapRef;
@@ -36,7 +36,7 @@ const zoomOut = () => {
 };
 
 const displayLevel = () => {
-  mapInfo.value = `현재 지도 레벨은 ${map.value?.getLevel()} 레벨 입니다.`;
+  message.value = `현재 지도 레벨은 ${map.value?.getLevel()} 레벨 입니다.`;
 };
 </script>
 
@@ -48,7 +48,7 @@ const displayLevel = () => {
   />
   <button class="demo-button" @click="zoomIn">지도레벨 - 1</button>
   <button class="demo-button" @click="zoomOut">지도레벨 + 1</button>
-  <p v-html="mapInfo"></p>
+  <p>{{ message }}</p>
 </template>
 
 <style lang="scss" scoped></style>
