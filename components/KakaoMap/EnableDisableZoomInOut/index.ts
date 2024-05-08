@@ -1,7 +1,4 @@
-import KakaoMapEnableDisableZoomInOutCodeTs from "./KakaoMapEnableDisableZoomInOutTs.vue?raw";
-import KakaoMapEnableDisableZoomInOutCodeJs from "./KakaoMapEnableDisableZoomInOutJs.vue?raw";
+import KakaoMapEnableDisableZoomInOutCodeTs from './KakaoMapEnableDisableZoomInOutTs.vue?raw';
+import KakaoMapEnableDisableZoomInOutCodeJs from './KakaoMapEnableDisableZoomInOutJs.vue?raw';
 
-export {
-  KakaoMapEnableDisableZoomInOutCodeTs,
-  KakaoMapEnableDisableZoomInOutCodeJs,
-};
+export { KakaoMapEnableDisableZoomInOutCodeTs, KakaoMapEnableDisableZoomInOutCodeJs };

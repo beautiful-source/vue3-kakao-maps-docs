@@ -21,8 +21,8 @@ const dataSource: Ref<ControlDataSourceType[]> = ref([
     default: '40rem',
     control: {
       type: 'Input',
-      value: width,
-    },
+      value: width
+    }
   },
   {
     name: 'height',
@@ -31,23 +31,23 @@ const dataSource: Ref<ControlDataSourceType[]> = ref([
     default: '30rem',
     control: {
       type: 'Input',
-      value: height,
-    },
+      value: height
+    }
   },
   {
     name: 'markerList',
     description: '지도에 표시할 marker 데이터의 리스트',
-    type: ['KakaoMapMarkerListItem[]'],
+    type: ['KakaoMapMarkerListItem[]']
   },
   {
     name: 'infoWindowList',
     description: '지도에 표시할 인포윈도우 데이터의 리스트',
-    type: ['KakaoMapInfoWindowListItem[]'],
+    type: ['KakaoMapInfoWindowListItem[]']
   },
   {
     name: 'markerCluster',
     description: '지도에 표시할 marker cluster의 속성 및 데이터 리스트',
-    type: ['MarkerClusterInfo'],
+    type: ['MarkerClusterInfo']
   },
   {
     name: 'lat',
@@ -55,8 +55,8 @@ const dataSource: Ref<ControlDataSourceType[]> = ref([
     type: ['number'],
     control: {
       type: 'Input',
-      value: lat,
-    },
+      value: lat
+    }
   },
   {
     name: 'lng',
@@ -64,8 +64,8 @@ const dataSource: Ref<ControlDataSourceType[]> = ref([
     type: ['number'],
     control: {
       type: 'Input',
-      value: lng,
-    },
+      value: lng
+    }
   },
   {
     name: 'level',
@@ -74,8 +74,8 @@ const dataSource: Ref<ControlDataSourceType[]> = ref([
     default: 3,
     control: {
       type: 'Input',
-      value: level,
-    },
+      value: level
+    }
   },
   {
     name: 'mapTypeId',
@@ -85,19 +85,18 @@ const dataSource: Ref<ControlDataSourceType[]> = ref([
     default: 1,
     control: {
       type: 'Input',
-      value: mapTypeId,
-    },
+      value: mapTypeId
+    }
   },
   {
     name: 'draggable',
-    description:
-      '마우스 드래그, 휠, 모바일 터치를 이용한 시점 변경(이동, 확대, 축소) 가능 여부',
+    description: '마우스 드래그, 휠, 모바일 터치를 이용한 시점 변경(이동, 확대, 축소) 가능 여부',
     type: ['boolean'],
     default: 'true',
     control: {
       type: 'Boolean',
-      value: draggable,
-    },
+      value: draggable
+    }
   },
   {
     name: 'scrollwheel',
@@ -106,21 +105,20 @@ const dataSource: Ref<ControlDataSourceType[]> = ref([
     default: 'true',
     control: {
       type: 'Boolean',
-      value: scrollwheel,
-    },
+      value: scrollwheel
+    }
   },
   {
     name: 'disableDoubleClick',
-    description:
-      '더블클릭 이벤트 및 더블클릭 확대 가능 여부, 최초 생성시에만 적용됩니다.',
+    description: '더블클릭 이벤트 및 더블클릭 확대 가능 여부, 최초 생성시에만 적용됩니다.',
     type: ['boolean'],
-    default: 'false',
+    default: 'false'
   },
   {
     name: 'disableDoubleClickZoom',
     description: '더블클릭 확대 가능 여부, 최초 생성시에만 적용됩니다.',
     type: ['boolean'],
-    default: 'false',
+    default: 'false'
   },
   {
     name: 'projectionId',
@@ -129,14 +127,14 @@ const dataSource: Ref<ControlDataSourceType[]> = ref([
     default: 'kakao.maps.ProjectionId.WCONG',
     control: {
       type: 'Input',
-      value: projectionId,
-    },
+      value: projectionId
+    }
   },
   {
     name: 'tileAnimation',
     description: '지도 타일 애니메이션 설정 여부 ',
     type: ['boolean'],
-    default: 'true',
+    default: 'true'
   },
   {
     name: 'keyboardShortcuts',
@@ -146,9 +144,9 @@ const dataSource: Ref<ControlDataSourceType[]> = ref([
     default: 'true',
     control: {
       type: 'Boolean',
-      value: keyboardShortcuts,
-    },
-  },
+      value: keyboardShortcuts
+    }
+  }
 ]);
 </script>
 

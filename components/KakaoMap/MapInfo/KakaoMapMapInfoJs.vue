@@ -1,6 +1,6 @@
 <script setup>
-import { KakaoMap } from "vue3-kakao-maps";
-import { ref } from "vue";
+import { KakaoMap } from 'vue3-kakao-maps';
+import { ref } from 'vue';
 
 const lat = ref(33.450701);
 const lng = ref(126.570667);
@@ -14,7 +14,7 @@ const onLoadKakaoMap = (mapRef) => {
   map.value.addControl(mapTypeControl, kakao.maps.ControlPosition.TOPRIGHT);
 };
 
-const message = ref("");
+const message = ref('');
 
 const getInfo = () => {
   if (map.value) {
@@ -50,12 +50,7 @@ const getInfo = () => {
 </script>
 
 <template>
-  <KakaoMap
-    :lat="lat"
-    :lng="lng"
-    @onLoadKakaoMap="onLoadKakaoMap"
-    width="100%"
-  />
+  <KakaoMap :lat="lat" :lng="lng" @onLoadKakaoMap="onLoadKakaoMap" width="100%" />
   <div>
     <button @click="getInfo" class="demo-button">정보 얻기</button>
     <div v-html="message" />

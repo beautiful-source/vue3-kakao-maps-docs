@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { KakaoMap } from "vue3-kakao-maps";
-import { ref } from "vue";
+import { KakaoMap } from 'vue3-kakao-maps';
+import { ref } from 'vue';
 
 const lat = ref<number>(33.450701);
 const lng = ref<number>(126.570667);
@@ -35,12 +35,8 @@ const panTo = () => {
 <template>
   <KakaoMap :lat="lat" :lng="lng" @onLoadKakaoMap="onLoadKakaoMap" />
   <div>
-    <button @click="changeLatLng" class="demo-button">
-      좌표값 변경으로 중심좌표 부드러운 이동
-    </button>
-    <button @click="setCenter" class="demo-button">
-      map 객체로 중심좌표 이동
-    </button>
+    <button @click="changeLatLng" class="demo-button">좌표값 변경으로 중심좌표 부드러운 이동</button>
+    <button @click="setCenter" class="demo-button">map 객체로 중심좌표 이동</button>
     <button @click="panTo" class="demo-button">map 객체로 부드러운 이동</button>
   </div>
 </template>
