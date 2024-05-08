@@ -9,7 +9,6 @@ import {
   KakaoMapMultipleMarkerControlCodeJs,
   KakaoMapMultipleMarkerControlCodeTs,
 } from "@/components/KakaoMap";
-import KakaoMapMarkerListTs from "~/components/KakaoMap/MultipleMarkerControl/KakaoMapMultipleMarkerControlTs.vue";
 
 const anchorItems = [
   {
