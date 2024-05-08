@@ -1,10 +1,5 @@
 <script lang="ts" setup>
 import { reactive, ref, watch, VueElement, h } from "vue";
-import {
-  MailOutlined,
-  AppstoreOutlined,
-  SettingOutlined,
-} from "@ant-design/icons-vue";
 import type { MenuProps, ItemType } from "ant-design-vue";
 import { useRouter } from "vue-router";
 
@@ -29,15 +24,29 @@ function getItem(
 }
 
 const items: ItemType[] = reactive([
-  getItem("KakaoMap", "/kakaoMap"),
-  getItem("KakaoMapMarker", "/kakaoMapMarker"),
+  getItem("KakaoMap", "/kakaoMap", null, [
+    getItem("지도 생성하기", "#basic-map"),
+    getItem("지도 이동시키기", "#move-map"),
+    getItem("지도 레벨 바꾸기", "#change-level"),
+    getItem("지도 정보 얻어오기", "#map-info"),
+    getItem("지도 이동 막기", "#disable-map-drag-move"),
+    getItem("지도 확대 축소 막기", "#enable-disable-zoom-in-out"),
+    getItem("클릭 이벤트 등록하기", "#add-map-click-event"),
+    getItem("여러개의 마커 제어하기", "#multiple-marker-control"),
+  ]),
+  getItem("KakaoMapMarker", "/kakaoMapMarker", null, [
+    getItem("마커 생성하기", "#basic-marker"),
+    getItem("이미지 마커 생성하기", "#image-marker"),
+    getItem("인포윈도우가 있는 마커 생성하기 1", "#infowindow-marker-1"),
+    getItem("인포윈도우가 있는 마커 생성하기 2", "#infowindow-marker-2"),
+  ]),
   getItem("KakaoMapInfowindow", "/kakaoMapInfoWindow"),
   getItem("KakaoMapCustomOverlay", "/kakaoMapCustomOverlay"),
   getItem("KakaoMapCluster", "/kakaoMapMarkerCluster"),
 ]);
 
 const handleClick: MenuProps["onClick"] = (e) => {
-  router.push("/components" + e.key);
+  router.push("/components" + e.keyPath?.join(""));
 };
 </script>
 <template>
