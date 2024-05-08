@@ -25,9 +25,6 @@ const anchorItems = [
     title: "지도 정보 얻어오기",
   },
 ];
-
-const tsCode = KakaoMapBasicMapCodeTs as string;
-const jsCode = KakaoMapBasicMapCodeJs as string;
 </script>
 
 <template>
@@ -35,7 +32,7 @@ const jsCode = KakaoMapBasicMapCodeJs as string;
 
   <h2 id="basic-map">지도 생성하기</h2>
   <p>기본적인 지도 생성입니다.</p>
-  <CodeBox :tsCode="tsCode" :jsCode="jsCode">
+  <CodeBox :tsCode="KakaoMapBasicMapCodeTs" :jsCode="KakaoMapBasicMapCodeJs">
     <template #demo>
       <KakaoMapBasicMapJs />
     </template>
