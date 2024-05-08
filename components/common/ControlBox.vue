@@ -9,7 +9,7 @@ const columns = [
     title: 'Description',
     dataIndex: 'description',
     key: 'description',
-    width: 400
+    width: '40%'
   },
   {
     title: 'Type',
@@ -19,13 +19,14 @@ const columns = [
   {
     title: 'Default',
     dataIndex: 'default',
-    key: 'default'
+    key: 'default',
+    width: '10%'
   },
   {
     title: 'Control',
     dataIndex: 'control',
     key: 'control',
-    width: 400
+    width: '30%'
   }
 ];
 
@@ -59,6 +60,12 @@ const props = defineProps<ControlBoxPropsType>();
             <a-tag v-for="tag in record.type" :key="tag" :color="'geekblue'">
               {{ tag }}
             </a-tag>
+          </span>
+        </template>
+        <template v-else-if="column.key === 'default'">
+          <span v-if="record.default?.length > 20"> {{ record.default.slice(0, 20) }}<br />{{ record.default.slice(5) }} </span>
+          <span v-else>
+            {{ record.default }}
           </span>
         </template>
         <template v-else-if="column.key === 'control'">
