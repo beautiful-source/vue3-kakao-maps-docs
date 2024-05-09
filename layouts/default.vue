@@ -3,35 +3,31 @@ const route = useRoute();
 const colorMode = useColorMode();
 const headerMenuItems = [
   {
-    key: "/docs",
-    label: "Docs",
-    selected: route.path.indexOf("docs") > -1,
+    key: '/docs',
+    label: 'Docs',
+    selected: route.path.indexOf('docs') > -1
   },
   {
-    key: "/components",
-    label: "Components",
-    selected: route.path.indexOf("components") > -1,
-  },
+    key: '/components',
+    label: 'Components',
+    selected: route.path.indexOf('components') > -1
+  }
 ];
 const changeTheme = () => {
-  colorMode.preference = colorMode.value === "light" ? "dark" : "light";
+  colorMode.preference = colorMode.value === 'light' ? 'dark' : 'light';
 };
 </script>
 
 <template>
   <div>
-    <a-page-header
-      title="vue3-kakao-maps"
-      :avatar="{ src: '/images/logo.png', shape: 'square' }"
-      class="page-header"
-    >
+    <a-page-header title="vue3-kakao-maps" :avatar="{ src: '/images/logo.png', shape: 'square' }" class="page-header">
       <template #extra>
         <ul>
           <li
             v-for="menuItem of headerMenuItems"
             :key="menuItem.key"
             :class="{
-              selected: menuItem.selected,
+              selected: menuItem.selected
             }"
           >
             <NuxtLink :to="menuItem.key">

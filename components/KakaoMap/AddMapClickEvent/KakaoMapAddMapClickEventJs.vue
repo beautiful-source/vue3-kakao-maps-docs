@@ -19,11 +19,7 @@ const onLoadKakaoMap = (mapRef) => {
 </script>
 
 <template>
-  <KakaoMap
-    :lat="33.450701"
-    :lng="126.570667"
-    @onLoadKakaoMap="onLoadKakaoMap"
-  />
+  <KakaoMap :lat="33.450701" :lng="126.570667" @onLoadKakaoMap="onLoadKakaoMap" />
   <p>지도를 클릭해주세요!</p>
   <p v-html="message"></p>
 </template>

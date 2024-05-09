@@ -9,7 +9,7 @@ const markerInfoList: KakaoMapMarkerListItem[] = [
   { key: 4, lat: 33.451393, lng: 126.570738 }
 ];
 
-const markerCount = ref<number>(0);
+const markerCount = ref(0);
 const markerList = computed(() => markerInfoList.slice(0, markerCount.value));
 
 const onAddMarker = () => {
