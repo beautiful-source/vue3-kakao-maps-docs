@@ -9,12 +9,12 @@
 ::code-block
 
 ```js
-import { createApp } from "vue";
-import App from "./App.vue";
-import { useKakao } from "vue3-kakao-maps/@utils";
+import { createApp } from 'vue';
+import App from './App.vue';
+import { useKakao } from 'vue3-kakao-maps/@utils';
 
-useKakao("API key");
-createApp(App).mount("#app");
+useKakao('API key');
+createApp(App).mount('#app');
 ```
 
 ::
@@ -27,21 +27,20 @@ createApp(App).mount("#app");
 
 ```vue
 <script setup>
-import { KakaoMap, KakaoMapMarker } from "vue3-kakao-maps";
+import { KakaoMap, KakaoMapMarker } from 'vue3-kakao-maps';
 const coordinate = {
   lat: 37.566826,
-  lng: 126.9786567,
+  lng: 126.9786567
 };
 </script>
 
 <template>
   <KakaoMap :lat="coordinate.lat" :lng="coordinate.lng" :draggable="true">
-    <KakaoMapMarker
-      :lat="coordinate.lat"
-      :lng="coordinate.lng"
-    ></KakaoMapMarker>
+    <KakaoMapMarker :lat="coordinate.lat" :lng="coordinate.lng"></KakaoMapMarker>
   </KakaoMap>
 </template>
 ```
 
 ::
+
+잘 하셨어요! 이제 <a href="/components">컴포넌트 페이지</a>로 이동해 세부 기능을 구현해보세요.

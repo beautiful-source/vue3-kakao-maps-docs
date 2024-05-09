@@ -1,0 +1,59 @@
+# 설치하기
+
+새 프로젝트를 생성하거나 기존 `Vue` 애플리케이션에 추가하여 `vue3-kakao-maps`를 시작하세요.
+
+## 새 프로젝트 생성
+
+1. `vite`를 이용해 프로젝트를 생성할 수 있습니다.
+
+::code-block
+
+```shell
+npm create vite@latest
+```
+
+::
+
+2. 생성한 프로젝트로 이동 후 개발 서버를 실행합니다.
+
+::code-block
+
+```shell
+cd 프로젝트명
+npm install
+npm run dev
+```
+
+::
+
+## 프로젝트에 추가하기
+
+**NPM**
+
+::code-block
+
+```shell
+npm i vue3-kakao-maps
+```
+
+::
+
+**Yarn**
+
+::code-block
+
+```shell
+yarn add vue3-kakao-maps
+```
+
+::
+
+**PNPM**
+
+::code-block
+
+```shell
+pnpm install vue3-kakao-maps
+```
+
+::
