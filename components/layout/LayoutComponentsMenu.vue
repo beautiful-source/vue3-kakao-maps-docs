@@ -23,7 +23,7 @@ const items: ItemType[] = reactive([
   getItem('KakaoMapMarker', '/kakaoMapMarker'),
   getItem('KakaoMapInfowindow', '/kakaoMapInfoWindow'),
   getItem('KakaoMapCustomOverlay', '/kakaoMapCustomOverlay'),
-  getItem('KakaoMapCluster', '/kakaoMapMarkerCluster')
+  getItem('KakaoMapMarkerCluster', '/kakaoMapMarkerCluster')
 ]);
 
 const handleClick: MenuProps['onClick'] = (e) => {

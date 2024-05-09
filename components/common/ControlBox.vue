@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import type { KakaoMapMarkerProps } from '../KakaoMapMarkerCluster/BasicMarkerCluster/marker';
 const columns = [
   {
     title: 'Name',
