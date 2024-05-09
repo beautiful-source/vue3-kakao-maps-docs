@@ -1,6 +1,6 @@
 # 첫 지도 그리기
 
-**1. 카카오맵 API 로드**
+## 1. 카카오맵 API 로드
 
 `main.{js|ts}`에서 `useKakao('API key')` 호출을 통해 카카오맵 API를 로드합니다.
 
@@ -19,7 +19,7 @@ createApp(App).mount('#app');
 
 ::
 
-**2. 지도 컴포넌트 호출**
+## 2. 지도 컴포넌트 호출
 
 카카오맵 지도를 띄우기 위해서 `KakaoMap` 컴포넌트를 사용합니다. `props`를 통해 카카오맵 API에서 제공하는 다양한 [`option`](https://apis.map.kakao.com/web/documentation/#Map)을 전달할 수 있습니다.
 

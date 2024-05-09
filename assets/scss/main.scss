@@ -1,4 +1,4 @@
-@import "_colors";
+@import '_colors';
 
 html,
 body {
@@ -26,20 +26,72 @@ $dark-mode-background-color: $gray-11;
   }
 }
 
-pre,
+$code-font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
 code {
-  background-color: $gray-3 !important;
+  font-family: $code-font-family;
 }
+// Docs 한정 스타일
+$code-bg-color: #f8fafc;
+div[data-content-id^='content'] {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    a {
+      color: inherit;
+      position: relative;
+    }
+    a::before {
+      content: '';
+    }
+    a:hover::before {
+      content: '#';
+      position: absolute;
+      left: -16px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 16px;
+      color: $purple-6;
+    }
+  }
 
-pre {
-  padding: 1rem;
-  border-radius: 5px;
-  border: 2px solid $gray-4;
-}
+  a {
+    text-decoration: none;
+    color: $purple-5;
+    transition: 0.4s;
+  }
+  a:hover {
+    background-color: $purple-1;
+  }
 
-code {
-  padding: 2px 4px;
-  border-radius: 2px;
+  code {
+    color: $blue-7;
+    background-color: $blue-1;
+    font-size: 0.9rem;
+    padding: 2px 4px;
+    border-radius: 2px;
+  }
+
+  *[class='code-wrap'] {
+    pre,
+    code {
+      background-color: $code-bg-color;
+    }
+    pre {
+      padding: 1rem;
+      border-radius: 5px;
+      border: 2px solid $gray-4;
+      overflow-x: auto;
+
+      code {
+        padding: initial;
+        display: inline-block;
+        height: max-content;
+      }
+    }
+  }
 }
 
 $anchor-width: 120px;
@@ -92,7 +144,7 @@ $content-anchor-gap: 10px;
   h6,
   p,
   a,
-  span:not([class^="hljs"], [class^="ant-tag"]) {
+  span:not([class^='hljs'], [class^='ant-tag']) {
     color: $gray-5;
     transition: color 0.2s;
   }
