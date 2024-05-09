@@ -1,7 +1,9 @@
 <script setup lang="ts">
 import {
   KakaoMapInfoWindowBasicInfoWindow1CodeTs,
-  KakaoMapInfoWindowBasicInfoWindow1CodeJs
+  KakaoMapInfoWindowBasicInfoWindow1CodeJs,
+  KakaoMapInfoWindowBasicInfoWindow2CodeJs,
+  KakaoMapInfoWindowBasicInfoWindow2CodeTs
 } from '@/components/KakaoMapInfoWindow';
 
 const anchorItems = [
@@ -9,6 +11,11 @@ const anchorItems = [
     key: 'basic-infowindow-1',
     href: '#basic-infowindow-1',
     title: '인포윈도우 생성하기 1'
+  },
+  {
+    key: 'basic-infowindow-2',
+    href: '#basic-infowindow-2',
+    title: '인포윈도우 생성하기 2'
   }
 ];
 </script>
@@ -24,6 +31,13 @@ const anchorItems = [
       <CodeBox :tsCode="KakaoMapInfoWindowBasicInfoWindow1CodeTs" :jsCode="KakaoMapInfoWindowBasicInfoWindow1CodeJs">
         <template #demo>
           <KakaoMapInfoWindowBasicInfoWindow1Ts />
+        </template>
+      </CodeBox>
+      <h2 id="basic-marker">인포윈도우 생성하기 2</h2>
+      <p>slot으로 추가하는 예시입니다.</p>
+      <CodeBox :tsCode="KakaoMapInfoWindowBasicInfoWindow2CodeTs" :jsCode="KakaoMapInfoWindowBasicInfoWindow2CodeJs">
+        <template #demo>
+          <KakaoMapInfoWindowBasicInfoWindow2Ts />
         </template>
       </CodeBox>
     </div>
