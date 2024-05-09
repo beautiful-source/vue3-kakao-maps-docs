@@ -36,7 +36,7 @@ const items: ItemType[] = reactive([
     getItem('인포윈도우가 있는 마커 생성하기 1', '#infowindow-marker-1'),
     getItem('인포윈도우가 있는 마커 생성하기 2', '#infowindow-marker-2')
   ]),
-  getItem('KakaoMapInfowindow', '/kakaoMapInfoWindow'),
+  getItem('KakaoMapInfowindow', '/kakaoMapInfoWindow', null, [getItem('인포윈도우 생성하기 1', '#basic-infowindow-1')]),
   getItem('KakaoMapCustomOverlay', '/kakaoMapCustomOverlay'),
   getItem('KakaoMapCluster', '/kakaoMapMarkerCluster')
 ]);
