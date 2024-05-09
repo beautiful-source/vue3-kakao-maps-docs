@@ -1,4 +1,4 @@
-@import "_colors";
+@import '_colors';
 
 html,
 body {
@@ -26,12 +26,10 @@ $dark-mode-background-color: $gray-11;
   }
 }
 
-code,
-pre {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-    "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji",
-    "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji" !important;
-  font-size: 0.9rem !important;
+$code-font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+$code-bg-color: #f8fafc;
+code {
+  font-family: $code-font-family;
 }
 
 $anchor-width: 120px;
@@ -84,7 +82,7 @@ $content-anchor-gap: 10px;
   h6,
   p,
   a,
-  span:not([class^="hljs"], [class^="ant-tag"]) {
+  span:not([class^='hljs'], [class^='ant-tag']) {
     color: $gray-5;
     transition: color 0.2s;
   }
