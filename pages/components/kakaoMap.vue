@@ -123,7 +123,6 @@ const anchorItems = [
         <KakaoMapEnableDisableZoomInOutTs />
       </template>
     </CodeBox>
-    <!--  -->
     <h2 id="set-bounds">지도 범위 재설정하기</h2>
     <p>
       지도 범위를 재설정합니다. 어떤 좌표나 마커들이 지도에 모두 보여야 할 때 좌표들의 정보를 갖는 LatLngBounds를 사용하여
@@ -134,7 +133,6 @@ const anchorItems = [
         <KakaoMapSetBoundsTs />
       </template>
     </CodeBox>
-    <!--  -->
     <h2 id="add-map-click-event">클릭 이벤트 등록하기</h2>
     <p>
       지도를 마우스로 클릭했을때 click 이벤트가 발생합니다. 이 예제에서는 지도를 클릭했을 때 지도 아래쪽에 해당 위치의 좌표를
