@@ -8,10 +8,10 @@ const headerMenuItems = ref([
     selected: route.path.indexOf('docs') > -1
   },
   {
-    key: "/components/kakaoMap",
-    label: "Components",
-    selected: route.path.indexOf("components") > -1,
-  },
+    key: '/components/kakaoMap',
+    label: 'Components',
+    selected: route.path.indexOf('components') > -1
+  }
 ]);
 const changeTheme = () => {
   colorMode.preference = colorMode.value === 'light' ? 'dark' : 'light';
@@ -20,19 +20,14 @@ const changeTheme = () => {
 watch(
   () => route.path,
   () => {
-    headerMenuItems.value.forEach(
-      (item) => (item.selected = route.path.indexOf(item.key) > -1)
-    );
+    headerMenuItems.value.forEach((item) => (item.selected = route.path.indexOf(item.key) > -1));
   }
 );
 </script>
 
 <template>
   <div>
-    <a-page-header
-      :avatar="{ src: '/images/logo.png', shape: 'square' }"
-      class="page-header"
-    >
+    <a-page-header :avatar="{ src: '/images/logo.png', shape: 'square' }" class="page-header">
       <template #title>
         <NuxtLink to="/">vue3-kakao-maps</NuxtLink>
       </template>
@@ -43,7 +38,7 @@ watch(
             :key="menuItem.key"
             :class="{
               selected: menuItem.selected,
-              'un-selected': !menuItem.selected,
+              'un-selected': !menuItem.selected
             }"
           >
             <NuxtLink :to="menuItem.key">
@@ -67,9 +62,7 @@ watch(
     <div class="main-contents">
       <aside>
         <a-affix :offset-top="10">
-          <layout-components-menu
-            v-if="route.path.indexOf('components') > -1"
-          />
+          <layout-components-menu v-if="route.path.indexOf('components') > -1" />
         </a-affix>
       </aside>
 

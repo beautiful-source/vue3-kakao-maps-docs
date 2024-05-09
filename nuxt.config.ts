@@ -18,13 +18,13 @@ export default defineNuxtConfig({
       extensions: ['.vue']
     },
     {
-      path: "~/components",
-      extensions: [".vue"],
-    },
+      path: '~/components',
+      extensions: ['.vue']
+    }
   ],
   router: {
     options: {
-      scrollBehaviorType: "smooth",
-    },
-  },
+      scrollBehaviorType: 'smooth'
+    }
+  }
 });
