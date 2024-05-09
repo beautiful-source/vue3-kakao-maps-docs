@@ -8,7 +8,7 @@ const headerMenuItems = ref([
     selected: route.path.indexOf('docs') > -1
   },
   {
-    key: '/components/kakaoMap',
+    key: '/components',
     label: 'Components',
     selected: route.path.indexOf('components') > -1
   }
@@ -63,9 +63,10 @@ watch(
       </template>
     </a-page-header>
     <div class="main-contents">
-      <aside>
+      <aside v-if="route.path !== '/'">
         <a-affix :offset-top="10">
           <layout-components-menu v-if="route.path.indexOf('components') > -1" />
+          <layout-docs-menu v-if="route.path.indexOf('docs') > -1" />
         </a-affix>
       </aside>
 
@@ -112,7 +113,7 @@ watch(
     width: 240px;
   }
   main {
-    padding: 0 3em;
+    padding: 0 3em 3em;
     box-sizing: border-box;
     width: calc(100% - 240px);
   }

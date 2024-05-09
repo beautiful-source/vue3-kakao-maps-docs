@@ -1,5 +1,5 @@
 <script setup lang="ts">
 definePageMeta({
-  middleware: "docs",
+  middleware: "components",
 });
 </script>
