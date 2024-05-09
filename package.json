@@ -19,16 +19,16 @@
     "ant-design-vue": "^4.2.1",
     "dayjs": "^1.11.11",
     "nuxt": "^3.11.2",
+    "prettier": "^3.2.5",
     "unplugin-vue-components": "^0.27.0",
     "vue": "^3.4.21",
     "vue-router": "^4.3.0",
-    "vue3-kakao-maps": "^2.1.0",
-    "prettier": "^3.2.5"
+    "vue3-kakao-maps": "^2.2.0"
   },
   "devDependencies": {
     "@ant-design-vue/nuxt": "^1.4.1",
     "@nuxtjs/color-mode": "^3.4.1",
-    "sass": "^1.76.0",
-    "husky": "^8.0.3"
+    "husky": "^8.0.3",
+    "sass": "^1.76.0"
   }
 }

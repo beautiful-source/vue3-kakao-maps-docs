@@ -3,8 +3,8 @@ import { KakaoMap, KakaoMapCustomOverlay } from 'vue3-kakao-maps';
 </script>
 
 <template>
-  <KakaoMap :lat="37.566826" :lng="126.9786567">
-    <KakaoMapCustomOverlay :lat="37.566826" :lng="126.9786567">
+  <KakaoMap :lat="33.450701" :lng="126.570667">
+    <KakaoMapCustomOverlay :lat="33.450701" :lng="126.570667">
       <div
         style="
           padding: 10px;
@@ -31,5 +31,3 @@ import { KakaoMap, KakaoMapCustomOverlay } from 'vue3-kakao-maps';
     </KakaoMapCustomOverlay>
   </KakaoMap>
 </template>
-
-<style scoped></style>

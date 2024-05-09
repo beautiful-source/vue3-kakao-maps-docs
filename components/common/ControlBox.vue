@@ -1,3 +1,4 @@
+tepmplate
 <script setup lang="ts">
 const columns = [
   {
@@ -9,7 +10,7 @@ const columns = [
     title: 'Description',
     dataIndex: 'description',
     key: 'description',
-    width: '40%'
+    width: '27%'
   },
   {
     title: 'Type',
@@ -20,18 +21,19 @@ const columns = [
     title: 'Default',
     dataIndex: 'default',
     key: 'default',
-    width: '10%'
+    width: '12%'
   },
   {
     title: 'Control',
     dataIndex: 'control',
     key: 'control',
-    width: '30%'
+    width: '18%'
   }
 ];
 
 export type ControlDataSourceType = {
   name: string;
+  required?: boolean;
   description: string;
   type: string[];
   default?: string | number;
@@ -49,35 +51,47 @@ const props = defineProps<ControlBoxPropsType>();
 </script>
 
 <template>
-  <div>
-    <a-table :columns="columns" :data-source="props.dataSource" :pagination="false">
+  <div class="control-box">
+    <a-table
+      sticky
+      :scroll="{ x: 750 }"
+      :scrollToFirstRowOnChange="true"
+      :columns="columns"
+      :data-source="props.dataSource"
+      :pagination="false"
+    >
+      <template #headerCell="{ column }">
+        <template v-if="column.key === 'name'">
+          <div class="name-column">
+            <span>Name</span>
+            <span class="required"><b class="required-star">*</b> 필수 입력값</span>
+          </div>
+        </template>
+      </template>
       <template #bodyCell="{ column, record }">
         <template v-if="column.key === 'name'">
-          <b>{{ record.name }}</b>
+          <b>{{ record.name }}</b
+          ><b class="required-star">{{ record && record.required === true ? '*' : '' }}</b>
+        </template>
+        <template v-if="column.key === 'description'">
+          {{ record.description }}
         </template>
         <template v-else-if="column.key === 'type'">
-          <span>
-            <a-tag v-for="tag in record.type" :key="tag" :color="'geekblue'">
-              {{ tag }}
-            </a-tag>
-          </span>
+          <a-tag v-for="tag in record.type" :key="tag" :color="'geekblue'">
+            {{ tag }}
+          </a-tag>
         </template>
         <template v-else-if="column.key === 'default'">
-          <span v-if="record.default?.length > 20"> {{ record.default.slice(0, 20) }}<br />{{ record.default.slice(5) }} </span>
-          <span v-else>
-            {{ record.default }}
-          </span>
+          {{ record.default }}
         </template>
         <template v-else-if="column.key === 'control'">
-          <span>
-            <a-switch
-              v-if="record?.control?.type === 'Boolean'"
-              checked-children="true"
-              un-checked-children="false"
-              v-model:checked="record.control.value"
-            />
-            <a-input v-else-if="record?.control?.type === 'Input'" v-model:value="record.control.value" />
-          </span>
+          <a-switch
+            v-if="record?.control?.type === 'Boolean'"
+            checked-children="true"
+            un-checked-children="false"
+            v-model:checked="record.control.value"
+          />
+          <a-input v-else-if="record?.control?.type === 'Input'" v-model:value="record.control.value" />
         </template>
       </template>
     </a-table>
@@ -85,8 +99,29 @@ const props = defineProps<ControlBoxPropsType>();
 </template>
 
 <style scoped lang="scss">
-div {
+.control-box {
+  border-radius: 10px;
+  margin-left: 10px;
   max-height: 500px;
-  overflow-y: scroll;
+  overflow-x: auto;
+  overflow-y: auto;
+  background-color: white;
+  align-items: flex-start;
+}
+.required-star {
+  color: rgba(255, 0, 0, 0.841);
+  margin-left: 0.05rem;
+}
+.required {
+  align-self: flex-start;
+  font-size: 9px;
+  color: rgb(77, 76, 76);
+  font-weight: 100;
+  margin-top: -3px;
+}
+.name-column {
+  display: flex;
+  flex-direction: column;
+  margin-top: 9px;
 }
 </style>

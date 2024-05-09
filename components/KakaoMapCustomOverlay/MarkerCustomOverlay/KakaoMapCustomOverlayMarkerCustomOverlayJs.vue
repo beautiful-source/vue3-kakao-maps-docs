@@ -1,11 +1,6 @@
-<script setup lang="ts">
-import { KakaoMap, KakaoMapCustomOverlay } from 'vue3-kakao-maps';
-</script>
-
-<template>
-  <KakaoMap :lat="33.450701" :lng="126.570667">
-    <KakaoMapCustomOverlay :lat="33.450701" :lng="126.570667">
-      <div
+<script setup>
+import { KakaoMap, KakaoMapCustomOverlay, KakaoMapMarker } from 'vue3-kakao-maps';
+const content = ` <div
         style="
           padding: 10px;
           background-color: white;
@@ -27,7 +22,12 @@ import { KakaoMap, KakaoMapCustomOverlay } from 'vue3-kakao-maps';
             <div><a href="https://www.kakaocorp.com/main" target="_blank" style="color: blue">홈페이지</a></div>
           </div>
         </div>
-      </div>
-    </KakaoMapCustomOverlay>
+      </div>`;
+</script>
+
+<template>
+  <KakaoMap :lat="33.450701" :lng="126.570667">
+    <KakaoMapMarker :lat="33.450701" :lng="126.570667" />
+    <KakaoMapCustomOverlay :lat="33.450701" :lng="126.570667" :content="content" :yAnchor="1.4" />
   </KakaoMap>
 </template>

@@ -2,8 +2,8 @@
 import { KakaoMap, KakaoMapCustomOverlay } from 'vue3-kakao-maps';
 import type { ControlDataSourceType } from '@/components/common/ControlBox.vue';
 
-const lat = ref<number>(37.566826);
-const lng = ref<number>(126.9786567);
+const lat = ref<number>(33.450701);
+const lng = ref<number>(126.570667);
 const content = ref<string>();
 const zIndex = ref<number>();
 const visible = ref<boolean>(true);
@@ -12,6 +12,7 @@ const dataSource: Ref<ControlDataSourceType[]> = ref([
   {
     name: 'lat',
     description: '커스텀 오버레이의 위도 값',
+    required: true,
     type: ['number'],
     control: {
       type: 'Input',
@@ -21,6 +22,7 @@ const dataSource: Ref<ControlDataSourceType[]> = ref([
   {
     name: 'lng',
     description: '커스텀 오버레이의 경도 값',
+    required: true,
     type: ['number'],
     control: {
       type: 'Input',
@@ -79,7 +81,7 @@ const dataSource: Ref<ControlDataSourceType[]> = ref([
 <template>
   <div>
     <ClientOnly>
-      <KakaoMap :lat="37.566826" :lng="126.9786567">
+      <KakaoMap :lat="33.450701" :lng="126.570667">
         <KakaoMapCustomOverlay :lat="lat" :lng="lng" :content="content" :zIndex="zIndex" :visible="visible">
           <div
             style="
@@ -115,5 +117,6 @@ const dataSource: Ref<ControlDataSourceType[]> = ref([
 div {
   display: flex;
   align-items: center;
+  width: 100%;
 }
 </style>
