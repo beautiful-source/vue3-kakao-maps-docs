@@ -42,7 +42,7 @@ const items: ItemType[] = reactive([
     getItem('마커에 인포윈도우 표시하기', '#marker-With-infowindow')
   ]),
   getItem('KakaoMapCustomOverlay', '/kakaoMapCustomOverlay'),
-  getItem('KakaoMapMarkerCluster', '/kakaoMapMarkerCluster')
+  getItem('KakaoMapMarkerCluster', '/kakaoMapMarkerCluster', null, [getItem('마커 클러스터 생성하기', '#basic-marker-cluster')])
 ]);
 
 const handleClick: MenuProps['onClick'] = (e) => {

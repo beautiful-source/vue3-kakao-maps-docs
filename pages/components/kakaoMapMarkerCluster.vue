@@ -9,6 +9,11 @@ const anchorItems = [
     key: 'marker-cluster-control',
     href: '#marker-cluster-control',
     title: '컨트롤러'
+  },
+  {
+    key: 'basic-marker-cluster',
+    href: '#basic-marker-cluster',
+    title: '마커 클러스터 생성하기'
   }
 ];
 </script>
@@ -19,7 +24,7 @@ const anchorItems = [
       <h1 id="marker-cluster-control">KakaoMapMarkerCluster</h1>
       <p>카카오 지도 마커 클러스터 컴포넌트입니다.</p>
       <KakaoMapMarkerClusterBasicMarkerCluster />
-      <h2>마커 클러스터 생성하기</h2>
+      <h2 id="basic-marker-cluster">마커 클러스터 생성하기</h2>
       <p>기본적인 마커 클러스터 생성입니다.</p>
       <CodeBox :tsCode="KakaoMapMarkerClusterBasicMarkerClusterCodeTs" :jsCode="KakaoMapMarkerClusterBasicMarkerClusterCodeJs">
         <template #demo>
