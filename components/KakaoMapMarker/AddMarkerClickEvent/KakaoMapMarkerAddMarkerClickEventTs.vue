@@ -16,7 +16,6 @@ const onClickKakaoMapMarker = (): void => {
       :lng="126.570667"
       :clickable="true"
       :infoWindow="{ content: 'Click Marker', visible: visibleRef }"
-      ,
       @onClickKakaoMapMarker="onClickKakaoMapMarker"
     />
   </KakaoMap>
