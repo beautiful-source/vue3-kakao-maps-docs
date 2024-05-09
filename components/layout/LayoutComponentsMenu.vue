@@ -76,7 +76,7 @@ onMounted(() => {
       <template #fallback>
         <ul>
           <li v-for="item in items" :key="item?.key">
-            <template v-if="item != null">
+            <template v-if="item !== null">
               {{ 'label' in item ? item.label : '' }}
               <ul v-if="'children' in item">
                 <li v-for="child in item?.children" :key="child?.key">

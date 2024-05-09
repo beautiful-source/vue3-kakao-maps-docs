@@ -25,7 +25,7 @@ const onLoadKakaoMap = (mapRef) => {
     point = new kakao.maps.LatLng(markerInfo.lat, markerInfo.lng);
 
     marker = new kakao.maps.Marker({ position: point });
-    if (map.value) {
+    if (map.value !== undefined) {
       marker.setMap(map.value);
     }
 
@@ -37,7 +37,7 @@ const onLoadKakaoMap = (mapRef) => {
 const setBounds = () => {
   // LatLngBounds 객체에 추가된 좌표들을 기준으로 지도의 범위를 재설정합니다
   // 이때 지도의 중심좌표와 레벨이 변경될 수 있습니다
-  if (map.value != undefined) {
+  if (map.value !== undefined) {
     map.value.setBounds(bounds);
   }
 };
