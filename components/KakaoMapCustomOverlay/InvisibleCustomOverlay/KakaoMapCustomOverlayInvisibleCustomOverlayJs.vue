@@ -1,4 +1,5 @@
 <script setup>
+import { ref } from 'vue';
 import { KakaoMap, KakaoMapCustomOverlay } from 'vue3-kakao-maps';
 const content = ` <div
         style="
