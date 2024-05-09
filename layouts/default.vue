@@ -1,7 +1,7 @@
 <script setup lang="ts">
 const route = useRoute();
 const colorMode = useColorMode();
-const headerMenuItems = [
+const headerMenuItems = ref([
   {
     key: '/docs',
     label: 'Docs',
@@ -12,22 +12,33 @@ const headerMenuItems = [
     label: 'Components',
     selected: route.path.indexOf('components') > -1
   }
-];
+]);
 const changeTheme = () => {
   colorMode.preference = colorMode.value === 'light' ? 'dark' : 'light';
 };
+
+watch(
+  () => route.path,
+  () => {
+    headerMenuItems.value.forEach((item) => (item.selected = route.path.indexOf(item.key) > -1));
+  }
+);
 </script>
 
 <template>
   <div>
-    <a-page-header title="vue3-kakao-maps" :avatar="{ src: '/images/logo.png', shape: 'square' }" class="page-header">
+    <a-page-header :avatar="{ src: '/images/logo.png', shape: 'square' }" class="page-header">
+      <template #title>
+        <NuxtLink to="/">vue3-kakao-maps</NuxtLink>
+      </template>
       <template #extra>
         <ul>
           <li
             v-for="menuItem of headerMenuItems"
             :key="menuItem.key"
             :class="{
-              selected: menuItem.selected
+              selected: menuItem.selected,
+              'un-selected': !menuItem.selected
             }"
           >
             <NuxtLink :to="menuItem.key">
@@ -45,13 +56,18 @@ const changeTheme = () => {
           ></a-switch>
         </ClientOnly>
         <a-divider type="vertical"></a-divider>
-        <img src="/public/images/npmLogo.png" />
+
+        <NuxtLink to="https://www.npmjs.com/package/vue3-kakao-maps" target="_blank" class="npm-link">
+          <img src="/public/images/npmLogo.png"
+        /></NuxtLink>
       </template>
     </a-page-header>
     <div class="main-contents">
       <aside v-if="route.path !== '/'">
-        <layout-components-menu v-if="route.path.indexOf('components') > -1" />
-        <layout-docs-menu v-if="route.path.indexOf('docs') > -1" />
+        <a-affix :offset-top="10">
+          <layout-components-menu v-if="route.path.indexOf('components') > -1" />
+          <layout-docs-menu v-if="route.path.indexOf('docs') > -1" />
+        </a-affix>
       </aside>
 
       <main>
@@ -82,7 +98,15 @@ const changeTheme = () => {
     }
   }
 }
-
+.npm-link {
+  a {
+    display: block;
+    height: fit-content;
+  }
+  img {
+    vertical-align: text-top;
+  }
+}
 .main-contents {
   display: flex;
   aside {
@@ -95,19 +119,12 @@ const changeTheme = () => {
   }
 }
 
-.anchor {
-  width: 180px;
-  position: fixed;
-  top: 100px;
-  left: 90vw;
-}
-
 .dark-mode {
   .page-header {
     .ant-page-header-heading-title {
       color: $gray-1;
     }
-    a {
+    .un-selected {
       color: $gray-7;
     }
   }

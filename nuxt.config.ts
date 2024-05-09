@@ -22,6 +22,11 @@ export default defineNuxtConfig({
       extensions: ['.vue']
     }
   ],
+  router: {
+    options: {
+      scrollBehaviorType: 'smooth'
+    }
+  },
   content: {
     highlight: {
       theme: 'github-light'

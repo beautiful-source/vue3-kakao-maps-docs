@@ -6,3 +6,4 @@ export * from './EnableDisableZoomInOut';
 export * from './MapInfo';
 export * from './AddMapClickEvent';
 export * from './MultipleMarkerControl';
+export * from './SetBounds';
