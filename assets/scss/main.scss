@@ -8,30 +8,8 @@ body {
   margin: 0;
 }
 
-.dark-mode {
-  body {
-    background-color: $gray-11;
-  }
-
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6,
-  p,
-  span:not([class^="hljs"]) {
-    color: $gray-5;
-    transition: color 0.2s;
-  }
-}
-
-.light-mode {
-  * {
-    transition: background-color 0.2s;
-    transition: color 0.2s;
-  }
-}
+$light-mode-background-color: $gray-1;
+$dark-mode-background-color: $gray-11;
 
 .demo-button {
   border-radius: 6px;
@@ -54,4 +32,79 @@ pre {
     "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji",
     "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji" !important;
   font-size: 0.9rem !important;
+}
+
+$anchor-width: 120px;
+$content-anchor-gap: 10px;
+
+.contents-wrap {
+  width: 100%;
+  display: flex;
+  gap: $content-anchor-gap;
+
+  .contents {
+    width: calc(100% - ($anchor-width + $content-anchor-gap));
+  }
+
+  .anchor {
+    width: $anchor-width;
+    .ant-anchor-link-title {
+      font-size: 0.8em;
+    }
+  }
+}
+
+*::-webkit-scrollbar {
+  width: 16px;
+  height: 16px;
+  background: transparent;
+}
+
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+*::-webkit-scrollbar-thumb {
+  border: 6px solid rgba(0, 0, 0, 0);
+  background-clip: padding-box;
+  border-radius: 8px;
+  background-color: rgba(0, 0, 0, 0.45);
+}
+
+.dark-mode {
+  body {
+    background-color: $dark-mode-background-color;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p,
+  a,
+  span:not([class^="hljs"], [class^="ant-tag"]) {
+    color: $gray-5;
+    transition: color 0.2s;
+  }
+  .ant-anchor-link-title {
+    color: $gray-2 !important;
+  }
+  .ant-anchor-link-title-active {
+    color: $primary !important;
+  }
+  *::-webkit-scrollbar-thumb {
+    border: 6px solid $dark-mode-background-color;
+    background-clip: padding-box;
+    border-radius: 8px;
+    background-color: $gray-7;
+  }
+}
+
+.light-mode {
+  * {
+    transition: background-color 0.2s;
+    transition: color 0.2s;
+  }
 }

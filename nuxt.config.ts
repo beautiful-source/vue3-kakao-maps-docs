@@ -21,5 +21,10 @@ export default defineNuxtConfig({
       path: '~/components',
       extensions: ['.vue']
     }
-  ]
+  ],
+  router: {
+    options: {
+      scrollBehaviorType: 'smooth'
+    }
+  }
 });
