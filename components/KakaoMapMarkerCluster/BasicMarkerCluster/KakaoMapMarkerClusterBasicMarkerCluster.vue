@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { KakaoMap } from 'vue3-kakao-maps';
 import type { ControlDataSourceType } from '@/components/common/ControlBox.vue';
-import type { KakaoMapMarkerProps } from '@/components/KakaoMapMarkerCluster/BasicMarkerCluster/marker.ts';
+import type { KakaoMapMarkerProps } from 'vue3-kakao-maps';
 
 const markers: KakaoMapMarkerProps[] = [
   {
