@@ -26,13 +26,6 @@ const anchorItems = [
           <KakaoMapMarkerClusterBasicMarkerClusterTs />
         </template>
       </CodeBox>
-      <h2>마커 클러스터 생성하기</h2>
-      <p>기본적인 마커 클러스터 생성입니다.</p>
-      <CodeBox :tsCode="KakaoMapMarkerClusterBasicMarkerClusterCodeTs" :jsCode="KakaoMapMarkerClusterBasicMarkerClusterCodeJs">
-        <template #demo>
-          <KakaoMapMarkerClusterBasicMarkerClusterTs />
-        </template>
-      </CodeBox>
     </div>
     <div class="anchor">
       <a-anchor :items="anchorItems" :offsetTop="20" />
