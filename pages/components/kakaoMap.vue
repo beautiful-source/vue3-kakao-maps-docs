@@ -15,7 +15,9 @@ import {
   KakaoMapMapInfoCodeJs,
   KakaoMapMapInfoCodeTs,
   KakaoMapMultipleMarkerControlCodeJs,
-  KakaoMapMultipleMarkerControlCodeTs
+  KakaoMapMultipleMarkerControlCodeTs,
+  KakaoMapSetBoundsCodeTs,
+  KakaoMapSetBoundsCodeJs
 } from '@/components/KakaoMap';
 
 const anchorItems = [
@@ -48,6 +50,11 @@ const anchorItems = [
     key: 'enable-disable-zoom-in-out',
     href: '#enable-disable-zoom-in-out',
     title: '지도 확대 축소 막기'
+  },
+  {
+    key: 'set-bounds',
+    href: '#set-bounds',
+    title: '지도 범위 재설정하기'
   },
   {
     key: 'add-map-click-event',
@@ -115,6 +122,16 @@ const anchorItems = [
       <CodeBox :tsCode="KakaoMapEnableDisableZoomInOutCodeTs" :jsCode="KakaoMapEnableDisableZoomInOutCodeJs">
         <template #demo>
           <KakaoMapEnableDisableZoomInOutTs />
+        </template>
+      </CodeBox>
+      <h2 id="set-bounds">지도 범위 재설정하기</h2>
+      <p>
+        지도 범위를 재설정합니다. 어떤 좌표나 마커들이 지도에 모두 보여야 할 때 좌표들의 정보를 갖는 LatLngBounds를 사용하여
+        좌표들이 모두 보이게 지도의 중심좌표와 레벨을 재설정 할 수 있습니다.
+      </p>
+      <CodeBox :tsCode="KakaoMapSetBoundsCodeTs" :jsCode="KakaoMapSetBoundsCodeJs">
+        <template #demo>
+          <KakaoMapSetBoundsTs />
         </template>
       </CodeBox>
       <h2 id="add-map-click-event">클릭 이벤트 등록하기</h2>
