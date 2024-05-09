@@ -23,7 +23,7 @@
     "unplugin-vue-components": "^0.27.0",
     "vue": "^3.4.21",
     "vue-router": "^4.3.0",
-    "vue3-kakao-maps": "^2.1.0"
+    "vue3-kakao-maps": "^2.2.0"
   },
   "devDependencies": {
     "@ant-design-vue/nuxt": "^1.4.1",
