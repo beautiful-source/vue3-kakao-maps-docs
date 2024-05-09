@@ -3,9 +3,9 @@ const route = useRoute();
 const colorMode = useColorMode();
 const headerMenuItems = ref([
   {
-    key: "/docs",
-    label: "Docs",
-    selected: route.path.indexOf("docs") > -1,
+    key: '/docs',
+    label: 'Docs',
+    selected: route.path.indexOf('docs') > -1
   },
   {
     key: "/components/kakaoMap",
@@ -14,7 +14,7 @@ const headerMenuItems = ref([
   },
 ]);
 const changeTheme = () => {
-  colorMode.preference = colorMode.value === "light" ? "dark" : "light";
+  colorMode.preference = colorMode.value === 'light' ? 'dark' : 'light';
 };
 
 watch(
