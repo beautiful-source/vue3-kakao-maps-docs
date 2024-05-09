@@ -1,5 +1,7 @@
 <script setup>
+import { ref } from 'vue';
 import { KakaoMap, KakaoMapMarker } from 'vue3-kakao-maps';
+
 const visibleRef = ref(true);
 
 const onClickKakaoMapMarker = () => {

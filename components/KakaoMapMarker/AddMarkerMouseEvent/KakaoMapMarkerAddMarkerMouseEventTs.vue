@@ -1,10 +1,13 @@
 <script setup lang="ts">
+import { ref } from 'vue';
 import { KakaoMap, KakaoMapMarker } from 'vue3-kakao-maps';
+
 const visibleRef = ref<boolean>(false);
 
 const mouseOverKakaoMapMarker = (): void => {
   visibleRef.value = true;
 };
+
 const mouseOutKakaoMapMarker = (): void => {
   visibleRef.value = false;
 };
