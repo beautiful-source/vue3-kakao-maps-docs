@@ -49,7 +49,7 @@ const changeTheme = () => {
       </template>
     </a-page-header>
     <div class="main-contents">
-      <aside>
+      <aside v-if="route.path !== '/'">
         <layout-components-menu v-if="route.path.indexOf('components') > -1" />
         <layout-docs-menu v-if="route.path.indexOf('docs') > -1" />
       </aside>
@@ -89,7 +89,7 @@ const changeTheme = () => {
     width: 240px;
   }
   main {
-    padding: 0 3em;
+    padding: 0 3em 3em;
     box-sizing: border-box;
     width: calc(100% - 240px);
   }
