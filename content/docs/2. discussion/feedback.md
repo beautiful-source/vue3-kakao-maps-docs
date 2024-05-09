@@ -1,0 +1,13 @@
+# 문의 및 피드백 남기기
+
+## 구글 설문
+
+[`vue3-kakao-maps`에 관한 소중한 생각을 남겨주세요!](https://forms.gle/qZty6EQDRD8Q3b3i9)
+
+## 카카오톡 채널 문의
+
+[채팅 시작하기](http://pf.kakao.com/_iiZUG/chat)
+
+## 이메일 문의
+
+jayula107@gmail.com
