@@ -17,6 +17,7 @@ const dataSource: Ref<ControlDataSourceType[]> = ref([
   {
     name: 'lat',
     description: '마커의 위도 값',
+    required: true,
     type: ['number'],
     control: {
       type: 'Input',
@@ -26,6 +27,7 @@ const dataSource: Ref<ControlDataSourceType[]> = ref([
   {
     name: 'lng',
     description: '마커의 경도 값',
+    required: true,
     type: ['number'],
     control: {
       type: 'Input',
@@ -130,5 +132,6 @@ const dataSource: Ref<ControlDataSourceType[]> = ref([
 div {
   display: flex;
   align-items: center;
+  width: 100%;
 }
 </style>
