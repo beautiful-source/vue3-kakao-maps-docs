@@ -1,9 +1,8 @@
 <script setup lang="ts">
-import { useSlots } from "vue";
+import { useSlots } from 'vue';
 
 const slots = useSlots();
-const code =
-  slots.default !== undefined ? slots.default()[0].props?.code : undefined;
+const code = slots.default !== undefined ? slots.default()[0].props?.code : undefined;
 const isCodeCopied = ref<boolean>(false);
 
 const onClickCopyCode = async () => {
@@ -12,10 +11,10 @@ const onClickCopyCode = async () => {
       await navigator.clipboard.writeText(code);
       isCodeCopied.value = true;
     } catch (e: unknown) {
-      console.error("unknown error: ", e);
+      console.error('unknown error: ', e);
     }
   } else {
-    console.error("window 객체 로드되지 않음");
+    console.error('window 객체 로드되지 않음');
   }
 };
 </script>
@@ -24,12 +23,8 @@ const onClickCopyCode = async () => {
   <div class="code-wrap">
     <slot />
     <a-tooltip>
-      <template #title>{{ isCodeCopied ? "Copied!" : "Copy code" }}</template>
-      <button
-        @click="onClickCopyCode"
-        @mouseout="isCodeCopied = false"
-        size="large"
-      >
+      <template #title>{{ isCodeCopied ? 'Copied!' : 'Copy code' }}</template>
+      <button @click="onClickCopyCode" @mouseout="isCodeCopied = false" size="large">
         <CheckOutlined v-show="isCodeCopied" />
         <CopyOutlined v-show="!isCodeCopied" />
       </button>
