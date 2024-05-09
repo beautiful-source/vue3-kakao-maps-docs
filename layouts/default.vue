@@ -1,7 +1,7 @@
 <script setup lang="ts">
 const route = useRoute();
 const colorMode = useColorMode();
-const headerMenuItems = [
+const headerMenuItems = ref([
   {
     key: "/docs",
     label: "Docs",
@@ -12,10 +12,19 @@ const headerMenuItems = [
     label: "Components",
     selected: route.path.indexOf("components") > -1,
   },
-];
+]);
 const changeTheme = () => {
   colorMode.preference = colorMode.value === "light" ? "dark" : "light";
 };
+
+watch(
+  () => route.path,
+  () => {
+    headerMenuItems.value.forEach(
+      (item) => (item.selected = route.path.indexOf(item.key) > -1)
+    );
+  }
+);
 </script>
 
 <template>
