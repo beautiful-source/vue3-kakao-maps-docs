@@ -1,9 +1,9 @@
 import KakaoMapMarkerClusterBasicMarkerCluster from './KakaoMapMarkerClusterBasicMarkerCluster.vue';
-import KakaoMapMarkerClusterBasicMarkerClusterJs from './KakaoMapMarkerClusterBasicMarkerClusterJs.vue?raw';
-import KakaoMapMarkerClusterBasicMarkerClusterTs from './KakaoMapMarkerClusterBasicMarkerClusterTs.vue?raw';
+import KakaoMapMarkerClusterBasicMarkerClusterCodeJs from './KakaoMapMarkerClusterBasicMarkerClusterJs.vue?raw';
+import KakaoMapMarkerClusterBasicMarkerClusterCodeTs from './KakaoMapMarkerClusterBasicMarkerClusterTs.vue?raw';
 
 export {
   KakaoMapMarkerClusterBasicMarkerCluster,
-  KakaoMapMarkerClusterBasicMarkerClusterJs,
-  KakaoMapMarkerClusterBasicMarkerClusterTs
+  KakaoMapMarkerClusterBasicMarkerClusterCodeJs,
+  KakaoMapMarkerClusterBasicMarkerClusterCodeTs
 };

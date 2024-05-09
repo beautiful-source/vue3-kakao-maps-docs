@@ -62,13 +62,14 @@ const dataSource: Ref<ControlDataSourceType[]> = ref([
   },
   {
     name: 'styles',
-    description: '클러스터의 스타일',
+    description: '클러스터의 스타일, calculator 로 구분된 사이즈 구간마다 적용',
     type: ['object[]']
   },
   {
     name: 'texts',
     description: '클러스터에 표시할 문자열 또는 문자열 생성 함수',
-    type: ['string[]', '((size: number) => string)']
+    type: ['string[]', '((size: number) => string)'],
+    default: '클러스터에 포함된 숫자'
   },
   {
     name: 'calculator',
@@ -80,7 +81,7 @@ const dataSource: Ref<ControlDataSourceType[]> = ref([
     name: 'disableClickZoom',
     description: '클러스터 클릭 시 지도 확대 여부',
     type: ['boolean'],
-    default: 'true'
+    default: 'false'
   },
   {
     name: 'clickable',
