@@ -1,10 +1,5 @@
 <script setup lang="ts">
-import {
-  KakaoMap,
-  type KakaoMapMarkerImage,
-  KakaoMapMarker,
-  type KakaoMapMarkerInfoWindow,
-} from 'vue3-kakao-maps';
+import { KakaoMap, type KakaoMapMarkerImage, KakaoMapMarker, type KakaoMapMarkerInfoWindow } from 'vue3-kakao-maps';
 import type { ControlDataSourceType } from '@/components/common/ControlBox.vue';
 
 const lat = ref<number>(33.450705);
@@ -12,8 +7,8 @@ const lng = ref<number>(126.570667);
 const image = ref<KakaoMapMarkerImage>();
 const infoWindow = ref<KakaoMapMarkerInfoWindow>();
 const title = ref<string>('마커');
-const draggable = ref<boolean>(true);
-const clickable = ref<boolean>(true);
+const draggable = ref<boolean>(false);
+const clickable = ref<boolean>(false);
 const zIndex = ref<number>();
 const opacity = ref<number>();
 const altitude = ref<number>();
@@ -25,8 +20,8 @@ const dataSource: Ref<ControlDataSourceType[]> = ref([
     type: ['number'],
     control: {
       type: 'Input',
-      value: lat,
-    },
+      value: lat
+    }
   },
   {
     name: 'lng',
@@ -34,19 +29,18 @@ const dataSource: Ref<ControlDataSourceType[]> = ref([
     type: ['number'],
     control: {
       type: 'Input',
-      value: lng,
-    },
+      value: lng
+    }
   },
   {
     name: 'infoWindow',
     description: '마커에 추가할 InfoWindow content',
-    type: ['KakaoMapMarkerInfoWindow'],
+    type: ['KakaoMapMarkerInfoWindow']
   },
   {
     name: 'image',
-    description:
-      '마커 이미지, 이미지를 설정하지 않으면 기본 마커 이미지로 보임',
-    type: ['KakaoMapMarkerImage'],
+    description: '마커 이미지, 이미지를 설정하지 않으면 기본 마커 이미지로 보임',
+    type: ['KakaoMapMarkerImage']
   },
   {
     name: 'title',
@@ -54,36 +48,39 @@ const dataSource: Ref<ControlDataSourceType[]> = ref([
     type: ['string'],
     control: {
       type: 'Input',
-      value: title,
-    },
+      value: title
+    }
   },
   {
     name: 'draggable',
     description: '마커의 드래그 가능 여부',
     type: ['boolean'],
+    default: 'false',
     control: {
       type: 'Boolean',
-      value: draggable,
-    },
+      value: draggable
+    }
   },
   {
     name: 'clickable',
     description: '마커의 클릭 가능 여부',
     type: ['boolean'],
+    default: 'false',
     control: {
       type: 'Boolean',
-      value: clickable,
-    },
+      value: clickable
+    }
   },
 
   {
     name: 'zIndex',
     description: '마커의 z-index 속성 값',
     type: ['number'],
+    default: '0',
     control: {
       type: 'Input',
-      value: zIndex,
-    },
+      value: zIndex
+    }
   },
   {
     name: 'opacity',
@@ -91,20 +88,20 @@ const dataSource: Ref<ControlDataSourceType[]> = ref([
     type: ['number'],
     control: {
       type: 'Input',
-      value: opacity,
-    },
+      value: opacity
+    }
   },
   {
     name: 'altitude',
     description: '로드뷰에 올라가 있는 마커의 높이 값(m 단위)',
-    type: ['number'],
+    type: ['number']
   },
   {
     name: 'range',
     description:
       '로드뷰 상에서 마커의 가시반경(m 단위), 두 지점 사이의 거리가 지정한 값보다 멀어지면 마커는 로드뷰에서 보이지 않게 됨',
-    type: ['number'],
-  },
+    type: ['number']
+  }
 ]);
 </script>
 
@@ -116,7 +113,7 @@ const dataSource: Ref<ControlDataSourceType[]> = ref([
         :lng="lng"
         :title="title"
         :infoWindow="{
-          content: 'Hello world',
+          content: 'Hello world'
         }"
         :altitude="altitude"
         :draggable="draggable"
