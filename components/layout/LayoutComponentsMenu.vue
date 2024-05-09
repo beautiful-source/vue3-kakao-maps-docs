@@ -34,15 +34,23 @@ const items: ItemType[] = reactive([
     getItem('마커 생성하기', '#basic-marker'),
     getItem('이미지 마커 생성하기', '#image-marker'),
     getItem('인포윈도우가 있는 마커 생성하기 1', '#infowindow-marker-1'),
-    getItem('인포윈도우가 있는 마커 생성하기 2', '#infowindow-marker-2')
+    getItem('인포윈도우가 있는 마커 생성하기 2', '#infowindow-marker-2'),
+    getItem('마커에 클릭 이벤트 등록하기', '#add-marker-click-event'),
+    getItem('마커에 마우스 이벤트 등록하기', '#add-marker-mouse-event')
   ]),
   getItem('KakaoMapInfowindow', '/kakaoMapInfoWindow', null, [
     getItem('인포윈도우 생성하기 1', '#basic-infowindow-1'),
     getItem('인포윈도우 생성하기 2', '#basic-infowindow-2'),
     getItem('마커에 인포윈도우 표시하기', '#marker-With-infowindow')
   ]),
-  getItem('KakaoMapCustomOverlay', '/kakaoMapCustomOverlay'),
-  getItem('KakaoMapCluster', '/kakaoMapMarkerCluster')
+  getItem('KakaoMapCustomOverlay', '/kakaoMapCustomOverlay', null, [
+    getItem('커스텀 오버레이 생성하기 1', '#basic-custom-overlay'),
+    getItem('커스텀 오버레이 생성하기 2', '#basic-custom-overlay2'),
+    getItem('커스텀 오버레이 마커 위에 표시하기', '#marker-custom-overlay'),
+    getItem('닫기가 가능한 커스텀 오버레이', '#removable-custom-overlay'),
+    getItem('보이지 않게 커스텀 오버레이 생성하기', '#invisible-custom-overlay')
+  ]),
+  getItem('KakaoMapMarkerCluster', '/kakaoMapMarkerCluster', null, [getItem('마커 클러스터 생성하기', '#basic-marker-cluster')])
 ]);
 
 const handleClick: MenuProps['onClick'] = (e) => {

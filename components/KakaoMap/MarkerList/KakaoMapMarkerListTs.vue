@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref } from 'vue';
+import { ref, computed } from 'vue';
 import { KakaoMap, type KakaoMapMarkerListItem } from 'vue3-kakao-maps';
 
 const markerInfoList: KakaoMapMarkerListItem[] = [

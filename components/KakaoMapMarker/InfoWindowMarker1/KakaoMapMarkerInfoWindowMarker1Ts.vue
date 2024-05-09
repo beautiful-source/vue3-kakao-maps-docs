@@ -4,7 +4,13 @@ import { KakaoMap, KakaoMapMarker } from 'vue3-kakao-maps';
 
 <template>
   <KakaoMap :lat="33.450705" :lng="126.570667">
-    <KakaoMapMarker :lat="33.450705" :lng="126.570667" :infoWindow="'props로 추가'" />
+    <KakaoMapMarker
+      :lat="33.450705"
+      :lng="126.570667"
+      :infoWindow="{
+        content: 'props로 추가',
+      }"
+    />
   </KakaoMap>
 </template>
 
