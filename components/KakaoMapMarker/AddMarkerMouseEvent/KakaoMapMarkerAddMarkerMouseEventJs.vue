@@ -20,7 +20,6 @@ const mouseOutKakaoMapMarker = () => {
       :lng="126.570667"
       :clickable="true"
       :infoWindow="{ content: 'Mouse Over event', visible: visibleRef }"
-      ,
       @mouseOverKakaoMapMarker="mouseOverKakaoMapMarker"
       @mouseOutKakaoMapMarker="mouseOutKakaoMapMarker"
     />
