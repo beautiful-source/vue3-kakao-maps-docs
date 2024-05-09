@@ -60,7 +60,10 @@ watch(
           ></a-switch>
         </ClientOnly>
         <a-divider type="vertical"></a-divider>
-        <img src="/public/images/npmLogo.png" />
+
+        <NuxtLink to="https://www.npmjs.com/package/vue3-kakao-maps" target="_blank" class="npm-link">
+          <img src="/public/images/npmLogo.png"
+        /></NuxtLink>
       </template>
     </a-page-header>
     <div class="main-contents">
@@ -93,7 +96,15 @@ watch(
     }
   }
 }
-
+.npm-link {
+  a {
+    display: block;
+    height: fit-content;
+  }
+  img {
+    vertical-align: text-top;
+  }
+}
 .main-contents {
   display: flex;
 }
