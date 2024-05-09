@@ -20,9 +20,16 @@ body {
   h5,
   h6,
   p,
+  a,
   span:not([class^="hljs"]) {
     color: $gray-5;
     transition: color 0.2s;
+  }
+  .ant-anchor-link-title {
+    color: $gray-2 !important;
+  }
+  .ant-anchor-link-title-active {
+    color: $primary !important;
   }
 }
 

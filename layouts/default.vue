@@ -43,6 +43,7 @@ watch(
             :key="menuItem.key"
             :class="{
               selected: menuItem.selected,
+              'un-selected': !menuItem.selected,
             }"
           >
             <NuxtLink :to="menuItem.key">
@@ -118,7 +119,7 @@ watch(
     .ant-page-header-heading-title {
       color: $gray-1;
     }
-    a {
+    .un-selected {
       color: $gray-7;
     }
   }
