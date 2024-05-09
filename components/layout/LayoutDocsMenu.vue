@@ -1,27 +1,19 @@
 <script lang="ts" setup>
-import { reactive, ref, watch, VueElement, h } from "vue";
-import type { MenuProps, ItemType } from "ant-design-vue";
-import type { NavItem } from "@nuxt/content/types";
+import type { NavItem } from '@nuxt/content/types';
+import type { ItemType, MenuProps } from 'ant-design-vue';
+import { VueElement, ref } from 'vue';
 
-const { data: navigation } = await useAsyncData("navigation", () =>
-  fetchContentNavigation()
-);
+const { data: navigation } = await useAsyncData('navigation', () => fetchContentNavigation());
 const router = useRouter();
-const selectedKeys = ref<string[]>(["/docs/get-started/installation"]);
-const openKeys = ref<string[]>(["/docs/get-started"]);
-const getItem = (
-  label: VueElement | string,
-  key: string,
-  icon?: any,
-  children?: ItemType[],
-  type?: "group"
-): ItemType => {
+const selectedKeys = ref<string[]>(['/docs/get-started/installation']);
+const openKeys = ref<string[]>(['/docs/get-started']);
+const getItem = (label: VueElement | string, key: string, icon?: any, children?: ItemType[], type?: 'group'): ItemType => {
   return {
     key,
     icon,
     children,
     label,
-    type,
+    type
   } as ItemType;
 };
 
@@ -38,8 +30,8 @@ const items = computed<ItemType[] | undefined>(() => {
   }
 });
 
-const handleClick: MenuProps["onClick"] = (e) => {
-  router.push(e.key + "");
+const handleClick: MenuProps['onClick'] = (e) => {
+  router.push(e.key + '');
 };
 </script>
 
