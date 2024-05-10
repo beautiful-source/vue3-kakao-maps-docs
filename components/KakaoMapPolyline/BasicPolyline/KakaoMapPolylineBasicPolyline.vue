@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { ref } from 'vue';
 import { KakaoMap, KakaoMapPolyline } from 'vue3-kakao-maps';
 import type { KakaoMapLatLngItem } from 'vue3-kakao-maps';
 import type { ControlDataSourceType } from '@/components/common/ControlBox.vue';

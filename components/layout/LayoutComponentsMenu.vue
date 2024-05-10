@@ -61,7 +61,7 @@ const items: ItemType[] = reactive([
   ]),
   getItem('KakaoMapPolyline', '/KakaoMapPolyline', null, [
     getItem('폴리라인 생성하기', '#basic-polyline'),
-    getItem('화살표 표시하기', '#arrow-polyline')
+    getItem('폴리라인에 화살표 표시하기', '#arrow-polyline')
   ])
 ]);
 
