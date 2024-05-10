@@ -26,8 +26,8 @@ watch(
 </script>
 
 <template>
-  <div>
-    <a-page-header :avatar="{ src: '/images/logo.png', shape: 'square' }" class="page-header">
+  <div style="padding-top: 60px">
+    <a-page-header :avatar="{ src: '/images/logo.png', shape: 'square' }" class="page-header" style="background-color: white">
       <template #title>
         <NuxtLink to="/">vue3-kakao-maps</NuxtLink>
       </template>
@@ -64,7 +64,7 @@ watch(
     </a-page-header>
     <div class="main-contents">
       <aside v-if="route.path !== '/'">
-        <a-affix :offset-top="10">
+        <a-affix :offset-top="70">
           <layout-components-menu v-if="route.path.indexOf('components') > -1" />
           <layout-docs-menu v-if="route.path.indexOf('docs') > -1" />
         </a-affix>
@@ -79,9 +79,17 @@ watch(
 
 <style lang="scss">
 .page-header {
+  box-sizing: border-box;
+  height: 60px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
   ul {
     display: flex;
     list-style: none;
+    background-color: white;
     margin: 0;
     padding: 0;
     gap: 2rem;
@@ -109,7 +117,10 @@ watch(
 }
 .main-contents {
   display: flex;
+  height: 100vh;
+
   aside {
+    box-sizing: border-box;
     width: 240px;
   }
   main {
