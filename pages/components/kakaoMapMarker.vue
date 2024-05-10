@@ -61,8 +61,11 @@ const anchorItems = [
           <KakaoMapMarkerBasicMarkerTs />
         </template>
       </CodeBox>
-      <h2 id="image-marker">이미지 마커 생성하기</h2>
-      <p>이미지 마커 생성입니다.</p>
+      <h2 id="image-marker">다른 이미지로 마커 생성하기</h2>
+      <p>
+        원하는 이미지를 사용해서 더 멋진 마커를 만들 수 있습니다. 아래 예제는 마커로 사용할 이미지의 크기나 꼭지점 위치 등을
+        지정하여 기본 마커 대신 이용하는 예제입니다. 이미지의 경로는 절대경로와 상대경로 모두 사용이 가능합니다.
+      </p>
       <CodeBox :tsCode="KakaoMapMarkerImageMarkerCodeTs" :jsCode="KakaoMapMarkerImageMarkerCodeJs">
         <template #demo>
           <KakaoMapMarkerImageMarkerTs />
