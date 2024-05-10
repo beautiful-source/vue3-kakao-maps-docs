@@ -3,38 +3,18 @@ import { KakaoMap } from 'vue3-kakao-maps';
 import type { ControlDataSourceType } from '@/components/common/ControlBox.vue';
 import type { KakaoMapMarkerProps } from 'vue3-kakao-maps';
 
-const markers: KakaoMapMarkerProps[] = [
-  {
-    lat: 37.27943075229118,
-    lng: 127.01763998406159
-  },
-  {
-    lat: 37.55915668706214,
-    lng: 126.92536526611102
-  },
-  {
-    lat: 35.13854258261161,
-    lng: 129.1014781294671
-  },
-  {
-    lat: 37.55518388656961,
-    lng: 126.92926237742505
-  },
-  {
-    lat: 35.20618517638034,
-    lng: 129.07944301057026
-  },
-  {
-    lat: 37.561110808242056,
-    lng: 126.9831268386891
-  }
-];
+const markerList: KakaoMapMarkerProps[] = [];
+const data: any = await $fetch('/download/web/data/chicken.json');
+data.positions?.forEach((marker: any) => {
+  markerList?.push({ lat: marker.lat, lng: marker.lng });
+});
 
 const dataSource: Ref<ControlDataSourceType[]> = ref([
   {
     name: 'markers',
     description: '클러스터링 할 마커 배열',
-    type: ['KakaoMapMarkerProps[]']
+    type: ['KakaoMapMarkerProps[]'],
+    required: true
   },
   {
     name: 'gridSize',
@@ -81,7 +61,7 @@ const dataSource: Ref<ControlDataSourceType[]> = ref([
     name: 'disableClickZoom',
     description: '클러스터 클릭 시 지도 확대 여부',
     type: ['boolean'],
-    default: 'false'
+    default: 'true'
   },
   {
     name: 'clickable',
@@ -100,7 +80,7 @@ const dataSource: Ref<ControlDataSourceType[]> = ref([
 
 <template>
   <div>
-    <KakaoMap :lat="36.34" :lng="127.77" :level="14" :markerCluster="{ markers: markers }" />
+    <KakaoMap :lat="36.34" :lng="127.77" :level="14" :markerCluster="{ markers: markerList }" />
     <ControlBox v-model:dataSource="dataSource" />
   </div>
 </template>
