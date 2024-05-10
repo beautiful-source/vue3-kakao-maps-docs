@@ -27,6 +27,7 @@ const items: ItemType[] = reactive([
     getItem('지도 정보 얻어오기', '#map-info'),
     getItem('지도 이동 막기', '#disable-map-drag-move'),
     getItem('지도 확대 축소 막기', '#enable-disable-zoom-in-out'),
+    getItem('지도 범위 재설정하기', '#set-bounds'),
     getItem('클릭 이벤트 등록하기', '#add-map-click-event'),
     getItem('여러개의 마커 제어하기', '#multiple-marker-control')
   ]),
