@@ -11,7 +11,11 @@ import {
   KakaoMapMarkerAddMarkerClickEventCodeTs,
   KakaoMapMarkerAddMarkerClickEventCodeJs,
   KakaoMapMarkerAddMarkerMouseEventCodeTs,
-  KakaoMapMarkerAddMarkerMouseEventCodeJs
+  KakaoMapMarkerAddMarkerMouseEventCodeJs,
+  KakaoMapMarkerAddMarkerOrderCodeTs,
+  KakaoMapMarkerAddMarkerOrderCodeJs,
+  KakaoMapMarkerKeywordBasicCodeTs,
+  KakaoMapMarkerKeywordBasicCodeJs
 } from '@/components/KakaoMapMarker';
 
 const anchorItems = [
@@ -44,6 +48,16 @@ const anchorItems = [
     key: 'add-marker-mouse-event',
     href: '#add-marker-mouse-event',
     title: '마커에 마우스 이벤트 등록하기'
+  },
+  {
+    key: 'add-marker-order',
+    href: '#add-marker-order',
+    title: '마커에 순서 표시하기'
+  },
+  {
+    key: 'keyword-basic',
+    href: '#keyword-basic',
+    title: '키워드로 장소검색하기'
   }
 ];
 </script>
@@ -61,8 +75,11 @@ const anchorItems = [
           <KakaoMapMarkerBasicMarkerTs />
         </template>
       </CodeBox>
-      <h2 id="image-marker">이미지 마커 생성하기</h2>
-      <p>이미지 마커 생성입니다.</p>
+      <h2 id="image-marker">다른 이미지로 마커 생성하기</h2>
+      <p>
+        원하는 이미지를 사용해서 더 멋진 마커를 만들 수 있습니다. 아래 예제는 마커로 사용할 이미지의 크기나 꼭지점 위치 등을
+        지정하여 기본 마커 대신 이용하는 예제입니다. 이미지의 경로는 절대경로와 상대경로 모두 사용이 가능합니다.
+      </p>
       <CodeBox :tsCode="KakaoMapMarkerImageMarkerCodeTs" :jsCode="KakaoMapMarkerImageMarkerCodeJs">
         <template #demo>
           <KakaoMapMarkerImageMarkerTs />
@@ -102,9 +119,28 @@ const anchorItems = [
           <KakaoMapMarkerAddMarkerMouseEventTs />
         </template>
       </CodeBox>
+      <h2 id="add-marker-order">마커에 순서 표시하기</h2>
+      <p>마커에 순서를 표시하는 예제입니다. orderBottomMargin를 통해 마커에 순서가 표시될 y축 위치를 조정할 수 있습니다.</p>
+      <CodeBox :tsCode="KakaoMapMarkerAddMarkerOrderCodeTs" :jsCode="KakaoMapMarkerAddMarkerOrderCodeJs">
+        <template #demo>
+          <KakaoMapMarkerAddMarkerOrderTs />
+        </template>
+      </CodeBox>
+      <h2 id="keyword-basic">키워드로 장소검색하기</h2>
+      <p>
+        '역삼역 맛집'으로 장소를 검색하고 검색결과를 지도 위에 마커로 표시합니다. 마커를 클릭하면 인포윈도우에 장소명을
+        표시합니다.
+      </p>
+      <CodeBox :tsCode="KakaoMapMarkerKeywordBasicCodeTs" :jsCode="KakaoMapMarkerKeywordBasicCodeJs">
+        <template #demo>
+          <KakaoMapMarkerKeywordBasicTs />
+        </template>
+      </CodeBox>
     </div>
     <div class="anchor">
-      <a-anchor :items="anchorItems" :offsetTop="20" />
+      <a-affix :offset-top="70">
+        <a-anchor :items="anchorItems" :offset-top="70" />
+      </a-affix>
     </div>
   </div>
 </template>

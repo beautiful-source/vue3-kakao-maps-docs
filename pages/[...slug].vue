@@ -2,8 +2,11 @@
   <ContentDoc id="nuxt-content" />
 </template>
 
-<style scoped lang="scss">
-// Docs(nuxt-content) 한정 스타일
+<style lang="scss">
+/*
+* Docs(nuxt-content) 한정 스타일
+* should be without `scoped`
+*/
 div#nuxt-content {
   h1,
   h2,
@@ -36,6 +39,10 @@ div#nuxt-content {
   }
   a:hover {
     background-color: $purple-1;
+  }
+
+  a > code {
+    color: inherit;
   }
 
   code {

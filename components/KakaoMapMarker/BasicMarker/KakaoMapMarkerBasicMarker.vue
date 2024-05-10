@@ -12,6 +12,8 @@ const clickable = ref<boolean>(false);
 const zIndex = ref<number>();
 const opacity = ref<number>();
 const altitude = ref<number>();
+const order = ref<number | string>(5);
+const orderBottomMargin = ref<string>('100px');
 
 const dataSource: Ref<ControlDataSourceType[]> = ref([
   {
@@ -103,6 +105,24 @@ const dataSource: Ref<ControlDataSourceType[]> = ref([
     description:
       '로드뷰 상에서 마커의 가시반경(m 단위), 두 지점 사이의 거리가 지정한 값보다 멀어지면 마커는 로드뷰에서 보이지 않게 됨',
     type: ['number']
+  },
+  {
+    name: 'order',
+    description: '마커에 표시할 순서',
+    type: ['number', 'string'],
+    control: {
+      type: 'Input',
+      value: order
+    }
+  },
+  {
+    name: 'orderBottomMargin',
+    description: '마커에 표시될 순서의 y축 위치 (px, rem, vh 등 단위 포함)',
+    type: ['string'],
+    control: {
+      type: 'Input',
+      value: orderBottomMargin
+    }
   }
 ]);
 </script>
@@ -122,6 +142,8 @@ const dataSource: Ref<ControlDataSourceType[]> = ref([
         :clickable="clickable"
         :opacity="opacity"
         :z-index="zIndex"
+        :order="order"
+        :order-bottom-margin="orderBottomMargin"
       />
     </KakaoMap>
     <ControlBox v-model:dataSource="dataSource" />

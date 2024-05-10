@@ -54,7 +54,7 @@ const props = defineProps<ControlBoxPropsType>();
   <div class="control-box">
     <a-table
       sticky
-      :scroll="{ x: 750 }"
+      :scroll="{ x: 750, y: 500 }"
       :scrollToFirstRowOnChange="true"
       :columns="columns"
       :data-source="props.dataSource"
@@ -103,11 +103,19 @@ const props = defineProps<ControlBoxPropsType>();
   border-radius: 10px;
   margin-left: 10px;
   max-height: 500px;
-  overflow-x: auto;
+  overflow-x: scroll;
   overflow-y: auto;
   background-color: white;
   align-items: flex-start;
+
+  scrollbar-width: none;
+  -ms-overflow-style: none;
 }
+
+.control-box::-webkit-scrollbar {
+  display: none;
+}
+
 .required-star {
   color: rgba(255, 0, 0, 0.841);
   margin-left: 0.05rem;

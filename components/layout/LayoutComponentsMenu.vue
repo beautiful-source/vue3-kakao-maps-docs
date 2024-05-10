@@ -27,6 +27,7 @@ const items: ItemType[] = reactive([
     getItem('지도 정보 얻어오기', '#map-info'),
     getItem('지도 이동 막기', '#disable-map-drag-move'),
     getItem('지도 확대 축소 막기', '#enable-disable-zoom-in-out'),
+    getItem('지도 범위 재설정하기', '#set-bounds'),
     getItem('클릭 이벤트 등록하기', '#add-map-click-event'),
     getItem('여러개의 마커 제어하기', '#multiple-marker-control')
   ]),
@@ -36,7 +37,9 @@ const items: ItemType[] = reactive([
     getItem('인포윈도우가 있는 마커 생성하기 1', '#infowindow-marker-1'),
     getItem('인포윈도우가 있는 마커 생성하기 2', '#infowindow-marker-2'),
     getItem('마커에 클릭 이벤트 등록하기', '#add-marker-click-event'),
-    getItem('마커에 마우스 이벤트 등록하기', '#add-marker-mouse-event')
+    getItem('마커에 마우스 이벤트 등록하기', '#add-marker-mouse-event'),
+    getItem('마커에 순서 표시하기', '#add-marker-order'),
+    getItem('키워드로 장소검색하기', '#keyword-basic')
   ]),
   getItem('KakaoMapInfowindow', '/kakaoMapInfoWindow', null, [
     getItem('인포윈도우 생성하기 1', '#basic-infowindow-1'),
@@ -78,39 +81,51 @@ onMounted(() => {
 </script>
 <template>
   <div class="docs-menu">
-    <a-input></a-input>
-    <ClientOnly fallbackTag="span">
-      <a-menu
-        v-model:openKeys="openKeys"
-        v-model:selectedKeys="selectedKeys"
-        mode="inline"
-        :items="items"
-        @click="handleClick"
-        :theme="colorMode.value === 'light' ? 'light' : 'dark'"
-      >
-      </a-menu>
-      <template #fallback>
-        <ul>
-          <li v-for="item in items" :key="item?.key">
-            <template v-if="item !== null">
-              {{ 'label' in item ? item.label : '' }}
-              <ul v-if="'children' in item">
-                <li v-for="child in item?.children" :key="child?.key">
-                  {{ child !== null && 'label' in child ? child.label : '' }}
-                </li>
-              </ul>
-            </template>
-          </li>
-        </ul>
-      </template>
-    </ClientOnly>
+    <!-- <a-input></a-input> -->
+    <div class="docs-menu-list">
+      <ClientOnly fallbackTag="span">
+        <a-menu
+          v-model:openKeys="openKeys"
+          v-model:selectedKeys="selectedKeys"
+          mode="inline"
+          :items="items"
+          @click="handleClick"
+          :theme="colorMode.value === 'light' ? 'light' : 'dark'"
+        >
+        </a-menu>
+        <template #fallback>
+          <ul>
+            <li v-for="item in items" :key="item?.key">
+              <template v-if="item !== null">
+                {{ 'label' in item ? item.label : '' }}
+                <ul v-if="'children' in item">
+                  <li v-for="child in item?.children" :key="child?.key">
+                    {{ child !== null && 'label' in child ? child.label : '' }}
+                  </li>
+                </ul>
+              </template>
+            </li>
+          </ul>
+        </template>
+      </ClientOnly>
+    </div>
   </div>
 </template>
 
 <style scoped lang="scss">
 .docs-menu {
-  display: flex;
   flex-direction: column;
   width: 240px;
+}
+
+.docs-menu-list {
+  overflow-y: scroll;
+  height: 100vh;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.docs-menu-list::-webkit-scrollbar {
+  display: none;
 }
 </style>
