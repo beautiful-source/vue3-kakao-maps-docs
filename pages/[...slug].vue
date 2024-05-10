@@ -2,7 +2,7 @@
   <ContentDoc id="nuxt-content" />
 </template>
 
-<style lang="scss">
+<style scoped lang="scss">
 // Docs(nuxt-content) 한정 스타일
 div#nuxt-content {
   h1,
