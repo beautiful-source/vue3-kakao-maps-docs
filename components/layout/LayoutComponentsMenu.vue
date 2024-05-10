@@ -52,7 +52,8 @@ const items: ItemType[] = reactive([
   ]),
   getItem('KakaoMapMarkerCluster', '/kakaoMapMarkerCluster', null, [
     getItem('컴포넌트 맛보기', '#marker-cluster-control'),
-    getItem('마커 클러스터 생성하기', '#basic-marker-cluster')
+    getItem('마커 클러스터 생성하기', '#basic-marker-cluster'),
+    getItem('클러스터 마커에 텍스트 표시하기', '#bchicken-clusterer')
   ])
 ]);
 
