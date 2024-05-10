@@ -36,7 +36,8 @@ const items: ItemType[] = reactive([
     getItem('인포윈도우가 있는 마커 생성하기 1', '#infowindow-marker-1'),
     getItem('인포윈도우가 있는 마커 생성하기 2', '#infowindow-marker-2'),
     getItem('마커에 클릭 이벤트 등록하기', '#add-marker-click-event'),
-    getItem('마커에 마우스 이벤트 등록하기', '#add-marker-mouse-event')
+    getItem('마커에 마우스 이벤트 등록하기', '#add-marker-mouse-event'),
+    getItem('마커에 순서 표시하기', '#add-marker-order')
   ]),
   getItem('KakaoMapInfowindow', '/kakaoMapInfoWindow', null, [
     getItem('인포윈도우 생성하기 1', '#basic-infowindow-1'),
