@@ -11,7 +11,7 @@ import {
   KakaoMapMarkerAddMarkerClickEventCodeTs,
   KakaoMapMarkerAddMarkerClickEventCodeJs,
   KakaoMapMarkerAddMarkerMouseEventCodeTs,
-  KakaoMapMarkerAddMarkerMouseEventCodeJs
+  KakaoMapMarkerAddMarkerMouseEventCodeJs,
   KakaoMapMarkerAddMarkerOrderCodeTs,
   KakaoMapMarkerAddMarkerOrderCodeJs
 } from '@/components/KakaoMapMarker';
