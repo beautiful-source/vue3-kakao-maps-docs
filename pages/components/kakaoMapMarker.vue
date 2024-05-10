@@ -11,7 +11,9 @@ import {
   KakaoMapMarkerAddMarkerClickEventCodeTs,
   KakaoMapMarkerAddMarkerClickEventCodeJs,
   KakaoMapMarkerAddMarkerMouseEventCodeTs,
-  KakaoMapMarkerAddMarkerMouseEventCodeJs
+  KakaoMapMarkerAddMarkerMouseEventCodeJs,
+  KakaoMapMarkerKeywordBasicCodeTs,
+  KakaoMapMarkerKeywordBasicCodeJs
 } from '@/components/KakaoMapMarker';
 
 const anchorItems = [
@@ -44,6 +46,11 @@ const anchorItems = [
     key: 'add-marker-mouse-event',
     href: '#add-marker-mouse-event',
     title: '마커에 마우스 이벤트 등록하기'
+  },
+  {
+    key: 'keyword-basic',
+    href: '#keyword-basic',
+    title: '키워드로 장소검색하기'
   }
 ];
 </script>
@@ -103,6 +110,16 @@ const anchorItems = [
       <CodeBox :tsCode="KakaoMapMarkerAddMarkerMouseEventCodeTs" :jsCode="KakaoMapMarkerAddMarkerMouseEventCodeJs">
         <template #demo>
           <KakaoMapMarkerAddMarkerMouseEventTs />
+        </template>
+      </CodeBox>
+      <h2 id="keyword-basic">키워드로 장소검색하기</h2>
+      <p>
+        마커에 마우스 커서를 올렸을때 mouseover 이벤트가, 마우스 커서를 내리면 mouseout 이벤트가 발생합니다. 이 예제에서는 마커에
+        마우스 커서를 올리고 내릴때 인포윈도우를 표시하거나 제거하고 있습니다.
+      </p>
+      <CodeBox :tsCode="KakaoMapMarkerKeywordBasicCodeTs" :jsCode="KakaoMapMarkerKeywordBasicCodeJs">
+        <template #demo>
+          <KakaoMapMarkerKeywordBasicTs />
         </template>
       </CodeBox>
     </div>
