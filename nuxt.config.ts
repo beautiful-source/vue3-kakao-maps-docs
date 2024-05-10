@@ -31,6 +31,5 @@ export default defineNuxtConfig({
     highlight: {
       theme: 'github-light'
     }
-  },
-  css: ['~/assets/scss/docs.scss']
+  }
 });
