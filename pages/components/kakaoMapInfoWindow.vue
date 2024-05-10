@@ -56,7 +56,9 @@ const anchorItems = [
       </CodeBox>
     </div>
     <div class="anchor">
-      <a-anchor :items="anchorItems" :offsetTop="20" />
+      <a-affix :offset-top="70">
+        <a-anchor :items="anchorItems" :offset-top="70" />
+      </a-affix>
     </div>
   </div>
 </template>

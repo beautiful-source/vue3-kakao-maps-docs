@@ -104,6 +104,7 @@ $content-anchor-gap: 10px;
 
   .contents {
     width: calc(100% - ($anchor-width + $content-anchor-gap));
+    padding-bottom: 100px;
   }
 
   .anchor {
@@ -167,4 +168,32 @@ $content-anchor-gap: 10px;
     transition: background-color 0.2s;
     transition: color 0.2s;
   }
+}
+
+.ant-table-body {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.ant-table-sticky-scroll .ant-table-sticky-scroll-bar {
+  display: none;
+}
+
+.ant-menu-title-content {
+  margin-left: -15px;
+}
+
+.ant-menu-item.ant-menu-item-only-child {
+  padding: 0px;
+  width: 230px;
+  height: 30px;
+  font-size: 13px;
+  letter-spacing: -0.7px;
+  .ant-menu-title-content {
+    margin-left: -33px;
+  }
+}
+.ant-menu.ant-menu-root.ant-menu-inline.ant-menu-light {
+  min-height: 100vh;
+  padding-bottom: 100px;
 }
