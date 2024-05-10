@@ -31,68 +31,6 @@ $code-bg-color: #f8fafc;
 code {
   font-family: $code-font-family;
 }
-// Docs 한정 스타일
-div[data-content-id^='content'] {
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    a {
-      color: inherit;
-      position: relative;
-    }
-    a::before {
-      content: '';
-    }
-    a:hover::before {
-      content: '#';
-      position: absolute;
-      left: -16px;
-      top: 50%;
-      transform: translateY(-50%);
-      font-size: 16px;
-      color: $purple-6;
-    }
-  }
-
-  a {
-    text-decoration: none;
-    color: $purple-5;
-    transition: 0.4s;
-  }
-  a:hover {
-    background-color: $purple-1;
-  }
-
-  code {
-    color: $blue-7;
-    background-color: $blue-1;
-    font-size: 0.9rem;
-    padding: 2px 4px;
-    border-radius: 2px;
-  }
-
-  *[class='code-wrap'] {
-    pre,
-    code {
-      background-color: $code-bg-color;
-    }
-    pre {
-      padding: 1rem;
-      border-radius: 5px;
-      border: 2px solid $gray-4;
-      overflow-x: auto;
-
-      code {
-        padding: initial;
-        display: inline-block;
-        height: max-content;
-      }
-    }
-  }
-}
 
 $anchor-width: 120px;
 $content-anchor-gap: 10px;
@@ -135,8 +73,11 @@ $content-anchor-gap: 10px;
 .dark-mode {
   body {
     background-color: $dark-mode-background-color;
+    color: $gray-5;
   }
 
+  ul,
+  li,
   h1,
   h2,
   h3,
@@ -145,10 +86,11 @@ $content-anchor-gap: 10px;
   h6,
   p,
   a,
-  span:not([class^='hljs'], [class^='ant-tag']) {
-    color: $gray-5;
+  span:not([class^='hljs'], [class^='ant-tag'], [style^='--shiki']) {
+    color: inherit;
     transition: color 0.2s;
   }
+
   .ant-anchor-link-title {
     color: $gray-2 !important;
   }

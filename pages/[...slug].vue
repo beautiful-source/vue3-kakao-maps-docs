@@ -41,6 +41,10 @@ div#nuxt-content {
     background-color: $purple-1;
   }
 
+  a > code {
+    color: inherit;
+  }
+
   code {
     color: $blue-7;
     background-color: $blue-1;
