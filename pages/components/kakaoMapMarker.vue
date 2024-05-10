@@ -114,8 +114,8 @@ const anchorItems = [
       </CodeBox>
       <h2 id="keyword-basic">키워드로 장소검색하기</h2>
       <p>
-        마커에 마우스 커서를 올렸을때 mouseover 이벤트가, 마우스 커서를 내리면 mouseout 이벤트가 발생합니다. 이 예제에서는 마커에
-        마우스 커서를 올리고 내릴때 인포윈도우를 표시하거나 제거하고 있습니다.
+        '역삼역 맛집'으로 장소를 검색하고 검색결과를 지도 위에 마커로 표시합니다. 마커를 클릭하면 인포윈도우에 장소명을
+        표시합니다.
       </p>
       <CodeBox :tsCode="KakaoMapMarkerKeywordBasicCodeTs" :jsCode="KakaoMapMarkerKeywordBasicCodeJs">
         <template #demo>
