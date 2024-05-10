@@ -74,7 +74,7 @@ const anchorItems = [
     <div class="contents">
       <h1>KakaoMap</h1>
       <p>카카오 폴리라인 컴포넌트입니다.</p>
-      <KakaoPolylineBasicPolyline />
+      <KakaoMapPolylineBasicPolyline />
     </div>
   </div>
 </template>
