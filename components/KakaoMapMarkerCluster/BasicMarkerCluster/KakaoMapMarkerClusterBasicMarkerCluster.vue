@@ -81,7 +81,7 @@ const dataSource: Ref<ControlDataSourceType[]> = ref([
     name: 'disableClickZoom',
     description: '클러스터 클릭 시 지도 확대 여부',
     type: ['boolean'],
-    default: 'false'
+    default: 'true'
   },
   {
     name: 'clickable',
