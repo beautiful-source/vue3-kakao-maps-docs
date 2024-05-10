@@ -125,5 +125,6 @@ const dataSource: Ref<ControlDataSourceType[]> = ref([
 div {
   display: flex;
   align-items: center;
+  width: 100%;
 }
 </style>
