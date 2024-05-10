@@ -74,39 +74,51 @@ onMounted(() => {
 </script>
 <template>
   <div class="docs-menu">
-    <a-input></a-input>
-    <ClientOnly fallbackTag="span">
-      <a-menu
-        v-model:openKeys="openKeys"
-        v-model:selectedKeys="selectedKeys"
-        mode="inline"
-        :items="items"
-        @click="handleClick"
-        :theme="colorMode.value === 'light' ? 'light' : 'dark'"
-      >
-      </a-menu>
-      <template #fallback>
-        <ul>
-          <li v-for="item in items" :key="item?.key">
-            <template v-if="item !== null">
-              {{ 'label' in item ? item.label : '' }}
-              <ul v-if="'children' in item">
-                <li v-for="child in item?.children" :key="child?.key">
-                  {{ child !== null && 'label' in child ? child.label : '' }}
-                </li>
-              </ul>
-            </template>
-          </li>
-        </ul>
-      </template>
-    </ClientOnly>
+    <!-- <a-input></a-input> -->
+    <div class="docs-menu-list">
+      <ClientOnly fallbackTag="span">
+        <a-menu
+          v-model:openKeys="openKeys"
+          v-model:selectedKeys="selectedKeys"
+          mode="inline"
+          :items="items"
+          @click="handleClick"
+          :theme="colorMode.value === 'light' ? 'light' : 'dark'"
+        >
+        </a-menu>
+        <template #fallback>
+          <ul>
+            <li v-for="item in items" :key="item?.key">
+              <template v-if="item !== null">
+                {{ 'label' in item ? item.label : '' }}
+                <ul v-if="'children' in item">
+                  <li v-for="child in item?.children" :key="child?.key">
+                    {{ child !== null && 'label' in child ? child.label : '' }}
+                  </li>
+                </ul>
+              </template>
+            </li>
+          </ul>
+        </template>
+      </ClientOnly>
+    </div>
   </div>
 </template>
 
 <style scoped lang="scss">
 .docs-menu {
-  display: flex;
   flex-direction: column;
   width: 240px;
+}
+
+.docs-menu-list {
+  overflow-y: scroll;
+  height: 100vh;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.docs-menu-list::-webkit-scrollbar {
+  display: none;
 }
 </style>
