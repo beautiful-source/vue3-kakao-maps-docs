@@ -28,7 +28,8 @@ const items: ItemType[] = reactive([
     getItem('지도 이동 막기', '#disable-map-drag-move'),
     getItem('지도 확대 축소 막기', '#enable-disable-zoom-in-out'),
     getItem('클릭 이벤트 등록하기', '#add-map-click-event'),
-    getItem('여러개의 마커 제어하기', '#multiple-marker-control')
+    getItem('여러개의 마커 제어하기', '#multiple-marker-control'),
+    getItem('다각형 그리기', '#basic-polygon')
   ]),
   getItem('KakaoMapMarker', '/kakaoMapMarker', null, [
     getItem('마커 생성하기', '#basic-marker'),

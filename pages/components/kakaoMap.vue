@@ -17,7 +17,9 @@ import {
   KakaoMapMultipleMarkerControlCodeJs,
   KakaoMapMultipleMarkerControlCodeTs,
   KakaoMapSetBoundsCodeTs,
-  KakaoMapSetBoundsCodeJs
+  KakaoMapSetBoundsCodeJs,
+  KakaoMapDrawPolygonCodeTs,
+  KakaoMapDrawPolygonCodeJs
 } from '@/components/KakaoMap';
 
 const anchorItems = [
@@ -65,6 +67,11 @@ const anchorItems = [
     key: 'multiple-marker-control',
     href: '#multiple-marker-control',
     title: '여러개의 마커 제어하기'
+  },
+  {
+    key: 'basic-polygon',
+    href: '#basic-polygon',
+    title: '다각형 그리기'
   }
 ];
 </script>
@@ -149,6 +156,13 @@ const anchorItems = [
       <CodeBox :tsCode="KakaoMapMultipleMarkerControlCodeTs" :jsCode="KakaoMapMultipleMarkerControlCodeJs">
         <template #demo>
           <KakaoMapMultipleMarkerControlTs />
+        </template>
+      </CodeBox>
+      <h2 id="basic-polygon">다각형 그리기</h2>
+      <p>지도 위에 다각형을 표시합니다.</p>
+      <CodeBox :tsCode="KakaoMapDrawPolygonCodeTs" :jsCode="KakaoMapDrawPolygonCodeJs">
+        <template #demo>
+          <KakaoMapDrawPolygonTs />
         </template>
       </CodeBox>
     </div>
