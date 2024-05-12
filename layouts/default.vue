@@ -1,7 +1,7 @@
 <script setup lang="ts">
 const route = useRoute();
 const colorMode = useColorMode();
-const onAsideMenuClosed = ref<boolean>(false);
+const onLayoutMenuClosed = ref<boolean>(false);
 const headerMenuItems = ref([
   {
     key: '/docs',
@@ -25,8 +25,8 @@ watch(
   }
 );
 
-const onClickedAsideControlButton = () => {
-  onAsideMenuClosed.value = !onAsideMenuClosed.value;
+const onClickedLayoutMenuControlButton = () => {
+  onLayoutMenuClosed.value = !onLayoutMenuClosed.value;
 };
 </script>
 
@@ -67,11 +67,11 @@ const onClickedAsideControlButton = () => {
         /></NuxtLink>
       </template>
     </a-page-header>
-    <div class="main-contents" :class="{ 'aside-closed': onAsideMenuClosed }">
+    <div class="main-contents" :class="{ 'aside-closed': onLayoutMenuClosed }">
       <aside v-if="route.path !== '/'">
         <layout-components-menu v-if="route.path.indexOf('components') > -1" />
         <layout-docs-menu v-if="route.path.indexOf('docs') > -1" />
-        <LayoutMenuControlButton @click="onClickedAsideControlButton" />
+        <LayoutMenuControlButton @click="onClickedLayoutMenuControlButton" :isClosed="onLayoutMenuClosed" />
       </aside>
 
       <main>
@@ -82,12 +82,13 @@ const onClickedAsideControlButton = () => {
 </template>
 
 <style lang="scss">
+$header-height: 60px;
 $aside-width: 270px;
 $aside-closed-width: 30px;
 $aside-control-width: 30px;
 .page-header {
   box-sizing: border-box;
-  height: 60px;
+  height: $header-height;
   position: fixed;
   top: 0;
   left: 0;
@@ -142,6 +143,10 @@ $aside-control-width: 30px;
     width: calc(100% - $aside-width);
     transition: all 0.3s ease-out;
     transform: translateX(($aside-width));
+  }
+  .control-button {
+    position: relative;
+    bottom: $header-height;
   }
 }
 .aside-closed {
