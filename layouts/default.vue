@@ -1,6 +1,7 @@
 <script setup lang="ts">
 const route = useRoute();
 const colorMode = useColorMode();
+const onAsideMenuClosed = ref<boolean>(false);
 const headerMenuItems = ref([
   {
     key: '/docs',
@@ -23,6 +24,10 @@ watch(
     headerMenuItems.value.forEach((item) => (item.selected = route.path.indexOf(item.key) > -1));
   }
 );
+
+const onClickedAsideControlButton = () => {
+  onAsideMenuClosed.value = !onAsideMenuClosed.value;
+};
 </script>
 
 <template>
@@ -62,12 +67,11 @@ watch(
         /></NuxtLink>
       </template>
     </a-page-header>
-    <div class="main-contents">
+    <div class="main-contents" :class="{ 'aside-closed': onAsideMenuClosed }">
       <aside v-if="route.path !== '/'">
-        <a-affix :offset-top="70">
-          <layout-components-menu v-if="route.path.indexOf('components') > -1" />
-          <layout-docs-menu v-if="route.path.indexOf('docs') > -1" />
-        </a-affix>
+        <layout-components-menu v-if="route.path.indexOf('components') > -1" />
+        <layout-docs-menu v-if="route.path.indexOf('docs') > -1" />
+        <LayoutMenuControlButton @click="onClickedAsideControlButton" />
       </aside>
 
       <main>
@@ -78,6 +82,9 @@ watch(
 </template>
 
 <style lang="scss">
+$aside-width: 270px;
+$aside-closed-width: 30px;
+$aside-control-width: 30px;
 .page-header {
   box-sizing: border-box;
   height: 60px;
@@ -121,15 +128,32 @@ watch(
 
   aside {
     box-sizing: border-box;
-    width: 240px;
+    width: $aside-width;
+    display: flex;
+    align-items: center;
+    height: 100vh;
+    transition: all 0.3s ease-out;
+    position: fixed;
+    left: 0;
   }
   main {
     padding: 0 3em 3em;
     box-sizing: border-box;
-    width: calc(100% - 240px);
+    width: calc(100% - $aside-width);
+    transition: all 0.3s ease-out;
+    transform: translateX(($aside-width));
   }
 }
-
+.aside-closed {
+  aside {
+    width: $aside-closed-width;
+    transform: translateX(-($aside-width - $aside-control-width));
+  }
+  main {
+    width: calc(100% - $aside-closed-width);
+    transform: translateX($aside-control-width);
+  }
+}
 .dark-mode {
   .page-header {
     .ant-page-header-heading-title {

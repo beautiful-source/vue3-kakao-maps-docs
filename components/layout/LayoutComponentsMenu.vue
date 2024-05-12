@@ -120,7 +120,6 @@ onMounted(() => {
 <style scoped lang="scss">
 .docs-menu {
   flex-direction: column;
-  width: 240px;
 }
 
 .docs-menu-list {
