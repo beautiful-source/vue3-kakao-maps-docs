@@ -73,7 +73,6 @@ const onClickedLayoutMenuControlButton = () => {
         <layout-docs-menu v-if="route.path.indexOf('docs') > -1" />
         <LayoutMenuControlButton @click="onClickedLayoutMenuControlButton" :isClosed="onLayoutMenuClosed" />
       </aside>
-
       <main>
         <slot />
       </main>
@@ -151,7 +150,6 @@ $aside-control-width: 30px;
 }
 .aside-closed {
   aside {
-    width: $aside-closed-width;
     transform: translateX(-($aside-width - $aside-control-width));
   }
   main {
