@@ -24,7 +24,7 @@ const onLoadKakaoMapMarkerCluster = (clustererRef: kakao.maps.MarkerClusterer) =
 
 <template>
   <!-- 마커 클러스터러를 생성할 때 disableClickZoom을 true로 설정하지 않은 경우
-    이벤트 헨들러로 cluster 객체가 넘어오지 않을 수도 있습니다 -->
+    이벤트 핸들러로 cluster 객체가 넘어오지 않을 수도 있습니다 -->
   <KakaoMap
     :lat="36.34"
     :lng="127.77"

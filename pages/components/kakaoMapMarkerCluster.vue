@@ -57,7 +57,7 @@ const anchorItems = [
           <KakaoMapMarkerClusterChickenClustererTs />
         </template>
       </CodeBox>
-      <h2 id="clusterer-click-event">클러스터 클릭 이벤트</h2>
+      <h2 id="clusterer-click-event">마커 클러스터 클릭 이벤트</h2>
       <p>마커 클러스터 클릭 이벤트입니다.</p>
       <CodeBox
         :tsCode="KakaoMapMarkerClusterAddClustererClickEventCodeTs"

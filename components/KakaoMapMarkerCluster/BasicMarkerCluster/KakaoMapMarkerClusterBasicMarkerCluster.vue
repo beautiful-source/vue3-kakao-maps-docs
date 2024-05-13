@@ -3,11 +3,6 @@ import { KakaoMap } from 'vue3-kakao-maps';
 import type { ControlDataSourceType } from '@/components/common/ControlBox.vue';
 import chickenList from '../chicken.json';
 
-// const markerList: KakaoMapMarkerProps[] = [];
-// chickenList.forEach((marker: any) => {
-//   markerList?.push({ lat: marker.lat, lng: marker.lng });
-// });
-
 const dataSource: Ref<ControlDataSourceType[]> = ref([
   {
     name: 'markers',
