@@ -1,10 +1,21 @@
 <script setup lang="ts">
+import { contentList } from '~/assets/data/contentsList';
 const route = useRoute();
 const onLayoutMenuClosed = ref<boolean>(false);
 
 const onClickedLayoutMenuControlButton = () => {
   onLayoutMenuClosed.value = !onLayoutMenuClosed.value;
 };
+
+const anchorItems = computed(() => {
+  const parsedRoute = route.path.split('/');
+  const category = contentList.find((item) => item.key === parsedRoute[1]);
+  if (parsedRoute.length > 1) {
+    return category?.menus.find((item) => item.key === parsedRoute[2])?.pages;
+  } else {
+    return category?.menus[0].pages;
+  }
+});
 </script>
 
 <template>
@@ -19,6 +30,11 @@ const onClickedLayoutMenuControlButton = () => {
       <main>
         <slot />
       </main>
+      <div class="anchor">
+        <a-affix :offset-top="70">
+          <a-anchor :items="anchorItems" :offset-top="70" />
+        </a-affix>
+      </div>
     </div>
   </div>
 </template>
