@@ -9,6 +9,14 @@ export default defineNuxtConfig({
           additionalData: '@use "~/assets/scss/main.scss" as *;'
         }
       }
+    },
+    server: {
+      proxy: {
+        '/download/web/data': {
+          target: 'https://apis.map.kakao.com',
+          changeOrigin: true
+        }
+      }
     }
   },
   plugins: [{ src: '~/plugins/vue3-kakao-maps', mode: 'client' }],

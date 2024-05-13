@@ -1,0 +1,16 @@
+<script setup lang="ts">
+import { ref } from 'vue';
+import { KakaoMap, KakaoMapPolyline } from 'vue3-kakao-maps';
+import type { KakaoMapLatLngItem } from 'vue3-kakao-maps';
+const latLngList: Ref<KakaoMapLatLngItem[]> = ref([
+  { lat: 33.45, lng: 126.571 },
+  { lat: 33.449, lng: 126.5705 },
+  { lat: 33.45, lng: 126.5725 }
+]);
+</script>
+
+<template>
+  <KakaoMap :lat="33.450701" :lng="126.570667">
+    <KakaoMapPolyline :latLngList="latLngList" :endArrow="true" />
+  </KakaoMap>
+</template>

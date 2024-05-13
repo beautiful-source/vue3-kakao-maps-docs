@@ -1,7 +1,9 @@
 <script setup lang="ts">
 import {
   KakaoMapMarkerClusterBasicMarkerClusterCodeJs,
-  KakaoMapMarkerClusterBasicMarkerClusterCodeTs
+  KakaoMapMarkerClusterBasicMarkerClusterCodeTs,
+  KakaoMapMarkerClusterChickenClustererCodeJs,
+  KakaoMapMarkerClusterChickenClustererCodeTs
 } from '@/components/KakaoMapMarkerCluster';
 
 const anchorItems = [
@@ -14,6 +16,11 @@ const anchorItems = [
     key: 'basic-marker-cluster',
     href: '#basic-marker-cluster',
     title: '마커 클러스터 생성하기'
+  },
+  {
+    key: 'chicken-clusterer',
+    href: '#chicken-clusterer',
+    title: '클러스터 마커에 텍스트 표시하기'
   }
 ];
 </script>
@@ -31,9 +38,21 @@ const anchorItems = [
           <KakaoMapMarkerClusterBasicMarkerClusterTs />
         </template>
       </CodeBox>
+      <h2 id="chicken-clusterer">클러스터 마커에 텍스트 표시하기</h2>
+      <p>클러스터 마커에 텍스트 표시하기입니다.</p>
+      <div>
+        사용한 데이터를 보시려면 <a href="https://apis.map.kakao.com/download/web/data/chicken.json">여기를 클릭하세요!</a>
+      </div>
+      <CodeBox :tsCode="KakaoMapMarkerClusterChickenClustererCodeTs" :jsCode="KakaoMapMarkerClusterChickenClustererCodeJs">
+        <template #demo>
+          <KakaoMapMarkerClusterChickenClustererTs />
+        </template>
+      </CodeBox>
     </div>
     <div class="anchor">
-      <a-anchor :items="anchorItems" :offsetTop="20" />
+      <a-affix :offset-top="70">
+        <a-anchor :items="anchorItems" :offset-top="70" />
+      </a-affix>
     </div>
   </div>
 </template>

@@ -12,6 +12,8 @@ import {
   KakaoMapMarkerAddMarkerClickEventCodeJs,
   KakaoMapMarkerAddMarkerMouseEventCodeTs,
   KakaoMapMarkerAddMarkerMouseEventCodeJs,
+  KakaoMapMarkerAddMarkerOrderCodeTs,
+  KakaoMapMarkerAddMarkerOrderCodeJs,
   KakaoMapMarkerKeywordBasicCodeTs,
   KakaoMapMarkerKeywordBasicCodeJs
 } from '@/components/KakaoMapMarker';
@@ -46,6 +48,11 @@ const anchorItems = [
     key: 'add-marker-mouse-event',
     href: '#add-marker-mouse-event',
     title: '마커에 마우스 이벤트 등록하기'
+  },
+  {
+    key: 'add-marker-order',
+    href: '#add-marker-order',
+    title: '마커에 순서 표시하기'
   },
   {
     key: 'keyword-basic',
@@ -110,6 +117,13 @@ const anchorItems = [
       <CodeBox :tsCode="KakaoMapMarkerAddMarkerMouseEventCodeTs" :jsCode="KakaoMapMarkerAddMarkerMouseEventCodeJs">
         <template #demo>
           <KakaoMapMarkerAddMarkerMouseEventTs />
+        </template>
+      </CodeBox>
+      <h2 id="add-marker-order">마커에 순서 표시하기</h2>
+      <p>마커에 순서를 표시하는 예제입니다. orderBottomMargin를 통해 마커에 순서가 표시될 y축 위치를 조정할 수 있습니다.</p>
+      <CodeBox :tsCode="KakaoMapMarkerAddMarkerOrderCodeTs" :jsCode="KakaoMapMarkerAddMarkerOrderCodeJs">
+        <template #demo>
+          <KakaoMapMarkerAddMarkerOrderTs />
         </template>
       </CodeBox>
       <h2 id="keyword-basic">키워드로 장소검색하기</h2>
