@@ -14,6 +14,7 @@ export default defineNuxtConfig({
       proxy: {
         '/download/web/data': {
           target: 'https://apis.map.kakao.com',
+          secure: false,
           changeOrigin: true
         }
       }
