@@ -99,7 +99,7 @@ const onClickCopyCode = async () => {
   display: flex;
   justify-content: space-around;
   max-height: 75vh;
-  border: 1px solid $gray-5;
+  border: 1px solid $light-mode-border-color;
   border-radius: 10px;
   padding: 1rem;
   box-sizing: border-box;
