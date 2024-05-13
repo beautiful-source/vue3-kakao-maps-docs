@@ -1,13 +1,12 @@
 <script setup lang="ts">
 import { KakaoMap } from 'vue3-kakao-maps';
 import type { ControlDataSourceType } from '@/components/common/ControlBox.vue';
-import type { KakaoMapMarkerProps } from 'vue3-kakao-maps';
+import chickenList from '../chicken.json';
 
-const markerList: KakaoMapMarkerProps[] = [];
-const data: any = await $fetch('/download/web/data/chicken.json');
-data.positions?.forEach((marker: any) => {
-  markerList?.push({ lat: marker.lat, lng: marker.lng });
-});
+// const markerList: KakaoMapMarkerProps[] = [];
+// chickenList.forEach((marker: any) => {
+//   markerList?.push({ lat: marker.lat, lng: marker.lng });
+// });
 
 const dataSource: Ref<ControlDataSourceType[]> = ref([
   {
@@ -80,7 +79,7 @@ const dataSource: Ref<ControlDataSourceType[]> = ref([
 
 <template>
   <div>
-    <KakaoMap :lat="36.34" :lng="127.77" :level="14" :markerCluster="{ markers: markerList }" />
+    <KakaoMap :lat="36.34" :lng="127.77" :level="14" :markerCluster="{ markers: chickenList }" />
     <ControlBox v-model:dataSource="dataSource" />
   </div>
 </template>
