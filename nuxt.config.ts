@@ -29,7 +29,11 @@ export default defineNuxtConfig({
   },
   content: {
     highlight: {
-      theme: 'github-light'
+      theme: {
+        default: 'github-light',
+        'dark-mode': 'github-dark',
+        'sepia-mode': 'monokai'
+      }
     }
   }
 });
