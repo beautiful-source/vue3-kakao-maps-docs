@@ -2,6 +2,7 @@
 import { contentList } from '~/assets/data/contentsList';
 const route = useRoute();
 const onLayoutMenuClosed = ref<boolean>(false);
+const mainContentsRef = ref();
 
 const onClickedLayoutMenuControlButton = () => {
   onLayoutMenuClosed.value = !onLayoutMenuClosed.value;
@@ -21,19 +22,26 @@ const anchorItems = computed(() => {
 <template>
   <div style="padding-top: 60px">
     <LayoutHeader />
-    <div class="main-contents" :class="{ 'aside-closed': onLayoutMenuClosed }">
+    <div ref="mainContentsRef" class="main-contents" :class="{ 'aside-closed': onLayoutMenuClosed }">
       <aside v-if="route.path !== '/'">
-        <layout-components-menu v-if="route.path.indexOf('components') > -1" />
-        <layout-docs-menu v-if="route.path.indexOf('docs') > -1" />
-        <LayoutMenuControlButton @click="onClickedLayoutMenuControlButton" :isClosed="onLayoutMenuClosed" />
-      </aside>
-      <main>
-        <slot />
-      </main>
-      <div class="anchor">
-        <a-affix :offset-top="70">
-          <a-anchor :items="anchorItems" :offset-top="70" />
+        <a-affix :target="() => mainContentsRef">
+          <div class="side-menu-wrap">
+            <layout-components-menu v-if="route.path.indexOf('components') > -1" />
+            <layout-docs-menu v-if="route.path.indexOf('docs') > -1" />
+            <LayoutMenuControlButton @click="onClickedLayoutMenuControlButton" :isClosed="onLayoutMenuClosed" />
+          </div>
         </a-affix>
+      </aside>
+
+      <div class="contents-wrap">
+        <div class="contents">
+          <main>
+            <slot />
+          </main>
+        </div>
+        <div class="anchor">
+          <a-anchor :items="anchorItems" :offset-top="70" />
+        </div>
       </div>
     </div>
   </div>
@@ -44,6 +52,10 @@ $header-height: 60px;
 $aside-width: 270px;
 $aside-closed-width: 30px;
 $aside-control-width: 30px;
+$anchor-width: 140px;
+$content-anchor-gap: 10px;
+$anchor-margin: 15px;
+
 .page-header {
   box-sizing: border-box;
   height: $header-height;
@@ -87,33 +99,54 @@ $aside-control-width: 30px;
 
   aside {
     box-sizing: border-box;
-    width: $aside-width;
+    width: $aside-width + $aside-control-width;
     display: flex;
     align-items: center;
     height: 100vh;
     transition: all 0.3s ease-out;
-    position: fixed;
-    left: 0;
+
+    .side-menu-wrap {
+      display: flex;
+      align-items: center;
+    }
+
+    .control-button {
+      position: relative;
+      bottom: $header-height;
+    }
+  }
+
+  .contents-wrap {
+    width: 100%;
+    display: flex;
+    gap: $content-anchor-gap;
+    .contents {
+      width: calc(100% - ($anchor-width + $content-anchor-gap + $anchor-margin));
+      padding-bottom: 100px;
+    }
+
+    .anchor {
+      position: absolute;
+      right: $anchor-margin;
+      width: $anchor-width;
+      .ant-anchor-link-title {
+        font-size: 0.8em;
+      }
+    }
   }
   main {
-    padding: 0 3em 3em;
+    padding-left: 1rem;
     box-sizing: border-box;
     width: calc(100% - $aside-width);
     transition: all 0.3s ease-out;
-    transform: translateX(($aside-width));
-  }
-  .control-button {
-    position: relative;
-    bottom: $header-height;
   }
 }
 .aside-closed {
   aside {
     transform: translateX(-($aside-width - $aside-control-width));
   }
-  main {
-    width: calc(100% - $aside-closed-width);
-    transform: translateX($aside-control-width);
+  .contents-wrap {
+    transform: translateX(-($aside-width - $aside-control-width));
   }
 }
 .dark-mode {
