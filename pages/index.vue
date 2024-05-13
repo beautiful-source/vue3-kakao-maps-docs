@@ -34,8 +34,7 @@ a:hover {
   background-color: $purple-1;
 }
 code {
-  color: $blue-7;
-  background-color: $blue-1;
+  background-color: $gray-3;
   font-size: 0.9rem;
   padding: 2px;
   border-radius: 2px;
@@ -93,11 +92,6 @@ a > code {
     color: $gray-1;
     background-color: $dark-mode-tag-bg;
     border: 1px solid $dark-mode-tag-border;
-  }
-  .link-wrap {
-    .link {
-      border-color: $dark-mode-border-color;
-    }
   }
 }
 </style>
