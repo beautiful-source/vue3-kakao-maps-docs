@@ -96,6 +96,10 @@ div#nuxt-content {
       background-color: $purple-9;
     }
 
+    a > code {
+      color: inherit;
+    }
+
     code {
       color: $gray-1;
       background-color: $dark-mode-tag-bg;

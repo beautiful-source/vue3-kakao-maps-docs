@@ -3,7 +3,15 @@
 $light-mode-background-color: $gray-1;
 $dark-mode-background-color: #0f172a;
 $dark-mode-font-color: #e2e8f0;
-$code-font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+$code-font-family:
+  ui-monospace,
+  SFMono-Regular,
+  Menlo,
+  Monaco,
+  Consolas,
+  Liberation Mono,
+  Courier New,
+  monospace;
 $anchor-width: 120px;
 $content-anchor-gap: 10px;
 $dark-mode-border-color: #334155;
