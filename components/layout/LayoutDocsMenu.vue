@@ -42,7 +42,6 @@ const handleClick: MenuProps['onClick'] = (e) => {
     <a-menu
       v-model:openKeys="openKeys"
       v-model:selectedKeys="selectedKeys"
-      style="width: 240px"
       mode="inline"
       :items="items"
       @click="handleClick"
