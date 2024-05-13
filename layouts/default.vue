@@ -1,29 +1,6 @@
 <script setup lang="ts">
 const route = useRoute();
-const colorMode = useColorMode();
 const onLayoutMenuClosed = ref<boolean>(false);
-const headerMenuItems = ref([
-  {
-    key: '/docs',
-    label: 'Docs',
-    selected: route.path.indexOf('docs') > -1
-  },
-  {
-    key: '/components',
-    label: 'Components',
-    selected: route.path.indexOf('components') > -1
-  }
-]);
-const changeTheme = () => {
-  colorMode.preference = colorMode.value === 'light' ? 'dark' : 'light';
-};
-
-watch(
-  () => route.path,
-  () => {
-    headerMenuItems.value.forEach((item) => (item.selected = route.path.indexOf(item.key) > -1));
-  }
-);
 
 const onClickedLayoutMenuControlButton = () => {
   onLayoutMenuClosed.value = !onLayoutMenuClosed.value;
@@ -32,41 +9,7 @@ const onClickedLayoutMenuControlButton = () => {
 
 <template>
   <div style="padding-top: 60px">
-    <a-page-header :avatar="{ src: '/images/logo.png', shape: 'square' }" class="page-header" style="background-color: white">
-      <template #title>
-        <NuxtLink to="/">vue3-kakao-maps</NuxtLink>
-      </template>
-      <template #extra>
-        <ul>
-          <li
-            v-for="menuItem of headerMenuItems"
-            :key="menuItem.key"
-            :class="{
-              selected: menuItem.selected,
-              'un-selected': !menuItem.selected
-            }"
-          >
-            <NuxtLink :to="menuItem.key">
-              {{ menuItem.label }}
-            </NuxtLink>
-          </li>
-        </ul>
-        <a-divider type="vertical"></a-divider>
-        <ClientOnly>
-          <a-switch
-            :checked="colorMode.value === 'dark'"
-            @click="changeTheme"
-            checked-children="dark"
-            un-checked-children="light"
-          ></a-switch>
-        </ClientOnly>
-        <a-divider type="vertical"></a-divider>
-
-        <NuxtLink to="https://www.npmjs.com/package/vue3-kakao-maps" target="_blank" class="npm-link">
-          <img src="/public/images/npmLogo.png"
-        /></NuxtLink>
-      </template>
-    </a-page-header>
+    <LayoutHeader />
     <div class="main-contents" :class="{ 'aside-closed': onLayoutMenuClosed }">
       <aside v-if="route.path !== '/'">
         <layout-components-menu v-if="route.path.indexOf('components') > -1" />
