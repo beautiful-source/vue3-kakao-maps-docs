@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { VCodeBlock } from '@wdns/vue-code-block';
+import type { CSSProperties } from 'vue';
 import { computed, ref } from 'vue';
 
 type CodeBoxPropsType = {
@@ -19,6 +20,9 @@ const langImage = computed<{ src: string; alt: string }>(() =>
 );
 const showCode = ref<boolean>(true);
 const isCodeCopied = ref<boolean>(false);
+const iconStyle = computed<CSSProperties>(() => {
+  return { color: colorMode.value === 'dark' ? 'white' : 'black' };
+});
 
 const onClickCopyCode = async () => {
   if (window) {
@@ -55,8 +59,10 @@ const onClickCopyCode = async () => {
           <a-tooltip>
             <template #title>{{ isCodeCopied ? 'Copied!' : 'Copy code' }}</template>
             <button @click="onClickCopyCode" @mouseout="isCodeCopied = false" size="large">
-              <CheckOutlined v-show="isCodeCopied" />
-              <CopyOutlined v-show="!isCodeCopied" />
+              <ClientOnly>
+                <CheckOutlined v-show="isCodeCopied" :style="iconStyle" />
+                <CopyOutlined v-show="!isCodeCopied" :style="iconStyle" />
+              </ClientOnly>
             </button>
           </a-tooltip>
         </li>
@@ -65,8 +71,10 @@ const onClickCopyCode = async () => {
           <a-tooltip>
             <template #title>{{ showCode ? 'Hide' : 'Show' }} code</template>
             <button @click="showCode = !showCode" size="large">
-              <CaretUpOutlined v-show="showCode" />
-              <CaretDownOutlined v-show="!showCode" />
+              <ClientOnly>
+                <CaretUpOutlined v-show="showCode" :style="iconStyle" />
+                <CaretDownOutlined v-show="!showCode" :style="iconStyle" />
+              </ClientOnly>
             </button>
           </a-tooltip>
         </li>
@@ -100,7 +108,7 @@ const onClickCopyCode = async () => {
     flex: 0 0 55%;
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
   }
   .separator {
     flex: 0 0 1px;
@@ -137,7 +145,7 @@ const onClickCopyCode = async () => {
     }
   }
 
-  @media (max-width: 1080px) {
+  @media (max-width: 1440px) {
     flex-direction: column;
     max-height: 100%;
     gap: 1rem;
@@ -148,6 +156,15 @@ const onClickCopyCode = async () => {
     .block {
       flex: 0 0 100%;
       max-height: 300px;
+    }
+  }
+}
+
+.dark-mode {
+  .code-box {
+    border-color: $dark-mode-border-color;
+    .separator {
+      background-color: $dark-mode-border-color;
     }
   }
 }
