@@ -8,11 +8,13 @@ const markerList: Ref<KakaoMapMarkerListItem[]> = ref([
   { lat: 33.452, lng: 126.573 },
   { lat: 33.4518, lng: 126.5725 }
 ]);
+
+const endArrow = ref<boolean>(true);
 </script>
 
 <template>
   <KakaoMap :lat="33.452" :lng="126.573">
-    <KakaoMapMarkerPolyline :markerList="markerList"></KakaoMapMarkerPolyline>
+    <KakaoMapMarkerPolyline :markerList="markerList" :endArrow="endArrow"></KakaoMapMarkerPolyline>
   </KakaoMap>
 </template>
 
