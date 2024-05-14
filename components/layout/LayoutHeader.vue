@@ -71,6 +71,9 @@ $header-height: 60px;
   position: fixed;
   top: 0;
   left: 0;
+  padding: 0px 24px;
+  display: grid;
+  align-items: center;
   width: 100%;
   z-index: 1000;
   ul {
