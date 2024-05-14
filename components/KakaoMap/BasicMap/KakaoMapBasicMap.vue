@@ -54,38 +54,59 @@ const dataSource: Ref<ControlDataSourceType[]> = ref([
     description: '지도의 위도 값',
     type: ['number'],
     control: {
-      type: 'Input',
+      type: 'NumberInput',
       value: lat
-    }
+    },
+    required: true
   },
   {
     name: 'lng',
     description: '지도의 경도 값',
     type: ['number'],
     control: {
-      type: 'Input',
+      type: 'NumberInput',
       value: lng
-    }
+    },
+    required: true
   },
   {
     name: 'level',
-    description: '확대 수준',
+    description:
+      '지도 확대 수준. MapTypeId 의 종류에 따라 설정 범위가 다르다. SKYVIEW, HYBRID 일 경우 0 ~ 14, ROADMAP 일 경우 1 ~ 14.',
     type: ['number'],
     default: 3,
     control: {
-      type: 'Input',
+      type: 'NumberInput',
       value: level
     }
   },
   {
     name: 'mapTypeId',
     description:
-      '지도 종류를 설정합니다. 기본값은 일반 지도(1), (베이스) 일반 지도: 1, (베이스) 스카이뷰:2, (베이스) 하이브리드(스카이뷰 + 레이블): 3, (오버레이) 레이블: 4, (오버레이) 로드뷰: 5, (오버레이) 교통정보: 6, (오버레이) 지형도: 7, (오버레이) 자전거: 8, (오버레이) 스카이뷰를 위한 자전거 (어두운 지도에서 활용): 9, (오버레이) 지적편집도: 10',
+      '지도 종류를 설정합니다. 기본값은 일반 지도(1), (베이스) 일반 지도: 1, (베이스) 스카이뷰:2, (베이스) 하이브리드(스카이뷰 + 레이블): 3, (오버레이) 레이블: 4',
     type: ['kakao.maps.MapTypeId'],
     default: 1,
     control: {
-      type: 'Input',
-      value: mapTypeId
+      type: 'Select',
+      value: mapTypeId,
+      selectArgs: [
+        {
+          value: 1,
+          name: 1
+        },
+        {
+          value: 2,
+          name: 2
+        },
+        {
+          value: 3,
+          name: 3
+        },
+        {
+          value: 4,
+          name: 4
+        }
+      ]
     }
   },
   {

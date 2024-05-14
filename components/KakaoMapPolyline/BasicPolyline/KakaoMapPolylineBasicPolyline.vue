@@ -38,7 +38,7 @@ const dataSource: Ref<ControlDataSourceType[]> = ref([
     type: ['number'],
     default: 3,
     control: {
-      type: 'Input',
+      type: 'NumberInput',
       value: strokeWeight
     }
   },
@@ -58,7 +58,7 @@ const dataSource: Ref<ControlDataSourceType[]> = ref([
     type: ['number'],
     default: 0.6,
     control: {
-      type: 'Input',
+      type: 'NumberInput',
       value: strokeOpacity
     }
   },
@@ -77,7 +77,7 @@ const dataSource: Ref<ControlDataSourceType[]> = ref([
     description: '선의 z-index 속성 값',
     type: ['number'],
     control: {
-      type: 'Input',
+      type: 'NumberInput',
       value: zIndex
     }
   }
