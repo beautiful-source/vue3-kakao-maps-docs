@@ -2,6 +2,7 @@ type ContentList = {
   key: string;
   menus: {
     key: string;
+    title: string;
     pages: {
       key: string;
       href: string;
@@ -16,6 +17,7 @@ export const contentList: ContentList = [
     menus: [
       {
         key: 'kakaoMap',
+        title: 'KakaoMap',
         pages: [
           {
             key: 'basic-map',
