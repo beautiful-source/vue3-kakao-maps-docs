@@ -35,7 +35,6 @@ const handleClick: MenuProps['onClick'] = (e) => {
 
 onMounted(() => {
   openKeys.value = ['/' + route.path.split('/')[2]];
-  console.log(route.path.split('/'));
   if (route.hash.length > 0) {
     selectedKeys.value = [route.hash];
   } else {
