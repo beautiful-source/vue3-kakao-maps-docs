@@ -71,7 +71,7 @@ const anchorItems = [
   {
     key: 'basic-polygon',
     href: '#basic-polygon',
-    title: '다각형 그리기'
+    title: '다각형 그리고 이벤트 등록하기'
   }
 ];
 </script>
@@ -158,8 +158,8 @@ const anchorItems = [
           <KakaoMapMultipleMarkerControlTs />
         </template>
       </CodeBox>
-      <h2 id="basic-polygon">다각형 그리기</h2>
-      <p>지도 위에 다각형을 표시합니다.</p>
+      <h2 id="basic-polygon">다각형 그리고 이벤트 등록하기</h2>
+      <p>지도 위에 다각형을 표시하고 클릭 이벤트를 등록해서 인포윈도우를 띄웁니다. 다각형의 면적을 계산할 수 있습니다.</p>
       <CodeBox :tsCode="KakaoMapDrawPolygonCodeTs" :jsCode="KakaoMapDrawPolygonCodeJs">
         <template #demo>
           <KakaoMapDrawPolygonTs />

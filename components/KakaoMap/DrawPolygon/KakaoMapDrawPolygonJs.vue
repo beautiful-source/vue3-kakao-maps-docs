@@ -1,23 +1,31 @@
 <script setup>
 import { ref } from 'vue';
-import { KakaoMap } from 'vue3-kakao-maps';
+import { KakaoMap, KakaoMapInfoWindow } from 'vue3-kakao-maps';
+import area from '@/assets/data/area.json';
 
 const map = ref();
+const content = ref('');
+const infoLat = ref(37.566826);
+const infoLng = ref(126.9786567);
+const infoVisible = ref(false);
 
+// 지도에 폴리곤으로 표시할 영역데이터 배열입니다
 const onLoadKakaoMap = (mapRef) => {
   map.value = mapRef;
 
-  // 다각형을 구성하는 좌표 배열입니다. 이 좌표들을 이어서 다각형을 표시합니다
-  const polygonPath = [
-    new kakao.maps.LatLng(33.45133510810506, 126.57159381623066),
-    new kakao.maps.LatLng(33.44955812811862, 126.5713551811832),
-    new kakao.maps.LatLng(33.449986291544086, 126.57263296172184),
-    new kakao.maps.LatLng(33.450682513554554, 126.57321034054742),
-    new kakao.maps.LatLng(33.451346760004206, 126.57235740081413)
-  ];
+  displayArea(area);
+};
+
+const displayArea = (area) => {
+  const path = ref([]);
+
+  for (let i = 0; i < area.path.length; i++) {
+    path.value.push(new kakao.maps.LatLng(area.path[i].lat, area.path[i].lng));
+  }
+
   // 지도에 표시할 다각형을 생성합니다
   const polygon = new kakao.maps.Polygon({
-    path: polygonPath, // 그려질 다각형의 좌표 배열입니다
+    path: path.value, // 그려질 다각형의 좌표 배열입니다
     strokeWeight: 3, // 선의 두께입니다
     strokeColor: '#39DE2A', // 선의 색깔입니다
     strokeOpacity: 0.8, // 선의 불투명도 입니다 1에서 0 사이의 값이며 0에 가까울수록 투명합니다
@@ -27,12 +35,28 @@ const onLoadKakaoMap = (mapRef) => {
   });
 
   // 지도에 다각형을 표시합니다
-  polygon.setMap(map.value);
+  if (map.value !== undefined) {
+    polygon.setMap(map.value);
+
+    area.value = Math.floor(polygon.getArea()); // 다각형의 총면적을 계산합니다
+    content.value = `${area.name}의 총 면적 : 약 ${area.value}m<sup>2</sup>`;
+
+    // 다각형에 마우스오버 이벤트를 등록합니다
+    //'mouseover','mouseout','mousedown','click' 이벤트가 등록가능합니다
+    kakao.maps.event.addListener(polygon, 'click', function (mouseEvent) {
+      infoLat.value = mouseEvent.latLng.getLat();
+      infoLng.value = mouseEvent.latLng.getLng();
+      infoVisible.value = true;
+    });
+  }
 };
 </script>
 
 <template>
-  <KakaoMap :lat="33.450701" :lng="126.570667" @onLoadKakaoMap="onLoadKakaoMap" />
+  <KakaoMap :lat="37.566826" :lng="126.9786567" :level="8" @onLoadKakaoMap="onLoadKakaoMap">
+    <KakaoMapInfoWindow :lat="infoLat" :lng="infoLng" :visible="infoVisible" :content="content" :zIndex="5" />
+  </KakaoMap>
+  <p>색칠된 영역을 클릭해보세요</p>
 </template>
 
 <style scoped></style>
