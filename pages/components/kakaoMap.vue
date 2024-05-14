@@ -20,6 +20,11 @@ import {
   KakaoMapSetBoundsCodeJs
 } from '@/components/KakaoMap';
 
+useSeoMeta({
+  title: 'KakaoMap',
+  description: '카카오맵 지도(KakaoMap) 컴포넌트 소개와 해당 컴포넌트로 구현할 수 있는 기능입니다.'
+});
+
 const anchorItems = [
   {
     key: 'basic-map',

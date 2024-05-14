@@ -1,3 +1,10 @@
+<script setup lang="ts">
+useSeoMeta({
+  title: 'vue3-kakao-maps',
+  description: '카카오맵 API를 vue 컴포넌트화한 라이브러리입니다.'
+});
+</script>
+
 <template>
   <div class="content-wrap">
     <h2 class="title">

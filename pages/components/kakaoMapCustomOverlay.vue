@@ -11,6 +11,12 @@ import {
   KakaoMapCustomOverlayInvisibleCustomOverlayCodeTs,
   KakaoMapCustomOverlayInvisibleCustomOverlayCodeJs
 } from '@/components/KakaoMapCustomOverlay';
+
+useSeoMeta({
+  title: 'KakaoMapCustomOverlay',
+  description: '카카오맵 커스텀 오버레이(KakaoMapCustomOverlay) 컴포넌트 소개와 해당 컴포넌트로 구현할 수 있는 기능입니다.'
+});
+
 const anchorItems = [
   {
     key: 'custom-overlay',

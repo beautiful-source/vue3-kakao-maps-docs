@@ -1,6 +1,23 @@
 <script setup lang="ts">
 const route = useRoute();
 const colorMode = useColorMode();
+
+const getDocumentCategoryFromCurrentPath = (path: string): string => {
+  const pattern = /^\/([^\/]+)(?:\/|$)/;
+  const match = path.match(pattern);
+  return match ? match[1] : '';
+};
+
+useHead({
+  titleTemplate: (title) => {
+    const documentCategory: string = getDocumentCategoryFromCurrentPath(route.path);
+    const suffix: string = !!documentCategory
+      ? ' \u00B7\ ' + documentCategory.charAt(0).toUpperCase() + documentCategory.slice(1)
+      : '';
+    return title ? `${title}${suffix}` : documentCategory;
+  }
+});
+
 const onLayoutMenuClosed = ref<boolean>(false);
 const headerMenuItems = ref([
   {
