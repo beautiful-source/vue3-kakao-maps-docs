@@ -125,6 +125,10 @@ const dataSource: Ref<ControlDataSourceType[]> = ref([
         {
           value: 9,
           name: 9
+        },
+        {
+          value: 10,
+          name: 10
         }
       ]
     }

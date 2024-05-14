@@ -63,58 +63,60 @@ const checkInvalid = (value: string, record: Record<string, any>): void => {
 
 <template>
   <div class="control-box">
-    <a-table
-      sticky
-      :scroll="{ x: 750, y: 500 }"
-      :scrollToFirstRowOnChange="true"
-      :columns="columns"
-      :data-source="props.dataSource"
-      :pagination="false"
-    >
-      <template #headerCell="{ column }">
-        <template v-if="column.key === 'name'">
-          <div class="name-column">
-            <span>Name</span>
-            <span class="required"><b class="required-star">*</b> 필수 입력값</span>
-          </div>
+    <div class="control-box">
+      <a-table
+        sticky
+        :scroll="{ x: 750, y: 500 }"
+        :scrollToFirstRowOnChange="true"
+        :columns="columns"
+        :data-source="props.dataSource"
+        :pagination="false"
+      >
+        <template #headerCell="{ column }">
+          <template v-if="column.key === 'name'">
+            <div class="name-column">
+              <span>Name</span>
+              <span class="required"><b>*</b> 필수 입력값</span>
+            </div>
+          </template>
         </template>
-      </template>
-      <template #bodyCell="{ column, record }">
-        <template v-if="column.key === 'name'">
-          <b>{{ record.name }}</b
-          ><b class="required-star">{{ record && record.required === true ? '*' : '' }}</b>
+        <template #bodyCell="{ column, record }">
+          <template v-if="column.key === 'name'">
+            <b>{{ record.name }}</b
+            ><b class="required-star">{{ record && record.required === true ? '*' : '' }}</b>
+          </template>
+          <template v-if="column.key === 'description'">
+            {{ record.description }}
+          </template>
+          <template v-else-if="column.key === 'type'">
+            <a-tag v-for="tag in record.type" :key="tag" :color="'geekblue'">
+              {{ tag }}
+            </a-tag>
+          </template>
+          <template v-else-if="column.key === 'default'">
+            {{ record.default }}
+          </template>
+          <template v-else-if="column.key === 'control'">
+            <a-switch
+              v-if="record?.control?.type === 'Boolean'"
+              checked-children="true"
+              un-checked-children="false"
+              v-model:checked="record.control.value"
+            />
+            <a-select v-else-if="record?.control?.type === 'Select'" style="width: 120px" v-model:value="record.control.value">
+              <a-select-option v-for="select in record.control.selectArgs" :value="select?.value">
+                {{ select?.name }}
+              </a-select-option>
+            </a-select>
+            <a-input v-else-if="record?.control?.type === 'Input'" v-model:value="record.control.value" />
+            <div class="number-input-div" v-else-if="record?.control?.type === 'NumberInput'">
+              <a-input v-model:value="record.control.value" @change="(e) => checkInvalid(e.target.value || '', record)" />
+              <p v-if="(record.control.isError = false)">number가 아닙니다</p>
+            </div>
+          </template>
         </template>
-        <template v-if="column.key === 'description'">
-          {{ record.description }}
-        </template>
-        <template v-else-if="column.key === 'type'">
-          <a-tag v-for="tag in record.type" :key="tag" :color="'geekblue'">
-            {{ tag }}
-          </a-tag>
-        </template>
-        <template v-else-if="column.key === 'default'">
-          {{ record.default }}
-        </template>
-        <template v-else-if="column.key === 'control'">
-          <a-switch
-            v-if="record?.control?.type === 'Boolean'"
-            checked-children="true"
-            un-checked-children="false"
-            v-model:checked="record.control.value"
-          />
-          <a-select v-else-if="record?.control?.type === 'Select'" style="width: 120px" v-model:value="record.control.value">
-            <a-select-option v-for="select in record.control.selectArgs" :value="select?.value">
-              {{ select?.name }}
-            </a-select-option>
-          </a-select>
-          <a-input v-else-if="record?.control?.type === 'Input'" v-model:value="record.control.value" />
-          <div class="number-input-div" v-else-if="record?.control?.type === 'NumberInput'">
-            <a-input v-model:value="record.control.value" @change="(e) => checkInvalid(e.target.value || '', record)" />
-            <p v-if="(record.control.isError = false)">number가 아닙니다</p>
-          </div>
-        </template>
-      </template>
-    </a-table>
+      </a-table>
+    </div>
   </div>
 </template>
 
