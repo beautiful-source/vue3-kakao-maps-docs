@@ -15,7 +15,7 @@ const dataSource: Ref<ControlDataSourceType[]> = ref([
     required: true,
     type: ['number'],
     control: {
-      type: 'Input',
+      type: 'NumberInput',
       value: lat
     }
   },
@@ -25,7 +25,7 @@ const dataSource: Ref<ControlDataSourceType[]> = ref([
     required: true,
     type: ['number'],
     control: {
-      type: 'Input',
+      type: 'NumberInput',
       value: lng
     }
   },
@@ -55,7 +55,7 @@ const dataSource: Ref<ControlDataSourceType[]> = ref([
     description: '커스텀 오버레이의 z-index',
     type: ['number'],
     control: {
-      type: 'Input',
+      type: 'NumberInput',
       value: zIndex
     }
   },
