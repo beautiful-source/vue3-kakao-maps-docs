@@ -93,7 +93,7 @@ export const contentList: ContentList = [
           {
             key: 'image-marker',
             href: '#image-marker',
-            title: '이미지 마커 생성하기'
+            title: '다른 이미지 마커 생성하기'
           },
           {
             key: 'infowindow-marker-1',
