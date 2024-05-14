@@ -37,7 +37,7 @@ const anchorItems = computed(() => {
 </script>
 
 <template>
-  <div style="padding-top: 60px">
+  <div style="padding-top: 60px; margin-bottom: 60px">
     <LayoutHeader />
     <div ref="mainContentsRef" class="main-contents" :class="{ 'aside-closed': onLayoutMenuClosed }">
       <aside v-if="route.path !== '/'">
@@ -59,6 +59,7 @@ const anchorItems = computed(() => {
         <div class="anchor">
           <a-anchor :items="anchorItems" :offset-top="70" />
         </div>
+        <a-back-top />
       </div>
     </div>
   </div>
@@ -73,43 +74,6 @@ $anchor-width: 140px;
 $content-anchor-gap: 10px;
 $anchor-margin: 15px;
 
-.page-header {
-  box-sizing: border-box;
-  height: $header-height;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  z-index: 1000;
-  ul {
-    display: flex;
-    list-style: none;
-    background-color: white;
-    margin: 0;
-    padding: 0;
-    gap: 2rem;
-    a {
-      &:hover {
-        color: $primary-4;
-      }
-    }
-    .selected {
-      font-weight: 600;
-      a {
-        color: $primary;
-      }
-    }
-  }
-}
-.npm-link {
-  a {
-    display: block;
-    height: fit-content;
-  }
-  img {
-    vertical-align: text-top;
-  }
-}
 .main-contents {
   display: flex;
   height: 100vh;
@@ -156,6 +120,7 @@ $anchor-margin: 15px;
   main {
     padding-left: 1rem;
     box-sizing: border-box;
+    padding-bottom: 20px;
   }
 }
 .aside-closed {
@@ -168,24 +133,6 @@ $anchor-margin: 15px;
       width: calc(
         100vw - ($aside-closed-width + $aside-control-width + $anchor-width + $anchor-margin + $content-anchor-gap) - 1rem
       );
-    }
-  }
-}
-.dark-mode {
-  .page-header {
-    .ant-page-header-heading-title {
-      color: $gray-1;
-    }
-    .un-selected {
-      color: $gray-7;
-    }
-  }
-}
-
-.light-mode {
-  .page-header {
-    a {
-      color: $gray-11;
     }
   }
 }
