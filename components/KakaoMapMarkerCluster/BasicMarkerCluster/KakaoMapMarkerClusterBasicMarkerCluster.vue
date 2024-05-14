@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { KakaoMap } from 'vue3-kakao-maps';
 import type { ControlDataSourceType } from '@/components/common/ControlBox.vue';
-import chickenList from '../chicken.json';
+import chickenList from '@/assets/data/chicken.json';
 
 const dataSource: Ref<ControlDataSourceType[]> = ref([
   {
