@@ -67,7 +67,8 @@ const items: ItemType[] = reactive([
   getItem('KakaoMapMarkerPolyline', '/kakaoMapMarkerPolyline', null, [
     getItem('마커 선으로 연결하기', '#basic-marker-polyline'),
     getItem('마커 폴리라인에 화살표 표시하기', '#arrow-marker-polyline'),
-    getItem('마커 폴리라인에 순서 표시하기', '#order-marker-polyline')
+    getItem('마커 폴리라인에 순서 표시하기', '#order-marker-polyline'),
+    getItem('마커 폴리라인 커스텀하기', '#custom-marker-polyline')
   ])
 ]);
 

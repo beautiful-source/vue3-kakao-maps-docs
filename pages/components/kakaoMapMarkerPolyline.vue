@@ -5,7 +5,9 @@ import {
   KakaoMapMarkerPolylineArrowMarkerPolylineCodeTs,
   KakaoMapMarkerPolylineArrowMarkerPolylineCodeJs,
   KakaoMapMarkerPolylineOrderMarkerPolylineCodeTs,
-  KakaoMapMarkerPolylineOrderMarkerPolylineCodeJs
+  KakaoMapMarkerPolylineOrderMarkerPolylineCodeJs,
+  KakaoMapMarkerPolylineCustomMarkerPolylineCodeTs,
+  KakaoMapMarkerPolylineCustomMarkerPolylineCodeJs
 } from '@/components/KakaoMapMarkerPolyline';
 
 const anchorItems = [
@@ -23,6 +25,11 @@ const anchorItems = [
     key: 'order-marker-polyline',
     href: '#order-marker-polyline',
     title: '마커 폴리라인에 순서 표시하기'
+  },
+  {
+    key: 'custom-marker-polyline',
+    href: '#custom-marker-polyline',
+    title: '마커 폴리라인 커스텀하기'
   }
 ];
 </script>
@@ -34,7 +41,7 @@ const anchorItems = [
       <p>카카오 지도 마커 폴리라인 컴포넌트입니다.</p>
       <KakaoMapMarkerPolylineBasicMarkerPolyline />
       <h2 id="basic-marker-polyline">마커 폴리라인 생성하기</h2>
-      <p>기본적인 마커 폴리라인 생성입니다.</p>
+      <p>기본적인 마커 폴리라인을 생성하는 예제입니다.</p>
       <CodeBox
         :tsCode="KakaoMapMarkerPolylineBasicMarkerPolylineCodeTs"
         :jsCode="KakaoMapMarkerPolylineBasicMarkerPolylineCodeJs"
@@ -62,7 +69,16 @@ const anchorItems = [
         <template #demo>
           <KakaoMapMarkerPolylineOrderMarkerPolylineTs />
         </template>
-        >
+      </CodeBox>
+      <h2 id="custom-marker-polyline">마커 폴리라인 커스텀하기</h2>
+      <p>마커 폴리라인을 커스텀한 예제입니다.</p>
+      <CodeBox
+        :tsCode="KakaoMapMarkerPolylineCustomMarkerPolylineCodeTs"
+        :jsCode="KakaoMapMarkerPolylineCustomMarkerPolylineCodeJs"
+      >
+        <template #demo>
+          <KakaoMapMarkerPolylineCustomMarkerPolylineTs />
+        </template>
       </CodeBox>
     </div>
     <div class="anchor">
