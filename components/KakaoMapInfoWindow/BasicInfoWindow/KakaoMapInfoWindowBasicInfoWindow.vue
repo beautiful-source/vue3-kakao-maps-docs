@@ -19,18 +19,20 @@ const dataSource: Ref<ControlDataSourceType[]> = ref([
     description: '인포윈도우의 위도 값',
     type: ['number'],
     control: {
-      type: 'Input',
+      type: 'NumberInput',
       value: lat
-    }
+    },
+    required: true
   },
   {
     name: 'lng',
     description: '인포윈도우의 경도 값',
     type: ['number'],
     control: {
-      type: 'Input',
+      type: 'NumberInput',
       value: lng
-    }
+    },
+    required: true
   },
   {
     name: 'removable',
@@ -71,7 +73,7 @@ const dataSource: Ref<ControlDataSourceType[]> = ref([
     description: '인포윈도우 엘리먼트의 z-index 속성 값',
     type: ['number'],
     control: {
-      type: 'Input',
+      type: 'NumberInput',
       value: zIndex
     }
   },
