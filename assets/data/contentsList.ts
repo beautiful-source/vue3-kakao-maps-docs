@@ -63,6 +63,11 @@ export const contentList: ContentList = [
             key: 'multiple-marker-control',
             href: '#multiple-marker-control',
             title: '여러개의 마커 제어하기'
+          },
+          {
+            key: 'basic-polygon',
+            href: '#basic-polygon',
+            title: '다각형 그리고 이벤트 등록하기'
           }
         ]
       },
@@ -176,7 +181,7 @@ export const contentList: ContentList = [
           {
             key: 'marker-cluster-control',
             href: '#marker-cluster-control',
-            title: '컨트롤러'
+            title: '컴포넌트 맛보기'
           },
           {
             key: 'basic-marker-cluster',
@@ -187,6 +192,11 @@ export const contentList: ContentList = [
             key: 'chicken-clusterer',
             href: '#chicken-clusterer',
             title: '클러스터 마커에 텍스트 표시하기'
+          },
+          {
+            key: 'clusterer-click-event',
+            href: '#clusterer-click-event',
+            title: '클러스터 클릭 이벤트'
           }
         ]
       },

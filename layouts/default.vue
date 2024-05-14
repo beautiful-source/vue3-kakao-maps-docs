@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { contentList } from '~/assets/data/contentsList';
+import { contentList } from '@/assets/data/contentsList';
 const route = useRoute();
 const onLayoutMenuClosed = ref<boolean>(false);
 const mainContentsRef = ref();
