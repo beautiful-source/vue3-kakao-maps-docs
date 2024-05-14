@@ -63,3 +63,9 @@ const handleClick: MenuProps['onClick'] = (e) => {
     </template>
   </ClientOnly>
 </template>
+
+<style lang="scss" scoped>
+.ant-menu {
+  height: 100%;
+}
+</style>

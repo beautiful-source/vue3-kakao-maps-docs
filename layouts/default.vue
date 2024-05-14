@@ -24,7 +24,7 @@ const anchorItems = computed(() => {
     <LayoutHeader />
     <div ref="mainContentsRef" class="main-contents" :class="{ 'aside-closed': onLayoutMenuClosed }">
       <aside v-if="route.path !== '/'">
-        <a-affix :target="() => mainContentsRef">
+        <a-affix :offset-top="70">
           <div class="side-menu-wrap">
             <layout-components-menu v-if="route.path.indexOf('components') > -1" />
             <layout-docs-menu v-if="route.path.indexOf('docs') > -1" />
@@ -103,11 +103,11 @@ $anchor-margin: 15px;
     display: flex;
     align-items: center;
     height: 100vh;
-    transition: all 0.3s ease-out;
 
     .side-menu-wrap {
       display: flex;
       align-items: center;
+      transition: all 0.3s ease-out;
     }
 
     .control-button {
@@ -117,11 +117,13 @@ $anchor-margin: 15px;
   }
 
   .contents-wrap {
-    width: 100%;
+    width: calc(100% - ($aside-width + $aside-control-width + $anchor-width + $anchor-margin + $content-anchor-gap));
+
     display: flex;
     gap: $content-anchor-gap;
     .contents {
-      width: calc(100% - ($anchor-width + $content-anchor-gap + $anchor-margin));
+      transition: all 0.3s ease-out;
+      width: calc(100%);
       padding-bottom: 100px;
     }
 
@@ -137,16 +139,19 @@ $anchor-margin: 15px;
   main {
     padding-left: 1rem;
     box-sizing: border-box;
-    width: calc(100% - $aside-width);
-    transition: all 0.3s ease-out;
   }
 }
 .aside-closed {
-  aside {
+  .side-menu-wrap {
     transform: translateX(-($aside-width - $aside-control-width));
   }
   .contents-wrap {
-    transform: translateX(-($aside-width - $aside-control-width));
+    .contents {
+      transform: translateX(-($aside-width - $aside-control-width));
+      width: calc(
+        100vw - ($aside-closed-width + $aside-control-width + $anchor-width + $anchor-margin + $content-anchor-gap) - 1rem
+      );
+    }
   }
 }
 .dark-mode {
