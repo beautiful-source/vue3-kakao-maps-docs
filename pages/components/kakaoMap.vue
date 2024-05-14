@@ -24,7 +24,7 @@ import {
 </script>
 
 <template>
-  <h1>KakaoMap</h1>
+  <h1 id="map-control">KakaoMap</h1>
   <p>카카오 지도 컴포넌트입니다.</p>
   <KakaoMapBasicMap />
   <h2 id="basic-map">지도 생성하기</h2>

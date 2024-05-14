@@ -20,7 +20,7 @@ import {
 </script>
 
 <template>
-  <h1>KakaoMapMarker</h1>
+  <h1 id="map-marker-control">KakaoMapMarker</h1>
   <p>카카오 마커 컴포넌트입니다.</p>
   <KakaoMapMarkerBasicMarker />
   <h2 id="basic-marker">마커 생성하기</h2>

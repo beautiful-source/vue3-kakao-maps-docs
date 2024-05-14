@@ -14,7 +14,7 @@ import {
 </script>
 
 <template>
-  <h1 id="custom-overlay">KakaoMapCustomOverlay</h1>
+  <h1 id="custom-overlay-control">KakaoMapCustomOverlay</h1>
   <p>카카오 커스텀 오버레이 컴포넌트입니다. HTML과 CSS를 이용해 지도 위에 자유롭게 컨텐츠를 표시할 수 있습니다.</p>
   <KakaoMapCustomOverlayBasicCustomOverlay />
   <h2 id="basic-custom-overlay">커스텀 오버레이 생성하기1</h2>

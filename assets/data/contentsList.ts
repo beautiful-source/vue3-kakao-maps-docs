@@ -20,6 +20,11 @@ export const contentList: ContentList = [
         title: 'KakaoMap',
         pages: [
           {
+            key: 'map-control',
+            href: '#map-control',
+            title: '지도와 친해지기'
+          },
+          {
             key: 'basic-map',
             href: '#basic-map',
             title: '지도 생성하기'
@@ -76,6 +81,11 @@ export const contentList: ContentList = [
         title: 'KakaoMapMarker',
         pages: [
           {
+            key: 'map-marker-control',
+            href: '#map-marker-control',
+            title: '마커와 친해지기'
+          },
+          {
             key: 'basic-marker',
             href: '#basic-marker',
             title: '마커 생성하기'
@@ -122,6 +132,11 @@ export const contentList: ContentList = [
         title: 'KakaoMapInfoWindow',
         pages: [
           {
+            key: 'infowindow-control',
+            href: '#infowindow-control',
+            title: '인포윈도우와 친해지기'
+          },
+          {
             key: 'basic-infowindow-1',
             href: '#basic-infowindow-1',
             title: '인포윈도우 생성하기 1'
@@ -143,9 +158,9 @@ export const contentList: ContentList = [
         title: 'KakaoMapCustomOverlay',
         pages: [
           {
-            key: 'custom-overlay',
-            href: '#custom-overlay',
-            title: 'KakaoMapCustomOverlay'
+            key: 'custom-overlay-control',
+            href: '#custom-overlay-control',
+            title: '커스텀 오버레이와 친해지기'
           },
           {
             key: 'basic-custom-overlay',
@@ -181,7 +196,7 @@ export const contentList: ContentList = [
           {
             key: 'marker-cluster-control',
             href: '#marker-cluster-control',
-            title: '컴포넌트 맛보기'
+            title: '마커 클러스터와 친해지기'
           },
           {
             key: 'basic-marker-cluster',
@@ -204,6 +219,11 @@ export const contentList: ContentList = [
         key: 'kakaoMapPolyline',
         title: 'KakaoMapPolyline',
         pages: [
+          {
+            key: 'polyline-control',
+            href: '#polyline-control',
+            title: '폴리라인과 친해지기'
+          },
           {
             key: 'basic-polyline',
             href: '#basic-polyline',

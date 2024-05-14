@@ -10,7 +10,7 @@ import {
 </script>
 
 <template>
-  <h1>KakaoMapInfoWindow</h1>
+  <h1 id="infowindow-control">KakaoMapInfoWindow</h1>
   <p>카카오 인포윈도우 컴포넌트입니다.</p>
   <KakaoMapInfoWindowBasicInfoWindow />
   <h2 id="basic-infowindow-1">인포윈도우 생성하기 1</h2>

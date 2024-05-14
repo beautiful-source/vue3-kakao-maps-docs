@@ -8,7 +8,7 @@ import {
 </script>
 
 <template>
-  <h1>KakaoMapPolyline</h1>
+  <h1 id="polyline-control">KakaoMapPolyline</h1>
   <p>카카오 폴리라인 컴포넌트입니다.</p>
   <KakaoMapPolylineBasicPolyline />
   <h2 id="basic-polyline">폴리라인 생성하기</h2>
