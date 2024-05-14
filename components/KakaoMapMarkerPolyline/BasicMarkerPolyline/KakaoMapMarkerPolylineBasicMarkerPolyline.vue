@@ -23,6 +23,7 @@ const dataSource: Ref<ControlDataSourceType[]> = ref([
   {
     name: 'markerList',
     description: '지도에 표시할 marker 데이터의 리스트',
+    required: true,
     type: ['KakaoMapMarkerListItem[]']
   },
   {
@@ -77,7 +78,7 @@ const dataSource: Ref<ControlDataSourceType[]> = ref([
   },
   {
     name: 'zIndex',
-    description: '폴리라인의 z-index',
+    description: '폴리라인의 z-index 속성 값',
     type: ['number'],
     control: {
       type: 'Input',
@@ -86,7 +87,7 @@ const dataSource: Ref<ControlDataSourceType[]> = ref([
   },
   {
     name: 'showMarkerOrder',
-    description: '마커의 z-index 속성 값',
+    description: '마커의 순서 여부',
     type: ['boolean'],
     control: {
       type: 'Boolean',

@@ -3,7 +3,7 @@ import { ref } from 'vue';
 import { KakaoMap, KakaoMapMarkerPolyline } from 'vue3-kakao-maps';
 
 const image = {
-  imageSrc: 'https://github.com/aeroej/aeroej/assets/39663810/cd732148-f7ff-46e6-9763-4888ad438e51',
+  imageSrc: 'https://vue3-kakao-maps.netlify.app/images/redMarker.png',
   imageWidth: 48,
   imageHeight: 48
 };
