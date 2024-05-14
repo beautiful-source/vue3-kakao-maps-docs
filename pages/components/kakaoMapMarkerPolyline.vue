@@ -3,7 +3,9 @@ import {
   KakaoMapMarkerPolylineBasicMarkerPolylineCodeJs,
   KakaoMapMarkerPolylineBasicMarkerPolylineCodeTs,
   KakaoMapMarkerPolylineArrowMarkerPolylineCodeTs,
-  KakaoMapMarkerPolylineArrowMarkerPolylineCodeJs
+  KakaoMapMarkerPolylineArrowMarkerPolylineCodeJs,
+  KakaoMapMarkerPolylineOrderMarkerPolylineCodeTs,
+  KakaoMapMarkerPolylineOrderMarkerPolylineCodeJs
 } from '@/components/KakaoMapMarkerPolyline';
 
 const anchorItems = [
@@ -16,6 +18,11 @@ const anchorItems = [
     key: 'arrow-marker-polyline',
     href: '#arrow-marker-polyline',
     title: '마커 폴리라인에 화살표 표시하기'
+  },
+  {
+    key: 'order-marker-polyline',
+    href: '#order-marker-polyline',
+    title: '마커 폴리라인에 순서 표시하기'
   }
 ];
 </script>
@@ -37,7 +44,7 @@ const anchorItems = [
         </template>
       </CodeBox>
       <h2 id="arrow-marker-polyline">마커 폴리라인에 화살표 표시하기</h2>
-      <p>마커 폴리라인에 화살표를 표시하는 예제입니다.</p>
+      <p>마커 폴리라인에 화살표를 표시하는 예제입니다. endArrow를 true로 설정합니다.</p>
       <CodeBox
         :tsCode="KakaoMapMarkerPolylineArrowMarkerPolylineCodeTs"
         :jsCode="KakaoMapMarkerPolylineArrowMarkerPolylineCodeJs"
@@ -45,6 +52,17 @@ const anchorItems = [
         <template #demo>
           <KakaoMapMarkerPolylineArrowMarkerPolylineTs />
         </template>
+      </CodeBox>
+      <h2 id="order-marker-polyline">마커 폴리라인에 순서 표시하기</h2>
+      <p>마커 폴리라인에 순서를 표시하는 예제입니다. showMarkerOrder를 true로 설정합니다.</p>
+      <CodeBox
+        :tsCode="KakaoMapMarkerPolylineOrderMarkerPolylineCodeTs"
+        :jsCode="KakaoMapMarkerPolylineOrderMarkerPolylineCodeJs"
+      >
+        <template #demo>
+          <KakaoMapMarkerPolylineOrderMarkerPolylineTs />
+        </template>
+        >
       </CodeBox>
     </div>
     <div class="anchor">

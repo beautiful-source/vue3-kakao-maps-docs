@@ -66,7 +66,8 @@ const dataSource: Ref<ControlDataSourceType[]> = ref([
   },
   {
     name: 'strokeStyle',
-    description: '폴리라인의 스타일',
+    description:
+      '폴리라인의 스타일로 총 11종류가 있다. (solid, shortdash, shortdot, shortdashdot, shortdashdotdot, dot, dash, dashdot, longdash, longdashdot, longdashdotdot)',
     type: ['kakao.maps.StrokeStyles'],
     default: 'solid',
     control: {
@@ -99,14 +100,14 @@ const dataSource: Ref<ControlDataSourceType[]> = ref([
   <div>
     <KakaoMap :lat="33.450705" :lng="126.570667">
       <KakaoMapMarkerPolyline
-        :marker-list="markerList"
-        :end-arrow="endArrow"
-        :stroke-weight="strokeWeight"
-        :stroke-color="strokeColor"
-        :stroke-opacity="strokeOpacity"
-        :stroke-style="strokeStyle"
-        :z-index="zIndex"
-        :show-marker-order="showMarkerOrder"
+        :markerList="markerList"
+        :endArrow="endArrow"
+        :strokeWeight="strokeWeight"
+        :strokeColor="strokeColor"
+        :strokeOpacity="strokeOpacity"
+        :strokeStyle="strokeStyle"
+        :zIndex="zIndex"
+        :showMarkerOrder="showMarkerOrder"
       />
     </KakaoMap>
     <ControlBox v-model:dataSource="dataSource" />

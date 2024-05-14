@@ -39,8 +39,8 @@ dependencies:
     specifier: ^4.3.0
     version: 4.3.2(vue@3.4.27)
   vue3-kakao-maps:
-    specifier: ^2.3.2
-    version: 2.3.2
+    specifier: ^2.3.4
+    version: 2.3.4
 
 devDependencies:
   '@ant-design-vue/nuxt':
@@ -8355,8 +8355,8 @@ packages:
       vue-resize: 2.0.0-alpha.1(vue@3.4.27)
     dev: false
 
-  /vue3-kakao-maps@2.3.2:
-    resolution: {integrity: sha512-aZBQf1OR5s7v7M+9u5zq5597lbOxIJ6Wwa7QAkOWLRFXfFav78XOAHadoK0OHrrZ5FUrcNKgq71I6B9AJ/m1Ng==}
+  /vue3-kakao-maps@2.3.4:
+    resolution: {integrity: sha512-XTrFTMpInmsB4zDQ5sQ3do/1rw0Fhtb+/Epl9ce8lf12/Khk1JtfunXYS5NRsu7CPnYYHGVi3E6ZCwo67xORIg==}
     dependencies:
       kakao.maps.d.ts: 0.1.39
     dev: false

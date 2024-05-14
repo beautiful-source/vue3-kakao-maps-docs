@@ -1,6 +1,6 @@
 <script setup>
 import { ref } from 'vue';
-import { KakaoMap, KakaoMapMarkerPolyline, type KakaoMapMarkerListItem } from 'vue3-kakao-maps';
+import { KakaoMap, KakaoMapMarkerPolyline } from 'vue3-kakao-maps';
 
 const markerList = ref([
   { lat: 33.4509, lng: 126.571 },
@@ -8,13 +8,11 @@ const markerList = ref([
   { lat: 33.452, lng: 126.573 },
   { lat: 33.4518, lng: 126.5725 }
 ]);
-
-const endArrow = ref(true);
 </script>
 
 <template>
   <KakaoMap :lat="33.452" :lng="126.573">
-    <KakaoMapMarkerPolyline :markerList="markerList" :endArrow="endArrow"></KakaoMapMarkerPolyline>
+    <KakaoMapMarkerPolyline :markerList="markerList" :endArrow="true"></KakaoMapMarkerPolyline>
   </KakaoMap>
 </template>
 
