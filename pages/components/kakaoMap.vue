@@ -17,7 +17,9 @@ import {
   KakaoMapMultipleMarkerControlCodeJs,
   KakaoMapMultipleMarkerControlCodeTs,
   KakaoMapSetBoundsCodeTs,
-  KakaoMapSetBoundsCodeJs
+  KakaoMapSetBoundsCodeJs,
+  KakaoMapDrawPolygonCodeTs,
+  KakaoMapDrawPolygonCodeJs
 } from '@/components/KakaoMap';
 
 const anchorItems = [
@@ -65,6 +67,11 @@ const anchorItems = [
     key: 'multiple-marker-control',
     href: '#multiple-marker-control',
     title: '여러개의 마커 제어하기'
+  },
+  {
+    key: 'basic-polygon',
+    href: '#basic-polygon',
+    title: '다각형 그리고 이벤트 등록하기'
   }
 ];
 </script>
@@ -149,6 +156,18 @@ const anchorItems = [
       <CodeBox :tsCode="KakaoMapMultipleMarkerControlCodeTs" :jsCode="KakaoMapMultipleMarkerControlCodeJs">
         <template #demo>
           <KakaoMapMultipleMarkerControlTs />
+        </template>
+      </CodeBox>
+      <h2 id="basic-polygon">다각형 그리고 이벤트 등록하기</h2>
+      <p>
+        지도 위에 다각형을 표시하고 클릭 이벤트를 등록해서 인포윈도우를 띄웁니다. 다각형의 면적을 계산할 수 있습니다. 예시
+        데이터와 기타 이벤트는 카카오 맵 API의
+        <NuxtLink href="https://apis.map.kakao.com/web/sample/addPolygonMouseEvent2/">[다각형에 이벤트 등록하기]</NuxtLink>를
+        참고하시기 바랍니다
+      </p>
+      <CodeBox :tsCode="KakaoMapDrawPolygonCodeTs" :jsCode="KakaoMapDrawPolygonCodeJs">
+        <template #demo>
+          <KakaoMapDrawPolygonTs />
         </template>
       </CodeBox>
     </div>
