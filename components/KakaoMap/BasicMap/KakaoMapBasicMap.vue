@@ -83,7 +83,7 @@ const dataSource: Ref<ControlDataSourceType[]> = ref([
   {
     name: 'mapTypeId',
     description:
-      '지도 종류를 설정합니다. 기본값은 일반 지도(1), (베이스) 일반 지도: 1, (베이스) 스카이뷰:2, (베이스) 하이브리드(스카이뷰 + 레이블): 3, (오버레이) 레이블: 4, (오버레이) 로드뷰: 5, (오버레이) 교통정보: 6, (오버레이) 지형도: 7, (오버레이) 자전거: 8, (오버레이) 스카이뷰를 위한 자전거 (어두운 지도에서 활용): 9, (오버레이) 지적편집도: 10',
+      '지도 종류를 설정합니다. 기본값은 일반 지도(1), (베이스) 일반 지도: 1, (베이스) 스카이뷰:2, (베이스) 하이브리드(스카이뷰 + 레이블): 3, (오버레이) 레이블: 4',
     type: ['kakao.maps.MapTypeId'],
     default: 1,
     control: {
@@ -105,30 +105,6 @@ const dataSource: Ref<ControlDataSourceType[]> = ref([
         {
           value: 4,
           name: 4
-        },
-        {
-          value: 5,
-          name: 5
-        },
-        {
-          value: 6,
-          name: 6
-        },
-        {
-          value: 7,
-          name: 7
-        },
-        {
-          value: 8,
-          name: 8
-        },
-        {
-          value: 9,
-          name: 9
-        },
-        {
-          value: 10,
-          name: 10
         }
       ]
     }
