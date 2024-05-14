@@ -20,5 +20,3 @@ const setDraggable = (draggable) => {
   <button class="demo-button" @click="setDraggable(false)">지도 드래그 이동 끄기</button>
   <button class="demo-button" @click="setDraggable(true)">지도 드래그 이동 켜기</button>
 </template>
-
-<style lang="scss" scoped></style>

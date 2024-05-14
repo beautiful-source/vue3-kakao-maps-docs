@@ -20,5 +20,3 @@ const onClickKakaoMapMarker = () => {
     />
   </KakaoMap>
 </template>
-
-<style scoped></style>

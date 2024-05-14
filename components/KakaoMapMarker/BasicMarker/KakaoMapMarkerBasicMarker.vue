@@ -22,7 +22,7 @@ const dataSource: Ref<ControlDataSourceType[]> = ref([
     required: true,
     type: ['number'],
     control: {
-      type: 'Input',
+      type: 'NumberInput',
       value: lat
     }
   },
@@ -32,7 +32,7 @@ const dataSource: Ref<ControlDataSourceType[]> = ref([
     required: true,
     type: ['number'],
     control: {
-      type: 'Input',
+      type: 'NumberInput',
       value: lng
     }
   },
@@ -82,7 +82,7 @@ const dataSource: Ref<ControlDataSourceType[]> = ref([
     type: ['number'],
     default: '0',
     control: {
-      type: 'Input',
+      type: 'NumberInput',
       value: zIndex
     }
   },
@@ -91,7 +91,7 @@ const dataSource: Ref<ControlDataSourceType[]> = ref([
     description: '마커 투명도 (0-1)',
     type: ['number'],
     control: {
-      type: 'Input',
+      type: 'NumberInput',
       value: opacity
     }
   },

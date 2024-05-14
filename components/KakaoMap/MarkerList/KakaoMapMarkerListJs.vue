@@ -32,5 +32,3 @@ const onDeleteMarker = () => {
     <button @click="onDeleteMarker" class="demo-button">마커 삭제</button>
   </div>
 </template>
-
-<style scoped></style>

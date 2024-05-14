@@ -9,5 +9,3 @@ import { KakaoMap, KakaoMapMarker } from 'vue3-kakao-maps';
     </KakaoMapMarker>
   </KakaoMap>
 </template>
-
-<style scoped></style>

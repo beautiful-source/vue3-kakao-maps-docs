@@ -31,6 +31,11 @@ const columns = [
   }
 ];
 
+type SelectArgsType = {
+  name: string | number;
+  value: string | number;
+};
+
 export type ControlDataSourceType = {
   name: string;
   required?: boolean;
@@ -38,8 +43,10 @@ export type ControlDataSourceType = {
   type: string[];
   default?: string | number;
   control?: {
-    type: 'Boolean' | 'Input';
+    type: 'Boolean' | 'Input' | 'Select' | 'NumberInput';
     value?: string | number | boolean;
+    selectArgs?: SelectArgsType[];
+    isError?: boolean;
   };
 };
 
@@ -48,6 +55,10 @@ type ControlBoxPropsType = {
 };
 
 const props = defineProps<ControlBoxPropsType>();
+
+const checkInvalid = (value: string, record: Record<string, any>): void => {
+  record.control.isError = isValidNumber(value);
+};
 </script>
 
 <template>
@@ -64,7 +75,7 @@ const props = defineProps<ControlBoxPropsType>();
         <template v-if="column.key === 'name'">
           <div class="name-column">
             <span>Name</span>
-            <span class="required"><b class="required-star">*</b> 필수 입력값</span>
+            <span class="required"><b>*</b> 필수 입력값</span>
           </div>
         </template>
       </template>
@@ -91,7 +102,16 @@ const props = defineProps<ControlBoxPropsType>();
             un-checked-children="false"
             v-model:checked="record.control.value"
           />
+          <a-select v-else-if="record?.control?.type === 'Select'" style="width: 120px" v-model:value="record.control.value">
+            <a-select-option v-for="select in record.control.selectArgs" :value="select?.value">
+              {{ select?.name }}
+            </a-select-option>
+          </a-select>
           <a-input v-else-if="record?.control?.type === 'Input'" v-model:value="record.control.value" />
+          <div class="number-input-div" v-else-if="record?.control?.type === 'NumberInput'">
+            <a-input v-model:value="record.control.value" @change="(e) => checkInvalid(e.target.value || '', record)" />
+            <p v-if="record.control.isError === false">number가 아닙니다</p>
+          </div>
         </template>
       </template>
     </a-table>
@@ -131,5 +151,19 @@ const props = defineProps<ControlBoxPropsType>();
   display: flex;
   flex-direction: column;
   margin-top: 9px;
+}
+.number-input-div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  p {
+    display: flex;
+    align-self: flex-end;
+    color: rgba(255, 0, 0, 0.841);
+    font-size: 9px;
+    margin-top: -0.5px;
+    height: 5px;
+  }
 }
 </style>
