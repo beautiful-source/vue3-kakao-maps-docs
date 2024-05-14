@@ -1,6 +1,8 @@
 <script setup>
 import { ref } from 'vue';
 import { KakaoMap, KakaoMapInfoWindow } from 'vue3-kakao-maps';
+
+// 지도에 표시할 영역 데이터 배열입니다
 import area from '@/assets/data/area.json';
 
 const map = ref();
@@ -41,8 +43,9 @@ const displayArea = (area) => {
     area.value = Math.floor(polygon.getArea()); // 다각형의 총면적을 계산합니다
     content.value = `${area.name}의 총 면적 : 약 ${area.value}m<sup>2</sup>`;
 
-    // 다각형에 마우스오버 이벤트를 등록합니다
-    //'mouseover','mouseout','mousedown','click' 이벤트가 등록가능합니다
+    // 다각형에 마우스클릭 이벤트를 등록합니다
+    //'mouseover','mouseout','mousedown','click' 이벤트가 등록 가능합니다
+    // 예시 데이터와 기타 이벤트는 카카오 맵 API의 [다각형에 이벤트 등록하기]를 참고하시기 바랍니다
     kakao.maps.event.addListener(polygon, 'click', function (mouseEvent) {
       infoLat.value = mouseEvent.latLng.getLat();
       infoLng.value = mouseEvent.latLng.getLng();
