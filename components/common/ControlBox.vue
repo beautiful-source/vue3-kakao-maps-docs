@@ -110,7 +110,7 @@ const checkInvalid = (value: string, record: Record<string, any>): void => {
           <a-input v-else-if="record?.control?.type === 'Input'" v-model:value="record.control.value" />
           <div class="number-input-div" v-else-if="record?.control?.type === 'NumberInput'">
             <a-input v-model:value="record.control.value" @change="(e) => checkInvalid(e.target.value || '', record)" />
-            <p v-if="(record.control.isError = false)">number가 아닙니다</p>
+            <p v-if="record.control.isError === false">number가 아닙니다</p>
           </div>
         </template>
       </template>
