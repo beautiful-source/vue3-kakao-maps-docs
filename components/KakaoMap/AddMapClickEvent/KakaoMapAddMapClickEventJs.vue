@@ -23,5 +23,3 @@ const onLoadKakaoMap = (mapRef) => {
   <p>지도를 클릭해주세요!</p>
   <p v-html="message"></p>
 </template>
-
-<style lang="scss" scoped></style>

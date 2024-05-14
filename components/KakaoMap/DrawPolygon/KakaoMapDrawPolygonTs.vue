@@ -60,5 +60,3 @@ const displayArea = (area: any): void => {
   </KakaoMap>
   <p>색칠된 영역을 클릭해보세요</p>
 </template>
-
-<style scoped></style>

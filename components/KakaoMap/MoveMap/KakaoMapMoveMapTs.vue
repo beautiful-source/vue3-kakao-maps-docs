@@ -40,5 +40,3 @@ const panTo = () => {
     <button @click="panTo" class="demo-button">map 객체로 부드러운 이동</button>
   </div>
 </template>
-
-<style lang="scss" scoped></style>

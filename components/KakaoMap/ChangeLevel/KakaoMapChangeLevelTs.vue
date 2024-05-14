@@ -47,5 +47,3 @@ const displayLevel = () => {
   <button class="demo-button" @click="zoomOut">지도레벨 + 1</button>
   <p>{{ message }}</p>
 </template>
-
-<style lang="scss" scoped></style>

@@ -17,5 +17,3 @@ const onLoadKakaoMapMarker = (newMarker: kakao.maps.Marker): void => {
     </KakaoMapInfoWindow>
   </KakaoMap>
 </template>
-
-<style scoped></style>

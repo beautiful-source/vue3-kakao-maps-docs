@@ -8355,7 +8355,11 @@ packages:
     dev: false
 
   /vue3-kakao-maps@2.3.4:
+<<<<<<< HEAD
+    resolution: {integrity: sha512-XTrFTMpInmsB4zDQ5sQ3do/1rw0Fhtb+/Epl9ce8lf12/Khk1JtfunXYS5NRsu7CPnYYHGVi3E6ZCwo67xORIg==}
+=======
     resolution: { integrity: sha512-XTrFTMpInmsB4zDQ5sQ3do/1rw0Fhtb+/Epl9ce8lf12/Khk1JtfunXYS5NRsu7CPnYYHGVi3E6ZCwo67xORIg== }
+>>>>>>> d09889a19c630451b6f86901e7446ea3b8857a9a
     dependencies:
       kakao.maps.d.ts: 0.1.39
     dev: false

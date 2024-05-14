@@ -28,5 +28,3 @@ import { KakaoMap, KakaoMapMarker } from 'vue3-kakao-maps';
     />
   </KakaoMap>
 </template>
-
-<style scoped></style>

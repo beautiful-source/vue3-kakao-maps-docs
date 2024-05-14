@@ -9,5 +9,3 @@ import { KakaoMap, KakaoMapInfoWindow } from 'vue3-kakao-maps';
     </KakaoMapInfoWindow>
   </KakaoMap>
 </template>
-
-<style scoped></style>
