@@ -42,6 +42,7 @@ const anchorItems = computed(() => {
         <div class="anchor">
           <a-anchor :items="anchorItems" :offset-top="70" />
         </div>
+        <a-back-top />
       </div>
     </div>
   </div>
