@@ -20,7 +20,7 @@ const anchorItems = computed(() => {
 </script>
 
 <template>
-  <div style="padding-top: 60px">
+  <div style="padding-top: 60px; margin-bottom: 60px">
     <LayoutHeader />
     <div ref="mainContentsRef" class="main-contents" :class="{ 'aside-closed': onLayoutMenuClosed }">
       <aside v-if="route.path !== '/'">
@@ -141,6 +141,7 @@ $anchor-margin: 15px;
   main {
     padding-left: 1rem;
     box-sizing: border-box;
+    padding-bottom: 20px;
   }
 }
 .aside-closed {
