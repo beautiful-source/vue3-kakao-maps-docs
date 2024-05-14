@@ -7,7 +7,7 @@ const emits = defineEmits(['onClicked']);
 </script>
 
 <template>
-  <a-tooltip placement="right">
+  <a-tooltip placement="right" color="blue">
     <template #title>
       <span>{{ props.isClosed ? '메뉴 열기' : '메뉴 닫기' }}</span>
     </template>
@@ -39,7 +39,7 @@ const emits = defineEmits(['onClicked']);
   }
   &:hover {
     .arrow {
-      background-color: $gray-12;
+      background-color: $primary;
     }
     .top {
       transform: translateY(0.15rem) rotate(15deg);
