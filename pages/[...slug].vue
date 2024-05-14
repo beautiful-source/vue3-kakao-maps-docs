@@ -75,6 +75,13 @@ div#nuxt-content {
       }
     }
   }
+
+  ul,
+  ol {
+    li {
+      margin-bottom: 1rem;
+    }
+  }
 }
 
 .dark-mode {
