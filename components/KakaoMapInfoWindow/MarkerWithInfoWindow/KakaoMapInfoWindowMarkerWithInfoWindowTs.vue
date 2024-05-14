@@ -10,9 +10,9 @@ const onLoadKakaoMapMarker = (newMarker: kakao.maps.Marker): void => {
 </script>
 
 <template>
-  <KakaoMap :lat="37.566826" :lng="126.9786567" :draggable="true">
-    <KakaoMapMarker :lat="37.566826" :lng="126.9786567" @onLoadKakaoMapMarker="onLoadKakaoMapMarker" />
-    <KakaoMapInfoWindow :marker="marker" :lat="37.566826" :lng="126.9786567" :visible="true">
+  <KakaoMap :lat="33.450701" :lng="126.570667" :draggable="true">
+    <KakaoMapMarker :lat="33.450701" :lng="126.570667" @onLoadKakaoMapMarker="onLoadKakaoMapMarker" />
+    <KakaoMapInfoWindow :marker="marker" :lat="33.450701" :lng="126.570667" :visible="true">
       <div>Hello World!</div>
     </KakaoMapInfoWindow>
   </KakaoMap>
