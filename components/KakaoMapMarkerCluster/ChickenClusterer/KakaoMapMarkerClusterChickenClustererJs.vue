@@ -1,11 +1,6 @@
 <script setup>
 import { KakaoMap } from 'vue3-kakao-maps';
-
-const markerList = [];
-const data = await $fetch('/download/web/data/chicken.json');
-data.positions?.forEach((marker) => {
-  markerList?.push({ lat: marker.lat, lng: marker.lng });
-});
+import chickenList from '@/assets/data/chicken.json';
 </script>
 
 <template>
@@ -14,7 +9,7 @@ data.positions?.forEach((marker) => {
     :lng="127.77"
     :level="14"
     :markerCluster="{
-      markers: markerList,
+      markers: chickenList,
       averageCenter: true,
       minLevel: 10,
       calculator: [10, 30, 50],
