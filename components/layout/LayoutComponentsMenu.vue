@@ -91,6 +91,7 @@ onMounted(() => {
     <div class="docs-menu-list">
       <ClientOnly fallbackTag="span">
         <a-menu
+          style="width: 240px"
           v-model:openKeys="openKeys"
           v-model:selectedKeys="selectedKeys"
           mode="inline"
