@@ -2,8 +2,8 @@
 import { KakaoMap } from 'vue3-kakao-maps';
 import type { ControlDataSourceType } from '@/components/common/ControlBox.vue';
 
-const lat = ref<number>(37.566826);
-const lng = ref<number>(126.9786567);
+const lat = ref<number>(33.450701);
+const lng = ref<number>(126.570667);
 const width = ref<number | string>('40rem');
 const height = ref<number | string>('30rem');
 const level = ref<number>(3);
