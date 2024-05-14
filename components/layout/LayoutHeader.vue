@@ -26,7 +26,7 @@ watch(
 </script>
 
 <template>
-  <a-page-header :avatar="{ src: '/images/logo.png', shape: 'square' }" class="page-header" style="background-color: white">
+  <a-page-header :avatar="{ src: '/images/logo.png', shape: 'square' }" class="page-header">
     <template #title>
       <NuxtLink to="/">vue3-kakao-maps</NuxtLink>
     </template>
@@ -76,7 +76,6 @@ $header-height: 60px;
   ul {
     display: flex;
     list-style: none;
-    background-color: white;
     margin: 0;
     padding: 0;
     gap: 2rem;

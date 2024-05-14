@@ -70,6 +70,14 @@ code {
     background-color: $dark-mode-background-color;
     color: $dark-mode-font-color;
   }
+  .ant-page-header {
+    background-color: $dark-mode-background-color;
+    color: $dark-mode-font-color;
+
+    ul {
+      background-color: $dark-mode-background-color;
+    }
+  }
 
   ul,
   li,
@@ -103,6 +111,9 @@ code {
   * {
     transition: background-color 0.2s;
     transition: color 0.2s;
+  }
+  .ant-page-header {
+    background-color: white;
   }
 }
 
