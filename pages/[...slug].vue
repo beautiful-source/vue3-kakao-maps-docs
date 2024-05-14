@@ -8,6 +8,7 @@
 * should be without `scoped`
 */
 div#nuxt-content {
+  padding-bottom: 100px;
   h1,
   h2,
   h3,
@@ -41,18 +42,23 @@ div#nuxt-content {
     background-color: $purple-1;
   }
 
+  a > code {
+    color: inherit;
+  }
+
   code {
     color: $blue-7;
     background-color: $blue-1;
     font-size: 0.9rem;
-    padding: 2px 4px;
+    padding: 2px;
     border-radius: 2px;
+    margin-right: 2px;
   }
 
   *[class='code-wrap'] {
     pre,
     code {
-      background-color: $code-bg-color;
+      background-color: $light-mode-code-bg;
     }
     pre {
       padding: 1rem;
@@ -62,8 +68,51 @@ div#nuxt-content {
 
       code {
         padding: initial;
+        margin: initial;
         display: inline-block;
         height: max-content;
+        border: initial;
+      }
+    }
+  }
+}
+
+.dark-mode {
+  div#nuxt-content {
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      a {
+        color: inherit;
+      }
+    }
+    a {
+      color: $purple-3;
+    }
+    a:hover {
+      background-color: $purple-9;
+    }
+
+    a > code {
+      color: inherit;
+    }
+
+    code {
+      color: $gray-1;
+      background-color: $dark-mode-tag-bg;
+      border: 1px solid $dark-mode-tag-border;
+    }
+
+    *[class='code-wrap'] {
+      pre,
+      code {
+        background-color: $dark-mode-code-bg;
+      }
+      pre {
+        border-color: $dark-mode-border-color;
       }
     }
   }

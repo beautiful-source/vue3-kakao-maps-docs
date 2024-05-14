@@ -9,6 +9,15 @@ export default defineNuxtConfig({
           additionalData: '@use "~/assets/scss/main.scss" as *;'
         }
       }
+    },
+    server: {
+      proxy: {
+        '/download/web/data': {
+          target: 'https://apis.map.kakao.com',
+          secure: false,
+          changeOrigin: true
+        }
+      }
     }
   },
   plugins: [{ src: '~/plugins/vue3-kakao-maps', mode: 'client' }],
@@ -29,7 +38,11 @@ export default defineNuxtConfig({
   },
   content: {
     highlight: {
-      theme: 'github-light'
+      theme: {
+        default: 'github-light',
+        'dark-mode': 'github-dark',
+        'sepia-mode': 'monokai'
+      }
     }
   }
 });

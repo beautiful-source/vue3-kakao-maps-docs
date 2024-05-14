@@ -1,5 +1,26 @@
 @import '_colors';
 
+$light-mode-background-color: $gray-1;
+$dark-mode-background-color: #0f172a;
+$dark-mode-font-color: #e2e8f0;
+$code-font-family:
+  ui-monospace,
+  SFMono-Regular,
+  Menlo,
+  Monaco,
+  Consolas,
+  Liberation Mono,
+  Courier New,
+  monospace;
+$anchor-width: 120px;
+$content-anchor-gap: 10px;
+$light-mode-border-color: $gray-5;
+$dark-mode-border-color: #334155;
+$light-mode-code-bg: #f8fafc;
+$dark-mode-code-bg: #1e293b;
+$dark-mode-tag-bg: #1e293b;
+$dark-mode-tag-border: #334155;
+
 html,
 body {
   width: 100%;
@@ -7,9 +28,6 @@ body {
   padding: 0;
   margin: 0;
 }
-
-$light-mode-background-color: $gray-1;
-$dark-mode-background-color: $gray-11;
 
 .demo-button {
   border-radius: 6px;
@@ -26,76 +44,9 @@ $dark-mode-background-color: $gray-11;
   }
 }
 
-$code-font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
-$code-bg-color: #f8fafc;
 code {
   font-family: $code-font-family;
 }
-// Docs 한정 스타일
-div[data-content-id^='content'] {
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    a {
-      color: inherit;
-      position: relative;
-    }
-    a::before {
-      content: '';
-    }
-    a:hover::before {
-      content: '#';
-      position: absolute;
-      left: -16px;
-      top: 50%;
-      transform: translateY(-50%);
-      font-size: 16px;
-      color: $purple-6;
-    }
-  }
-
-  a {
-    text-decoration: none;
-    color: $purple-5;
-    transition: 0.4s;
-  }
-  a:hover {
-    background-color: $purple-1;
-  }
-
-  code {
-    color: $blue-7;
-    background-color: $blue-1;
-    font-size: 0.9rem;
-    padding: 2px 4px;
-    border-radius: 2px;
-  }
-
-  *[class='code-wrap'] {
-    pre,
-    code {
-      background-color: $code-bg-color;
-    }
-    pre {
-      padding: 1rem;
-      border-radius: 5px;
-      border: 2px solid $gray-4;
-      overflow-x: auto;
-
-      code {
-        padding: initial;
-        display: inline-block;
-        height: max-content;
-      }
-    }
-  }
-}
-
-$anchor-width: 120px;
-$content-anchor-gap: 10px;
 
 .contents-wrap {
   width: 100%;
@@ -135,8 +86,11 @@ $content-anchor-gap: 10px;
 .dark-mode {
   body {
     background-color: $dark-mode-background-color;
+    color: $dark-mode-font-color;
   }
 
+  ul,
+  li,
   h1,
   h2,
   h3,
@@ -145,10 +99,11 @@ $content-anchor-gap: 10px;
   h6,
   p,
   a,
-  span:not([class^='hljs'], [class^='ant-tag']) {
-    color: $gray-5;
+  span:not([class^='hljs'], [class^='ant-tag'], [style^='--shiki']) {
+    color: inherit;
     transition: color 0.2s;
   }
+
   .ant-anchor-link-title {
     color: $gray-2 !important;
   }
@@ -156,7 +111,6 @@ $content-anchor-gap: 10px;
     color: $primary !important;
   }
   *::-webkit-scrollbar-thumb {
-    border: 6px solid $dark-mode-background-color;
     background-clip: padding-box;
     border-radius: 8px;
     background-color: $gray-7;

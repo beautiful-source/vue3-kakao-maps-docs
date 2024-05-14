@@ -1,6 +1,7 @@
 <script setup lang="ts">
 const route = useRoute();
 const colorMode = useColorMode();
+const onLayoutMenuClosed = ref<boolean>(false);
 const headerMenuItems = ref([
   {
     key: '/docs',
@@ -23,6 +24,10 @@ watch(
     headerMenuItems.value.forEach((item) => (item.selected = route.path.indexOf(item.key) > -1));
   }
 );
+
+const onClickedLayoutMenuControlButton = () => {
+  onLayoutMenuClosed.value = !onLayoutMenuClosed.value;
+};
 </script>
 
 <template>
@@ -62,14 +67,12 @@ watch(
         /></NuxtLink>
       </template>
     </a-page-header>
-    <div class="main-contents">
+    <div class="main-contents" :class="{ 'aside-closed': onLayoutMenuClosed }">
       <aside v-if="route.path !== '/'">
-        <a-affix :offset-top="70">
-          <layout-components-menu v-if="route.path.indexOf('components') > -1" />
-          <layout-docs-menu v-if="route.path.indexOf('docs') > -1" />
-        </a-affix>
+        <layout-components-menu v-if="route.path.indexOf('components') > -1" />
+        <layout-docs-menu v-if="route.path.indexOf('docs') > -1" />
+        <LayoutMenuControlButton @click="onClickedLayoutMenuControlButton" :isClosed="onLayoutMenuClosed" />
       </aside>
-
       <main>
         <slot />
       </main>
@@ -78,9 +81,13 @@ watch(
 </template>
 
 <style lang="scss">
+$header-height: 60px;
+$aside-width: 270px;
+$aside-closed-width: 30px;
+$aside-control-width: 30px;
 .page-header {
   box-sizing: border-box;
-  height: 60px;
+  height: $header-height;
   position: fixed;
   top: 0;
   left: 0;
@@ -121,15 +128,35 @@ watch(
 
   aside {
     box-sizing: border-box;
-    width: 240px;
+    width: $aside-width;
+    display: flex;
+    align-items: center;
+    height: 100vh;
+    transition: all 0.3s ease-out;
+    position: fixed;
+    left: 0;
   }
   main {
     padding: 0 3em 3em;
     box-sizing: border-box;
-    width: calc(100% - 240px);
+    width: calc(100% - $aside-width);
+    transition: all 0.3s ease-out;
+    transform: translateX(($aside-width));
+  }
+  .control-button {
+    position: relative;
+    bottom: $header-height;
   }
 }
-
+.aside-closed {
+  aside {
+    transform: translateX(-($aside-width - $aside-control-width));
+  }
+  main {
+    width: calc(100% - $aside-closed-width);
+    transform: translateX($aside-control-width);
+  }
+}
 .dark-mode {
   .page-header {
     .ant-page-header-heading-title {

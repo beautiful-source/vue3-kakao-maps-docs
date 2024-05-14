@@ -4,3 +4,5 @@ export * from './InfoWindowMarker1';
 export * from './InfoWindowMarker2';
 export * from './AddMarkerClickEvent';
 export * from './AddMarkerMouseEvent';
+export * from './AddMarkerOrder';
+export * from './KeywordBasic';

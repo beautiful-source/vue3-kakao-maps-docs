@@ -1,9 +1,13 @@
 <script setup lang="ts">
-import { useSlots } from 'vue';
+import { useSlots, type CSSProperties } from 'vue';
 
 const slots = useSlots();
 const code = slots.default !== undefined ? slots.default()[0].props?.code : undefined;
 const isCodeCopied = ref<boolean>(false);
+const colorMode = useColorMode();
+const iconStyle = computed<CSSProperties>(() => {
+  return { color: colorMode.value === 'dark' ? 'white' : 'black' };
+});
 
 const onClickCopyCode = async () => {
   if (window) {
@@ -25,8 +29,10 @@ const onClickCopyCode = async () => {
     <a-tooltip>
       <template #title>{{ isCodeCopied ? 'Copied!' : 'Copy code' }}</template>
       <button @click="onClickCopyCode" @mouseout="isCodeCopied = false" size="large">
-        <CheckOutlined v-show="isCodeCopied" />
-        <CopyOutlined v-show="!isCodeCopied" />
+        <ClientOnly>
+          <CheckOutlined v-show="isCodeCopied" :style="iconStyle" />
+          <CopyOutlined v-show="!isCodeCopied" :style="iconStyle" />
+        </ClientOnly>
       </button>
     </a-tooltip>
   </div>

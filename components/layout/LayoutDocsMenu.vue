@@ -5,6 +5,8 @@ import { VueElement, ref } from 'vue';
 
 const { data: navigation } = await useAsyncData('navigation', () => fetchContentNavigation());
 const router = useRouter();
+const colorMode = useColorMode();
+
 const selectedKeys = ref<string[]>(['/docs/get-started/installation']);
 const openKeys = ref<string[]>(['/docs/get-started']);
 const getItem = (label: VueElement | string, key: string, icon?: any, children?: ItemType[], type?: 'group'): ItemType => {
@@ -36,12 +38,28 @@ const handleClick: MenuProps['onClick'] = (e) => {
 </script>
 
 <template>
-  <a-menu
-    v-model:openKeys="openKeys"
-    v-model:selectedKeys="selectedKeys"
-    style="width: 240px"
-    mode="inline"
-    :items="items"
-    @click="handleClick"
-  ></a-menu>
+  <ClientOnly fallbackTag="span">
+    <a-menu
+      v-model:openKeys="openKeys"
+      v-model:selectedKeys="selectedKeys"
+      mode="inline"
+      :items="items"
+      @click="handleClick"
+      :theme="colorMode.value === 'light' ? 'light' : 'dark'"
+    ></a-menu>
+    <template #fallback>
+      <ul>
+        <li v-for="item in items" :key="item?.key">
+          <template v-if="item !== null">
+            {{ 'label' in item ? item.label : '' }}
+            <ul v-if="'children' in item">
+              <li v-for="child in item?.children" :key="child?.key">
+                {{ child !== null && 'label' in child ? child.label : '' }}
+              </li>
+            </ul>
+          </template>
+        </li>
+      </ul>
+    </template>
+  </ClientOnly>
 </template>
