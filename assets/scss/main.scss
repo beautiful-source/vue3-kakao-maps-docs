@@ -48,24 +48,6 @@ code {
   font-family: $code-font-family;
 }
 
-.contents-wrap {
-  width: 100%;
-  display: flex;
-  gap: $content-anchor-gap;
-
-  .contents {
-    width: calc(100% - ($anchor-width + $content-anchor-gap));
-    padding-bottom: 100px;
-  }
-
-  .anchor {
-    width: $anchor-width;
-    .ant-anchor-link-title {
-      font-size: 0.8em;
-    }
-  }
-}
-
 *::-webkit-scrollbar {
   width: 16px;
   height: 16px;
