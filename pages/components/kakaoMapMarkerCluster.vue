@@ -12,7 +12,7 @@ const anchorItems = [
   {
     key: 'marker-cluster-control',
     href: '#marker-cluster-control',
-    title: '컨트롤러'
+    title: '컴포넌트 맛보기'
   },
   {
     key: 'basic-marker-cluster',
@@ -23,12 +23,12 @@ const anchorItems = [
     key: 'chicken-clusterer',
     href: '#chicken-clusterer',
     title: '클러스터 마커에 텍스트 표시하기'
+  },
+  {
+    key: 'clusterer-click-event',
+    href: '#clusterer-click-event',
+    title: '클러스터 클릭 이벤트'
   }
-  // {
-  //   key: 'clusterer-click-event',
-  //   href: '#clusterer-click-event',
-  //   title: '클러스터 클릭 이벤트'
-  // }
 ];
 </script>
 
@@ -57,7 +57,7 @@ const anchorItems = [
           <KakaoMapMarkerClusterChickenClustererTs />
         </template>
       </CodeBox>
-      <!-- <h2 id="clusterer-click-event">클러스터 클릭 이벤트</h2>
+      <h2 id="clusterer-click-event">마커 클러스터 클릭 이벤트</h2>
       <p>마커 클러스터 클릭 이벤트입니다.</p>
       <CodeBox
         :tsCode="KakaoMapMarkerClusterAddClustererClickEventCodeTs"
@@ -66,7 +66,7 @@ const anchorItems = [
         <template #demo>
           <KakaoMapMarkerClusterAddClustererClickEventTs />
         </template>
-      </CodeBox> -->
+      </CodeBox>
     </div>
     <div class="anchor">
       <a-affix :offset-top="70">
