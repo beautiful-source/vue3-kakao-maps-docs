@@ -42,7 +42,7 @@ const onClickCopyCode = async () => {
   <div class="code-box">
     <div class="demo-wrap"><slot name="demo"> </slot></div>
 
-    <div class="separator"></div>
+    <!-- <div class="separator"></div> -->
 
     <div class="block">
       <ul class="list-btn">
@@ -97,29 +97,21 @@ const onClickCopyCode = async () => {
 <style lang="scss" scoped>
 .code-box {
   display: flex;
-  justify-content: space-around;
-  max-height: 75vh;
+  flex-direction: column;
+  gap: 1rem;
   border: 1px solid $light-mode-border-color;
   border-radius: 10px;
   padding: 1rem;
   box-sizing: border-box;
   .demo-wrap {
     overflow: hidden;
-    flex: 0 0 55%;
     display: flex;
     flex-direction: column;
     align-items: center;
-  }
-  .separator {
-    flex: 0 0 1px;
-    background-color: $gray-4;
   }
   .block {
-    flex: 0 0 40%;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    overflow: hidden;
     .list-btn {
       all: initial;
       list-style: none;
@@ -140,23 +132,31 @@ const onClickCopyCode = async () => {
       }
     }
     .code-wrap {
-      width: 100%;
-      overflow-y: auto;
+      :deep(pre),
+      :deep(code) {
+        background-color: $light-mode-code-bg;
+        font-size: 14px;
+      }
+      :deep(pre) {
+        padding: 1rem;
+        border-radius: 5px;
+        border: 2px solid $gray-4;
+        overflow-x: auto;
+
+        :deep(code) {
+          padding: initial;
+          margin: initial;
+          display: inline-block;
+          height: max-content;
+          border: initial;
+        }
+      }
     }
   }
 
-  @media (max-width: 1440px) {
-    flex-direction: column;
-    max-height: 100%;
-    gap: 1rem;
-    .demo-wrap {
-      flex: 0 0 400px;
-      overflow: hidden;
-    }
-    .block {
-      flex: 0 0 100%;
-      max-height: 300px;
-    }
+  @media (min-width: 1800px) {
+    flex-direction: row;
+    justify-content: space-evenly;
   }
 }
 
@@ -165,6 +165,15 @@ const onClickCopyCode = async () => {
     border-color: $dark-mode-border-color;
     .separator {
       background-color: $dark-mode-border-color;
+    }
+    .code-wrap {
+      :deep(pre),
+      :deep(code) {
+        background-color: $dark-mode-code-bg;
+      }
+      :deep(pre) {
+        border-color: $dark-mode-border-color;
+      }
     }
   }
 }

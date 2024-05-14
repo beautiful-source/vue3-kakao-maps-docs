@@ -17,6 +17,8 @@ const setZoomable = (zoomable: boolean) => {
 
 <template>
   <KakaoMap :lat="33.450701" :lng="126.570667" @onLoadKakaoMap="onLoadKakaoMap" />
-  <button class="demo-button" @click="setZoomable(false)">지도 확대/축소 끄기</button>
-  <button class="demo-button" @click="setZoomable(true)">지도 확대/축소 켜기</button>
+  <div>
+    <button class="demo-button" @click="setZoomable(false)">지도 확대/축소 끄기</button>
+    <button class="demo-button" @click="setZoomable(true)">지도 확대/축소 켜기</button>
+  </div>
 </template>

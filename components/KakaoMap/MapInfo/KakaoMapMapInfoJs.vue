@@ -51,8 +51,6 @@ const getInfo = () => {
 
 <template>
   <KakaoMap :lat="lat" :lng="lng" @onLoadKakaoMap="onLoadKakaoMap" width="100%" />
-  <div>
-    <button @click="getInfo" class="demo-button">정보 얻기</button>
-    <div v-html="message" />
-  </div>
+  <button @click="getInfo" class="demo-button">정보 얻기</button>
+  <div v-html="message" />
 </template>
