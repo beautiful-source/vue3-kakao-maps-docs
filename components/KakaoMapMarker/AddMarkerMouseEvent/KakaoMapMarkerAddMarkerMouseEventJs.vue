@@ -26,5 +26,3 @@ const mouseOutKakaoMapMarker = () => {
   </KakaoMap>
   <p>마커 위에 마우스를 올려보세요!</p>
 </template>
-
-<style scoped></style>

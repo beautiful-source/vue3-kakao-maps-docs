@@ -8,10 +8,8 @@ import { KakaoMap, KakaoMapMarker } from 'vue3-kakao-maps';
       :lat="33.450705"
       :lng="126.570667"
       :infoWindow="{
-        content: 'props로 추가',
+        content: 'props로 추가'
       }"
     />
   </KakaoMap>
 </template>
-
-<style scoped></style>

@@ -15,5 +15,3 @@ const markerList = ref([
     <KakaoMapMarkerPolyline :markerList="markerList" :endArrow="true" />
   </KakaoMap>
 </template>
-
-<style scoped></style>

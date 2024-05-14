@@ -13,5 +13,3 @@ const orderBottomMargin = '65px';
     <KakaoMapMarker :lat="33.4515" :lng="126.572367" :order="order2" :order-bottom-margin="orderBottomMargin" />
   </KakaoMap>
 </template>
-
-<style scoped></style>

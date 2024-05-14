@@ -46,5 +46,3 @@ const deleteMarker = () => {
     <button class="demo-button" @click="deleteMarker">마커 삭제하기</button>
   </div>
 </template>
-
-<style scoped></style>

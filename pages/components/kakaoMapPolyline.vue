@@ -26,5 +26,3 @@ import {
     </template>
   </CodeBox>
 </template>
-
-<style lang="scss"></style>

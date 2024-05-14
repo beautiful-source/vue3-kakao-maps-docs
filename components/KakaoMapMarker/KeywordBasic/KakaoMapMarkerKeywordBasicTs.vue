@@ -62,5 +62,3 @@ const onClickMapMarker = (markerItem: KakaoMapMarkerListItem): void => {
     />
   </KakaoMap>
 </template>
-
-<style scoped></style>

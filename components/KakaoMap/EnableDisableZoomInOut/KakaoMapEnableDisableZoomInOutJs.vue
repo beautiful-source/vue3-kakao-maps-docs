@@ -20,5 +20,3 @@ const setZoomable = (zoomable) => {
   <button class="demo-button" @click="setZoomable(false)">지도 확대/축소 끄기</button>
   <button class="demo-button" @click="setZoomable(true)">지도 확대/축소 켜기</button>
 </template>
-
-<style lang="scss" scoped></style>
