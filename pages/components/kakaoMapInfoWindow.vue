@@ -7,6 +7,11 @@ import {
   KakaoMapInfoWindowMarkerWithInfoWindowCodeJs,
   KakaoMapInfoWindowMarkerWithInfoWindowCodeTs
 } from '@/components/KakaoMapInfoWindow';
+
+useSeoMeta({
+  title: 'KakaoMapInfoWindow',
+  description: '카카오맵 인포윈도우(KakaoMapInfoWindow) 컴포넌트 소개와 해당 컴포넌트로 구현할 수 있는 기능입니다.'
+});
 </script>
 
 <template>

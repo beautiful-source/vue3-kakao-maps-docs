@@ -7,6 +7,11 @@ import {
   KakaoMapMarkerClusterAddClustererClickEventCodeJs,
   KakaoMapMarkerClusterAddClustererClickEventCodeTs
 } from '@/components/KakaoMapMarkerCluster';
+
+useSeoMeta({
+  title: 'KakaoMapMarkerCluster',
+  description: '카카오맵 마커 클러스터(KakaoMapMarkerCluster) 컴포넌트 소개와 해당 컴포넌트로 구현할 수 있는 기능입니다.'
+});
 </script>
 
 <template>

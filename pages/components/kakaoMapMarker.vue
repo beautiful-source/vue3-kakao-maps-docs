@@ -17,6 +17,11 @@ import {
   KakaoMapMarkerKeywordBasicCodeTs,
   KakaoMapMarkerKeywordBasicCodeJs
 } from '@/components/KakaoMapMarker';
+
+useSeoMeta({
+  title: 'KakaoMapMarker',
+  description: '카카오맵 마커(KakaoMapMarker) 컴포넌트 소개와 해당 컴포넌트로 구현할 수 있는 기능입니다.'
+});
 </script>
 
 <template>
