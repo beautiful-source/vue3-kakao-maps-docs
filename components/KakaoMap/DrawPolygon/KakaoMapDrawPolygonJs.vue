@@ -45,7 +45,6 @@ const displayArea = (area) => {
 
     // 다각형에 마우스클릭 이벤트를 등록합니다
     //'mouseover','mouseout','mousedown','click' 이벤트가 등록 가능합니다
-    // 예시 데이터와 기타 이벤트는 카카오 맵 API의 [다각형에 이벤트 등록하기]를 참고하시기 바랍니다
     kakao.maps.event.addListener(polygon, 'click', function (mouseEvent) {
       infoLat.value = mouseEvent.latLng.getLat();
       infoLng.value = mouseEvent.latLng.getLng();
