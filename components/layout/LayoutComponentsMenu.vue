@@ -29,7 +29,8 @@ const items: ItemType[] = reactive([
     getItem('지도 확대 축소 막기', '#enable-disable-zoom-in-out'),
     getItem('지도 범위 재설정하기', '#set-bounds'),
     getItem('클릭 이벤트 등록하기', '#add-map-click-event'),
-    getItem('여러개의 마커 제어하기', '#multiple-marker-control')
+    getItem('여러개의 마커 제어하기', '#multiple-marker-control'),
+    getItem('다각형 그리고 이벤트 등록하기', '#basic-polygon')
   ]),
   getItem('KakaoMapMarker', '/kakaoMapMarker', null, [
     getItem('마커 생성하기', '#basic-marker'),
@@ -57,8 +58,8 @@ const items: ItemType[] = reactive([
   getItem('KakaoMapMarkerCluster', '/kakaoMapMarkerCluster', null, [
     getItem('컴포넌트 맛보기', '#marker-cluster-control'),
     getItem('마커 클러스터 생성하기', '#basic-marker-cluster'),
-    getItem('클러스터 마커에 텍스트 표시하기', '#chicken-clusterer')
-    // getItem('클러스터 클릭 이벤트', '#clusterer-click-event')
+    getItem('클러스터 마커에 텍스트 표시하기', '#chicken-clusterer'),
+    getItem('클러스터 클릭 이벤트', '#clusterer-click-event')
   ]),
   getItem('KakaoMapPolyline', '/KakaoMapPolyline', null, [
     getItem('폴리라인 생성하기', '#basic-polyline'),
