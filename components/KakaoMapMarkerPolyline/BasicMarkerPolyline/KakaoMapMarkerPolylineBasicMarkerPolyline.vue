@@ -98,7 +98,7 @@ const dataSource: Ref<ControlDataSourceType[]> = ref([
 
 <template>
   <div>
-    <KakaoMap :lat="33.450705" :lng="126.570667">
+    <KakaoMap :lat="33.452" :lng="126.572">
       <KakaoMapMarkerPolyline
         :markerList="markerList"
         :endArrow="endArrow"

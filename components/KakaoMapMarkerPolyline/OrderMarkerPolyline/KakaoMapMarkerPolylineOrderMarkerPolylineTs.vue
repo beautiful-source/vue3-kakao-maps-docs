@@ -9,6 +9,7 @@ const markerList: Ref<KakaoMapMarkerListItem[]> = ref([
   { lat: 33.4518, lng: 126.5725 }
 ]);
 
+// 마커 추가하기 버튼의 함수입니다
 const addMarker = (): void => {
   markerList.value.push({
     lat: 33.4509 + Math.random() * 0.003,
@@ -16,6 +17,7 @@ const addMarker = (): void => {
   });
 };
 
+// 마커 삭제하기 버튼의 함수입니다
 const deleteMarker = (): void => {
   markerList.value.pop();
 };

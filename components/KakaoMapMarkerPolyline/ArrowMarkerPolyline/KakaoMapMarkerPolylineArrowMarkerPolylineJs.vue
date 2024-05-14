@@ -12,7 +12,7 @@ const markerList = ref([
 
 <template>
   <KakaoMap :lat="33.452" :lng="126.573">
-    <KakaoMapMarkerPolyline :markerList="markerList" :endArrow="true"></KakaoMapMarkerPolyline>
+    <KakaoMapMarkerPolyline :markerList="markerList" :endArrow="true" />
   </KakaoMap>
 </template>
 
