@@ -76,6 +76,7 @@ $header-height: 60px;
   ul {
     display: flex;
     list-style: none;
+    background-color: white;
     margin: 0;
     padding: 0;
     gap: 2rem;
