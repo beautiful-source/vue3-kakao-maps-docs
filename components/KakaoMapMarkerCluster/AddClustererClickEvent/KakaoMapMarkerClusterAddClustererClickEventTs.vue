@@ -1,6 +1,7 @@
 <script setup lang="ts">
+import { ref } from 'vue';
 import { KakaoMap } from 'vue3-kakao-maps';
-import chickenList from '../chicken.json';
+import chickenList from '@/assets/data/chicken.json';
 
 const map = ref<kakao.maps.Map>();
 const onLoadKakaoMap = (mapRef: kakao.maps.Map) => {

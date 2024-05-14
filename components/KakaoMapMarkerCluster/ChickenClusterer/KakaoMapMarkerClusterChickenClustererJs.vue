@@ -1,6 +1,6 @@
 <script setup>
 import { KakaoMap } from 'vue3-kakao-maps';
-import chickenList from '../chicken.json';
+import chickenList from '@/assets/data/chicken.json';
 </script>
 
 <template>
