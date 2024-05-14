@@ -2,7 +2,7 @@
 import { reactive, ref, VueElement, h } from 'vue';
 import type { MenuProps, ItemType } from 'ant-design-vue';
 import { useRouter } from 'vue-router';
-import { contentList } from '~/assets/data/contentsList';
+import { contentList } from '@/assets/data/contentsList';
 
 const openKeys = ref<string[]>([]);
 const router = useRouter();

@@ -14,6 +14,7 @@ export default defineNuxtConfig({
       proxy: {
         '/download/web/data': {
           target: 'https://apis.map.kakao.com',
+          secure: false,
           changeOrigin: true
         }
       }
@@ -37,7 +38,11 @@ export default defineNuxtConfig({
   },
   content: {
     highlight: {
-      theme: 'github-light'
+      theme: {
+        default: 'github-light',
+        'dark-mode': 'github-dark',
+        'sepia-mode': 'monokai'
+      }
     }
   }
 });
