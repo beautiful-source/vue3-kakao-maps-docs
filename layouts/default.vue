@@ -1,81 +1,48 @@
 <script setup lang="ts">
+import { contentList } from '@/assets/data/contentsList';
 const route = useRoute();
-const colorMode = useColorMode();
 const onLayoutMenuClosed = ref<boolean>(false);
-const headerMenuItems = ref([
-  {
-    key: '/docs',
-    label: 'Docs',
-    selected: route.path.indexOf('docs') > -1
-  },
-  {
-    key: '/components',
-    label: 'Components',
-    selected: route.path.indexOf('components') > -1
-  }
-]);
-const changeTheme = () => {
-  colorMode.preference = colorMode.value === 'light' ? 'dark' : 'light';
-};
-
-watch(
-  () => route.path,
-  () => {
-    headerMenuItems.value.forEach((item) => (item.selected = route.path.indexOf(item.key) > -1));
-  }
-);
+const mainContentsRef = ref();
 
 const onClickedLayoutMenuControlButton = () => {
   onLayoutMenuClosed.value = !onLayoutMenuClosed.value;
 };
+
+const anchorItems = computed(() => {
+  const parsedRoute = route.path.split('/');
+  const category = contentList.find((item) => item.key === parsedRoute[1]);
+  if (parsedRoute.length > 1) {
+    return category?.menus.find((item) => item.key === parsedRoute[2])?.pages;
+  } else {
+    return category?.menus[0].pages;
+  }
+});
 </script>
 
 <template>
   <div style="padding-top: 60px">
-    <a-page-header :avatar="{ src: '/images/logo.png', shape: 'square' }" class="page-header" style="background-color: white">
-      <template #title>
-        <NuxtLink to="/">vue3-kakao-maps</NuxtLink>
-      </template>
-      <template #extra>
-        <ul>
-          <li
-            v-for="menuItem of headerMenuItems"
-            :key="menuItem.key"
-            :class="{
-              selected: menuItem.selected,
-              'un-selected': !menuItem.selected
-            }"
-          >
-            <NuxtLink :to="menuItem.key">
-              {{ menuItem.label }}
-            </NuxtLink>
-          </li>
-        </ul>
-        <a-divider type="vertical"></a-divider>
-        <ClientOnly>
-          <a-switch
-            :checked="colorMode.value === 'dark'"
-            @click="changeTheme"
-            checked-children="dark"
-            un-checked-children="light"
-          ></a-switch>
-        </ClientOnly>
-        <a-divider type="vertical"></a-divider>
-
-        <NuxtLink to="https://www.npmjs.com/package/vue3-kakao-maps" target="_blank" class="npm-link">
-          <img src="/public/images/npmLogo.png"
-        /></NuxtLink>
-      </template>
-    </a-page-header>
-    <div class="main-contents" :class="{ 'aside-closed': onLayoutMenuClosed }">
+    <LayoutHeader />
+    <div ref="mainContentsRef" class="main-contents" :class="{ 'aside-closed': onLayoutMenuClosed }">
       <aside v-if="route.path !== '/'">
-        <layout-components-menu v-if="route.path.indexOf('components') > -1" />
-        <layout-docs-menu v-if="route.path.indexOf('docs') > -1" />
-        <LayoutMenuControlButton @click="onClickedLayoutMenuControlButton" :isClosed="onLayoutMenuClosed" />
+        <a-affix :offset-top="70">
+          <div class="side-menu-wrap">
+            <layout-components-menu v-if="route.path.indexOf('components') > -1" />
+            <layout-docs-menu v-if="route.path.indexOf('docs') > -1" />
+            <LayoutMenuControlButton @click="onClickedLayoutMenuControlButton" :isClosed="onLayoutMenuClosed" />
+          </div>
+        </a-affix>
       </aside>
-      <main>
-        <slot />
-      </main>
+
+      <div class="contents-wrap">
+        <div class="contents">
+          <main>
+            <slot />
+          </main>
+        </div>
+        <div class="anchor">
+          <a-anchor :items="anchorItems" :offset-top="70" />
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -85,6 +52,10 @@ $header-height: 60px;
 $aside-width: 270px;
 $aside-closed-width: 30px;
 $aside-control-width: 30px;
+$anchor-width: 140px;
+$content-anchor-gap: 10px;
+$anchor-margin: 15px;
+
 .page-header {
   box-sizing: border-box;
   height: $header-height;
@@ -128,33 +99,59 @@ $aside-control-width: 30px;
 
   aside {
     box-sizing: border-box;
-    width: $aside-width;
+    width: $aside-width + $aside-control-width;
     display: flex;
     align-items: center;
     height: 100vh;
-    transition: all 0.3s ease-out;
-    position: fixed;
-    left: 0;
+
+    .side-menu-wrap {
+      display: flex;
+      align-items: center;
+      transition: all 0.3s ease-out;
+    }
+
+    .control-button {
+      position: relative;
+      bottom: $header-height;
+    }
+  }
+
+  .contents-wrap {
+    width: calc(100% - ($aside-width + $aside-control-width + $anchor-width + $anchor-margin + $content-anchor-gap));
+
+    display: flex;
+    gap: $content-anchor-gap;
+    .contents {
+      transition: all 0.3s ease-out;
+      width: calc(100%);
+      padding-bottom: 100px;
+    }
+
+    .anchor {
+      position: absolute;
+      right: $anchor-margin;
+      width: $anchor-width;
+      .ant-anchor-link-title {
+        font-size: 0.8em;
+      }
+    }
   }
   main {
-    padding: 0 3em 3em;
+    padding-left: 1rem;
     box-sizing: border-box;
-    width: calc(100% - $aside-width);
-    transition: all 0.3s ease-out;
-    transform: translateX(($aside-width));
-  }
-  .control-button {
-    position: relative;
-    bottom: $header-height;
   }
 }
 .aside-closed {
-  aside {
+  .side-menu-wrap {
     transform: translateX(-($aside-width - $aside-control-width));
   }
-  main {
-    width: calc(100% - $aside-closed-width);
-    transform: translateX($aside-control-width);
+  .contents-wrap {
+    .contents {
+      transform: translateX(-($aside-width - $aside-control-width));
+      width: calc(
+        100vw - ($aside-closed-width + $aside-control-width + $anchor-width + $anchor-margin + $content-anchor-gap) - 1rem
+      );
+    }
   }
 }
 .dark-mode {
