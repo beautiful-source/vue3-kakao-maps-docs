@@ -93,7 +93,17 @@ code {
     color: inherit;
     transition: color 0.2s;
   }
+  .ant-table {
+    color: $gray-3 !important;
 
+    th {
+      color: $gray-2 !important;
+      background-color: $gray-11 !important;
+    }
+    td {
+      background-color: $gray-9 !important;
+    }
+  }
   .ant-anchor-link-title {
     color: $gray-2 !important;
   }

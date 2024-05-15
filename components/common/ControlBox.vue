@@ -124,7 +124,6 @@ const checkInvalid = (value: string, record: Record<string, any>): void => {
   border-radius: 10px;
   margin-left: 10px;
   max-height: 500px;
-  background-color: white;
   align-items: flex-start;
   scrollbar-width: none;
   -ms-overflow-style: none;
