@@ -49,7 +49,7 @@ const getInfo = () => {
 </script>
 
 <template>
-  <KakaoMap :lat="lat" :lng="lng" @onLoadKakaoMap="onLoadKakaoMap" width="100%" />
+  <KakaoMap :lat="lat" :lng="lng" @onLoadKakaoMap="onLoadKakaoMap" />
   <button @click="getInfo" class="demo-button">정보 얻기</button>
   <div v-html="message" />
 </template>

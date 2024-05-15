@@ -136,6 +136,7 @@ const onClickShowMoreButton = () => {
     display: flex;
     flex-direction: column;
     align-items: center;
+    color: $gray-13;
   }
   .block {
     display: flex;
@@ -179,7 +180,7 @@ const onClickShowMoreButton = () => {
 
       .btn-show-more {
         position: absolute;
-        bottom: 2rem;
+        bottom: 1rem;
         left: 50%;
         transform: translateX(-50%);
         z-index: 20;
@@ -215,16 +216,17 @@ const onClickShowMoreButton = () => {
 .dark-mode {
   .code-box {
     border-color: $dark-mode-border-color;
-    .separator {
-      background-color: $dark-mode-border-color;
-    }
     .code-wrap {
+      border-color: $dark-mode-border-color;
       :deep(pre),
       :deep(code) {
         background-color: $dark-mode-code-bg;
       }
       :deep(pre) {
         border-color: $dark-mode-border-color;
+      }
+      .blur-layer {
+        background: linear-gradient(rgba(255, 255, 255, 0), #151d29);
       }
     }
   }
