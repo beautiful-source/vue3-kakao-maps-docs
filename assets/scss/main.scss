@@ -100,8 +100,16 @@ code {
       color: $gray-2 !important;
       background-color: $gray-11 !important;
     }
+    .ant-table-body {
+      background-color: $gray-9;
+    }
     td {
       background-color: $gray-9 !important;
+    }
+    .ant-tag-geekblue {
+      color: $primary-2;
+      background-color: $primary-8;
+      border-color: $primary-5;
     }
   }
   .ant-anchor-link-title {
