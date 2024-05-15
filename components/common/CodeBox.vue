@@ -207,7 +207,7 @@ const onClickShowMoreButton = () => {
     }
   }
 
-  @media (min-width: 1800px) {
+  @media (min-width: $media-breakpoint-xlarge) {
     flex-direction: row;
     justify-content: space-evenly;
   }

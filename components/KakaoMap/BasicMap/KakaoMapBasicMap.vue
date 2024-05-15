@@ -192,7 +192,16 @@ const dataSource: Ref<ControlDataSourceType[]> = ref([
 <style scoped lang="scss">
 div {
   display: flex;
+  gap: 1rem;
+  flex-direction: column;
+  overflow: hidden;
   align-items: center;
   width: 100%;
+}
+
+@media (min-width: $media-breakpoint-xlarge) {
+  div {
+    flex-direction: row;
+  }
 }
 </style>
