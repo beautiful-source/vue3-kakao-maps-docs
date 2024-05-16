@@ -6,9 +6,9 @@ type ContentList = {
     href: string;
     title: string;
   }[];
-}[];
+};
 
-export const contentList: ContentList = [
+export const contentList: ContentList[] = [
   {
     key: 'kakaoMap',
     title: 'KakaoMap',

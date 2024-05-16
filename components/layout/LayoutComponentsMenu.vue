@@ -46,28 +46,10 @@ onMounted(() => {
     }
   }
 });
-
-const searchMenu = (serachValue: string) => {
-  const results = [];
-
-  function searchMenus(menus) {
-    menus.forEach((menu) => {
-      menu.pages.forEach((page) => {
-        if (page.key.includes(keyword) || page.href.includes(keyword) || page.title.includes(keyword)) {
-          results.push({
-            key: page.key,
-            href: page.href,
-            title: page.title
-          });
-        }
-      });
-    });
-  }
-};
 </script>
 <template>
   <div class="docs-menu">
-    <!-- <a-input></a-input> -->
+    <LayoutSearchMenuButton />
     <div class="docs-menu-list">
       <ClientOnly fallbackTag="span">
         <a-menu
