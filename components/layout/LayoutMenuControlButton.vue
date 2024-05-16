@@ -25,38 +25,30 @@ const emits = defineEmits(['onClicked']);
   padding: 1rem;
   cursor: pointer;
   .arrow {
-    width: 0.25rem;
-    height: 0.75rem;
+    width: 0.3vw;
+    height: 2vh;
     background-color: $gray-6;
     transition: all 0.2s ease-in;
     border-radius: 9999px;
   }
   .top {
-    transform: translateY(0.15rem) rotate(0);
+    transform: translateY(0.15rem) rotate(25deg);
   }
   .bottom {
-    transform: translateY(-0.15rem) rotate(0);
+    transform: translateY(-0.15rem) rotate(-25deg);
   }
   &:hover {
     .arrow {
       background-color: $primary;
     }
-    .top {
-      transform: translateY(0.15rem) rotate(15deg);
-    }
-    .bottom {
-      transform: translateY(-0.15rem) rotate(-15deg);
-    }
   }
 }
 .closed {
-  &:hover {
-    .top {
-      transform: translateY(0.15rem) rotate(-15deg);
-    }
-    .bottom {
-      transform: translateY(-0.15rem) rotate(15deg);
-    }
+  .top {
+    transform: translateY(0.15rem) rotate(-25deg);
+  }
+  .bottom {
+    transform: translateY(-0.15rem) rotate(25deg);
   }
 }
 </style>
