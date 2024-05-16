@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { KakaoMap, KakaoMapInfoWindow } from 'vue3-kakao-maps';
 import type { ControlDataSourceType } from '@/components/common/ControlBox.vue';
+import type { HandlerBoxDataSourceType } from '@/components/common/HandlerBox.vue';
 
 const lat = ref<number>(33.450701);
 const lng = ref<number>(126.570667);
@@ -99,10 +100,18 @@ const dataSource: Ref<ControlDataSourceType[]> = ref([
     }
   }
 ]);
+
+const handlerDataSource: Ref<HandlerBoxDataSourceType[]> = ref([
+  {
+    name: 'onLoadKakaoMapInfoWindow',
+    description: '인포윈도우가 로드되었을 때 발생하는 이벤트',
+    return: 'kakao.maps.InfoWindow'
+  }
+]);
 </script>
 
 <template>
-  <div>
+  <div class="control-div">
     <KakaoMap :lat="33.450701" :lng="126.570667">
       <KakaoMapInfoWindow
         :lat="lat"
@@ -121,12 +130,19 @@ const dataSource: Ref<ControlDataSourceType[]> = ref([
     </KakaoMap>
     <ControlBox v-model:dataSource="dataSource" />
   </div>
+  <p class="emit-event-title">Events</p>
+  <HandlerBox :dataSource="handlerDataSource" />
 </template>
 
 <style scoped lang="scss">
-div {
+.control-div {
   display: flex;
-  align-items: center;
+  flex-direction: row;
   width: 100%;
+  height: 100%;
+}
+.emit-event-title {
+  font-size: 1.4rem;
+  font-weight: 600;
 }
 </style>
