@@ -31,22 +31,11 @@ type HandlerBoxPropsType = {
 };
 
 const props = defineProps<HandlerBoxPropsType>();
-
-const checkInvalid = (value: string, record: Record<string, any>): void => {
-  record.control.isError = isValidNumber(value);
-};
 </script>
 
 <template>
   <div class="handler-box">
-    <a-table
-      sticky
-      :scroll="{ x: 750, y: 500 }"
-      :scrollToFirstRowOnChange="true"
-      :columns="columns"
-      :data-source="props.dataSource"
-      :pagination="false"
-    >
+    <a-table sticky :scrollToFirstRowOnChange="true" :columns="columns" :data-source="props.dataSource" :pagination="false">
       <template #headerCell="{ column }">
         <template v-if="column.key === 'name'">
           <span>Name</span>
@@ -54,8 +43,7 @@ const checkInvalid = (value: string, record: Record<string, any>): void => {
       </template>
       <template #bodyCell="{ column, record }">
         <template v-if="column.key === 'name'">
-          <b>{{ record.name }}</b
-          ><b class="required-star">{{ record && record.required === true ? '*' : '' }}</b>
+          {{ record.name }}
         </template>
         <template v-if="column.key === 'description'">
           {{ record.description }}
@@ -72,15 +60,7 @@ const checkInvalid = (value: string, record: Record<string, any>): void => {
 .handler-box {
   display: flex;
   width: 100%;
-  align-items: center;
-  justify-content: center;
   border-radius: 10px;
-  max-height: 500px;
-  overflow-x: scroll;
-  overflow-y: auto;
-  background-color: white;
-  align-items: flex-start;
-  scrollbar-width: none;
-  -ms-overflow-style: none;
+  margin-top: -15px;
 }
 </style>

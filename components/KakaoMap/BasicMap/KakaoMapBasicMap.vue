@@ -176,6 +176,11 @@ const handlerDataSource: Ref<HandlerBoxDataSourceType[]> = ref([
     name: 'onLoadKakaoMap',
     description: '지도가 로드되었을 때 발생하는 이벤트',
     return: 'kakao.maps.Map'
+  },
+  {
+    name: 'onLoadKakaoMapMarkerCluster',
+    description: '지도의 마커 클러스터 로드되었을 때 발생하는 이벤트',
+    return: 'kakao.maps.MarkerClusterer'
   }
 ]);
 </script>
