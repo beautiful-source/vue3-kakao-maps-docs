@@ -26,7 +26,7 @@ const iconStyle = computed<CSSProperties>(() => {
 const codeWrapElement = ref<HTMLDivElement>();
 const showMoreButton = ref<boolean>(false);
 const isShowMoreButtonClicked = ref<boolean>(false);
-const showMoreButtonMessage = computed<string>(() => (isShowMoreButtonClicked.value ? '줄이기' : '더보기'));
+const showMoreButtonMessage = computed<string>(() => (isShowMoreButtonClicked.value ? '접기' : '더보기'));
 const codeWrapMaxHeight = '700px';
 
 const onClickCopyCode = async () => {
@@ -113,9 +113,15 @@ const onClickShowMoreButton = () => {
             @vue:updated="onVCodeBlockUpdated"
           />
           <div class="blur-layer" v-if="showMoreButton && !isShowMoreButtonClicked"></div>
-          <a-button v-if="showMoreButton" @click="onClickShowMoreButton" class="btn-show-more">{{
-            showMoreButtonMessage
-          }}</a-button>
+          <a-tooltip placement="right" :color="colorMode.value === 'dark' ? '#1f1f1f' : '#f5f5f5'" style="opacity: 0.6">
+            <template #title>
+              <span :style="{ color: colorMode.value === 'dark' ? 'white' : 'black' }">{{ showMoreButtonMessage }}</span>
+            </template>
+            <button v-if="showMoreButton" @click="onClickShowMoreButton" class="btn-show-more">
+              <DownOutlined v-show="!isShowMoreButtonClicked" />
+              <UpOutlined v-show="isShowMoreButtonClicked" />
+            </button>
+          </a-tooltip>
         </ClientOnly>
       </div>
     </div>
@@ -184,6 +190,20 @@ const onClickShowMoreButton = () => {
         left: 50%;
         transform: translateX(-50%);
         z-index: 20;
+        font-size: 1rem;
+
+        display: flex;
+        padding: 12px;
+        cursor: pointer;
+        border-radius: 100%;
+        border: none;
+        box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.2);
+        background-color: $gray-1;
+        opacity: 0.6;
+        transition: all 0.2s ease-in;
+        &:hover {
+          background-color: $gray-3;
+        }
       }
 
       :deep(pre),
@@ -227,6 +247,14 @@ const onClickShowMoreButton = () => {
       }
       .blur-layer {
         background: linear-gradient(rgba(255, 255, 255, 0), #151d29);
+      }
+      .btn-show-more {
+        box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.7);
+        background-color: $gray-13;
+        color: $gray-1;
+        &:hover {
+          background-color: $gray-9;
+        }
       }
     }
   }
