@@ -23,6 +23,13 @@ const isCodeCopied = ref<boolean>(false);
 const iconStyle = computed<CSSProperties>(() => {
   return { color: colorMode.value === 'dark' ? 'white' : 'black' };
 });
+const codeWrapElement = ref<HTMLDivElement>();
+const showMoreButton = ref<boolean>(false);
+const isShowMoreButtonClicked = ref<boolean>(false);
+const showMoreButtonMessage = computed<string>(() => (isShowMoreButtonClicked.value ? '접기' : '더보기'));
+const codeWrapMaxHeight = '700px';
+const darkGray = '#1f1f1f';
+const lightGray = '#f5f5f5';
 
 const onClickCopyCode = async () => {
   if (window) {
@@ -36,14 +43,32 @@ const onClickCopyCode = async () => {
     console.error('window 객체 로드되지 않음');
   }
 };
+
+const onVCodeBlockUpdated = () => {
+  if (codeWrapElement.value !== undefined && codeWrapElement.value.children.length > 0) {
+    const childElement = [...codeWrapElement.value.children][0];
+    const childHeight = childElement.clientHeight;
+    if (childHeight > codeWrapElement.value.clientHeight) {
+      showMoreButton.value = true;
+    }
+  }
+};
+
+const onClickShowMoreButton = () => {
+  if (codeWrapElement.value !== undefined) {
+    if (isShowMoreButtonClicked.value) {
+      codeWrapElement.value.style.maxHeight = codeWrapMaxHeight;
+    } else {
+      codeWrapElement.value.style.maxHeight = 'initial';
+    }
+    isShowMoreButtonClicked.value = !isShowMoreButtonClicked.value;
+  }
+};
 </script>
 
 <template>
   <div class="code-box">
     <div class="demo-wrap"><slot name="demo"> </slot></div>
-
-    <div class="separator"></div>
-
     <div class="block">
       <ul class="list-btn">
         <li>
@@ -80,14 +105,25 @@ const onClickCopyCode = async () => {
         </li>
       </ul>
 
-      <div class="code-wrap" v-show="showCode">
+      <div class="code-wrap" v-show="showCode" ref="codeWrapElement">
         <ClientOnly>
           <VCodeBlock
             lang="html"
             highlightjs
             :code="selectedCode"
             :theme="colorMode.value === 'dark' ? 'github-dark' : 'github'"
+            @vue:updated="onVCodeBlockUpdated"
           />
+          <div class="blur-layer" v-if="showMoreButton && !isShowMoreButtonClicked"></div>
+          <a-tooltip placement="right" :color="colorMode.value === 'dark' ? darkGray : lightGray" style="opacity: 0.6">
+            <template #title>
+              <span :style="{ color: colorMode.value === 'dark' ? 'white' : 'black' }">{{ showMoreButtonMessage }}</span>
+            </template>
+            <button v-if="showMoreButton" @click="onClickShowMoreButton" class="btn-show-more">
+              <DownOutlined v-show="!isShowMoreButtonClicked" />
+              <UpOutlined v-show="isShowMoreButtonClicked" />
+            </button>
+          </a-tooltip>
         </ClientOnly>
       </div>
     </div>
@@ -97,29 +133,22 @@ const onClickCopyCode = async () => {
 <style lang="scss" scoped>
 .code-box {
   display: flex;
-  justify-content: space-around;
-  max-height: 75vh;
+  flex-direction: column;
+  gap: 1rem;
   border: 1px solid $light-mode-border-color;
   border-radius: 10px;
   padding: 1rem;
   box-sizing: border-box;
   .demo-wrap {
     overflow: hidden;
-    flex: 0 0 55%;
     display: flex;
     flex-direction: column;
     align-items: center;
-  }
-  .separator {
-    flex: 0 0 1px;
-    background-color: $gray-4;
+    color: $gray-13;
   }
   .block {
-    flex: 0 0 40%;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    overflow: hidden;
     .list-btn {
       all: initial;
       list-style: none;
@@ -140,31 +169,95 @@ const onClickCopyCode = async () => {
       }
     }
     .code-wrap {
-      width: 100%;
-      overflow-y: auto;
+      border-radius: 5px;
+      border: 2px solid $gray-4;
+      max-height: v-bind(codeWrapMaxHeight);
+      overflow: hidden;
+      position: relative;
+
+      .blur-layer {
+        width: 100%;
+        height: 250px;
+        background: linear-gradient(rgba(255, 255, 255, 0), rgb(255, 255, 255));
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 10;
+      }
+
+      .btn-show-more {
+        position: absolute;
+        bottom: 1rem;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 20;
+        font-size: 1rem;
+
+        display: flex;
+        padding: 12px;
+        cursor: pointer;
+        border-radius: 100%;
+        border: none;
+        box-shadow: 2px 2px 30px rgba(51, 51, 51, 0.4);
+        background-color: $gray-1;
+        opacity: 0.6;
+        transition: all 0.2s ease-in;
+        &:hover {
+          background-color: $gray-3;
+        }
+      }
+
+      :deep(pre),
+      :deep(code) {
+        background-color: $light-mode-code-bg;
+        font-size: 14px;
+        margin: initial;
+      }
+      :deep(pre) {
+        padding: 1rem;
+        overflow-x: auto;
+
+        :deep(code) {
+          padding: initial;
+          margin: initial;
+          display: inline-block;
+          height: max-content;
+          border: initial;
+        }
+      }
     }
   }
 
-  @media (max-width: 1440px) {
-    flex-direction: column;
-    max-height: 100%;
-    gap: 1rem;
-    .demo-wrap {
-      flex: 0 0 400px;
-      overflow: hidden;
-    }
-    .block {
-      flex: 0 0 100%;
-      max-height: 300px;
-    }
+  @media (min-width: $media-breakpoint-xlarge) {
+    flex-direction: row;
+    justify-content: space-evenly;
   }
 }
 
 .dark-mode {
   .code-box {
     border-color: $dark-mode-border-color;
-    .separator {
-      background-color: $dark-mode-border-color;
+    .code-wrap {
+      border-color: $dark-mode-border-color;
+      :deep(pre),
+      :deep(code) {
+        background-color: $dark-mode-code-bg;
+      }
+      :deep(pre) {
+        border-color: $dark-mode-border-color;
+      }
+      .blur-layer {
+        background: linear-gradient(rgba(255, 255, 255, 0), #202a39);
+      }
+      .btn-show-more {
+        box-shadow: 2px 2px 20px rgba(108, 108, 108, 0.9);
+        background-color: $gray-13;
+        color: $gray-1;
+        &:hover {
+          background-color: $gray-12;
+        }
+      }
     }
   }
 }

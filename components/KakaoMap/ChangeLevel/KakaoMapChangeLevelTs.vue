@@ -43,7 +43,9 @@ const displayLevel = () => {
 
 <template>
   <KakaoMap :lat="33.450701" :lng="126.570667" @onLoadKakaoMap="onLoadKakaoMap" />
-  <button class="demo-button" @click="zoomIn">지도레벨 - 1</button>
-  <button class="demo-button" @click="zoomOut">지도레벨 + 1</button>
+  <div>
+    <button class="demo-button" @click="zoomIn">지도레벨 - 1</button>
+    <button class="demo-button" @click="zoomOut">지도레벨 + 1</button>
+  </div>
   <p>{{ message }}</p>
 </template>

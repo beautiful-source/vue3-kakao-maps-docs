@@ -1,4 +1,3 @@
-tepmplate
 <script setup lang="ts">
 const columns = [
   {
