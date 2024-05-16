@@ -14,7 +14,7 @@ const scrollwheel = ref<boolean>(true);
 const projectionId = ref<string>('kakao.maps.ProjectionId.WCONG');
 const keyboardShortcuts = ref<boolean>();
 
-const dataSource: Ref<ControlDataSourceType[]> = ref([
+const controlData: Ref<ControlDataSourceType[]> = ref([
   {
     name: 'width',
     description: '지도의 가로 길이',
@@ -171,7 +171,7 @@ const dataSource: Ref<ControlDataSourceType[]> = ref([
   }
 ]);
 
-const handlerDataSource: Ref<HandlerBoxDataSourceType[]> = ref([
+const eventsData: Ref<HandlerBoxDataSourceType[]> = ref([
   {
     name: 'onLoadKakaoMap',
     description: '지도가 로드되었을 때 발생하는 이벤트',
@@ -186,7 +186,7 @@ const handlerDataSource: Ref<HandlerBoxDataSourceType[]> = ref([
 </script>
 
 <template>
-  <div class="control-div">
+  <BasicComponentBox :control-data="controlData" :events-data="eventsData">
     <KakaoMap
       :width="width"
       :height="height"
@@ -198,22 +198,5 @@ const handlerDataSource: Ref<HandlerBoxDataSourceType[]> = ref([
       :scrollwheel="scrollwheel"
       :projectionId="projectionId"
       :keyboardShortcuts="keyboardShortcuts"
-    />
-    <ControlBox v-model:dataSource="dataSource" />
-  </div>
-  <p class="emit-event-title">Events</p>
-  <HandlerBox :dataSource="handlerDataSource" />
+  /></BasicComponentBox>
 </template>
-
-<style scoped lang="scss">
-.control-div {
-  display: flex;
-  flex-direction: row;
-  width: 100%;
-  height: 100%;
-}
-.emit-event-title {
-  font-size: 1.4rem;
-  font-weight: 600;
-}
-</style>

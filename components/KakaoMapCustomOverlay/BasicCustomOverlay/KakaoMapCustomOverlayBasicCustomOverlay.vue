@@ -9,7 +9,7 @@ const content = ref<string>();
 const zIndex = ref<number>();
 const visible = ref<boolean>(true);
 
-const dataSource: Ref<ControlDataSourceType[]> = ref([
+const controlData: Ref<ControlDataSourceType[]> = ref([
   {
     name: 'lat',
     description: '커스텀 오버레이의 위도 값',
@@ -78,7 +78,7 @@ const dataSource: Ref<ControlDataSourceType[]> = ref([
   }
 ]);
 
-const handlerDataSource: Ref<HandlerBoxDataSourceType[]> = ref([
+const eventsData: Ref<HandlerBoxDataSourceType[]> = ref([
   {
     name: 'onLoadKakaoMapCustomOverlay',
     description: '커스컴 오버레이가 로드되었을 때 발생하는 이벤트',
@@ -88,7 +88,7 @@ const handlerDataSource: Ref<HandlerBoxDataSourceType[]> = ref([
 </script>
 
 <template>
-  <div class="control-div">
+  <BasicComponentBox :control-data="controlData" :events-data="eventsData">
     <ClientOnly>
       <KakaoMap :lat="33.450701" :lng="126.570667">
         <KakaoMapCustomOverlay :lat="lat" :lng="lng" :content="content" :zIndex="zIndex" :visible="visible">
@@ -118,10 +118,7 @@ const handlerDataSource: Ref<HandlerBoxDataSourceType[]> = ref([
         </KakaoMapCustomOverlay>
       </KakaoMap>
     </ClientOnly>
-    <ControlBox v-model:dataSource="dataSource" />
-  </div>
-  <p class="emit-event-title">Events</p>
-  <HandlerBox :dataSource="handlerDataSource" />
+  </BasicComponentBox>
 </template>
 
 <style scoped lang="scss">
