@@ -142,6 +142,14 @@ $anchor-margin: 15px;
       transition: all 0.3s ease-out;
       width: calc(100%);
       padding-bottom: 100px;
+      a {
+        text-decoration: none;
+        color: $purple-5;
+        transition: 0.4s;
+      }
+      a:hover {
+        background-color: $purple-1;
+      }
     }
 
     .anchor {
