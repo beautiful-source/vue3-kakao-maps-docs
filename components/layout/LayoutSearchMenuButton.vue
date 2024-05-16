@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { contentList } from '@/assets/data/contentsList';
+import { SearchOutlined } from '@ant-design/icons-vue';
 const open = ref<boolean>(false);
 const searchValue = ref<string>('');
 const router = useRouter();
@@ -53,27 +54,117 @@ watch(searchValue, (keyword: string) => {
 </script>
 
 <template>
-  <a-button @click="showModal"> 빠른 검색</a-button>
-  <a-modal v-model:open="open" :closable="false" :footer="null">
+  <a-button @click="showModal" class="search-button"> <SearchOutlined />빠른 검색... </a-button>
+  <a-modal v-model:open="open" :closable="false" :footer="null" class="search-menu-modal">
     <template #title>
-      <a-input v-model:value="searchValue" :bordered="false" placeholder="필요한 예제를 검색하세요"></a-input>
+      <a-input v-model:value="searchValue" allowClear :bordered="false" placeholder="필요한 예제를 검색하세요"></a-input>
     </template>
+
     <div v-show="searchValue.length > 0 && searchResultList.length > 0">
       <ul>
         <li v-for="menu of searchResultList" :key="menu.href" @click="() => onSelectMenu(menu)">
-          <p class="component-name" v-if="!menu.isComponent">
-            {{ menu.componentName }}
+          <p class="component-name">
+            {{ menu.isComponent ? 'Component' : menu.componentName }}
           </p>
-          <p>
+          <p class="menu-title">
             {{ menu.title }}
           </p>
         </li>
       </ul>
     </div>
-    <div v-show="searchResultList.length == 0">
+    <div class="void-result" v-show="searchValue.length == 0 || searchResultList.length == 0">
       <p>검색 결과가 없습니다.</p>
     </div>
   </a-modal>
 </template>
 
-<style scoped lang="scss"></style>
+<style lang="scss">
+.search-button {
+  width: 100%;
+  margin-bottom: 0.5rem;
+}
+.dark-mode {
+  .search-button {
+    background-color: $transparency-gray-1;
+    border-color: $gray-7;
+    color: $gray-4;
+
+    &:hover {
+      background-color: $transparency-gray-2;
+      border-color: $gray-6;
+      color: $gray-3;
+    }
+  }
+}
+.search-menu-modal {
+  .ant-modal-header {
+    background-color: transparent;
+  }
+  .ant-input {
+    color: $gray-4;
+    font-size: 1.3rem !important;
+    font-weight: 400;
+  }
+  input::placeholder {
+    color: $gray-5;
+  }
+  ul {
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    height: 30rem;
+    overflow-y: auto;
+  }
+  li {
+    list-style: none;
+    padding: 1rem;
+    font-size: 1rem;
+    border-radius: 1rem;
+    background: $transparency-gray-3;
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    border-radius: 10px;
+    border: 1px solid $transparency-gray-3;
+    cursor: pointer;
+    &:hover {
+      background-color: $primary;
+      .component-name {
+        color: $gray-1;
+      }
+      .menu-title {
+        color: $gray-3;
+      }
+    }
+  }
+  p {
+    margin: 0;
+  }
+  .component-name {
+    font-size: 0.7rem;
+    color: $gray-8;
+  }
+  .menu-title {
+    font-weight: 600;
+    color: $gray-10;
+  }
+  .ant-modal-content {
+    background: $transparency-gray-2;
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    border-radius: 10px;
+    border: 1px solid $transparency-gray-3;
+  }
+
+  .void-result {
+    border-top: 1px solid $transparency-gray-3;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 2rem;
+    font-size: 1rem;
+    color: $gray-3;
+  }
+}
+</style>
