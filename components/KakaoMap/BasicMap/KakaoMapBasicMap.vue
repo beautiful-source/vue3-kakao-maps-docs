@@ -186,7 +186,7 @@ const handlerDataSource: Ref<HandlerBoxDataSourceType[]> = ref([
 </script>
 
 <template>
-  <div className="control-div">
+  <div class="control-div">
     <KakaoMap
       :width="width"
       :height="height"
@@ -201,7 +201,7 @@ const handlerDataSource: Ref<HandlerBoxDataSourceType[]> = ref([
     />
     <ControlBox v-model:dataSource="dataSource" />
   </div>
-  <h2>이벤트 핸들러</h2>
+  <p class="emit-event-title">Events</p>
   <HandlerBox :dataSource="handlerDataSource" />
 </template>
 
@@ -211,5 +211,9 @@ const handlerDataSource: Ref<HandlerBoxDataSourceType[]> = ref([
   flex-direction: row;
   width: 100%;
   height: 100%;
+}
+.emit-event-title {
+  font-size: 1.4rem;
+  font-weight: 600;
 }
 </style>

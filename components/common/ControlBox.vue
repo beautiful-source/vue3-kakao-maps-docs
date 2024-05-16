@@ -74,7 +74,7 @@ const checkInvalid = (value: string, record: Record<string, any>): void => {
         <template v-if="column.key === 'name'">
           <div class="name-column">
             <span>Name</span>
-            <span class="required"><b>*</b> 필수 입력값</span>
+            <span class="required"><b class="required-star">*</b> 필수 입력값</span>
           </div>
         </template>
       </template>
