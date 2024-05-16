@@ -255,7 +255,7 @@ const onClickShowMoreButton = () => {
         background-color: $gray-13;
         color: $gray-1;
         &:hover {
-          background-color: $gray-9;
+          background-color: $gray-12;
         }
       }
     }
