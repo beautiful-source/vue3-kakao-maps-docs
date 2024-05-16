@@ -57,8 +57,13 @@ useSeoMeta({
     </template>
   </CodeBox>
   <h2 id="map-info">지도 정보 얻어오기</h2>
-  <p>지도 레벨, 중심좌표, 지도 타입, 지도 영역정보를 얻어와 표출합니다.</p>
-  <NuxtLink href="https://apis.map.kakao.com/web/documentation/#MapTypeId">지도 타입을 보시려면 여기를 클릭하세요!</NuxtLink>
+  <p>
+    지도 레벨, 중심좌표, 지도 타입, 지도 영역정보를 얻어와 표출합니다.
+    <br />
+    <NuxtLink href="https://apis.map.kakao.com/web/documentation/#MapTypeId" target="_blank"
+      >지도 타입을 보시려면 여기를 클릭하세요!</NuxtLink
+    >
+  </p>
   <CodeBox :tsCode="KakaoMapMapInfoCodeTs" :jsCode="KakaoMapMapInfoCodeJs">
     <template #demo>
       <KakaoMapMapInfoTs />
@@ -112,8 +117,9 @@ useSeoMeta({
   <p>
     지도 위에 다각형을 표시하고 클릭 이벤트를 등록해서 인포윈도우를 띄웁니다. 다각형의 면적을 계산할 수 있습니다. 예시 데이터와
     기타 이벤트는 카카오 맵 API의
-    <NuxtLink href="https://apis.map.kakao.com/web/sample/addPolygonMouseEvent2/">[다각형에 이벤트 등록하기]</NuxtLink>를
-    참고하시기 바랍니다
+    <NuxtLink href="https://apis.map.kakao.com/web/sample/addPolygonMouseEvent2/" target="_blank"
+      >[다각형에 이벤트 등록하기]</NuxtLink
+    >를 참고하시기 바랍니다
   </p>
   <CodeBox :tsCode="KakaoMapDrawPolygonCodeTs" :jsCode="KakaoMapDrawPolygonCodeJs">
     <template #demo>

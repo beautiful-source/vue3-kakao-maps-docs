@@ -8,7 +8,7 @@ const router = useRouter();
 const colorMode = useColorMode();
 
 const selectedKeys = ref<string[]>(['/docs/get-started/installation']);
-const openKeys = ref<string[]>(['/docs/get-started']);
+const openKeys = ref<string[]>(['/docs/get-started', '/docs/further']);
 const getItem = (label: VueElement | string, key: string, icon?: any, children?: ItemType[], type?: 'group'): ItemType => {
   return {
     key,
