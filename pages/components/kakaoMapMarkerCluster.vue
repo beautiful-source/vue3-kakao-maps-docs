@@ -5,7 +5,9 @@ import {
   KakaoMapMarkerClusterChickenClustererCodeJs,
   KakaoMapMarkerClusterChickenClustererCodeTs,
   KakaoMapMarkerClusterAddClustererClickEventCodeJs,
-  KakaoMapMarkerClusterAddClustererClickEventCodeTs
+  KakaoMapMarkerClusterAddClustererClickEventCodeTs,
+  KakaoMapMarkerClusterCustomOverlayClusterTsCode,
+  KakaoMapMarkerClusterCustomOverlayClusterJsCode
 } from '@/components/KakaoMapMarkerCluster';
 
 useSeoMeta({
@@ -28,7 +30,10 @@ useSeoMeta({
   </CodeBox>
   <h2 id="chicken-clusterer">클러스터 마커에 텍스트 표시하기</h2>
   <p>클러스터 마커에 텍스트 표시하기입니다.</p>
-  <div>사용한 데이터를 보시려면 <a href="https://apis.map.kakao.com/download/web/data/chicken.json">여기를 클릭하세요!</a></div>
+  <div>
+    사용한 데이터를 보시려면
+    <a href="https://apis.map.kakao.com/download/web/data/chicken.json" target="_blank">여기를 클릭하세요!</a>
+  </div>
   <br />
   <CodeBox :tsCode="KakaoMapMarkerClusterChickenClustererCodeTs" :jsCode="KakaoMapMarkerClusterChickenClustererCodeJs">
     <template #demo>
@@ -43,6 +48,18 @@ useSeoMeta({
   >
     <template #demo>
       <KakaoMapMarkerClusterAddClustererClickEventTs />
+    </template>
+  </CodeBox>
+  <h2 id="custom-overlay-cluster">커스텀 오버레이 클러스터</h2>
+  <p>커스텀 오버레이 클러스터입니다.</p>
+  <div>
+    <NuxtLink to="./kakaoMapCustomOverlay#custom-overlay-control">KakaoMapCustomOverlayProps</NuxtLink>의 세부내용은 여기서
+    확인해주세요!
+  </div>
+  <br />
+  <CodeBox :tsCode="KakaoMapMarkerClusterCustomOverlayClusterTsCode" :jsCode="KakaoMapMarkerClusterCustomOverlayClusterJsCode">
+    <template #demo>
+      <KakaoMapMarkerClusterCustomOverlayClusterTs />
     </template>
   </CodeBox>
 </template>
