@@ -80,7 +80,7 @@ a > code {
     text-align: center;
     word-break: keep-all;
   }
-  @media (max-width: 710px) {
+  @media (max-width: $media-breakpoint-medium) {
     .title {
       font-size: 3rem;
     }
@@ -88,7 +88,7 @@ a > code {
       font-size: 1rem;
     }
   }
-  @media (min-width: 1800px) {
+  @media (min-width: $media-breakpoint-xlarge) {
     code {
       font-size: 1.8rem;
     }
