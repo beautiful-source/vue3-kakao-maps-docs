@@ -22,7 +22,7 @@ const columns = [
 
 export type HandlerBoxDataSourceType = {
   name: string;
-  return: string;
+  return?: string;
   description: string;
 };
 

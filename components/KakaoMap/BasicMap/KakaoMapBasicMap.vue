@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { KakaoMap } from 'vue3-kakao-maps';
 import type { ControlDataSourceType } from '@/components/common/ControlBox.vue';
-import type { HandlerBoxDataSourceType } from '~/components/common/HandlerBox.vue';
+import type { HandlerBoxDataSourceType } from '@/components/common/HandlerBox.vue';
 
 const lat = ref<number>(33.450701);
 const lng = ref<number>(126.570667);

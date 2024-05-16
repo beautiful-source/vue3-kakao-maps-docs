@@ -1,6 +1,7 @@
 <script setup lang="ts">
-import { KakaoMap, type KakaoMapMarkerImage, type KakaoMapMarkerListItem, KakaoMapMarkerPolyline } from 'vue3-kakao-maps';
+import { KakaoMap, type KakaoMapMarkerListItem, KakaoMapMarkerPolyline } from 'vue3-kakao-maps';
 import type { ControlDataSourceType } from '@/components/common/ControlBox.vue';
+import type { HandlerBoxDataSourceType } from '@/components/common/HandlerBox.vue';
 
 const markerList = ref<KakaoMapMarkerListItem[]>([
   {
@@ -98,7 +99,7 @@ const dataSource: Ref<ControlDataSourceType[]> = ref([
 </script>
 
 <template>
-  <div>
+  <div class="control-div">
     <KakaoMap :lat="33.452" :lng="126.572">
       <KakaoMapMarkerPolyline
         :markerList="markerList"
@@ -116,9 +117,14 @@ const dataSource: Ref<ControlDataSourceType[]> = ref([
 </template>
 
 <style scoped lang="scss">
-div {
+.control-div {
   display: flex;
-  align-items: center;
+  flex-direction: row;
   width: 100%;
+  height: 100%;
+}
+.emit-event-title {
+  font-size: 1.4rem;
+  font-weight: 600;
 }
 </style>
