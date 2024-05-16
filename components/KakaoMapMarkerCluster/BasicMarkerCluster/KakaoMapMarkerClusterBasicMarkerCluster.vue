@@ -4,7 +4,7 @@ import type { ControlDataSourceType } from '@/components/common/ControlBox.vue';
 import type { HandlerBoxDataSourceType } from '@/components/common/HandlerBox.vue';
 import chickenList from '@/assets/data/chicken.json';
 
-const dataSource: Ref<ControlDataSourceType[]> = ref([
+const controlData: Ref<ControlDataSourceType[]> = ref([
   {
     name: 'markers',
     description: '클러스터링 할 마커 배열',
@@ -72,7 +72,7 @@ const dataSource: Ref<ControlDataSourceType[]> = ref([
   }
 ]);
 
-const handlerDataSource: Ref<HandlerBoxDataSourceType[]> = ref([
+const eventsData: Ref<HandlerBoxDataSourceType[]> = ref([
   {
     name: 'onLoadKakaoMapMarkerCluster',
     description: '클러스터가 로드되었을 때 발생하는 이벤트',
@@ -82,12 +82,9 @@ const handlerDataSource: Ref<HandlerBoxDataSourceType[]> = ref([
 </script>
 
 <template>
-  <div class="control-div">
+  <BasicComponentBox :control-data="controlData" :events-data="eventsData">
     <KakaoMap :lat="36.34" :lng="127.77" :level="14" :markerCluster="{ markers: chickenList }" />
-    <ControlBox v-model:dataSource="dataSource" />
-  </div>
-  <p class="emit-event-title">Events</p>
-  <HandlerBox :dataSource="handlerDataSource" />
+  </BasicComponentBox>
 </template>
 
 <style scoped lang="scss">
