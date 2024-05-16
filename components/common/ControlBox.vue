@@ -120,7 +120,8 @@ const checkInvalid = (value: string, record: Record<string, any>): void => {
 
 <style scoped lang="scss">
 .control-box {
-  width: 60%;
+  display: flex;
+  width: 65%;
   border-radius: 10px;
   margin-left: 10px;
   max-height: 500px;
