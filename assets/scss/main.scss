@@ -65,6 +65,9 @@ code {
   background-color: rgba(0, 0, 0, 0.45);
 }
 
+*::-webkit-scrollbar-corner {
+  background: transparent;
+}
 .dark-mode {
   body {
     background-color: $dark-mode-background-color;
