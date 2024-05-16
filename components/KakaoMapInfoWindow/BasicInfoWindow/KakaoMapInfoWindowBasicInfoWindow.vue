@@ -2,8 +2,8 @@
 import { KakaoMap, KakaoMapInfoWindow } from 'vue3-kakao-maps';
 import type { ControlDataSourceType } from '@/components/common/ControlBox.vue';
 
-const lat = ref<number>(37.566826);
-const lng = ref<number>(126.9786567);
+const lat = ref<number>(33.450701);
+const lng = ref<number>(126.570667);
 const removable = ref<boolean>(true);
 const marker = ref<kakao.maps.Marker>();
 const content = ref<string>();
@@ -103,7 +103,7 @@ const dataSource: Ref<ControlDataSourceType[]> = ref([
 
 <template>
   <div>
-    <KakaoMap :lat="37.566826" :lng="126.9786567">
+    <KakaoMap :lat="33.450701" :lng="126.570667">
       <KakaoMapInfoWindow
         :lat="lat"
         :lng="lng"
