@@ -5,7 +5,9 @@ import {
   KakaoMapMarkerClusterChickenClustererCodeJs,
   KakaoMapMarkerClusterChickenClustererCodeTs,
   KakaoMapMarkerClusterAddClustererClickEventCodeJs,
-  KakaoMapMarkerClusterAddClustererClickEventCodeTs
+  KakaoMapMarkerClusterAddClustererClickEventCodeTs,
+  KakaoMapMarkerClusterCustomOverlayClusterTsCode,
+  KakaoMapMarkerClusterCustomOverlayClusterJsCode
 } from '@/components/KakaoMapMarkerCluster';
 </script>
 
@@ -38,6 +40,13 @@ import {
   >
     <template #demo>
       <KakaoMapMarkerClusterAddClustererClickEventTs />
+    </template>
+  </CodeBox>
+  <h2 id="custom-overlay-cluster">커스텀 오버레이 클러스터</h2>
+  <p>커스텀 오버레이 클러스터입니다.</p>
+  <CodeBox :tsCode="KakaoMapMarkerClusterCustomOverlayClusterTsCode" :jsCode="KakaoMapMarkerClusterCustomOverlayClusterJsCode">
+    <template #demo>
+      <KakaoMapMarkerClusterCustomOverlayClusterTs />
     </template>
   </CodeBox>
 </template>
