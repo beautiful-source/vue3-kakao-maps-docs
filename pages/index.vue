@@ -75,17 +75,35 @@ a > code {
       -webkit-text-fill-color: transparent;
     }
   }
+  .sub-title {
+    font-size: 1.2rem;
+    text-align: center;
+    word-break: keep-all;
+  }
   @media (max-width: 710px) {
     .title {
       font-size: 3rem;
     }
+    .sub-title {
+      font-size: 1rem;
+    }
   }
-  .sub-title {
-    font-size: 18px;
-    text-align: center;
-    word-break: keep-all;
+  @media (min-width: 1800px) {
+    code {
+      font-size: 1.8rem;
+    }
+    .title {
+      font-size: 6rem;
+    }
+    .sub-title {
+      font-size: 2rem;
+    }
+    .link-wrap {
+      .link {
+        font-size: 2rem;
+      }
+    }
   }
-
   .link-wrap {
     display: flex;
     gap: 1rem;

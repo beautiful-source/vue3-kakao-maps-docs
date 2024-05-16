@@ -11,6 +11,6 @@
 
 <style scoped lang="scss">
 .main {
-  margin-top: 10vh;
+  padding-top: 10vh;
 }
 </style>
