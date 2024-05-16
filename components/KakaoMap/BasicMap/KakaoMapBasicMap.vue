@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { KakaoMap } from 'vue3-kakao-maps';
 import type { ControlDataSourceType } from '@/components/common/ControlBox.vue';
+import type { HandlerBoxDataSourceType } from '@/components/common/HandlerBox.vue';
 
 const lat = ref<number>(33.450701);
 const lng = ref<number>(126.570667);
@@ -13,7 +14,7 @@ const scrollwheel = ref<boolean>(true);
 const projectionId = ref<string>('kakao.maps.ProjectionId.WCONG');
 const keyboardShortcuts = ref<boolean>();
 
-const dataSource: Ref<ControlDataSourceType[]> = ref([
+const controlData: Ref<ControlDataSourceType[]> = ref([
   {
     name: 'width',
     description: '지도의 가로 길이',
@@ -169,10 +170,23 @@ const dataSource: Ref<ControlDataSourceType[]> = ref([
     }
   }
 ]);
+
+const eventsData: Ref<HandlerBoxDataSourceType[]> = ref([
+  {
+    name: 'onLoadKakaoMap',
+    description: '지도가 로드되었을 때 발생하는 이벤트',
+    return: 'kakao.maps.Map'
+  },
+  {
+    name: 'onLoadKakaoMapMarkerCluster',
+    description: '지도의 마커 클러스터 로드되었을 때 발생하는 이벤트',
+    return: 'kakao.maps.MarkerClusterer'
+  }
+]);
 </script>
 
 <template>
-  <div>
+  <BasicComponentBox :control-data="controlData" :events-data="eventsData">
     <KakaoMap
       :width="width"
       :height="height"
@@ -184,24 +198,5 @@ const dataSource: Ref<ControlDataSourceType[]> = ref([
       :scrollwheel="scrollwheel"
       :projectionId="projectionId"
       :keyboardShortcuts="keyboardShortcuts"
-    />
-    <ControlBox v-model:dataSource="dataSource" />
-  </div>
+  /></BasicComponentBox>
 </template>
-
-<style scoped lang="scss">
-div {
-  display: flex;
-  gap: 1rem;
-  flex-direction: column;
-  overflow: hidden;
-  align-items: center;
-  width: 100%;
-}
-
-@media (min-width: $media-breakpoint-xlarge) {
-  div {
-    flex-direction: row;
-  }
-}
-</style>

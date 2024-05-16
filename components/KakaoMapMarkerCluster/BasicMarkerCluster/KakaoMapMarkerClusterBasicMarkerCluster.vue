@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { KakaoMap } from 'vue3-kakao-maps';
 import type { ControlDataSourceType } from '@/components/common/ControlBox.vue';
+import type { HandlerBoxDataSourceType } from '@/components/common/HandlerBox.vue';
 import chickenList from '@/assets/data/chicken.json';
 
 const dataSource: Ref<ControlDataSourceType[]> = ref([
@@ -70,19 +71,34 @@ const dataSource: Ref<ControlDataSourceType[]> = ref([
     default: 'true'
   }
 ]);
+
+const handlerDataSource: Ref<HandlerBoxDataSourceType[]> = ref([
+  {
+    name: 'onLoadKakaoMapMarkerCluster',
+    description: '클러스터가 로드되었을 때 발생하는 이벤트',
+    return: 'kakao.maps.MarkerClusterer'
+  }
+]);
 </script>
 
 <template>
-  <div>
+  <div class="control-div">
     <KakaoMap :lat="36.34" :lng="127.77" :level="14" :markerCluster="{ markers: chickenList }" />
     <ControlBox v-model:dataSource="dataSource" />
   </div>
+  <p class="emit-event-title">Events</p>
+  <HandlerBox :dataSource="handlerDataSource" />
 </template>
 
 <style scoped lang="scss">
-div {
+.control-div {
   display: flex;
-  align-items: center;
+  flex-direction: row;
   width: 100%;
+  height: 100%;
+}
+.emit-event-title {
+  font-size: 1.4rem;
+  font-weight: 600;
 }
 </style>

@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { KakaoMap, type KakaoMapMarkerImage, KakaoMapMarker, type KakaoMapMarkerInfoWindow } from 'vue3-kakao-maps';
 import type { ControlDataSourceType } from '@/components/common/ControlBox.vue';
+import type { HandlerBoxDataSourceType } from '@/components/common/HandlerBox.vue';
 
 const lat = ref<number>(33.450705);
 const lng = ref<number>(126.570667);
@@ -125,10 +126,40 @@ const dataSource: Ref<ControlDataSourceType[]> = ref([
     }
   }
 ]);
+
+const handlerDataSource: Ref<HandlerBoxDataSourceType[]> = ref([
+  {
+    name: 'onLoadKakaoMapMarker',
+    description: '마커가 로드되었을 때 발생하는 이벤트',
+    return: 'kakao.maps.Marker'
+  },
+  {
+    name: 'onClickKakaoMapMarker',
+    description: '마커를 클릭할 때 발생하는 이벤트'
+  },
+  {
+    name: 'dragEndKakaoMapMarker',
+    description: '마커를 드래그할 때 발생하는 이벤트',
+    return: 'kakao.maps.Marker'
+  },
+  {
+    name: 'mouseOverKakaoMapMarker',
+    description: '마커에 마우스가 오버될 때 발생하는 이벤트'
+  },
+  {
+    name: 'mouseOutKakaoMapMarker',
+    description: '마커에 마우스가 아웃될 때 발생하는 이벤트'
+  },
+  {
+    name: 'deleteKakaoMapMarker',
+    description: '지도에서 마커가 언마운트 될 때 발생하는 이벤트',
+    return: 'kakao.maps.Marker'
+  }
+]);
 </script>
 
 <template>
-  <div>
+  <div class="control-div">
     <KakaoMap :lat="33.450705" :lng="126.570667">
       <KakaoMapMarker
         :lat="lat"
@@ -148,12 +179,19 @@ const dataSource: Ref<ControlDataSourceType[]> = ref([
     </KakaoMap>
     <ControlBox v-model:dataSource="dataSource" />
   </div>
+  <p class="emit-event-title">Events</p>
+  <HandlerBox :dataSource="handlerDataSource" />
 </template>
 
 <style scoped lang="scss">
-div {
+.control-div {
   display: flex;
-  align-items: center;
+  flex-direction: row;
   width: 100%;
+  height: 100%;
+}
+.emit-event-title {
+  font-size: 1.4rem;
+  font-weight: 600;
 }
 </style>

@@ -212,6 +212,11 @@ export const contentList: ContentList = [
             key: 'clusterer-click-event',
             href: '#clusterer-click-event',
             title: '클러스터 클릭 이벤트'
+          },
+          {
+            key: 'custom-overlay-cluster',
+            href: '#custom-overlay-cluster',
+            title: '커스텀 오버레이 클러스터'
           }
         ]
       },
