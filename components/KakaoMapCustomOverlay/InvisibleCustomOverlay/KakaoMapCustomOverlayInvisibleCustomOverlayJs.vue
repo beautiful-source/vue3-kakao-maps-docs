@@ -1,6 +1,6 @@
 <script setup>
 import { ref } from 'vue';
-import { KakaoMap, KakaoMapCustomOverlay } from 'vue3-kakao-maps';
+import { KakaoMap, KakaoMapCustomOverlay, KakaoMapMarker } from 'vue3-kakao-maps';
 const content = ` <div
         style="
           padding: 10px;
@@ -32,7 +32,7 @@ const onClickKakaoMapMarker = () => {
 
 <template>
   <KakaoMap :lat="33.450701" :lng="126.570667">
-    <KakaoMapMarker :lat="33.450701" :lng="126.570667" @onClickKakaoMapMarker="onClickKakaoMapMarker" />
+    <KakaoMapMarker :lat="33.450701" :lng="126.570667" @onClickKakaoMapMarker="onClickKakaoMapMarker" :clickable="true" />
     <KakaoMapCustomOverlay :lat="33.450701" :lng="126.570667" :yAnchor="1.4" :visible="visible" :content="content" />
   </KakaoMap>
 </template>
