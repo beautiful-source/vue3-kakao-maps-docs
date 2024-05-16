@@ -10,11 +10,10 @@ const route = useRoute();
 const selectedKeys = ref<string[]>();
 
 const colorMode = useColorMode();
-// contentList 배열에서 'components' 키를 가진 객체를 찾습니다.
-const components = contentList.find((item) => item.key === 'components');
+
 const items: ItemType[] = reactive(
-  components
-    ? components.menus.map((menu) => {
+  contentList
+    ? contentList.map((menu) => {
         return {
           key: '/' + menu.key, // 메뉴의 키를 사용합니다.
           label: menu.title,
@@ -47,6 +46,24 @@ onMounted(() => {
     }
   }
 });
+
+const searchMenu = (serachValue: string) => {
+  const results = [];
+
+  function searchMenus(menus) {
+    menus.forEach((menu) => {
+      menu.pages.forEach((page) => {
+        if (page.key.includes(keyword) || page.href.includes(keyword) || page.title.includes(keyword)) {
+          results.push({
+            key: page.key,
+            href: page.href,
+            title: page.title
+          });
+        }
+      });
+    });
+  }
+};
 </script>
 <template>
   <div class="docs-menu">
