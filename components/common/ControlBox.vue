@@ -11,7 +11,7 @@ const columns = [
     title: 'Description',
     dataIndex: 'description',
     key: 'description',
-    width: '27%'
+    width: '30%'
   },
   {
     title: 'Type',
@@ -21,14 +21,12 @@ const columns = [
   {
     title: 'Default',
     dataIndex: 'default',
-    key: 'default',
-    width: '12%'
+    key: 'default'
   },
   {
     title: 'Control',
     dataIndex: 'control',
-    key: 'control',
-    width: '18%'
+    key: 'control'
   }
 ];
 
@@ -76,7 +74,7 @@ const checkInvalid = (value: string, record: Record<string, any>): void => {
         <template v-if="column.key === 'name'">
           <div class="name-column">
             <span>Name</span>
-            <span class="required"><b>*</b> 필수 입력값</span>
+            <span class="required"><b class="required-star">*</b> 필수 입력값</span>
           </div>
         </template>
       </template>
@@ -121,6 +119,7 @@ const checkInvalid = (value: string, record: Record<string, any>): void => {
 
 <style scoped lang="scss">
 .control-box {
+  display: flex;
   width: 60%;
   border-radius: 10px;
   margin-left: 10px;
