@@ -27,6 +27,9 @@ body {
   height: 100vh;
   padding: 0;
   margin: 0;
+  h2 {
+    margin-top: 40px;
+  }
 }
 
 .demo-button {
@@ -65,10 +68,21 @@ code {
   background-color: rgba(0, 0, 0, 0.45);
 }
 
+*::-webkit-scrollbar-corner {
+  background: transparent;
+}
 .dark-mode {
   body {
     background-color: $dark-mode-background-color;
     color: $dark-mode-font-color;
+  }
+  .ant-page-header {
+    background-color: $dark-mode-background-color;
+    color: $dark-mode-font-color;
+
+    ul {
+      background-color: $dark-mode-background-color;
+    }
   }
 
   ul,
@@ -85,7 +99,25 @@ code {
     color: inherit;
     transition: color 0.2s;
   }
+  .ant-table {
+    color: $gray-3 !important;
 
+    th {
+      color: $gray-2 !important;
+      background-color: $gray-11 !important;
+    }
+    .ant-table-body {
+      background-color: $gray-9;
+    }
+    td {
+      background-color: $gray-9 !important;
+    }
+    .ant-tag-geekblue {
+      color: $primary-2;
+      background-color: $primary-8;
+      border-color: $primary-5;
+    }
+  }
   .ant-anchor-link-title {
     color: $gray-2 !important;
   }
@@ -104,19 +136,9 @@ code {
     transition: background-color 0.2s;
     transition: color 0.2s;
   }
-}
-
-.ant-table-body {
-  scrollbar-width: none;
-  -ms-overflow-style: none;
-}
-
-.ant-table-sticky-scroll .ant-table-sticky-scroll-bar {
-  display: none;
-}
-
-.ant-menu-title-content {
-  margin-left: -15px;
+  .ant-page-header {
+    background-color: white;
+  }
 }
 
 .ant-menu-item.ant-menu-item-only-child {
@@ -129,7 +151,7 @@ code {
     margin-left: -33px;
   }
 }
-.ant-menu.ant-menu-root.ant-menu-inline.ant-menu-light {
+.ant-menu.ant-menu-root.ant-menu-inline {
   min-height: 100vh;
-  padding-bottom: 100px;
+  padding-bottom: 80px;
 }
