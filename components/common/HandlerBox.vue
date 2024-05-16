@@ -13,7 +13,7 @@ const columns = [
     width: '40%'
   },
   {
-    title: 'return',
+    title: 'Return',
     dataIndex: 'return',
     key: 'return',
     width: '30%'
