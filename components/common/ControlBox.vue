@@ -65,7 +65,7 @@ const checkInvalid = (value: string, record: Record<string, any>): void => {
   <div class="control-box">
     <a-table
       sticky
-      :scroll="{ x: 750, y: 500 }"
+      :scroll="{ x: '100%', y: 400 }"
       :scrollToFirstRowOnChange="true"
       :columns="columns"
       :data-source="props.dataSource"
@@ -120,14 +120,11 @@ const checkInvalid = (value: string, record: Record<string, any>): void => {
 
 <style scoped lang="scss">
 .control-box {
+  width: 60%;
   border-radius: 10px;
   margin-left: 10px;
   max-height: 500px;
-  overflow-x: scroll;
-  overflow-y: auto;
-  background-color: white;
   align-items: flex-start;
-
   scrollbar-width: none;
   -ms-overflow-style: none;
 }
