@@ -61,6 +61,6 @@ const props = defineProps<HandlerBoxPropsType>();
   display: flex;
   width: 100%;
   border-radius: 10px;
-  margin-top: -15px;
+  margin-top: -12px;
 }
 </style>
