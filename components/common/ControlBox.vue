@@ -4,7 +4,8 @@ const columns = [
   {
     title: 'Name',
     dataIndex: 'name',
-    key: 'name'
+    key: 'name',
+    fixed: true
   },
   {
     title: 'Description',
@@ -65,7 +66,7 @@ const checkInvalid = (value: string, record: Record<string, any>): void => {
   <div class="control-box">
     <a-table
       sticky
-      :scroll="{ x: '100%', y: 400 }"
+      :scroll="{ x: 900, y: 400 }"
       :scrollToFirstRowOnChange="true"
       :columns="columns"
       :data-source="props.dataSource"
