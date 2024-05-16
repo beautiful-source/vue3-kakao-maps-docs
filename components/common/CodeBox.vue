@@ -28,6 +28,8 @@ const showMoreButton = ref<boolean>(false);
 const isShowMoreButtonClicked = ref<boolean>(false);
 const showMoreButtonMessage = computed<string>(() => (isShowMoreButtonClicked.value ? '접기' : '더보기'));
 const codeWrapMaxHeight = '700px';
+const darkGray = '#1f1f1f';
+const lightGray = '#f5f5f5';
 
 const onClickCopyCode = async () => {
   if (window) {
@@ -113,7 +115,7 @@ const onClickShowMoreButton = () => {
             @vue:updated="onVCodeBlockUpdated"
           />
           <div class="blur-layer" v-if="showMoreButton && !isShowMoreButtonClicked"></div>
-          <a-tooltip placement="right" :color="colorMode.value === 'dark' ? '#1f1f1f' : '#f5f5f5'" style="opacity: 0.6">
+          <a-tooltip placement="right" :color="colorMode.value === 'dark' ? darkGray : lightGray" style="opacity: 0.6">
             <template #title>
               <span :style="{ color: colorMode.value === 'dark' ? 'white' : 'black' }">{{ showMoreButtonMessage }}</span>
             </template>
@@ -197,7 +199,7 @@ const onClickShowMoreButton = () => {
         cursor: pointer;
         border-radius: 100%;
         border: none;
-        box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.2);
+        box-shadow: 2px 2px 30px rgba(51, 51, 51, 0.4);
         background-color: $gray-1;
         opacity: 0.6;
         transition: all 0.2s ease-in;
@@ -246,10 +248,10 @@ const onClickShowMoreButton = () => {
         border-color: $dark-mode-border-color;
       }
       .blur-layer {
-        background: linear-gradient(rgba(255, 255, 255, 0), #151d29);
+        background: linear-gradient(rgba(255, 255, 255, 0), #202a39);
       }
       .btn-show-more {
-        box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.7);
+        box-shadow: 2px 2px 20px rgba(108, 108, 108, 0.9);
         background-color: $gray-13;
         color: $gray-1;
         &:hover {
