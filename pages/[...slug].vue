@@ -32,20 +32,9 @@ div#nuxt-content {
       color: $purple-6;
     }
   }
-
-  a {
-    text-decoration: none;
-    color: $purple-5;
-    transition: 0.4s;
-  }
-  a:hover {
-    background-color: $purple-1;
-  }
-
   a > code {
     color: inherit;
   }
-
   code {
     color: $blue-7;
     background-color: $blue-1;
@@ -54,7 +43,6 @@ div#nuxt-content {
     border-radius: 2px;
     margin-right: 2px;
   }
-
   *[class='code-wrap'] {
     pre,
     code {
@@ -96,23 +84,14 @@ div#nuxt-content {
         color: inherit;
       }
     }
-    a {
-      color: $purple-3;
-    }
-    a:hover {
-      background-color: $purple-9;
-    }
-
     a > code {
       color: inherit;
     }
-
     code {
       color: $gray-1;
       background-color: $dark-mode-tag-bg;
       border: 1px solid $dark-mode-tag-border;
     }
-
     *[class='code-wrap'] {
       pre,
       code {

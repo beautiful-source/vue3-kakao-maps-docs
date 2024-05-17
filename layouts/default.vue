@@ -106,14 +106,7 @@ $anchor-margin: 15px;
       transition: all 0.3s ease-out;
       width: calc(100%);
       padding-bottom: 100px;
-      a {
-        text-decoration: none;
-        color: $purple-5;
-        transition: 0.4s;
-      }
-      a:hover {
-        background-color: $purple-1;
-      }
+      @include light-mode-link;
     }
 
     .anchor {
@@ -141,6 +134,13 @@ $anchor-margin: 15px;
       width: calc(
         100vw - ($aside-closed-width + $aside-control-width + $anchor-width + $anchor-margin + $content-anchor-gap) - 1rem
       );
+    }
+  }
+}
+.dark-mode {
+  .contents-wrap {
+    .contents {
+      @include dark-mode-link;
     }
   }
 }

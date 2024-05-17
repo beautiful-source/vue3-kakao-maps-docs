@@ -23,6 +23,25 @@ $dark-mode-tag-border: #334155;
 $media-breakpoint-xlarge: 1800px;
 $media-breakpoint-medium: 710px;
 
+@mixin light-mode-link {
+  a {
+    text-decoration: none;
+    color: $purple-5;
+    transition: 0.4s;
+  }
+  a:hover {
+    background-color: $purple-1;
+  }
+}
+@mixin dark-mode-link {
+  a {
+    color: $purple-3;
+  }
+  a:hover {
+    background-color: $purple-9;
+  }
+}
+
 html,
 body {
   width: 100%;
