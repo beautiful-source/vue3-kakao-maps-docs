@@ -16,7 +16,7 @@ const latLngList = ref<KakaoMapLatLngItem[]>([
   { lat: 33.449, lng: 126.5705 },
   { lat: 33.45, lng: 126.5725 }
 ]);
-const dataSource: Ref<ControlDataSourceType[]> = ref([
+const controlData: Ref<ControlDataSourceType[]> = ref([
   {
     name: 'latLngList',
     description: '폴리라인이 지나갈 경로',
@@ -84,7 +84,7 @@ const dataSource: Ref<ControlDataSourceType[]> = ref([
   }
 ]);
 
-const handlerDataSource: Ref<HandlerBoxDataSourceType[]> = ref([
+const eventsData: Ref<HandlerBoxDataSourceType[]> = ref([
   {
     name: 'onLoadKakaoMapPolyline',
     description: '폴리라인이 로드되었을 때 발생하는 이벤트',
@@ -94,7 +94,7 @@ const handlerDataSource: Ref<HandlerBoxDataSourceType[]> = ref([
 </script>
 
 <template>
-  <div class="control-div">
+  <BasicComponentBox :control-data="controlData" :events-data="eventsData">
     <KakaoMap :lat="33.450701" :lng="126.570667">
       <KakaoMapPolyline
         :latLngList="latLngList"
@@ -106,21 +106,5 @@ const handlerDataSource: Ref<HandlerBoxDataSourceType[]> = ref([
         :endArrow="endArrow"
       />
     </KakaoMap>
-    <ControlBox v-model:dataSource="dataSource" />
-  </div>
-  <p class="emit-event-title">Events</p>
-  <HandlerBox :dataSource="handlerDataSource" />
+  </BasicComponentBox>
 </template>
-
-<style scoped lang="scss">
-.control-div {
-  display: flex;
-  flex-direction: row;
-  width: 100%;
-  height: 100%;
-}
-.emit-event-title {
-  font-size: 1.4rem;
-  font-weight: 600;
-}
-</style>

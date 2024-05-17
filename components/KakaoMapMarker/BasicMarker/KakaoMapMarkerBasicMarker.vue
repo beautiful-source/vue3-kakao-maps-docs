@@ -1,12 +1,10 @@
 <script setup lang="ts">
-import { KakaoMap, type KakaoMapMarkerImage, KakaoMapMarker, type KakaoMapMarkerInfoWindow } from 'vue3-kakao-maps';
+import { KakaoMap, KakaoMapMarker } from 'vue3-kakao-maps';
 import type { ControlDataSourceType } from '@/components/common/ControlBox.vue';
 import type { HandlerBoxDataSourceType } from '@/components/common/HandlerBox.vue';
 
 const lat = ref<number>(33.450705);
 const lng = ref<number>(126.570667);
-const image = ref<KakaoMapMarkerImage>();
-const infoWindow = ref<KakaoMapMarkerInfoWindow>();
 const title = ref<string>('마커');
 const draggable = ref<boolean>(false);
 const clickable = ref<boolean>(false);
@@ -14,9 +12,9 @@ const zIndex = ref<number>();
 const opacity = ref<number>();
 const altitude = ref<number>();
 const order = ref<number | string>(5);
-const orderBottomMargin = ref<string>('100px');
+const orderBottomMargin = ref<string>('70px');
 
-const dataSource: Ref<ControlDataSourceType[]> = ref([
+const controlData: Ref<ControlDataSourceType[]> = ref([
   {
     name: 'lat',
     description: '마커의 위도 값',
@@ -127,7 +125,7 @@ const dataSource: Ref<ControlDataSourceType[]> = ref([
   }
 ]);
 
-const handlerDataSource: Ref<HandlerBoxDataSourceType[]> = ref([
+const eventsData: Ref<HandlerBoxDataSourceType[]> = ref([
   {
     name: 'onLoadKakaoMapMarker',
     description: '마커가 로드되었을 때 발생하는 이벤트',
@@ -159,15 +157,12 @@ const handlerDataSource: Ref<HandlerBoxDataSourceType[]> = ref([
 </script>
 
 <template>
-  <div class="control-div">
+  <BasicComponentBox :control-data="controlData" :events-data="eventsData">
     <KakaoMap :lat="33.450705" :lng="126.570667">
       <KakaoMapMarker
         :lat="lat"
         :lng="lng"
         :title="title"
-        :infoWindow="{
-          content: 'Hello world'
-        }"
         :altitude="altitude"
         :draggable="draggable"
         :clickable="clickable"
@@ -177,21 +172,5 @@ const handlerDataSource: Ref<HandlerBoxDataSourceType[]> = ref([
         :order-bottom-margin="orderBottomMargin"
       />
     </KakaoMap>
-    <ControlBox v-model:dataSource="dataSource" />
-  </div>
-  <p class="emit-event-title">Events</p>
-  <HandlerBox :dataSource="handlerDataSource" />
+  </BasicComponentBox>
 </template>
-
-<style scoped lang="scss">
-.control-div {
-  display: flex;
-  flex-direction: row;
-  width: 100%;
-  height: 100%;
-}
-.emit-event-title {
-  font-size: 1.4rem;
-  font-weight: 600;
-}
-</style>

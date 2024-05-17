@@ -5,7 +5,7 @@ import type { HandlerBoxDataSourceType } from '@/components/common/HandlerBox.vu
 
 const lat = ref<number>(33.450701);
 const lng = ref<number>(126.570667);
-const removable = ref<boolean>(true);
+const removable = ref<boolean>(false);
 const marker = ref<kakao.maps.Marker>();
 const content = ref<string>();
 const disableAutoPan = ref<boolean>(false);
@@ -14,7 +14,7 @@ const altitude = ref<number>();
 const range = ref<number>(500);
 const visible = ref<boolean>(true);
 
-const dataSource: Ref<ControlDataSourceType[]> = ref([
+const controlData: Ref<ControlDataSourceType[]> = ref([
   {
     name: 'lat',
     description: '인포윈도우의 위도 값',
@@ -39,11 +39,7 @@ const dataSource: Ref<ControlDataSourceType[]> = ref([
     name: 'removable',
     description: '삭제 가능한 인포윈도우 여부, 최초 생성시에만 적용됩니다.',
     type: ['boolean'],
-    default: 'false',
-    control: {
-      type: 'Boolean',
-      value: removable
-    }
+    default: 'false'
   },
   {
     name: 'marker',
@@ -101,7 +97,7 @@ const dataSource: Ref<ControlDataSourceType[]> = ref([
   }
 ]);
 
-const handlerDataSource: Ref<HandlerBoxDataSourceType[]> = ref([
+const eventsData: Ref<HandlerBoxDataSourceType[]> = ref([
   {
     name: 'onLoadKakaoMapInfoWindow',
     description: '인포윈도우가 로드되었을 때 발생하는 이벤트',
@@ -111,7 +107,7 @@ const handlerDataSource: Ref<HandlerBoxDataSourceType[]> = ref([
 </script>
 
 <template>
-  <div class="control-div">
+  <BasicComponentBox :control-data="controlData" :events-data="eventsData">
     <KakaoMap :lat="33.450701" :lng="126.570667">
       <KakaoMapInfoWindow
         :lat="lat"
@@ -128,21 +124,5 @@ const handlerDataSource: Ref<HandlerBoxDataSourceType[]> = ref([
         <div>Hello World!</div>
       </KakaoMapInfoWindow>
     </KakaoMap>
-    <ControlBox v-model:dataSource="dataSource" />
-  </div>
-  <p class="emit-event-title">Events</p>
-  <HandlerBox :dataSource="handlerDataSource" />
+  </BasicComponentBox>
 </template>
-
-<style scoped lang="scss">
-.control-div {
-  display: flex;
-  flex-direction: row;
-  width: 100%;
-  height: 100%;
-}
-.emit-event-title {
-  font-size: 1.4rem;
-  font-weight: 600;
-}
-</style>
