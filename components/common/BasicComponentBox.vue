@@ -27,6 +27,7 @@ const { controlData, eventsData } = defineProps<BasicComponentBoxProps>();
   flex-direction: row;
   width: 100%;
   height: 100%;
+  color: $gray-13;
 }
 .emit-event-title {
   font-size: 1.4rem;
