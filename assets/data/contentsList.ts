@@ -1,4 +1,4 @@
-type ContentList = {
+type ContentListItem = {
   key: string;
   title: string;
   pages: {
@@ -8,7 +8,7 @@ type ContentList = {
   }[];
 };
 
-export const contentList: ContentList[] = [
+export const contentList: ContentListItem[] = [
   {
     key: 'kakaoMap',
     title: 'KakaoMap',
