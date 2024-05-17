@@ -36,7 +36,7 @@ const anchorItems = computed(() => {
 </script>
 
 <template>
-  <div style="padding-top: 60px; margin-bottom: 60px">
+  <div style="margin-bottom: 60px">
     <LayoutHeader />
     <div ref="mainContentsRef" class="main-contents" :class="{ 'aside-closed': onLayoutMenuClosed }">
       <aside v-if="route.path !== '/'">
