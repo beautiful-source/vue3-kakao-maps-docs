@@ -37,14 +37,7 @@ definePageMeta({
 </template>
 
 <style scoped lang="scss">
-a {
-  text-decoration: none;
-  color: $purple-5;
-  transition: 0.4s;
-}
-a:hover {
-  background-color: $purple-1;
-}
+@include light-mode-link;
 code {
   background-color: $gray-3;
   font-size: 0.9rem;
@@ -117,12 +110,7 @@ a > code {
   }
 }
 .dark-mode {
-  a {
-    color: $purple-3;
-  }
-  a:hover {
-    background-color: $purple-9;
-  }
+  @include dark-mode-link;
   a > code {
     color: inherit;
   }
