@@ -10,11 +10,10 @@ const route = useRoute();
 const selectedKeys = ref<string[]>();
 
 const colorMode = useColorMode();
-// contentList 배열에서 'components' 키를 가진 객체를 찾습니다.
-const components = contentList.find((item) => item.key === 'components');
+
 const items: ItemType[] = reactive(
-  components
-    ? components.menus.map((menu) => {
+  contentList
+    ? contentList.map((menu) => {
         return {
           key: '/' + menu.key, // 메뉴의 키를 사용합니다.
           label: menu.title,
@@ -50,7 +49,7 @@ onMounted(() => {
 </script>
 <template>
   <div class="docs-menu">
-    <!-- <a-input></a-input> -->
+    <LayoutSearchMenuButton />
     <div class="docs-menu-list">
       <ClientOnly fallbackTag="span">
         <a-menu
