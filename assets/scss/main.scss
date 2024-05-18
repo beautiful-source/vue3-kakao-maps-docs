@@ -123,22 +123,33 @@ code {
     transition: color 0.2s;
   }
   .ant-table {
-    color: $gray-3 !important;
-
-    th {
-      color: $gray-2 !important;
-      background-color: $gray-11 !important;
+    color: $dark-mode-font-color !important;
+    .ant-table-container,
+    .ant-table-header {
+      background-color: $dark-mode-tag-bg !important;
     }
-    .ant-table-body {
-      background-color: $gray-9;
+    th {
+      border-color: $dark-mode-border-color !important;
+      color: $gray-2 !important;
+      background-color: $dark-mode-tag-bg !important;
+    }
+    th::before {
+      background-color: $gray-2 !important;
     }
     td {
-      background-color: $gray-9 !important;
+      border-color: $dark-mode-border-color !important;
+    }
+    td,
+    .ant-table-body {
+      background-color: #0a1329 !important;
+    }
+    td.ant-table-cell-row-hover {
+      background-color: #040b1d !important;
     }
     .ant-tag-geekblue {
-      color: $primary-2;
-      background-color: $primary-8;
-      border-color: $primary-5;
+      color: $gray-1;
+      background-color: $dark-mode-tag-bg;
+      border-color: $dark-mode-tag-border;
     }
   }
   .ant-anchor-link-title {
