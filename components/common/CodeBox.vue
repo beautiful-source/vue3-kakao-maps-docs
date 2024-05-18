@@ -176,6 +176,7 @@ const onClickShowMoreButton = () => {
       max-height: v-bind(codeWrapMaxHeight);
       overflow: hidden;
       position: relative;
+      background-color: $light-mode-code-bg;
 
       .blur-layer {
         width: 100%;
@@ -242,6 +243,7 @@ const onClickShowMoreButton = () => {
     border-color: $dark-mode-border-color;
     .code-wrap {
       border-color: $dark-mode-border-color;
+      background-color: $dark-mode-code-bg;
       :deep(pre),
       :deep(code) {
         background-color: $dark-mode-code-bg;
