@@ -136,6 +136,9 @@ code {
     th::before {
       background-color: $gray-2 !important;
     }
+    th.ant-table-cell-scrollbar {
+      box-shadow: initial !important;
+    }
     td {
       border-color: $dark-mode-border-color !important;
     }
