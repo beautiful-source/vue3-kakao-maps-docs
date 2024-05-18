@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { contentList } from '@/assets/data/contentsList';
 import { SearchOutlined } from '@ant-design/icons-vue';
+import type { Directive } from 'vue';
 const open = ref<boolean>(false);
 const searchValue = ref<string>('');
 const router = useRouter();
@@ -51,13 +52,23 @@ const onSelectMenu = (menu: SearchResultItem) => {
 watch(searchValue, (keyword: string) => {
   searchResultList.value = searchMenu(keyword);
 });
+
+// 최초 1회 mount시 인풋에 포커스
+const vFocus: Directive = {
+  mounted: (el: HTMLSpanElement) => {
+    if (el.children[0] && 'focus' in el.children[0]) {
+      const inputElement = el.children[0] as HTMLInputElement;
+      inputElement.focus();
+    }
+  }
+};
 </script>
 
 <template>
   <a-button @click="showModal" class="search-button"> <SearchOutlined />빠른 검색... </a-button>
   <a-modal v-model:open="open" :closable="false" :footer="null" class="search-menu-modal">
     <template #title>
-      <a-input v-model:value="searchValue" allowClear :bordered="false" placeholder="필요한 예제를 검색하세요"></a-input>
+      <a-input v-model:value="searchValue" allowClear :bordered="false" placeholder="필요한 예제를 검색하세요" v-focus />
     </template>
 
     <div v-show="searchValue.length > 0 && searchResultList.length > 0">
