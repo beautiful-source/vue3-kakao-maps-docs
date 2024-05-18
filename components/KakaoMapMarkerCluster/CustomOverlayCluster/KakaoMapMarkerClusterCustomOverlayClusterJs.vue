@@ -16,5 +16,3 @@ for (let i = 0; i < 10; i++) {
     <KakaoMap :lat="33.450701" :lng="126.570667" :level="10" :markerCluster="{ customOverlayProps: customList }" />
   </div>
 </template>
-
-<style scoped></style>

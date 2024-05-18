@@ -27,17 +27,16 @@ const onClickedLayoutMenuControlButton = () => {
 
 const anchorItems = computed(() => {
   const parsedRoute = route.path.split('/');
-  const category = contentList.find((item) => item.key === parsedRoute[1]);
   if (parsedRoute.length > 1) {
-    return category?.menus.find((item) => item.key === parsedRoute[2])?.pages;
+    return contentList.find((item) => item.key === parsedRoute[2])?.pages;
   } else {
-    return category?.menus[0].pages;
+    return contentList[0].pages;
   }
 });
 </script>
 
 <template>
-  <div style="padding-top: 60px; margin-bottom: 60px">
+  <div style="margin-bottom: 60px">
     <LayoutHeader />
     <div ref="mainContentsRef" class="main-contents" :class="{ 'aside-closed': onLayoutMenuClosed }">
       <aside v-if="route.path !== '/'">

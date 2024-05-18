@@ -10,11 +10,10 @@ const route = useRoute();
 const selectedKeys = ref<string[]>();
 
 const colorMode = useColorMode();
-// contentList 배열에서 'components' 키를 가진 객체를 찾습니다.
-const components = contentList.find((item) => item.key === 'components');
+
 const items: ItemType[] = reactive(
-  components
-    ? components.menus.map((menu) => {
+  contentList
+    ? contentList.map((menu) => {
         return {
           key: '/' + menu.key, // 메뉴의 키를 사용합니다.
           label: menu.title,
@@ -33,12 +32,13 @@ const handleClick: MenuProps['onClick'] = (e) => {
   router.push('/components' + e.keyPath?.join(''));
 };
 
-onMounted(() => {
-  openKeys.value = ['/' + route.path.split('/')[2]];
-  if (route.hash.length > 0) {
-    selectedKeys.value = [route.hash];
+watch([() => route.path, () => route.hash], ([newPath, newHash]) => {
+  openKeys.value = ['/' + newPath.split('/')[2]];
+  if (newPath.length > 0 && newHash.length > 0) {
+    selectedKeys.value = [newHash];
   } else {
     const currentMenu = items.find((item) => item?.key == openKeys.value[0]);
+
     if (currentMenu && 'children' in currentMenu && currentMenu.children && currentMenu.children.length > 0) {
       const firstChild = currentMenu.children[0];
       if (firstChild && firstChild.key) {
@@ -50,7 +50,7 @@ onMounted(() => {
 </script>
 <template>
   <div class="docs-menu">
-    <!-- <a-input></a-input> -->
+    <LayoutSearchMenuButton />
     <div class="docs-menu-list">
       <ClientOnly fallbackTag="span">
         <a-menu

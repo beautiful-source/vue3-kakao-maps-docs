@@ -20,7 +20,7 @@ const strokeStyle = ref<kakao.maps.StrokeStyles>('solid');
 const zIndex = ref<number>();
 const showMarkerOrder = ref<boolean>(true);
 
-const dataSource: Ref<ControlDataSourceType[]> = ref([
+const controlData: Ref<ControlDataSourceType[]> = ref([
   {
     name: 'markerList',
     description: '지도에 표시할 marker 데이터의 리스트',
@@ -99,7 +99,7 @@ const dataSource: Ref<ControlDataSourceType[]> = ref([
 </script>
 
 <template>
-  <div class="control-div">
+  <BasicComponentBox :control-data="controlData">
     <KakaoMap :lat="33.452" :lng="126.572">
       <KakaoMapMarkerPolyline
         :markerList="markerList"
@@ -112,19 +112,5 @@ const dataSource: Ref<ControlDataSourceType[]> = ref([
         :showMarkerOrder="showMarkerOrder"
       />
     </KakaoMap>
-    <ControlBox v-model:dataSource="dataSource" />
-  </div>
+  </BasicComponentBox>
 </template>
-
-<style scoped lang="scss">
-.control-div {
-  display: flex;
-  flex-direction: row;
-  width: 100%;
-  height: 100%;
-}
-.emit-event-title {
-  font-size: 1.4rem;
-  font-weight: 600;
-}
-</style>
