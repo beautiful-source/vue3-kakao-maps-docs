@@ -144,7 +144,9 @@ const onClickShowMoreButton = () => {
     display: flex;
     flex-direction: column;
     align-items: center;
-    color: $gray-13;
+    *:first-child {
+      color: $gray-13;
+    }
   }
   .block {
     display: flex;
