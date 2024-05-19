@@ -83,17 +83,17 @@ a > code {
   }
   @media (min-width: $media-breakpoint-xlarge) {
     code {
-      font-size: 1.8rem;
+      font-size: 1.1rem;
     }
     .title {
-      font-size: 6rem;
+      font-size: 4.5rem;
     }
     .sub-title {
-      font-size: 2rem;
+      font-size: 1.2rem;
     }
     .link-wrap {
       .link {
-        font-size: 2rem;
+        font-size: 1.6rem;
       }
     }
   }
