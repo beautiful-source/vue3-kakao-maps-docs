@@ -14,7 +14,7 @@ const { controlData, eventsData } = defineProps<BasicComponentBoxProps>();
   <div class="control-div">
     <slot></slot>
     <div class="control-box-div">
-    <ControlBox v-bind:dataSource="controlData" />
+      <ControlBox v-bind:dataSource="controlData" />
     </div>
   </div>
   <div v-if="eventsData">
@@ -24,12 +24,12 @@ const { controlData, eventsData } = defineProps<BasicComponentBoxProps>();
 </template>
 
 <style scoped lang="scss">
-
 .control-div {
   display: flex;
   flex-direction: row;
   width: 100%;
   height: 100%;
+  color: $gray-13;
   @media (max-width: $media-breakpoint-xlarge) {
     flex-direction: column;
   }
