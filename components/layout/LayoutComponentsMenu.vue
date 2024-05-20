@@ -32,21 +32,25 @@ const handleClick: MenuProps['onClick'] = (e) => {
   router.push('/components' + e.keyPath?.join(''));
 };
 
-watch([() => route.path, () => route.hash], ([newPath, newHash]) => {
-  openKeys.value = ['/' + newPath.split('/')[2]];
-  if (newPath.length > 0 && newHash.length > 0) {
-    selectedKeys.value = [newHash];
-  } else {
-    const currentMenu = items.find((item) => item?.key == openKeys.value[0]);
+watch(
+  [() => route.path, () => route.hash],
+  ([newPath, newHash]) => {
+    openKeys.value = ['/' + newPath.split('/')[2]];
+    if (newPath.length > 0 && newHash.length > 0) {
+      selectedKeys.value = [newHash];
+    } else {
+      const currentMenu = items.find((item) => item?.key == openKeys.value[0]);
 
-    if (currentMenu && 'children' in currentMenu && currentMenu.children && currentMenu.children.length > 0) {
-      const firstChild = currentMenu.children[0];
-      if (firstChild && firstChild.key) {
-        selectedKeys.value = ['' + firstChild.key];
+      if (currentMenu && 'children' in currentMenu && currentMenu.children && currentMenu.children.length > 0) {
+        const firstChild = currentMenu.children[0];
+        if (firstChild && firstChild.key) {
+          selectedKeys.value = ['' + firstChild.key];
+        }
       }
     }
-  }
-});
+  },
+  { immediate: true }
+);
 </script>
 <template>
   <div class="docs-menu">
