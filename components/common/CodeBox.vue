@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { VCodeBlock } from '@wdns/vue-code-block';
 import type { CSSProperties } from 'vue';
 import { computed, ref } from 'vue';
 
@@ -44,7 +43,10 @@ const onClickCopyCode = async () => {
   }
 };
 
-const onVCodeBlockUpdated = () => {
+/**
+ * 임의로 들어온 코드의 높이(`clientHeight`)를 평가해 더보기 버튼을 보일지 말지 결정합니다.
+ */
+const decideShowMore = () => {
   if (codeWrapElement.value !== undefined && codeWrapElement.value.children.length > 0) {
     const childElement = [...codeWrapElement.value.children][0];
     const childHeight = childElement.clientHeight;
@@ -64,6 +66,10 @@ const onClickShowMoreButton = () => {
     isShowMoreButtonClicked.value = !isShowMoreButtonClicked.value;
   }
 };
+
+onMounted(() => {
+  decideShowMore();
+});
 </script>
 
 <template>
@@ -106,25 +112,17 @@ const onClickShowMoreButton = () => {
       </ul>
 
       <div class="code-wrap" v-show="showCode" ref="codeWrapElement">
-        <ClientOnly>
-          <VCodeBlock
-            lang="html"
-            highlightjs
-            :code="selectedCode"
-            :theme="colorMode.value === 'dark' ? 'github-dark' : 'github'"
-            @vue:updated="onVCodeBlockUpdated"
-          />
-          <div class="blur-layer" v-if="showMoreButton && !isShowMoreButtonClicked"></div>
-          <a-tooltip placement="right" :color="colorMode.value === 'dark' ? darkGray : lightGray" style="opacity: 0.6">
-            <template #title>
-              <span :style="{ color: colorMode.value === 'dark' ? 'white' : 'black' }">{{ showMoreButtonMessage }}</span>
-            </template>
-            <button v-if="showMoreButton" @click="onClickShowMoreButton" class="btn-show-more">
-              <DownOutlined v-show="!isShowMoreButtonClicked" />
-              <UpOutlined v-show="isShowMoreButtonClicked" />
-            </button>
-          </a-tooltip>
-        </ClientOnly>
+        <CodeHighlighter lang="vue" :code="selectedCode"></CodeHighlighter>
+        <div class="blur-layer" v-if="showMoreButton && !isShowMoreButtonClicked"></div>
+        <a-tooltip placement="right" :color="colorMode.value === 'dark' ? darkGray : lightGray" style="opacity: 0.6">
+          <template #title>
+            <span :style="{ color: colorMode.value === 'dark' ? 'white' : 'black' }">{{ showMoreButtonMessage }}</span>
+          </template>
+          <button v-if="showMoreButton" @click="onClickShowMoreButton" class="btn-show-more">
+            <DownOutlined v-show="!isShowMoreButtonClicked" />
+            <UpOutlined v-show="isShowMoreButtonClicked" />
+          </button>
+        </a-tooltip>
       </div>
     </div>
   </div>
@@ -177,6 +175,7 @@ const onClickShowMoreButton = () => {
       overflow: hidden;
       position: relative;
       background-color: $light-mode-code-bg;
+      padding: 1rem;
 
       .blur-layer {
         width: 100%;
@@ -210,25 +209,6 @@ const onClickShowMoreButton = () => {
           background-color: $gray-3;
         }
       }
-
-      :deep(pre),
-      :deep(code) {
-        background-color: $light-mode-code-bg;
-        font-size: 14px;
-        margin: initial;
-      }
-      :deep(pre) {
-        padding: 1rem;
-        overflow-x: auto;
-
-        :deep(code) {
-          padding: initial;
-          margin: initial;
-          display: inline-block;
-          height: max-content;
-          border: initial;
-        }
-      }
     }
   }
 
@@ -241,16 +221,14 @@ const onClickShowMoreButton = () => {
 .dark-mode {
   .code-box {
     border-color: $dark-mode-border-color;
+    .demo-wrap {
+      *:first-child {
+        color: $gray-13;
+      }
+    }
     .code-wrap {
       border-color: $dark-mode-border-color;
       background-color: $dark-mode-code-bg;
-      :deep(pre),
-      :deep(code) {
-        background-color: $dark-mode-code-bg;
-      }
-      :deep(pre) {
-        border-color: $dark-mode-border-color;
-      }
       .blur-layer {
         background: linear-gradient(rgba(255, 255, 255, 0), #202a39);
       }
