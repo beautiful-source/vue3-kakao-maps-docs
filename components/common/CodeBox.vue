@@ -222,11 +222,6 @@ onMounted(() => {
 .dark-mode {
   .code-box {
     border-color: $dark-mode-border-color;
-    .demo-wrap {
-      *:first-child {
-        color: $gray-13;
-      }
-    }
     .code-wrap {
       border-color: $dark-mode-border-color;
       background-color: $dark-mode-code-bg;
