@@ -123,6 +123,8 @@ const checkInvalid = (value: string, record: Record<string, any>): void => {
   align-items: flex-start;
   scrollbar-width: none;
   -ms-overflow-style: none;
+  width: 60%;
+  margin-left: 10px;
 }
 
 .control-box::-webkit-scrollbar {
