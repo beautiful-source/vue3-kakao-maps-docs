@@ -142,7 +142,8 @@ onMounted(() => {
     display: flex;
     flex-direction: column;
     align-items: center;
-    *:first-child {
+    :deep(*:first-child) {
+      /* 지도 내부 인포윈도우 등에서 폰트 색상 적용 */
       color: $gray-13;
     }
   }
