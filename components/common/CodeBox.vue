@@ -18,7 +18,6 @@ const langImage = computed<{ src: string; alt: string }>(() =>
     : { src: '/images/jsLogo.png', alt: '자바스크립트입니다.' }
 );
 const showCode = ref<boolean>(true);
-const isCodeCopied = ref<boolean>(false);
 const iconStyle = computed<CSSProperties>(() => {
   return { color: colorMode.value === 'dark' ? 'white' : 'black' };
 });
@@ -29,19 +28,6 @@ const showMoreButtonMessage = computed<string>(() => (isShowMoreButtonClicked.va
 const codeWrapMaxHeight = '700px';
 const darkGray = '#1f1f1f';
 const lightGray = '#f5f5f5';
-
-const onClickCopyCode = async () => {
-  if (window) {
-    try {
-      await navigator.clipboard.writeText(selectedCode.value);
-      isCodeCopied.value = true;
-    } catch (e: unknown) {
-      console.error('unknown error: ', e);
-    }
-  } else {
-    console.error('window 객체 로드되지 않음');
-  }
-};
 
 /**
  * 임의로 들어온 코드의 높이(`clientHeight`)를 평가해 더보기 버튼을 보일지 말지 결정합니다.
@@ -87,15 +73,7 @@ onMounted(() => {
         </li>
 
         <li>
-          <a-tooltip>
-            <template #title>{{ isCodeCopied ? 'Copied!' : 'Copy code' }}</template>
-            <button @click="onClickCopyCode" @mouseout="isCodeCopied = false" size="large">
-              <ClientOnly>
-                <CheckOutlined v-show="isCodeCopied" :style="iconStyle" />
-                <CopyOutlined v-show="!isCodeCopied" :style="iconStyle" />
-              </ClientOnly>
-            </button>
-          </a-tooltip>
+          <CopyButton :code="selectedCode"></CopyButton>
         </li>
 
         <li>
@@ -155,13 +133,15 @@ onMounted(() => {
       list-style: none;
       display: flex;
       justify-content: center;
-      button {
-        all: initial;
+      li {
+        width: 48px;
+        height: 40px;
         display: flex;
         justify-content: center;
         align-items: center;
-        width: 48px;
-        height: 40px;
+      }
+      button {
+        all: initial;
         img {
           width: 20px;
           height: 20px;
@@ -176,7 +156,6 @@ onMounted(() => {
       overflow: hidden;
       position: relative;
       background-color: $light-mode-code-bg;
-      padding: 1rem;
 
       .blur-layer {
         width: 100%;
