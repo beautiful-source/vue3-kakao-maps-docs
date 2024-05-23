@@ -19,7 +19,7 @@ const html = await codeToHtml(props.code, {
       <CopyButton
         :code="props.code"
         font-size="18px"
-        :colors="{ dark: COLORS_BUTTON.skyblue, light: COLORS_BUTTON.navy }"
+        :colors="{ dark: COLORS_BUTTON.SKYBLUE, light: COLORS_BUTTON.NAVY }"
       ></CopyButton>
     </div>
   </div>
