@@ -2,6 +2,7 @@
 import { useSlots } from 'vue';
 import { COLORS_BUTTON } from '~/assets/colors';
 
+const { onMountedCopyButton, onMouseEnter, onMouseLeave } = useCopyButton();
 const slots = useSlots();
 const code = computed<string>(() => {
   const receivedCodeBySlot = slots.default !== undefined ? slots.default()[0].props?.code : '';
@@ -10,10 +11,15 @@ const code = computed<string>(() => {
 </script>
 
 <template>
-  <div class="code-wrap">
+  <div class="code-wrap" @mouseenter="onMouseEnter" @mouseleave="onMouseLeave">
     <slot />
     <div class="copy-button-wrap">
-      <CopyButton :code="code" :colors="{ dark: COLORS_BUTTON.SKYBLUE, light: COLORS_BUTTON.NAVY }" font-size="18px"></CopyButton>
+      <CopyButton
+        :code="code"
+        :colors="{ dark: COLORS_BUTTON.SKYBLUE, light: COLORS_BUTTON.NAVY }"
+        font-size="18px"
+        @mounted="onMountedCopyButton"
+      ></CopyButton>
     </div>
   </div>
 </template>

@@ -6,6 +6,7 @@ const props = defineProps<{
   code: string;
 }>();
 
+const { onMountedCopyButton, onMouseEnter, onMouseLeave } = useCopyButton();
 const html = await codeToHtml(props.code, {
   lang: props.lang,
   themes: { light: 'github-light', dark: 'github-dark' }
@@ -13,13 +14,14 @@ const html = await codeToHtml(props.code, {
 </script>
 
 <template>
-  <div class="component-code-wrap">
+  <div class="component-code-wrap" @mouseenter="onMouseEnter" @mouseleave="onMouseLeave">
     <div v-html="html"></div>
     <div class="copy-button-wrap">
       <CopyButton
         :code="props.code"
         font-size="18px"
         :colors="{ dark: COLORS_BUTTON.SKYBLUE, light: COLORS_BUTTON.NAVY }"
+        @mounted="onMountedCopyButton"
       ></CopyButton>
     </div>
   </div>
@@ -32,7 +34,7 @@ const html = await codeToHtml(props.code, {
 
   :deep(pre.shiki) {
     background-color: $light-mode-code-bg !important;
-    padding: 1rem;
+    padding: 2rem;
     overflow-x: auto;
     &,
     code {
@@ -47,8 +49,8 @@ const html = await codeToHtml(props.code, {
     justify-content: center;
     align-items: center;
     position: absolute;
-    top: 0;
-    right: 0;
+    top: 1rem;
+    right: 1rem;
   }
 }
 

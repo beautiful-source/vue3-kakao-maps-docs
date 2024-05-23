@@ -9,6 +9,7 @@ const props = defineProps<{
     light?: string;
   };
 }>();
+const emit = defineEmits(['mounted']);
 
 const showCopyButton = ref<boolean>(true);
 const colorMode = useColorMode();
@@ -19,7 +20,11 @@ const iconStyle = computed<CSSProperties>(() => {
   };
 });
 const COPY_DELAY = 2000;
+const buttonElement = ref<HTMLButtonElement>();
 
+watch(buttonElement, () => {
+  emit('mounted', buttonElement.value);
+});
 const onClickCopyCode = async () => {
   if (!window) {
     console.error('window 객체 로드되지 않음');
@@ -42,7 +47,7 @@ const throttledOnClickCopycode = throttle(onClickCopyCode, COPY_DELAY);
 <template>
   <a-tooltip>
     <template #title>{{ showCopyButton ? 'Copy code' : 'Copied!' }}</template>
-    <button @click="throttledOnClickCopycode">
+    <button @click="throttledOnClickCopycode" ref="buttonElement">
       <ClientOnly>
         <CopyOutlined v-show="showCopyButton" :style="iconStyle" />
         <CheckOutlined v-show="!showCopyButton" :style="iconStyle" />
@@ -56,9 +61,5 @@ button {
   all: initial;
   width: max-content;
   height: max-content;
-  &:hover {
-    transition: all 0.2s;
-    transform: scale(1.2);
-  }
 }
 </style>
