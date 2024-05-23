@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { useSlots } from 'vue';
-import { COLORS_BUTTON } from '~/assets/colors';
+import { COLORS_BUTTON } from '@/assets/colors';
 
 const { onMountedCopyButton, onMouseEnter, onMouseLeave } = useCopyButton();
 const slots = useSlots();

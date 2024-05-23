@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { codeToHtml, type BundledLanguage, type SpecialLanguage, type StringLiteralUnion } from 'shiki';
-import { COLORS_BUTTON } from '~/assets/colors';
+import { COLORS_BUTTON } from '@/assets/colors';
 const props = defineProps<{
   lang: StringLiteralUnion<BundledLanguage | SpecialLanguage, string>;
   code: string;
