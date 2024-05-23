@@ -26,7 +26,7 @@ watch(
 </script>
 
 <template>
-  <a-page-header :avatar="{ src: '/images/logo.png', shape: 'square' }" class="page-header">
+  <a-page-header :avatar="{ src: '/images/logo.png', shape: 'square', alt: '라이브러리 로고입니다.' }" class="page-header">
     <template #title>
       <NuxtLink to="/">vue3-kakao-maps</NuxtLink>
     </template>
@@ -57,8 +57,8 @@ watch(
       <a-divider type="vertical"></a-divider>
 
       <NuxtLink to="https://www.npmjs.com/package/vue3-kakao-maps" target="_blank" class="npm-link">
-        <img src="/public/images/npmLogo.png"
-      /></NuxtLink>
+        <NuxtImg src="/images/npmLogo.png" alt="npm 로고입니다." />
+      </NuxtLink>
     </template>
   </a-page-header>
 </template>
