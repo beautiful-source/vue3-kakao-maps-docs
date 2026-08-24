@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { ref } from "vue";
 import { KakaoMap, KakaoMapMarker, type KakaoMapMarkerListItem } from 'vue3-kakao-maps';
 
 //라이브러리 사용 방법을 반드시 참고하여 주시기 바랍니다.

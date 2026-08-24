@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { ref } from "vue";
 import { KakaoMap, KakaoMapMarker } from 'vue3-kakao-maps';
 import type { ControlDataSourceType } from '@/components/common/ControlBox.vue';
 import type { HandlerBoxDataSourceType } from '@/components/common/HandlerBox.vue';
